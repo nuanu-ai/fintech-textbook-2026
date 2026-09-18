@@ -1,0 +1,223 @@
+---
+title: "Часть 9 — каталог источников"
+date: "2026-09-17"
+status: "draft"
+visibility: "public"
+knowledge_as_of: "2026-09-15"
+published_on: "2026-09-18"
+tags: ["kind/research", "fintech-2026"]
+---
+
+> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../edition.md).
+
+# Часть 9 — каталог источников
+
+**v0.1 · independently_reviewed_draft · private.** Автор: `part_09_research`. Срез знаний: **15.09.2026**. Фактическое чтение всех указанных оригиналов: **17.09.2026, Asia/Makassar (UTC+08)**; `accessed_at=2026-09-17`, `date_precision=day`. Проверка часов в сессии: 2026-09-17 05:18:19 UTC. Независимый рецензент: см. REVIEW.md (исторический или служебный материал; сохранен у владельца, вне этой копии).
+
+Фактчек исходной редакции завершен17.09.2026. Связь исходной версии с публичной копией, область адаптации и текущая навигация описаны в паспорте издания.
+
+## Общие поля и ограничения
+
+Для каждой карточки ниже, если не указано иначе: `supersedes=none`; `origin_source_id=self`; `updated_at=unknown`; `language=en`; `locale=publisher original`; `access_status=partial_text`; `access_method=direct_page`; `reviewer=see_REVIEW.md`; `reviewed_at=see_REVIEW.md`; `review_status=see_REVIEW.md`. `Effective_from/effective_to=not_applicable` для объяснений, документации и исторических сообщений; даты применения актов указаны отдельно. Прочитанный объем ограничен `reviewed_scope`, а не всем сайтом.
+
+`Snapshot ID` идентифицирует **акт чтения**, не сохраненную копию. Для внешних источников `local_path=not_saved`, `sha256=not_computed`. Immutable snapshots динамических docs и точные commits репозиториев не получены. Источник без даты обновления подтверждает наблюдение 17 сентября; его точное состояние 15 сентября остается неизвестным. Более поздние новости не использованы как факты среза.
+
+`Rights`: авторские права издателя; разрешения на полную перепечатку/рисунки/распространение unknown, если явно не указаны. `rights_basis_url` совпадает с URL оригинала и notices на нем. Использованы ссылки, короткие атрибуции и собственный синтез, без копирования чужих иллюстраций. Для vendor-групп `interests=поставщик описывает собственный продукт`; это не независимое доказательство его эффективности. Страницы одной компании имеют одну `independence_group`.
+
+## P09-S001
+
+- **Title / author / publisher:** Directive (EU) 2015/2366 — PSD2; European Parliament and Council; EUR-Lex.
+- **Snapshot:** `P09-S001-20260917`; **class / kind:** `law` / consolidated directive; **independence_group:** EU-legislation.
+- **URL / canonical:** [consolidated 17.01.2025](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02015L2366-20250117); [original OJ](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32015L2366).
+- **Dates / version:** adopted 25.11.2015; OJ publication 23.12.2015; consolidated version 17.01.2025. EUR-Lex показывает эту текущую consolidation. Национальные даты применения не определялись в данной части; `effective_to=unknown`.
+- **Reviewed scope / locator:** metadata версий; Article 3(j); original recital 10 для контекста технических услуг.
+- **Scope:** EU, исключение определенных технических услуг; не вывод о конкретном коннекторе.
+- **Limitations:** consolidation — средство документации; правовой вывод требует национального применения и фактической деятельности. Невладение средствами не исключает все регулируемые функции.
+
+## P09-S002
+
+- **Title / publisher:** Does PCI DSS apply to merchants who outsource all payment processing operations and never store, process or transmit cardholder data? PCI SSC, FAQ 1092.
+- **Snapshot:** `P09-S002-20260917`; **class / kind:** `standard` / issuer FAQ; **independence_group:** PCI-SSC.
+- **URL:** [FAQ original](https://www.pcisecuritystandards.org/faqs/does-pci-dss-apply-to-merchants-who-outsource-all-payment-processing-operations-and-never-store-process-or-transmit-cardholder-data/).
+- **Publication / version:** unknown; динамическая FAQ, ссылки на Requirements 12.8.2/12.8.4; не самостоятельная редакция PCI DSS.
+- **Access / reviewed scope:** `full_text` для самого ответа; merchant responsibilities и validation абзацы.
+- **Scope:** merchants с outsourced processing; **limits:** не определяет конкретную SAQ eligibility и не заменяет стандарт/программу эквайера. `Interests`: разработчик стандарта объясняет собственную область.
+
+## P09-S003
+
+- **Title / publisher:** Quick Response Code Indonesian Standard (QRIS); Bank Indonesia.
+- **Snapshot:** `P09-S003-20260917`; **class / kind:** `regulator` / explanatory service page and FAQ; **independence_group:** Bank-Indonesia.
+- **URL:** [BI QRIS](https://www.bi.go.id/en/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx).
+- **Publication / version:** unknown; dynamic page. Исторический запуск 17.08.2019 описан в FAQ, но глава не выводит из него текущие разрешения.
+- **Reviewed scope / locator:** Parties in QRIS Transaction Processing; Sources of Funds for QRIS Transactions; Types of QRIS Payments; FAQ What are the QRIS standards?; Pricing Schema просмотрена для контекста, тариф задачи синтетический.
+- **Scope:** Indonesia QRIS, источники средств и модели предъявления.
+- **Limitations:** объяснение не является merchant agreement, refund API specification или доказательством конкретной банковской финальности. Частичный обзор cross-border не используется для географических обещаний.
+
+## P09-S004
+
+- **Title / publisher:** Peraturan Bank Indonesia Nomor 10 Tahun 2025 tentang Pengaturan Industri Sistem Pembayaran; Bank Indonesia, Departemen Komunikasi.
+- **Snapshot:** `P09-S004-20260917`; **class / kind:** `regulator` / official regulatory summary; **independence_group:** Bank-Indonesia; **language:** id.
+- **URL:** [PBI 10/2025 — official summary](https://www.bi.go.id/id/publikasi/peraturan/Pages/PBI_102025.aspx).
+- **Dates / version:** publication 24.12.2025; page updated 21.04.2026; `effective_from=2026-03-31`; `effective_to=unknown`. Версия акта — PBI 10/2025; прочитан HTML summary, не полный PDF акта.
+- **Reviewed scope:** Materi Pengaturan 1–4; TIKMI; Transisi; Penutup.
+- **Scope:** Indonesia payment-system participants, transition; **limits:** не сделан вывод о разрешениях конкретного PJP/коннектора, деталях PADG 32/2025 и технических инструкций. Регулятор — первичный источник резюме, но summary не приравнивается к прочтению нормы целиком.
+
+## P09-S005
+
+- **Title / publisher:** The Payment Intents API; Stripe.
+- **Snapshot:** `P09-S005-20260917`; **class / kind:** `vendor` / API guide; **independence_group:** Stripe.
+- **URL:** [Payment Intents](https://docs.stripe.com/payments/payment-intents).
+- **Publication / version:** unknown; dynamic guide, immutable API/doc version unknown.
+- **Reviewed scope:** A complete set of APIs; Best practices; After the payment; Storing information in metadata.
+- **Scope:** Stripe PaymentIntent object and application correlation; **limits:** guide не доказывает единственность всех эффектов между магазином и PSP, settlement или товарный результат. Поддержка конкретного аккаунта не проверялась.
+
+## P09-S006
+
+- **Title / publisher:** Refund and cancel payments; Stripe.
+- **Snapshot:** `P09-S006-20260917`; **class / kind:** `vendor` / payment operations guide; **independence_group:** Stripe.
+- **URL:** [Refunds](https://docs.stripe.com/refunds).
+- **Publication / version:** unknown; dynamic docs.
+- **Reviewed scope:** opening available balance paragraphs; Issue refunds; Refund destinations; Handle failed refunds; Refunds that require action.
+- **Scope:** условия описанных Stripe methods; в тексте выделен card refund.
+- **Limitations:** не обещает единые сроки всех банков и методов; инструкция запроса не доказывает зачисление. Тарифы кейса A вымышлены, не выведены из этого документа.
+
+## P09-S007
+
+- **Title / publisher:** Advanced error handling; Stripe.
+- **Snapshot:** `P09-S007-20260917`; **class / kind:** `vendor` / technical guide; **independence_group:** Stripe.
+- **URL:** [Advanced error handling](https://docs.stripe.com/error-low-level).
+- **Publication / version:** unknown; dynamic docs.
+- **Reviewed scope:** Errors in HTTP; Network errors; Server errors; Idempotency.
+- **Scope:** неопределенный исход Stripe API mutations; **limits:** не универсальная семантика всех HTTP 500 и всех PSP. Запрос с новым ключом может повторить экономический эффект; состояние расследуется по исходной операции.
+
+## P09-S008
+
+- **Title / publisher:** Idempotent requests; Stripe.
+- **Snapshot:** `P09-S008-20260917`; **class / kind:** `vendor` / API reference; **independence_group:** Stripe.
+- **URL:** [Idempotent requests](https://docs.stripe.com/api/idempotent_requests).
+- **Publication / version:** unknown; dynamic API reference, exact API version not pinned.
+- **Access / reviewed scope:** `full_text` для объяснения; абзацы сохранения результата, pruning после возраста не менее 24 h, parameter comparison, начало endpoint execution.
+- **Scope:** Stripe documented idempotency contract; **limits:** минимальный возраст удаления ключа не равен универсальному retention window; конкретный ключ не проверялся.
+
+## P09-S009
+
+- **Title / publisher:** Payouts; Stripe.
+- **Snapshot:** `P09-S009-20260917`; **class / kind:** `vendor` / operational documentation; **independence_group:** Stripe.
+- **URL:** [Payouts](https://docs.stripe.com/payouts).
+- **Publication / version:** unknown; dynamic docs.
+- **Reviewed scope / locator:** только Payout failures, абзацы возврата банком, перехода paid→failed и реквизитов.
+- **Scope:** Stripe bank payouts; **limits:** остальная большая страница не прочитана полностью; ее country tables не используются. Сценарий C имеет собственные синтетические условия повторной выплаты.
+
+## P09-S010
+
+- **Title / publisher:** Stablecoin payments; Stripe.
+- **Snapshot:** `P09-S010-20260917`; **class / kind:** `vendor` / payment-method documentation; **independence_group:** Stripe.
+- **URL:** [Stablecoin payments](https://docs.stripe.com/payments/stablecoin-payments).
+- **Publication / version:** unknown; dynamic docs; page observed 17.09, not immutable 15.09 snapshot.
+- **Reviewed scope:** Payment method properties; Business locations; Payment flow; Limitations; Refunds; Connect support.
+- **Scope:** описанный Stripe product; **limits:** observed page говорит local currency settlement и отдельно private preview для части business locations. Это не подтверждение универсальной EUR availability. В главе используется узкий тезис о документированном refund в исходный wallet; конкретные eligibility не проверены.
+
+## P09-S011
+
+- **Title / publisher:** Stablecoin Payments; Stripe, payment method terms.
+- **Snapshot:** `P09-S011-20260917`; **class / kind:** `vendor` / contractual terms; **independence_group:** Stripe.
+- **URL / canonical observed:** [terms, AU locale](https://stripe.com/au/legal/stablecoin-payments). Запросы общего и `/us/` URL были перенаправлены в AU locale; текст содержит отдельные Regional Terms.
+- **Publication / update / version:** displayed Last updated **16.04.2026**; отдельная effective date неизвестна, действие для конкретного аккаунта не установлено.
+- **Reviewed scope:** §§1–8 и Appendix A, особенно §§2, 7 и соответствие регионов.
+- **Scope:** архитектура отдельных settlement-provider agreements и Stripe entities.
+- **Limitations:** выбранный locale не доказывает доступность продукта австралийскому мерчанту; договорная страница не заменяет onboarding, partner terms и проверку лицензий. В главе не предлагается реальный shortlist и не делается вывод об ответственности конкретного аккаунта.
+
+## P09-S012
+
+- **Title / author / publisher:** Regulation (EU) 2023/1114 — MiCA; European Parliament and Council; EUR-Lex.
+- **Snapshot:** `P09-S012-20260917`; **class / kind:** `law` / regulation and consolidated text; **independence_group:** EU-legislation.
+- **URL:** [consolidated 09.01.2024](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02023R1114-20240109); [original OJ](https://eur-lex.europa.eu/eli/reg/2023/1114/oj/eng).
+- **Dates:** adopted 31.05.2023; OJ 09.06.2023; entry 29.06.2023; general application 30.12.2024; Titles III/IV 30.06.2024; Article 143(3) maximum transition 01.07.2026, subject to shorter national regimes. `effective_to=unknown`.
+- **Reviewed scope:** original Articles 3(1)(16), 59–60, 143(3), 149; consolidated Article 59 and 143(3), version metadata.
+- **Scope:** EU CASP services; **limits:** не полный legal opinion об EMT/PSD2 overlap, exemptions, national implementation или конкретной регистрации. Consolidation не заменяет аутентичные акты.
+
+## P09-S013
+
+- **Title:** Powering AI commerce with the new Agent Payments Protocol (AP2).
+- **Authors / publisher:** Stavan Parikh; Rao Surapaneni; Google Cloud Blog.
+- **Snapshot:** `P09-S013-20260917`; **class / kind:** `vendor` / dated announcement; **independence_group:** Google.
+- **URL:** [AP2 announcement](https://cloud.google.com/blog/products/ai-machine-learning/announcing-agents-to-payments-ap2-protocol).
+- **Published:** 16.09.2025, day precision; update unknown; version = announcement, protocol commit unknown.
+- **Reviewed scope:** Why is a protocol needed?; How it works: Establishing trust via mandates and verifiable credentials; примеры human present/not present.
+- **Scope / limitations:** заявленная конструкция Intent/Cart mandates. Не спецификация текущей реализации, не независимый security audit и не универсальное юридическое распределение ответственности. Слова издателя о non-repudiability не перенесены как доказанная гарантия.
+
+## P09-S014
+
+- **Title / publisher:** x402 README; x402 Foundation GitHub repository.
+- **Snapshot:** `P09-S014-20260917`; **class / kind:** `standard` / project README, protocol overview; **independence_group:** x402-project.
+- **URL:** [x402 Foundation README](https://github.com/x402-foundation/x402).
+- **Dates / version:** publication/update unknown; branch `main`, exact SHA unknown, mutable overview. `Maturity`: опубликованный open-source protocol overview; production conformance отдельной реализации не проверялась.
+- **Reviewed scope:** Terms; Typical x402 flow, steps 1–12; Schemes vs Networks. Coinbase fork также просмотрен для перехода на foundation source, но не считается независимым подтверждением.
+- **Scope:** различение request/challenge, verify, settle и response; **limits:** README не формальная спецификация всех schemes. Не подтверждает escrow, автоматический refund, качество товара или текущую готовность Lab.
+- **Rights:** repository обозначает Apache-2.0; код и изображения не переносились. Exact license coverage не аудировался; local copy/hash отсутствуют.
+
+## P09-S015
+
+- **Title:** Ten Simple Rules for Reproducible Computational Research.
+- **Authors / publisher:** Geir Kjetil Sandve, Anton Nekrutenko, James Taylor, Eivind Hovig; PLOS Computational Biology.
+- **Snapshot:** `P09-S015-20260917`; **class / kind:** `research` / methodological editorial, не empirical payment study; **independence_group:** Sandve-et-al.
+- **URL / DOI:** [article](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1003285), DOI `10.1371/journal.pcbi.1003285`.
+- **Published:** 24.10.2013; version = journal article, update unknown.
+- **Reviewed scope:** introduction; Rules 1–5, 7–10; Rule 6 просмотрен как контекст randomness. Используются Rules 1, 3–5, 9.
+- **Scope:** воспроизводимость вычислительного исследования; `jurisdiction=not_applicable`.
+- **Interests / limitations:** authors declare no competing interests; grants описаны в статье; не доказательство эффективности учебника и не разрешение раскрывать private data.
+- **Rights:** статья прямо указывает Creative Commons Attribution; attribution сохранена, иллюстраций/копии нет.
+
+## P09-S016
+
+- **Title / authors / publisher:** Joint Statement by Treasury, Federal Reserve, and FDIC; Janet L. Yellen, Jerome H. Powell, Martin J. Gruenberg; Federal Reserve Board.
+- **Snapshot:** `P09-S016-20260917`; **class / kind:** `regulator` / joint press release; **independence_group:** US-bank-resolution.
+- **URL:** [joint statement](https://www.federalreserve.gov/newsevents/pressreleases/monetary20230312b.htm).
+- **Published / updated:** 12.03.2023, release 18:15 EDT; access `full_text` for press release.
+- **Reviewed scope:** все основные абзацы, особенно доступ вкладчиков SVB с Monday 13 March и различие вкладчиков/акционеров.
+- **Scope:** US, конкретные resolution actions SVB/Signature; **limits:** не дает общую гарантию будущих банкротств, не подтверждает конкретный USDC payout. Регуляторы описывают собственное решение.
+
+## P09-S017
+
+- **Title / publisher:** $3.3 Billion of USDC Reserve Risk Removed, Dollar De-peg Closes; Circle.
+- **Snapshot:** `P09-S017-20260917`; **class / kind:** `vendor` / company press release; **independence_group:** Circle.
+- **URL:** [Circle release](https://www.circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes).
+- **Dates:** page publication 13.03.2023; body dateline Boston — 12.03.2023. Обе даты сохранены; update unknown.
+- **Reviewed scope:** весь короткий основной текст, первые абзацы о резервном депозите 3,3 млрд USD и ожидаемом открытии банков.
+- **Scope:** историческое заявление эмитента USDC, US banking dependencies; **limits:** issuer-interest; не независимый аудит резервов. Заголовок о закрытии depeg не использован как проверенная цена рынка.
+
+## P09-S018
+
+- **Title / author / publisher:** March 15, 2023 | Update on USDC operations; Team Circle; Circle.
+- **Snapshot:** `P09-S018-20260917`; **class / kind:** `vendor` / operational update; **independence_group:** Circle.
+- **URL:** [operational update](https://www.circle.com/blog/march-15-update-on-usdc-operations).
+- **Dates:** body as of close of US banking operations 15.03.2023; page publication 16.03.2023; update unknown.
+- **Reviewed scope:** весь основной текст, абзацы backlog, 3,8 млрд redeemed / 0,8 млрд minted и новых банковских подключений.
+- **Scope / limits:** операторское свидетельство о собственных операциях. Substantially all не означает каждую заявку; receipt конечного клиента не показан. Не анализировались более поздние related posts.
+
+## P09-S019
+
+- **Title / author / publisher:** USDC Depeg / Circle Megathread; `MediumAdhesiveness5`; Reddit, r/CryptoCurrency.
+- **Snapshot:** `P09-S019-20260917`; **class / kind:** `social` / public discussion post; **independence_group:** reddit-MediumAdhesiveness5.
+- **URL / permalink:** [original post](https://www.reddit.com/r/CryptoCurrency/comments/11odsvf/usdc_depeg_circle_megathread/).
+- **Dates:** exact published_at unknown; viewed relative label `4y ago`, search/related metadata связывают обсуждение с мартом 2023. Несовпадающую относительную дату не преобразовываем в точный день.
+- **Reviewed scope:** original post, Updates, ссылки на сообщения Circle и FDIC; некоторые верхние комментарии просмотрены, но не используются как факты.
+- **Scope / limits:** `confirmed` только факт содержания обсуждения. Рыночный курс, причины и пользовательские итоги не проверены; self-selection, возможные последующие edits. Источник не является независимым финансовым расследованием. Публичный текст прочитан без входа в аккаунт.
+
+## P09-S020
+
+- **Title / publisher:** FinTech 2026 — карта знаний и платежная специализация · v02; редакционная структура учебника Nuanu AI Lab, индивидуальный автор неизвестен.
+- **Snapshot:** `P09-S020-20260917`; **class / kind:** `internal` / working curriculum; **independence_group:** Lab-editorial.
+- **Path:** [STRUCTURE_v02_2026-09-15.md](../../structure.md); **language:** ru; **publication/version:** 15.09.2026 / v02; status working editorial structure.
+- **Access:** local_file; полный раздел части 9 и смежная часть 8 прочитаны. `local_path` = исходный workspace-файл, не созданная копия; `sha256=not_computed`.
+- **Reviewed scope:** 9.1–9.5, 8.1–8.6 и критерии глубины.
+- **Scope / limits:** источник редакционных требований, не внешних финансовых фактов и не решения о запуске.
+- **Public edition:** редакционная структура включена в этот публичный учебник 18.09.2026; ее содержание не является внешним финансовым доказательством.
+
+## P09-S021
+
+- **Publication status:** withheld_from_public_edition.
+- **Scope:** прежний внутренний организационный источник не включен в публичное издание. Его текст, название, реквизиты и ссылки не распространяются.
+- **Use in public claims:** не используется как доказательство. P09-C008 и P09-C009 изложены как редакционные положения с оценкой аудита non_factual.
+- **ID retention:** идентификатор сохранен для сопоставления версий; это запись об исключении, а не доступная карточка первоисточника.
+

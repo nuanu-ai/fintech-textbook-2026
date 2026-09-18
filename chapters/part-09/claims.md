@@ -1,0 +1,211 @@
+---
+title: "Часть 9 — реестр существенных утверждений"
+date: "2026-09-17"
+status: "draft"
+visibility: "public"
+knowledge_as_of: "2026-09-15"
+published_on: "2026-09-18"
+tags: ["kind/research", "fintech-2026"]
+---
+
+> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../edition.md).
+
+# Часть 9 — реестр существенных утверждений
+
+**v0.1 · independently_reviewed_draft · private.** Автор: `part_09_research`. Срез знаний 15.09.2026; фактическая проверка **17.09.2026, Asia/Makassar**. Независимый review: см. REVIEW.md (исторический или служебный материал; сохранен у владельца, вне этой копии).
+
+Фактчек исходной редакции завершен17.09.2026. Связь исходной версии с публичной копией, область адаптации и текущая навигация описаны в паспорте издания.
+
+## Правила чтения
+
+Для всех карточек `last_checked_at=2026-09-17`, `reviewer=see_REVIEW.md`, `review_status=see_REVIEW.md`. `Confirmed` относится только к указанному содержанию/области: vendor docs подтверждают описанный продукт, публикация — собственное заявление автора. Это не эксплуатационная приемка и не правовое заключение.
+
+Для датированных актов и исторических материалов применяется их собственный период. Для динамических страниц `as_of_observation=2026-09-17`; состояние на 15.09 без архивного снимка **open**. Source IDs и snapshot IDs ведут в [SOURCES.md](sources.md), где сохранены URL, даты и объем чтения. `Effective_from/effective_to=not_applicable` для методологических/технических тезисов; для актов смотреть соответствующую карточку источника. Review trigger: изменение документа/версии, страны, договора, разрешений, параметров операции или появление противоречащих данных.
+
+Авторские кейсы, журналы, лимиты, тарифы, названия состояний и recovery-процедуры — синтетические учебные конструкции. Их арифметика проверяется отдельно; фиктивного внешнего доказательства для суммы 100 EUR нет. Scope не распространяется на реальные продукты Lab. `Relation=supports`, если не указано иное.
+
+## P09-C001
+
+- **module_ids:** 9.1; **kind:** legal; **status:** confirmed.
+- **Claim:** PSD2 Article 3(j) содержит условное исключение технических услуг и отдельно исключает из него PIS/AIS.
+- **Evidence:** [P09-S001 / P09-S001-20260917](sources.md#p09-s001), Article 3(j), consolidation 17.01.2025.
+- **Scope / limits:** EU, классификация услуг; отсутствие custody само по себе не является универсальным основанием исключения. Национальная применимость конкретному оператору open; значимого текстового противоречия не обнаружено.
+
+## P09-C002
+
+- **module_ids:** 9.1, 9.5; **kind:** mechanism; **status:** confirmed.
+- **Claim:** QRIS допускает разные источники средств; static и dynamic merchant-presented QR различаются наличием суммы.
+- **Evidence:** [P09-S003 / P09-S003-20260917](sources.md#p09-s003), Sources of Funds; FAQ What are the QRIS standards?
+- **Scope / limits:** Indonesia, содержание BI page observed 17.09.2026; QRIS не приравнивается целиком к A2A. Состояние страницы на 15.09 не зафиксировано.
+
+## P09-C003
+
+- **module_ids:** 9.1; **kind:** mechanism; **status:** confirmed.
+- **Claim:** Outsourcing processing не снимает с merchant всех обязанностей по защите account data и управлению провайдером.
+- **Evidence:** [P09-S002 / P09-S002-20260917](sources.md#p09-s002), answer / merchant responsibilities.
+- **Scope / limits:** PCI SSC FAQ 1092; конкретная SAQ и scope assessment не выбраны. FAQ не заменяет полного стандарта.
+
+## P09-C004
+
+- **module_ids:** 9.2; **kind:** product / contractual; **status:** confirmed.
+- **Claim:** Прочитанные Stripe Stablecoin Payments terms описывают отдельные merchant–Settlement Services Provider agreements и распределение settlement функций.
+- **Evidence:** [P09-S011 / P09-S011-20260917](sources.md#p09-s011), §§1–2, 7–8; version displayed 16.04.2026.
+- **Scope / limits:** наблюдавшийся документ, AU locale с Regional Terms. Не подтверждает доступ конкретному merchant, правовую пригодность или договор конкретной компании.
+
+## P09-C005
+
+- **module_ids:** 9.2; **kind:** hypothesis; **status:** working_hypothesis.
+- **Claim:** Некоторым ordinary merchants может быть нужен crypto-in / fiat-out при сохранении привычного учета.
+- **Evidence:** авторская H1; [P09-S020 / P09-S020-20260917](sources.md#p09-s020), 9.2, `relation=context`, не demand evidence.
+- **Scope / limits:** нет определенной когорты, наблюдаемого спроса или подтвержденной экономики. Критерии проверки объяснены в главе; результаты реального эксперимента отсутствуют.
+
+## P09-C006
+
+- **module_ids:** 9.2; **kind:** hypothesis; **status:** working_hypothesis.
+- **Claim:** Подходящий партнер способен закрыть часть регулируемых и расчетных функций модели, снизив объем собственной реализации.
+- **Evidence:** H2; [P09-S020 / P09-S020-20260917](sources.md#p09-s020), 9.2, context; S011 демонстрирует одну договорную архитектуру, не доказывает пригодность для конкретной компании.
+- **Scope / limits:** нужны конкретные страна, субъект, функции, договор, eligibility, economics и refund path. Named classes не являются shortlist.
+
+## P09-C007
+
+- **module_ids:** 9.2; **kind:** hypothesis; **status:** working_hypothesis.
+- **Claim:** Полезность agentic storefront и полезность нового settlement rail можно проверять отдельными экспериментами.
+- **Evidence:** авторская H3; [P09-S020 / P09-S020-20260917](sources.md#p09-s020), 9.2, context.
+- **Scope / limits:** это предложенный дизайн проверки, не эмпирический вывод о конверсии. Требует контроля условий и достаточных данных.
+
+## P09-C008
+
+- **module_ids:** 9.2, 9.4; **kind:** editorial_guidance; **status:** confirmed (только описание редакционного принципа этой версии); **audit_verdict:** non_factual.
+- **Claim:** В этом учебнике исследовательский разбор, решение о продукте и разрешение на реальные действия рассматриваются отдельно.
+- **Evidence:** авторский редакционный принцип публичной версии от 18.09.2026; [паспорт издания](../../edition.md#public-adaptations).
+- **Scope / limits:** методическая рекомендация, не проверенный внешний финансовый факт и не описание внутренних правил какой-либо организации. Прежняя организационная формулировка и ее источник исключены; ID сохранен для сопоставления версий.
+
+## P09-C009
+
+- **module_ids:** 9.3; **kind:** editorial_scope; **status:** confirmed (только описание редакционного охвата этой версии); **audit_verdict:** non_factual.
+- **Claim:** Темы, перечисленные в разделе 9.3, исключены из ядра этой учебной редакции.
+- **Evidence:** редакционная граница курса; [P09-S020](sources.md#p09-s020), [структура, 9.3](../../structure.md).
+- **Scope / limits:** это выбор охвата учебника, не внешний финансовый факт и не утверждение о несущественности налогов, кредитного риска или POS-требований. Внутренняя организационная часть прежнего тезиса исключена при публичной адаптации 18.09.2026.
+
+## P09-C010
+
+- **module_ids:** 9.4; **kind:** product; **status:** confirmed.
+- **Claim:** Прочитанная Stripe stablecoin documentation описывает полный/частичный refund и возврат stablecoins в исходный wallet.
+- **Evidence:** [P09-S010 / P09-S010-20260917](sources.md#p09-s010), properties / Limitations / Refunds.
+- **Scope / limits:** observation 17.09.2026; не свойство всех токенов и не неизменный срез 15.09. Страна/аккаунт, liquidity и выполненный refund не проверены.
+
+## P09-C011
+
+- **module_ids:** 9.4; **kind:** methodology; **status:** confirmed.
+- **Claim:** Sandve et al. предлагают прослеживать производство результатов, версии и связь текстовых выводов с данными.
+- **Evidence:** [P09-S015 / P09-S015-20260917](sources.md#p09-s015), Rules 1, 3–5, 9; published 24.10.2013.
+- **Scope / limits:** methodological editorial; применение к учебнику — авторский перенос метода. Не проведено исследование учебного эффекта этой главы.
+
+## P09-C012
+
+- **module_ids:** 9.5; **kind:** mechanism; **status:** confirmed.
+- **Claim:** Stripe guide рекомендует сохранять/reuse PaymentIntent для возобновляемой покупки и связывать платеж с заказом.
+- **Evidence:** [P09-S005 / P09-S005-20260917](sources.md#p09-s005), Best practices; After the payment; metadata.
+- **Scope / limits:** наблюдаемый API guide; это не гарантия отсутствия дубля fulfillment и не доказательство банковского расчета.
+
+## P09-C013
+
+- **module_ids:** 9.5; **kind:** mechanism; **status:** confirmed.
+- **Claim:** Stripe описывает `500` mutation как potentially indeterminate и предупреждает против нового idempotency key при возможном исходном эффекте.
+- **Evidence:** [P09-S007 / P09-S007-20260917](sources.md#p09-s007), Server errors.
+- **Scope / limits:** Stripe API; не всякая HTTP-ошибка имеет одинаковую семантику. Учебное recovery дополнительно проверяет order и fulfillment.
+
+## P09-C014
+
+- **module_ids:** 9.5; **kind:** mechanism; **status:** confirmed.
+- **Claim:** Документированное pruning ключей Stripe возможно после возраста не менее 24 часов; после удаления повтор key может создать новый request.
+- **Evidence:** [P09-S008 / P09-S008-20260917](sources.md#p09-s008), pruning paragraph.
+- **Scope / limits:** не утверждение о точном времени удаления каждого ключа. Внутреннее хранение operation identity имеет отдельный срок.
+
+## P09-C015
+
+- **module_ids:** 9.5; **kind:** product; **status:** confirmed.
+- **Claim:** Stripe card refund может ожидать достаточного available balance; request и конечное зачисление различаются.
+- **Evidence:** [P09-S006 / P09-S006-20260917](sources.md#p09-s006), opening; Refund destinations; Handle failed refunds.
+- **Scope / limits:** конкретный продукт и карточная ветка; синтетические fees/reserve кейса A не приписываются Stripe.
+
+## P09-C016
+
+- **module_ids:** 9.5; **kind:** regulatory description; **status:** confirmed.
+- **Claim:** BI QRIS overview описывает approved PSPs и switching institutions в обработке QRIS.
+- **Evidence:** [P09-S003 / P09-S003-20260917](sources.md#p09-s003), Parties in QRIS Transaction Processing.
+- **Scope / limits:** Indonesia, первичное объяснение BI; конкретные лица, разрешенные функции и договор не проверены.
+
+## P09-C017
+
+- **module_ids:** 9.5; **kind:** legal context; **status:** confirmed в объеме официального резюме.
+- **Claim:** BI summary PBI 10/2025 указывает действие с 31.03.2026 и переход к новой модели регулирования участников.
+- **Evidence:** [P09-S004 / P09-S004-20260917](sources.md#p09-s004), Materi Pengaturan; Transisi; Penutup.
+- **Scope / limits:** summary, не полное прочтение акта/PADG/technical instructions. Лицензионное заключение конкретному коннектору остается open.
+
+## P09-C018
+
+- **module_ids:** 9.5; **kind:** legal; **status:** confirmed.
+- **Claim:** MiCA предусматривает определенные основания оказания crypto-asset services; Article 143(3) не дает перехода после максимального срока 01.07.2026.
+- **Evidence:** [P09-S012 / P09-S012-20260917](sources.md#p09-s012), Articles 59–60, 143(3).
+- **Scope / limits:** EU; не разрешение отдельному партнеру и не полный анализ взаимодействия с платежным правом. Классификация фактической функции требует отдельной проверки.
+
+## P09-C019
+
+- **module_ids:** 9.5; **kind:** product; **status:** confirmed.
+- **Claim:** Stripe payout documentation допускает последующий переход статуса paid в failed после банковского возврата.
+- **Evidence:** [P09-S009 / P09-S009-20260917](sources.md#p09-s009), Payout failures.
+- **Scope / limits:** vendor documentation observed 17.09; не универсальная временная гарантия банков и не заявление, что так произошло в реальном кейсе Lab.
+
+## P09-C020
+
+- **module_ids:** 9.5; **kind:** product announcement; **status:** confirmed как содержание анонса.
+- **Claim:** Google AP2 announcement описывает Intent/Cart mandates для свидетельства пользовательского намерения и покупки.
+- **Evidence:** [P09-S013 / P09-S013-20260917](sources.md#p09-s013), How it works; published 16.09.2025.
+- **Scope / limits:** анонс, не текущий spec, certified conformance или универсальная юридическая гарантия. Кейс D — собственная учебная модель.
+
+## P09-C021
+
+- **module_ids:** 9.5; **kind:** mechanism; **status:** confirmed в прочитанном overview.
+- **Claim:** x402 overview разделяет challenge, payload verification, settlement и возврат ресурса; verify не равен settlement.
+- **Evidence:** [P09-S014 / P09-S014-20260917](sources.md#p09-s014), Typical x402 flow, steps 1–12.
+- **Scope / limits:** mutable README on main, commit unknown; статус точного текста на 15.09 open. Очередность окончательной выдачи в кейсе — отдельное учебное правило.
+
+## P09-C022
+
+- **module_ids:** 9.5; **kind:** historical regulatory action; **status:** confirmed.
+- **Claim:** Заявление Treasury/Fed/FDIC 12.03.2023 объявило защиту вкладчиков SVB и доступ к средствам с 13 марта.
+- **Evidence:** [P09-S016 / P09-S016-20260917](sources.md#p09-s016), main paragraph on SVB resolution.
+- **Scope / limits:** конкретное действие US authorities; не гарантия исполнения любой USDC-операции или будущего спасения банка.
+
+## P09-C023
+
+- **module_ids:** 9.5; **kind:** historical company statement; **status:** confirmed как атрибуция.
+- **Claim:** Circle сообщил о 3,3 млрд USD reserve deposit в SVB и ожидаемом восстановлении доступа после объявления властей.
+- **Evidence:** [P09-S017 / P09-S017-20260917](sources.md#p09-s017), opening paragraphs; body 12.03.2023, page 13.03.2023.
+- **Scope / limits:** self-report эмитента; не независимый резервный аудит, не price-feed. Различие дат события/страницы сохранено.
+
+## P09-C024
+
+- **module_ids:** 9.5; **kind:** historical operational report; **status:** confirmed как атрибуция.
+- **Claim:** Circle сообщил о практически устраненном backlog к концу 15.03.2023 и объемах redemption/minting с понедельника.
+- **Evidence:** [P09-S018 / P09-S018-20260917](sources.md#p09-s018), first three paragraphs; page published 16.03.2023.
+- **Scope / limits:** операторский отчет; не доказательство каждой конечной выплаты. Substantially all сохранено как ограничение, не заменено словом «все».
+
+## P09-C025
+
+- **module_ids:** 9.5; **kind:** social statement; **status:** confirmed только содержание поста.
+- **Claim:** MediumAdhesiveness5 опубликовал megathread с обсуждением depeg и ссылками на обновления Circle/FDIC.
+- **Evidence:** [P09-S019 / P09-S019-20260917](sources.md#p09-s019), original post and Updates.
+- **Scope / limits:** абсолютная дата не установлена; рыночные и причинные утверждения автора не приняты за факты. Реплики не используются для определения вины.
+
+## P09-C026
+
+- **module_ids:** 9.1, 9.4, 9.5; **kind:** evidence boundary; **status:** open.
+- **Claim under evaluation:** «Динамические Stripe docs и x402 README выглядели 15.09.2026 точно так же, как при чтении 17.09.2026».
+- **Evidence:** [S005–S010, S014](sources.md), snapshots `20260917`, `relation=context`.
+- **Reasoning / limits:** архивные копии/commits на дату среза не получены; прямого доказательства неизменности нет. В тексте даты разделены, новые product availability не объявлены исторически подтвержденными.
+
+## Числовые модели
+
+Кейсы A–D не являются empirical claims. Проверены исходные условия, суммы journals, конечные позиции и ответы на упражнения. Ошибка условий реального договора не может быть исправлена правильной арифметикой: fees, release reserve, назначение refund, риск FX и момент погашения покупательского долга должны быть установлены для реального маршрута отдельно. Машинная проверка автора описана в [RESEARCH_NOTES.md](research-notes.md); независимый смысловой review еще не выполнен.
