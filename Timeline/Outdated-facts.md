@@ -1,0 +1,12 @@
+[← Timeline](README.md) · [Contents](../Textbook/README.md)
+
+# Outdated facts
+
+Statements in the lessons that changed after the knowledge cutoff of 15 September 2026. The lesson text stays as it was; a dated note sits right below the statement and links back here. Each change was checked against its primary source by a second agent. Smaller additions that do not contradict the text appear as "Update" notes in the lessons and are listed in the weekly [timeline](README.md).
+
+| Noted | Lesson | Claim | The textbook says | Now | Primary source | Week |
+|---|---|---|---|---|---|---|
+| 2026-09-30 | [1.4 United States](../Textbook/01-Market-rules-and-licensing/README.md#module-1-4) | P01-C009 | The second branch of the GENIUS Act §20 effective date was not verified, so the general effective date is open. | Treasury's interim final rule states that the Act takes effect on 2027-01-18. | [Federal Register 2026-19966, 2026-09-30](https://www.govinfo.gov/content/pkg/FR-2026-09-30/html/2026-19966.htm) | [Week 40](2026-W40.md) |
+| 2026-09-30 | [2.3 SEPA address format](../Textbook/02-How-a-payment-works/README.md#module-2-3) | — (source P02-S009) | A future change of the address format applies from 2026-11-15. | The EPC delayed the end date for unstructured addresses under all five EPC schemes; no new date set. | [EPC153-22 v2.2, 2026-09-30](https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2026-09/EPC153-22%20v2.2%20EPC%20guidance%20document%20-%20Provision%20of%20Addresses%20under%20the%20EPC%20Payment%20Schemes.pdf) | [Week 40](2026-W40.md) |
+| 2026-09-25 | [1.4 Brazil flag](../Textbook/01-Market-rules-and-licensing/README.md#module-1-4) | P01-C047 | Resolution 520 has a separate future deadline of 2026-10-30 for the counterparty restriction. | Resolution 589 moved the art. 91 restriction to 2026-11-06 and changed its wording from 2026-10-01. | [BCB Resolution 589, 2026-09-23](https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=589) | [Week 39](2026-W39.md) |
+| 2026-09-23 | [6.8 Singapore](../Textbook/06-Crypto-and-stablecoins/README.md#module-6-8) | P06-C032 (partly) | The future test of tokenized MAS Bills is not an executed project. | MAS issued tokenized MAS Bills in a trial, settled in wholesale CBDC on its test network (2026-09-23, 2026-10-09). The retail part is unaffected. | [MAS — Tokenised MAS Bill calendar](https://www.mas.gov.sg/bonds-and-bills/auctions-and-issuance-calendar/mas-bills-type-tokenised-mas-bill) | [Week 39](2026-W39.md) |

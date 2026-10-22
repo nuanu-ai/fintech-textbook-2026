@@ -143,3 +143,47 @@ The common metadata/defaults from the beginning of the register also apply to th
 - snapshot_id=P01-S064-20260917-deep; accessed_at=2026-09-17 Asia/Makassar; access_status=partial_text; access_method=official_pdf. reviewed_scope: printed pp5–6, especially p6, Guidance on Avoiding MSB Registration Scams. The editor and a new independent auditor independently read this passage; the other sections of the 11-page document are not a basis for C021.
 - Scope: FinCEN MSB registration is not a license, an endorsement or a confirmation of legitimacy; applicable state/territory licenses are checked separately. Not an exhaustive review of state laws, exemptions or a specific company's authorizations.
 - Version hash not recorded; local_path=not_saved. Limited original paraphrase with attribution; a full copy is not distributed. Added on 2026-09-17 to correct the evidence locator for C021; S002 is kept for the ISO/payment processor analysis.
+
+## Sources added after the knowledge cutoff
+
+Cards appended by the weekly [timeline](../../Timeline/README.md). They follow the same fields as the cards above; numbering continues.
+
+### P01-S065 — Federal Register 2026-19966: Forms and Procedures for Review of State Certifications by the Stablecoin Certification Review Committee
+
+- **URL:** [GovInfo full text, 91 FR 61688](https://www.govinfo.gov/content/pkg/FR-2026-09-30/html/2026-19966.htm).
+- **source_class / document_kind:** `regulator` / interim final rule; **publisher:** U.S. Department of the Treasury (Stablecoin Certification Review Committee).
+- **published_at:** 2026-09-30; **effective_from:** 2026-09-30; comments until 2026-11-30.
+- **jurisdiction / scope:** US; GENIUS Act §4(c) state certifications; the preamble restates the Act's effective date.
+- **snapshot_id:** `P01-S065-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** partial_text (about 100k of 121k characters), direct_page.
+- **reviewed_scope:** Summary, background and the statement of the effective date (2027-01-18).
+- **limitations:** Procedural rule; its statement of the effective date is Treasury's reading, not a court decision. Does not approve any state regime. Added by the weekly timeline, [Week 40](../../Timeline/2026-W40.md).
+
+### P01-S066 — Resolução BCB nº 589, de 23 de setembro de 2026 [BCB Resolution No. 589 of 23 September 2026]
+
+- **URL:** [BCB normative act](https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=589).
+- **source_class / document_kind:** `regulator` / resolution amending Resolution BCB 520/2025; **publisher:** Banco Central do Brasil.
+- **published_at:** 2026-09-23 (official gazette 2026-09-25, section 1, p. 84); **effective_from:** art. 91 change from 2026-10-01; other provisions from 2027-01-01.
+- **jurisdiction / scope:** Brazil; virtual asset service providers (SPSAV).
+- **snapshot_id:** `P01-S066-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** full_text, direct_page; consolidated text of Resolution 520 (arts. 88, 91, 92) read for comparison.
+- **reviewed_scope:** Arts. 88, 90-A, 90-B, 91 as amended.
+- **limitations:** What dropping "in the authorization process" means for pending applicants is not established. Added by the weekly timeline, [Week 39](../../Timeline/2026-W39.md).
+
+### P01-S067 — FCA PS26/18: Cryptoasset perimeter guidance
+
+- **URL:** [FCA policy statement page](https://www.fca.org.uk/publications/policy-statements/ps26-18-cryptoasset-perimeter-guidance).
+- **source_class / document_kind:** `regulator` / policy statement, final guidance; **publisher:** Financial Conduct Authority.
+- **published_at:** 2026-09-16; **effective_from:** gateway 2026-09-30 … 2027-02-28; regime 2027-10-25.
+- **jurisdiction / scope:** UK; cryptoasset activities requiring authorization.
+- **snapshot_id:** `P01-S067-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** full_text of the web page and the FCA press release; the PDF and PERG text were not read.
+- **reviewed_scope:** Policy statement page: scope, transitional gateway, start date.
+- **limitations:** Guidance, not the legislation itself; perimeter updates for UK qualifying stablecoins were announced for a later consultation. Added by the weekly timeline, [Week 38](../../Timeline/2026-W38.md).
+
+### P01-S068 — FinCEN: Operation Economic Outcast Takes Unprecedented Action Against Sanctions Evasion Network Used by Iran
+
+- **URL:** [FinCEN news release](https://www.fincen.gov/news/news-releases/operation-economic-outcast-takes-unprecedented-action-against-sanctions-evasion).
+- **source_class / document_kind:** `regulator` / news release (OFAC designation, FinCEN proposed rule and alert); **publisher:** Financial Crimes Enforcement Network, U.S. Treasury.
+- **published_at:** 2026-10-01; **effective_from:** designation 2026-10-01; the rule is a proposal.
+- **jurisdiction / scope:** US; sanctions and AML; A7 Network.
+- **snapshot_id:** `P01-S068-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** full_text, direct_page.
+- **reviewed_scope:** Whole release.
+- **limitations:** The proposed rule text and the OFAC designation details were not read in full; this card supports only what the release states. Added by the weekly timeline, [Week 40](../../Timeline/2026-W40.md).

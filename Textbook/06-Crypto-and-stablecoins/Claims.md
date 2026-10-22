@@ -418,3 +418,13 @@ Common fields of every card: `as_of=2026-09-15`; `last_checked_at=2026-09-15 UTC
 - **jurisdiction / conditions:** FATF Global Network, assessment by the report's author; **as_of:** 2026-09-15; **effective_from/to:** not_applicable.
 - **evidence:** [P06-S034](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html) / `P06-S034-20260915` — body paragraph beginning However, significant gaps remain; relation=supports.
 - **reasoning / confidence / limits:** Direct reading of the web summary; the full PDF and the underlying data were not checked; no numerical or individual licensing conclusions.
+
+## Updates after the knowledge cutoff
+
+Rows are appended by the weekly [timeline](../../Timeline/README.md). The lesson text is not changed; the lesson carries a dated note next to the statement. `superseded` means the claim was true at the cutoff but no longer describes the current state; `added` is a new claim introduced by an update note. Each row was checked against its primary source by a second agent.
+
+| Date | Claim / lesson | Change | Status now | Source | Week |
+|---|---|---|---|---|---|
+| 2026-09-15 | P06-C044 (new) /6.8 | ECB call for merchants to join a digital euro pilot: start expected in the second half of 2027, 12 months, beta version without legal tender status; issuance decision only after EU legislation | `added` | P06-S036 | [Week 38](../../Timeline/2026-W38.md) |
+| 2026-09-23 | P06-C032 /6.8 | MAS issued tokenized MAS Bills in a trial, settled in wholesale CBDC on its test network (2026-09-23, 2026-10-09); the retail part of the claim is unaffected | `partly superseded` | P06-S035 | [Week 39](../../Timeline/2026-W39.md) |
+| 2026-10-08 | P06-C045 (new) /6.5 | ESMA: MiCA-authorized CASPs should stop services related to non-MiCA-compliant stablecoins for EU clients; existing exposures remediated within three months | `added` | P06-S037 | [Week 41](../../Timeline/2026-W41.md) |

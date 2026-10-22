@@ -90,3 +90,14 @@ For the independent reviewer: check C001–C017 first, especially the actual GEN
 |---|---|---|---|---|---|
 | P01-C051 /1.4.3 | FCA PS26/10 contains final issuance rules with commencement on 2027-10-25 | legal / confirmed | Non-systemic UK-issued qualifying stablecoins; as_of2026-09-15; checked2026-09-17 | P01-S062-20260917: Summary, §1.2, Appendix1 Commencement(C), PDF pp.63,98 | Not a regime in force at the cutoff and not the completion of the BoE systemic consultation; the full Handbook was not checked |
 | P01-C052 /1.6 | PDPC sets out the obligations of a data intermediary processing under a written contract; the organization that hands over the processing retains its own obligations | legal / confirmed within the guidance scope read | Singapore; revision 2026-04-29, checked 2026-09-17 | P01-S063-20260917-deep: printed pp24–25, Data intermediaries / Obligations / Considerations; §4(3) | Not the whole PDPA and not the contractual classification of a specific business; the S029 guest article no longer serves as evidence |
+
+## Updates after the knowledge cutoff
+
+Rows are appended by the weekly [timeline](../../Timeline/README.md). The lesson text is not changed; the lesson carries a dated note next to the statement. `superseded` means the claim was true at the cutoff but no longer describes the current state; `added` is a new claim introduced by an update note. Each row was checked against its primary source by a second agent.
+
+| Date | Claim / lesson | Change | Status now | Source | Week |
+|---|---|---|---|---|---|
+| 2026-09-16 | P01-C053 (new) /1.4.3 | FCA PS26/18 gives final cryptoasset perimeter guidance; existing registrations do not convert automatically; gateway for transitional arrangements 2026-09-30 … 2027-02-28; regime starts 2027-10-25 | `added` | P01-S067 | [Week 38](../../Timeline/2026-W38.md) |
+| 2026-09-25 | P01-C047 /1.4.7 | BCB Resolution 589 moved the art. 91 counterparty restriction from 2026-10-30 to 2026-11-06 and changed its wording from 2026-10-01; the general date 2026-02-02 is unchanged | `superseded` | P01-S066 | [Week 39](../../Timeline/2026-W39.md) |
+| 2026-09-30 | P01-C009 /1.4.1 | Treasury's interim final rule states that the GENIUS Act takes effect on 2027-01-18; P01-C008 (the formula) and P01-C010 are unaffected | `superseded` | P01-S065 | [Week 40](../../Timeline/2026-W40.md) |
+| 2026-10-01 | P01-C054 (new) /1.5 | OFAC designated the A7 Network as a significant transnational criminal organization; FinCEN proposed a rule prohibiting transmittals of funds involving its sub-agents | `added` | P01-S068 | [Week 40](../../Timeline/2026-W40.md) |

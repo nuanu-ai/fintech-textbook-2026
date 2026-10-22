@@ -1,4 +1,4 @@
-[← Cover](../README.md)
+[← Cover](../README.md) · [What changed since the cutoff →](../Timeline/README.md)
 
 # Contents
 

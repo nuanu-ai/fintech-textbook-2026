@@ -104,3 +104,11 @@ Synthetic numbers are not empirical claims. Checked separately:
 - Exercises: netting 200/140/90 → −110/+60/+50; total costs 320 + 75 + 50 = 445 USD; 445/10,000 = 4.45%; precision 40/200 = 20%, recall 40/50 = 80%.
 
 The synthesis on choosing a rail and the practical investigation schemes are teaching methods derived from the differences between confirmed mechanisms; they are not legal advice, a price offer or a product-readiness verdict. The coverage of the independent review of the cards and its limitations are described in REVIEW.md (historical or internal material; kept by the owner, outside this copy).
+
+## Updates after the knowledge cutoff
+
+Rows are appended by the weekly [timeline](../../Timeline/README.md). The lesson text is not changed; the lesson carries a dated note next to the statement. `superseded` means the claim was true at the cutoff but no longer describes the current state; `added` is a new claim introduced by an update note. Each row was checked against its primary source by a second agent.
+
+| Date | Claim / lesson | Change | Status now | Source | Week |
+|---|---|---|---|---|---|
+| 2026-09-30 | lesson 2.3 (no claim ID; source P02-S009) | The EPC delayed the 2026-11-15 end date for unstructured addresses under all five EPC schemes; no new date set | `superseded` | P02-S044, P02-S045 | [Week 40](../../Timeline/2026-W40.md) |

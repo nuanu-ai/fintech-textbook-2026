@@ -110,3 +110,12 @@ The hash table above describes the Russian files of 18 September 2026 (tag `ru-f
 | [9 · Payment project workshop — Chapter](../Textbook/09-Payment-project-workshop/README.md) | `e0fb7156184c6488737019d799ab7db2ddc4e8118fee84f775aed51631e9ae8d` |
 | [9 · Payment project workshop — Sources](../Textbook/09-Payment-project-workshop/Sources.md) | `304031f3d0fa572f1d35612ecd16dde54affac383f7e41eb85c91fad2e6eeb91` |
 | [9 · Payment project workshop — Claims](../Textbook/09-Payment-project-workshop/Claims.md) | `96f011244132a30d6250ce3daacad8625ff095b2117122e37966c4d8046b2e9e` |
+
+<a id="weekly-updates"></a>
+## Weekly updates
+
+From 2026-10-22 a weekly [timeline](../Timeline/README.md) records what changed after the knowledge cutoff. Lesson text is not rewritten: an outdated statement gets a dated note right below it, and new claims and sources are appended to the chapter registers with new IDs. Every timeline entry and note is checked against its primary source by a second agent; the edition keeps the status `reviewed_with_limitations`. The SHA-256 table above describes the English edition of 2026-10-22 before weekly notes were added.
+
+| Date | Weeks | Timeline entries | Lesson notes | Registers |
+|---|---|---|---|---|
+| 2026-10-22 | [38](../Timeline/2026-W38.md)–[41](../Timeline/2026-W41.md) (2026-09-15 … 2026-10-11) | 71 | 4 outdated, 4 updates | Claims added: P01-C053, P01-C054, P06-C044, P06-C045; superseded: P01-C009, P01-C047; partly superseded: P06-C032. Sources added: P01-S065…S068, P02-S044…S045, P06-S035…S037. |

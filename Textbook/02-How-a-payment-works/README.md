@@ -5,7 +5,7 @@
 
 > The path from the "Pay" button to settlement, payout to the merchant and a possible refund.
 
-**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md)
+**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-10-22**: [1 note after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -177,6 +177,9 @@ For FedNow, Operating Circular 8 (in effect from 2026-04-01) defines the Settlem
 | FedNow | An instant service with Federal Reserve settlement | Any bank customer can automatically use it |
 
 For SCT Inst, as of the reading date, the EPC points to rulebook 2025 v1.1: funds must become available within a ten-second limit; precise timestamp and timeout rules apply. The page explicitly separates the adopted edition from a future change to the address format on 2026-11-15. This is a useful example of why "version 2025" can remain in effect in 2026. [P02-S009, Rulebook currently in effect; Regulatory changes](https://www.europeanpaymentscouncil.eu/what-we-do/epc-payment-schemes/sepa-instant-credit-transfer/sepa-instant-credit-transfer-rulebook)
+
+> [!IMPORTANT]
+> **Outdated as of 2026-09-30 · lesson 2.3.** The text above refers to a future change of the address format on 2026-11-15. Now: the European Payments Council (EPC) has delayed the end date for unstructured addresses under all five EPC payment schemes. Unstructured addresses stay supported beyond 2026-11-15; a new end date will be set later. Structured and hybrid addresses remain the target formats. Sources: [EPC — Guidance Document: Provision of Addresses under the EPC Payment Schemes, EPC153-22 v2.2, 2026-09-30](https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2026-09/EPC153-22%20v2.2%20EPC%20guidance%20document%20-%20Provision%20of%20Addresses%20under%20the%20EPC%20Payment%20Schemes.pdf); [EPC — Clarification Paper on SCT and SCT Inst Scheme Rulebooks, EPC131-17 v4.1, 2026-09-30](https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2026-09/EPC131-17%20v4.1%20Clarification%20Paper%20SCT%20and%20SCT%20Inst%20scheme%20rulebooks.pdf). Details: [Week 40](../../Timeline/2026-W40.md).
 
 ### 2.3.2 Cross-border: correspondents, FX and messages
 
