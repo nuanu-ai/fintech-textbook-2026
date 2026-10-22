@@ -503,3 +503,37 @@ Each card covers the material actually read, as stated in `reviewed_scope`. `ful
 - **independence_group:** `FATF-targeted2026`; **origin_source_id:** self.
 - **interests / limitations:** official assessment of implementation; consultations and Chainalysis/TRM data are mentioned but were not independently audited. No numerical estimates and no current license of any specific company are drawn from the summary.
 - **rights / local copy / reviewer:** common fields; additional rights unknown, no copies, independent review: see REVIEW.md.
+
+## Sources added after the knowledge cutoff
+
+Cards appended by the weekly [timeline](../../Timeline/README.md). They follow the same fields as the cards above; numbering continues.
+
+### P06-S035 — MAS: Tokenised MAS Bill — auctions and issuance calendar
+
+- **URL:** [MAS issuance calendar](https://www.mas.gov.sg/bonds-and-bills/auctions-and-issuance-calendar/mas-bills-type-tokenised-mas-bill).
+- **source_class / document_kind:** `regulator` / issuance calendar (web page); **publisher:** Monetary Authority of Singapore.
+- **published_at:** page last updated 2026-10-06; **effective_from:** issues 2026-09-23 and 2026-10-09.
+- **jurisdiction / scope:** Singapore; wholesale CBDC settlement on the SGD test network.
+- **snapshot_id:** `P06-S035-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** full_text of the calendar page.
+- **reviewed_scope:** Issue codes, dates, amounts offered, settlement note.
+- **limitations:** No allotment amounts, bidders or yields; no dedicated media release on the first issue was found. Added by the weekly timeline, [Week 39](../../Timeline/2026-W39.md).
+
+### P06-S036 — ECB: Call for online and mobile merchants to participate in digital euro pilot now open
+
+- **URL:** [ECB news](https://www.ecb.europa.eu/press/intro/news/html/ecb.mipnews260915.en.html).
+- **source_class / document_kind:** `regulator` / news / call for expressions of interest; **publisher:** European Central Bank.
+- **published_at:** 2026-09-15; **effective_from:** applications until 2026-10-27.
+- **jurisdiction / scope:** Euro area; digital euro pilot (e-commerce and m-commerce merchants, remote commerce).
+- **snapshot_id:** `P06-S036-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** full_text, direct_page.
+- **reviewed_scope:** Whole page.
+- **limitations:** A pilot plan, not an issuance decision; the progress page still links issuance to legislation. Added by the weekly timeline, [Week 38](../../Timeline/2026-W38.md).
+
+### P06-S037 — ESMA: ESMA sets out supervisory expectations on services related to unauthorised stablecoins
+
+- **URL:** [ESMA news](https://www.esma.europa.eu/press-news/esma-news/esma-sets-out-supervisory-expectations-services-related-unauthorised).
+- **source_class / document_kind:** `regulator` / news on an opinion (ESMA75-113276571-1742); **publisher:** European Securities and Markets Authority.
+- **published_at:** 2026-10-08; **effective_from:** remediation within three months of publication.
+- **jurisdiction / scope:** EU; MiCA CASPs; non-MiCA-compliant ARTs and EMTs.
+- **snapshot_id:** `P06-S037-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** full_text of the news page; the opinion PDF was not opened.
+- **reviewed_scope:** News page summary of the opinion.
+- **limitations:** An ESMA opinion addressed to supervisors, not a new legal act. Added by the weekly timeline, [Week 41](../../Timeline/2026-W41.md).

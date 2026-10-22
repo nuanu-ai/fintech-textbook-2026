@@ -5,7 +5,7 @@
 
 > Blockchain payments, exchange into ordinary money, liquidity and central bank digital currencies.
 
-**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md)
+**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-10-22**: [3 notes after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -172,6 +172,9 @@ The accounting map of questions includes the moment revenue for the goods is rec
 
 In the EU, a **CASP**, crypto-asset service provider, is defined by MiCA through the professional provision of services to clients. The list includes custody and control of the means of access, exchange, execution and transmission of orders, and transfers on behalf of clients. Article 59 provides for CASP authorization or a statutory route for certain financial entities. The authorization specifies the permitted services; extending the list requires a separate procedure. [MiCA, Art. 3(1)(15–26)](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-3-definitions), [Art. 59](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-59-authorisation) [P06-C022].
 
+> [!NOTE]
+> **Update 2026-10-08 · EU.** ESMA set out supervisory expectations for crypto-asset service providers authorized under MiCA: they should stop providing services related to stablecoins that do not comply with MiCA to clients in the EU and prevent clients from acquiring or increasing such exposures. National authorities should require existing exposures to be remediated within three months; continued service is allowed only when strictly limited to liquidation, conversion, withdrawal, transfer or safekeeping. Source: [ESMA — ESMA sets out supervisory expectations on services related to unauthorised stablecoins, 2026-10-08](https://www.esma.europa.eu/press-news/esma-news/esma-sets-out-supervisory-expectations-services-related-unauthorised). Details: [Week 41](../../Timeline/2026-W41.md).
+
 Consider two synthetic businesses. Company A sells its own subscription and receives tokens as payment. Company B holds the balances of a hundred merchants, exchanges their assets and remits money to recipients. Having the same checkout button does not make their activities the same. For B, custody, transfer and exchange must be analyzed separately, and for both, the applicable payment, tax and consumer rules. The first description does not automatically imply an exemption from all requirements; from the second, a specific license cannot be chosen without the jurisdiction and the contracts.
 
 The analysis starts with a map of authority: who can sign a transfer, change the recipient, delay a refund, set the rate and use liquidity. If a technical contractor controls the keys or in fact disposes of the funds, a contractual label of "software only" does not settle the question. If an agent merely prepares a request, that does not yet mean it is a financial intermediary. The actual functions need to be examined.
@@ -320,6 +323,12 @@ Below are the six geographies of the main structure. The status column is limite
 | Singapore | Live **trial** of issuing wholesale CBDC for interbank overnight lending, announced by MAS on 2025-11-13 | This is a limited real-world experiment by DBS, OCBC and UOB. A future test of tokenised MAS Bills and a retail CBDC do not follow from this speech as completed projects. [MAS speech, BIS republication](https://www.bis.org/speeches/20251120-creating-future-finance-journey-innovation-and-collaboration) [P06-C032] |
 | UAE, Digital Dirham | The CBUAE describes wholesale and retail work; the government transaction of 2025-11-11 is explicitly assigned to the pilot phase | The real value of the payment confirms a pilot event. A generally available retail launch as of this chapter's cutoff has not been separately established. [Ministry of Finance](https://mof.gov.ae/en/news/ministry-of-finance-and-dubai-finance-conduct-first-government-transaction-using-digital-dirham/), [CBUAE primer](https://centralbank.ae/media/lczb23l4/cbdc-short-report_july.pdf) [P06-C033] |
 | United States | Policy constraint: the executive order of 2025-01-23 prohibits agencies from establishing, issuing or promoting a CBDC, except where required by law | Old Fed research materials cannot be used as evidence of a current issuance program. The order is not a ban on all private digital payments; subsequent legislative changes have not been separately established here. [White House, §5](https://www.whitehouse.gov/presidential-actions/2025/01/strengthening-american-leadership-in-digital-financial-technology/) [P06-C034] |
+
+> [!IMPORTANT]
+> **Partly outdated as of 2026-09-23 · P06-C032.** The Singapore row says the future test of tokenized MAS Bills does not follow from the speech as an executed project. Now: MAS has issued tokenized MAS Bills in a trial, settled in wholesale CBDC on the Singapore dollar test network — TD26100F (S$1 million offered, issued 2026-09-23) and TD26101Z (S$10 million offered, issued 2026-10-09). This is still a trial of wholesale settlement; the remark about retail CBDC is unaffected. Source: [MAS — Tokenised MAS Bill: auctions and issuance calendar](https://www.mas.gov.sg/bonds-and-bills/auctions-and-issuance-calendar/mas-bills-type-tokenised-mas-bill). Details: [Week 39](../../Timeline/2026-W39.md), [Week 41](../../Timeline/2026-W41.md).
+
+> [!NOTE]
+> **Update 2026-09-15 · EU, digital euro.** The ECB opened a call for online and mobile merchants to join a digital euro pilot for payments in remote commerce. The pilot is expected to start in the second half of 2027, last 12 months and use a beta version of the digital euro without legal tender status. The decision on issuance still comes only after the EU legislation is adopted. Source: [ECB — Call for online and mobile merchants to participate in digital euro pilot now open, 2026-09-15](https://www.ecb.europa.eu/press/intro/news/html/ecb.mipnews260915.en.html). Details: [Week 38](../../Timeline/2026-W38.md).
 
 ### What this could change in payments
 

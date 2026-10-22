@@ -335,3 +335,27 @@ Default rights: `rights=copyright retained; reading/linking only; no redistribut
 - snapshot_id=P02-S043-20260917-deep; accessed_at=2026-09-17 Asia/Makassar; access_status=partial_text; access_method=official_pdf. Root read the Vostro account entry and §7000.0 introductory cross-reference to due-from foreign bank demand/nostro accounts. Full140-page compilation not reviewed.
 - Scope: correspondent account terminology, reciprocal nostro/vostro perspectives. No actual bank balance, currency route, fee or current regulatory permission established. Introduced to complete the definition evidence for C018; S035 remains the correspondent-banking mechanism source.
 - local_path=not_saved; hash=not_recorded. Limited original synthesis with attribution; no full PDF distribution. Independent recheck and exact scope are in SOURCE_AUDIT.md, not implied by this editorial access note.
+
+## Sources added after the knowledge cutoff
+
+Cards appended by the weekly [timeline](../../Timeline/README.md). They follow the same fields as the cards above; numbering continues.
+
+### P02-S044 — EPC153-22 v2.2: Guidance Document — Provision of Addresses under the EPC Payment Schemes
+
+- **URL:** [EPC PDF](https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2026-09/EPC153-22%20v2.2%20EPC%20guidance%20document%20-%20Provision%20of%20Addresses%20under%20the%20EPC%20Payment%20Schemes.pdf).
+- **source_class / document_kind:** `scheme` / guidance document; **publisher:** European Payments Council.
+- **published_at:** 2026-09-30; **effective_from:** 2026-09-30.
+- **jurisdiction / scope:** SEPA; all five EPC payment schemes; address formats.
+- **snapshot_id:** `P02-S044-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** partial_text (pp. 1–2), official_pdf.
+- **reviewed_scope:** Cover and the "important message" on the end date for unstructured addresses.
+- **limitations:** The table of contents still shows the old "15 November 2026" section headings, while the body text now refers to "a future still to be set end date" (full PDF checked during verification, 2026-10-22); only the end date was changed. The decision was taken at the September 2026 meeting of the Payment Scheme Management Board; the exact day is not stated. Added by the weekly timeline, [Week 40](../../Timeline/2026-W40.md).
+
+### P02-S045 — EPC131-17 v4.1: Clarification Paper on the SCT and SCT Inst Scheme Rulebooks
+
+- **URL:** [EPC PDF](https://www.europeanpaymentscouncil.eu/sites/default/files/kb/file/2026-09/EPC131-17%20v4.1%20Clarification%20Paper%20SCT%20and%20SCT%20Inst%20scheme%20rulebooks.pdf).
+- **source_class / document_kind:** `scheme` / clarification paper; **publisher:** European Payments Council.
+- **published_at:** 2026-09-30; **effective_from:** not_applicable.
+- **jurisdiction / scope:** SEPA; SCT and SCT Inst.
+- **snapshot_id:** `P02-S045-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** partial_text (pp. 1–2), official_pdf.
+- **reviewed_scope:** Cover and the "important message" on unstructured addresses.
+- **limitations:** Does not set a new end date. Added by the weekly timeline, [Week 40](../../Timeline/2026-W40.md).

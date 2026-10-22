@@ -8,7 +8,7 @@
 
 **2026 · 10 chapters · 65 lessons · theory, examples and practice**
 
-[Start reading →](Textbook/00-Money-and-fintech-basics/README.md) · [All lessons](Textbook/README.md) · [Sources and fact-check](Fact-check/README.md)
+[Start reading →](Textbook/00-Money-and-fintech-basics/README.md) · [All lessons](Textbook/README.md) · [Sources and fact-check](Fact-check/README.md) · [What changed since →](Timeline/README.md)
 
 </div>
 
@@ -64,6 +64,8 @@ Inside are explanations, diagrams, worked calculations, exercises with answers a
 The material was written by agents and checked by other agents. This is a **teaching edition with limitations** (`reviewed_with_limitations`), not an expert certification. The register also keeps one record of an excluded internal source. [Fact-check results and limitations →](Fact-check/Results.md)
 
 **Knowledge cutoff — 15 September 2026.** Sources were read and checked on 15–17 September; the public layout was updated on 18 September. This is not an update of laws and products as of the reading date. Money examples are synthetic; scientific experiments were not reproduced.
+
+**What changed since the cutoff.** A weekly [timeline](Timeline/README.md) records changes in payments and fintech worldwide, with a primary source for every entry. Where a change makes a lesson statement outdated, the lesson keeps its text and gets a dated note; all such cases are listed in [Outdated facts](Timeline/Outdated-facts.md).
 
 **English edition — 2026-10-22.** Translated from the Russian edition of 2026-09-18. The translation keeps the meaning, claim and source IDs, links and fact-check verdicts; it is not a new fact-check. The Russian original is kept under the tag [`ru-final`](https://github.com/nuanu-ai/fintech-textbook-2026/tree/ru-final).
 
