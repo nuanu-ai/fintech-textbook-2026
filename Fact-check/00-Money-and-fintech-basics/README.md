@@ -1,5 +1,5 @@
 ---
-title: "Подробный независимый аудит — часть 0"
+title: "Detailed independent audit — Chapter 0"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,20 +8,20 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/00-Money-and-fintech-basics/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/00-Money-and-fintech-basics/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Подробный независимый аудит — часть 0
+# Detailed independent audit — Chapter 0
 
-17.09.2026 · Asia/Makassar · private · аудитор `deep_audit_00_01_05`.
-Срез знаний книги — 15.09.2026. Дата настоящих обращений — 17.09.2026.
+2026-09-17 · Asia/Makassar · private · auditor `deep_audit_00_01_05`.
+The book's knowledge cutoff is 2026-09-15. The sources were accessed for this audit on 2026-09-17.
 
-## Итог
+## Summary
 
-Проверены все 48 зарегистрированных утверждений и все 24 карточки источников; полностью прочитаны CHAPTER, CLAIMS, SOURCES и соответствующая часть структуры. Каждому claim дана отдельная оценка в [CLAIM_AUDIT.md](Claim-check.md); собственная попытка доступа и прочитанная область каждого источника записаны в [SOURCE_AUDIT.md](Source-check.md). Открытых существенных ошибок не выявлено. Это не означает, что все внешние утверждения независимо доказаны.
+All 48 registered claims and all 24 source cards were checked; CHAPTER, CLAIMS, SOURCES and the relevant part of the structure were read in full. Each claim received a separate assessment in [CLAIM_AUDIT.md](Claim-check.md); the auditor's own access attempt and the scope read for each source are recorded in [SOURCE_AUDIT.md](Source-check.md). No open material errors were found. This does not mean that all external claims have been independently proven.
 
-| Verdict | Число |
+| Verdict | Count |
 |---|---:|
 | verified | 19 |
 | verified_as_reported | 9 |
@@ -29,52 +29,52 @@ tags: ["kind/research", "fintech-2026"]
 | unverifiable | 1 |
 | non_factual | 9 |
 | contradicted | 2 |
-| Всего | 48 |
+| Total | 48 |
 
-`contradicted` у C045 и C046 относится к дословному содержанию **явно отвергнутых автором мифов**. Их опровержение в книге корректно. Эти две строки не являются двумя найденными ошибками главы. `verified_as_reported` подтверждает содержание документа поставщика, а не работу продукта, доступность аккаунту или фактическое получение денег.
+`contradicted` for C045 and C046 refers to the literal content of **myths explicitly rejected by the author**. Their refutation in the book is correct. These two rows are not two errors found in the chapter. `verified_as_reported` confirms the content of the vendor's document, not how the product works, its availability to an account or the actual receipt of money.
 
-## Метод и область проверки
+## Method and scope of the check
 
-Применены [AUDIT_BRIEF.md](../Method.md) и схема источников. Предыдущая рецензия и общий URL-check редактора не служили доказательством. Повторяющиеся URL между назначенными частями использованы после собственного получения текста; каждый ID сохранен отдельной строкой.
+[AUDIT_BRIEF.md](../Method.md) and the source schema were applied. The previous review and the editor's general URL check were not used as evidence. URLs repeated across the assigned chapters were used after the auditor had obtained the text independently; each ID is kept as a separate row.
 
-Непосредственно сверены решающие области PFMI 8–9, банковского создания депозитов, ограничений балансов и платежных состояний, MiCA definitions и FATF §73. Финансовые примеры оценивались как синтетические модели с заданными предпосылками. Документация Stripe и Modern Treasury прочитана в области соответствующих состояний и формул; она не доказывает движение денег по конкретной операции.
+The decisive areas were checked directly: PFMI 8–9, bank deposit creation, balance limitations and payment states, MiCA definitions and FATF §73. The financial examples were assessed as synthetic models with given assumptions. The Stripe and Modern Treasury documentation was read within the scope of the relevant states and formulas; it does not prove the movement of money in a specific transaction.
 
-Для каждого источника различены непосредственное чтение, официальный поисковый индекс, восстановленный оригинал и недоступность. При получении только части документа не заявлена проверка полного закона, исследования либо всей страницы. Публикация, применение режима и индивидуальный доступ не приравнивались друг к другу.
+For each source, the audit distinguished direct reading, an official search index, a recovered original and unavailability. Where only part of a document was obtained, no check of the full law, study or whole page is claimed. Publication, application of a regime and individual access were not equated with one another.
 
-## Замечания и исправления
+## Findings and corrections
 
-Подтвержденных critical/major/minor ошибок, требовавших изменения механизма или формулировок этой главы, при новом проходе не установлено.
+The new pass found no confirmed critical/major/minor errors that required a change to the mechanism or wording of this chapter.
 
-**Наблюдение P00-O001 — восстановленный доступ, без ошибки исходной записи.** P00-S004 прежде имел ограничение index-only. При новом независимом обращении удалось прочитать полный относящийся к claim раздел [Modern Treasury Ledger Account Balances object](https://docs.moderntreasury.com/platform/reference/ledger-balances-object), включая таблицу и формулы. C006–C009 оценены по текущей документации. Это не отменяет фактическое ограничение чтения 15.09 и не восстанавливает историческую версию страницы.
+**Observation P00-O001 — access recovered, no error in the original entry.** P00-S004 previously had an index-only limitation. On new independent access, the full section relevant to the claim could be read, [Modern Treasury Ledger Account Balances object](https://docs.moderntreasury.com/platform/reference/ledger-balances-object), including the table and formulas. C006–C009 were assessed against the current documentation. This does not cancel the actual reading limitation of 15 September and does not restore the historical version of the page.
 
-**Наблюдение P00-O002 — слабый источник не заменен молча.** Для P00-S021 восстановлен официальный индекс [BIS executive summary](https://www.bis.org/fsi/publ/insights19_summary.pdf). Он связан с исходным исследованием, но не выдан за непосредственное чтение полного PDF. C033–C034 оставлены `partial`. Оригинальные и восстановленные URL показаны в матрицах.
+**Observation P00-O002 — a weak source was not silently replaced.** For P00-S021, the official index [BIS executive summary](https://www.bis.org/fsi/publ/insights19_summary.pdf) was recovered. It is linked to the original study but is not passed off as a direct reading of the full PDF. C033–C034 are left as `partial`. The original and recovered URLs are shown in the matrices.
 
-## Значимые положения вне реестра и расчеты
+## Significant statements outside the register, and calculations
 
-- Повторно рассмотрены различия юридического требования, технической записи и денежного ресурса, сценарий неопределенного результата перевода и последующей сверки. Синтетический пример возможного повторного платежа не выдан за наблюдаемую частоту ошибок.
-- Проверены банковские балансы до и после выдачи и перевода кредита: исходные равенства 1000 = 900 + 100 и 600 = 540 + 60, последующие 1000 = 900 + 100 и 700 = 640 + 60; совокупные резервы 350, депозиты растут с 1440 до 1540. Убыток 120 при капитале 100 дает −20; заем ликвидности 50 сам по себе капитал не восстанавливает.
-- В восьми журнальных проводках сумма каждой стороны 422. Итоговые активы 128 = обязательства 105 + капитал 23; клиентские деньги 105 и собственные 23 не смешаны. Возврат 20 дает cash 115, merchant payable 15 и активы 138 в указанной модели.
-- Пересчитаны 25 bps от 20 000 = 50; проценты 1000 × 12% × 30/365 ≈ 9,863; примеры FX, BNPL (114 выплачено, 90 собрано, убыток 24), страхования (15 000 и −45 000). Существенных арифметических ошибок не найдено.
-- Определения neobank/BaaS и карты участников рассматриваются как учебная систематизация. Они не устанавливают регуляторный статус конкретного бизнеса.
+- Re-examined: the differences between a legal claim, a technical record and a monetary resource; the scenario of an uncertain transfer outcome and subsequent reconciliation. The synthetic example of a possible duplicate payment is not presented as an observed error rate.
+- Checked the bank balance sheets before and after the loan was issued and transferred: initial equalities 1000 = 900 + 100 and 600 = 540 + 60, subsequent 1000 = 900 + 100 and 700 = 640 + 60; total reserves 350, deposits grow from 1440 to 1540. A loss of 120 with equity of 100 gives −20; a liquidity loan of 50 does not by itself restore equity.
+- In the eight journal entries, each side totals 422. Final assets 128 = liabilities 105 + equity 23; client money 105 and own money 23 are not commingled. A refund of 20 gives cash 115, merchant payable 15 and assets 138 in the stated model.
+- Recalculated: 25 bps of 20,000 = 50; interest 1000 × 12% × 30/365 ≈ 9.863; the FX, BNPL (114 paid out, 90 collected, loss 24) and insurance (15,000 and −45,000) examples. No material arithmetic errors were found.
+- The neobank/BaaS definitions and participant maps are treated as an educational classification. They do not establish the regulatory status of any specific business.
 
-## Сохраняющиеся ограничения
+## Remaining limitations
 
-- C018–C019: релевантный ответ EBA доступен через официальный индекс; полный первичный нормативный/судебный контекст заново не получен.
-- C024: прочитана область BIS о денежном требовании и токенизации; весь фрагмент о retail/wholesale access не подтвержден этим проходом. C031: не прочитан заново полный набор абзацев SEC по всем посредникам. C037: точный подраздел ISO в OCC не проверен полностью. Поэтому эти составные claims имеют `partial`.
-- C032 — индекс NAIC; C033–C034 — индекс BIS, без полного независимого прочтения исследования. Нельзя выводить причинную эффективность suptech из описания опроса 39 органов и дополнительных материалов.
-- C029: содержательный оригинал FDIC о third-party apps не получен. Это `unverifiable`, а не установленная ложность. Другой документ FDIC о pass-through имеет более узкий предмет и не используется как молчаливая замена.
-- Текущие динамические страницы не подтверждают неизменность текста на 15.09.2026. Не проверялись реальные банковские проводки, договоры пользователя, действующие тарифы аккаунта или пригодность схемы для конкретной юрисдикции.
+- C018–C019: the relevant EBA answer is available via the official index; the full primary statutory/judicial context was not obtained again.
+- C024: the BIS section on the monetary claim and tokenization was read; the whole passage on retail/wholesale access was not confirmed in this pass. C031: the full set of SEC paragraphs on all intermediaries was not reread. C037: the exact ISO subsection in the OCC handbook was not fully checked. These compound claims therefore have `partial`.
+- C032 — NAIC index; C033–C034 — BIS index, without a full independent reading of the study. The causal effectiveness of suptech cannot be inferred from the description of a survey of 39 authorities and supplementary materials.
+- C029: the substantive FDIC original on third-party apps was not obtained. This is `unverifiable`, not established falsity. Another FDIC document on pass-through has a narrower subject and is not used as a silent substitute.
+- Current dynamic pages do not confirm that the text was unchanged as of 2026-09-15. Real bank entries, user contracts, current account pricing and the suitability of the scheme for a specific jurisdiction were not checked.
 
-## Повторная проверка и привязка к версии
+## Recheck and version binding
 
-17.09.2026 после редакторской заморозки повторно прочитаны указатели на новый аудит и релевантные текущие фрагменты; оригинальные карточки и claims сверены с отдельными строками матриц. Ни одна строка не унаследовала verdict автоматически из предыдущего REVIEW. Содержательные ограничения сохранены при окончательной проверке. Старый REVIEW и его хеши относятся к историческому снимку.
+On 2026-09-17, after the editorial freeze, the pointers to the new audit and the relevant current excerpts were reread; the original cards and claims were reconciled with the individual rows of the matrices. No row inherited a verdict automatically from the previous REVIEW. Substantive limitations were preserved at the final check. The old REVIEW and its hashes refer to a historical snapshot.
 
 final_verdict: `reviewed_with_limitations`  
 open_critical: `0`  
 open_major: `0`  
 final_recheck: `2026-09-17 Asia/Makassar`
 
-| Файл относительно chapters/part-00 | SHA-256 окончательной проверенной версии |
+| File relative to chapters/part-00 | SHA-256 of the final checked version |
 |---|---|
 | CHAPTER.md | `30315980fc4cfd8f269aafec93de223a932233745880dff002c0f5bafe0885b9` |
 | SOURCES.md | `1425d21ad7b42982ad6eec5c547d4389f5d676c2328555da05cd879ae5d6efac` |

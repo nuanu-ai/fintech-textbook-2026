@@ -1,379 +1,379 @@
-[← Криптовалюты и стейблкоины](../06-Crypto-and-stablecoins/README.md) · [Оглавление](../README.md) · [Интеграции и надёжность →](../08-Integrations-and-reliability/README.md)
+[← Crypto and stablecoins](../06-Crypto-and-stablecoins/README.md) · [Contents](../README.md) · [Integrations and reliability →](../08-Integrations-and-reliability/README.md)
 
 <a id="часть-7-agentic--machine-payments-и-протоколы"></a>
-# Глава 7. Платежи ИИ-агентов
+# Chapter 7. AI agent payments
 
-> Как программа покупает по поручению человека — с ограничениями и доказательством результата.
+> How a program buys on a person's instructions — with limits and proof of the result.
 
-**6 уроков** · Срез знаний: **15 сентября 2026** · [Источники](Sources.md) · [Проверка и ограничения](../../Fact-check/Results.md)
+**6 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md)
 
-## В этой главе
+## In this chapter
 
-- [7.1 · Почему агентам нужен другой процесс покупки](#module-7-1)
-- [7.2 · Что предлагают карточные платёжные сети](#module-7-2)
-- [7.3 · Протоколы машинных платежей](#module-7-3)
-- [7.4 · Агент платит криптовалютой, продавец получает обычные деньги](#module-7-4)
-- [7.5 · Риски и ответственность](#module-7-5)
-- [7.6 · Как отличить агента от того, кто дал ему поручение](#module-7-6)
+- [7.1 · Why agents need a different purchase flow](#module-7-1)
+- [7.2 · What card payment networks offer](#module-7-2)
+- [7.3 · Machine payment protocols](#module-7-3)
+- [7.4 · The agent pays in crypto, the merchant receives ordinary money](#module-7-4)
+- [7.5 · Risks and liability](#module-7-5)
+- [7.6 · How to tell the agent from the principal who instructed it](#module-7-6)
 
 ---
 
-**Вопрос части:** как позволить программе покупать от имени человека или компании, сохранив пределы полномочий, контроль денег и доказательства результата?
+**The chapter's question:** how can a program be allowed to buy on behalf of a person or a company while preserving the limits of its authority, control over the money and evidence of the result?
 
-Краткий ответ: агенту нужен разрешенный способ передать конкретное поручение через checkout, поставщика платежных данных и платежный рельс. Идентификатор программы, цифровая подпись и сообщение «оплачено» отвечают на разные вопросы. Надежная система связывает их с одним заказом и умеет восстановить его состояние после обрыва связи.
+Short answer: the agent needs an authorized way to pass a specific instruction through checkout, the payment credential provider and the payment rail. The program's identifier, a digital signature and a "paid" message answer different questions. A reliable system links them to a single order and can restore its state after a lost connection.
 
-После чтения можно:
+After reading, you will be able to:
 
-- различить протокол торговли, протокол машинной оплаты, платежный продукт и платежный рельс;
-- объяснить цепочку `principal → делегирование → credential → платеж → исполнение заказа`;
-- выбрать доказательства для каждого перехода и определить, когда повтор опасен;
-- распределить задачи проверки клиента, лимитов и разбирательств между реальными организациями.
+- distinguish a commerce protocol, a machine payment protocol, a payment product and a payment rail;
+- explain the chain `principal → delegation → credential → payment → order fulfillment`;
+- choose the evidence for each transition and determine when a retry is dangerous;
+- assign the tasks of customer due diligence, limits and dispute handling to real organizations.
 
-Предварительные знания: [часть 2](../02-How-a-payment-works/README.md), особенно authorization / settlement; [части 3–5](../03-Visa-and-Mastercard-cards/README.md) о схемах, PSP и кошельках. Blockchain finality и конвертация подробно разобраны в [части 6](../06-Crypto-and-stablecoins/README.md). Здесь рассматривается надстройка делегированной покупки. Все денежные примеры синтетические; они не описывают тарифы, результаты или запуск продукта Lab.
+Prerequisites: [Chapter 2](../02-How-a-payment-works/README.md), especially authorization / settlement; [Chapters 3–5](../03-Visa-and-Mastercard-cards/README.md) on schemes, PSPs and wallets. Blockchain finality and conversion are covered in detail in [Chapter 6](../06-Crypto-and-stablecoins/README.md). Here we examine the delegated-purchase layer built on top. All money examples are synthetic; they do not describe the pricing, results or launch of a Lab product.
 
 <a id="module-7-1"></a>
 <a id="71-почему-агенты-ломают-checkout"></a>
-## 7.1 Почему агентам нужен другой процесс покупки
+## 7.1 Why agents need a different purchase flow
 
-### Не один покупательский интерфейс
+### Not a single buyer interface
 
-Checkout — процесс согласования покупки: товары, количество, цена, налоги, доставка, условия, способ оплаты и подтверждение заказа. В привычном интерфейсе человек одновременно читает предложения, управляет браузером, подтверждает намерение и обращается к банку. При агентской покупке эти функции могут оказаться у разных компонентов.
+Checkout is the process of agreeing on a purchase: items, quantity, price, taxes, delivery, terms, payment method and order confirmation. In a familiar interface, one person simultaneously reads the offers, controls the browser, confirms intent and deals with the bank. In an agent purchase, these functions may end up with different components.
 
-**API-only агент** вызывает программные методы. Он способен передать структурированный заказ, но без дополнительной поверхности не покажет человеку банковский challenge. **Browser-driven агент** использует сайт через браузер: заполняет адрес, выбирает доставку, проходит доступные этапы формы. **Human-assisted агент** передает человеку конкретный этап, после чего продолжает работу. Эти классы пересекаются: один продукт может искать через API, оформлять в браузере и возвращать человеку проверку карты. Поэтому фраза «агенты не умеют пользоваться checkout» слишком широка. Даже Visa описывает первоначальный платежный путь через guest checkout и form fill. [P07-S026]
+An **API-only agent** calls programmatic methods. It can pass a structured order, but without an additional surface it cannot show a bank challenge to a person. A **browser-driven agent** uses a website through a browser: it fills in the address, chooses delivery and goes through the available steps of the form. A **human-assisted agent** hands a specific step to a person and then continues working. These classes overlap: one product may search via an API, check out in a browser and hand card verification back to the person. That is why the phrase "agents cannot use checkout" is too broad. Even Visa describes the initial payment path through guest checkout and form fill. [P07-S026]
 
-Техническая доступность формы не решает вопрос полномочий. Доверитель, или **principal**, — человек либо организация, от чьего имени и за чей счет выполняется поручение. Агент — действующая программа. Согласие principal купить товар, аутентификация держателя карты банком и успешная авторизация платежа — три разных события. Держатель может разрешить покупку, но банк потребует дополнительную проверку; банк может одобрить карточную операцию, которая расходится с поручением пользователя.
+Technical access to a form does not settle the question of authority. The **principal** is the person or organization on whose behalf and at whose expense the instruction is carried out. The agent is the acting program. The principal's consent to buy an item, the bank's authentication of the cardholder and the successful authorization of the payment are three different events. The cardholder may approve a purchase, but the bank may require an additional check; the bank may approve a card transaction that diverges from the user's instruction.
 
-В протоколах появляется явный переход обратно к человеку. UCP отдельно описывает сбор данных устройства и показываемый покупателю 3DS challenge. Это соглашение о взаимодействии с браузерной поверхностью; оно не заменяет EMV 3DS и не становится авторитетным источником результата платежа. Платформа объявляет поддержку расширения, только если умеет обрабатывать обе поверхности и соблюдать его ограничения. [P07-S016]
+Protocols introduce an explicit handoff back to the person. UCP separately describes device data collection and the 3DS challenge shown to the buyer. This is a convention for interacting with the browser surface; it does not replace EMV 3DS and does not become an authoritative source of the payment result. A platform declares support for the extension only if it can handle both surfaces and comply with its constraints. [P07-S016]
 
-### Поручение должно пережить преобразование в данные
+### The instruction must survive conversion into data
 
-«Купи подходящий билет до 100 USD» оставляет вопросы: включены ли комиссии, сколько билетов, какие даты, допустим ли невозвратный тариф? Программа должна превратить намерение в проверяемую политику расхода. **Spend policy** — правила, которые применяются непосредственно перед выдачей платежного полномочия и перед его использованием: сумма, валюта, получатель, товар, срок, число операций и остаток бюджета.
+"Buy a suitable ticket for up to 100 USD" leaves open questions: are fees included, how many tickets, which dates, is a non-refundable fare acceptable? The program must turn intent into a verifiable spending policy. A **spend policy** is the set of rules applied immediately before a payment authority is issued and before it is used: amount, currency, payee, item, time limit, number of transactions and remaining budget.
 
-Хорошее поручение задает границу автономии. Например: «Один билет на событие E, сектор A или B, 20 сентября, всего не больше 100 USD, без подписок, у продавцов M1 или M2; согласование нового предложения при изменении даты». Оно не требует заранее выбрать каждую кнопку, но позволяет проверить итог. Строка с естественным языком полезна для объяснения; критичные ограничения необходимо хранить структурированно и проверять кодом. AP2 v0.2 прямо требует детерминированной проверки в ролях протокола и отдельной Trusted Surface для получения осознанного согласия. [P07-S017]
+A good instruction sets the boundary of autonomy. For example: "One ticket for event E, section A or B, 20 September, no more than 100 USD in total, no subscriptions, from merchants M1 or M2; approval of a new offer if the date changes." It does not require choosing every button in advance, but it allows the outcome to be checked. A natural-language string is useful for explanation; critical constraints must be stored in structured form and checked by code. AP2 v0.2 explicitly requires deterministic checks in the protocol roles and a separate Trusted Surface for obtaining informed consent. [P07-S017]
 
-**Синтетический пример.** У покупателя бюджет задачи 100 USD. Билет стоит 80, доставка 8, налог 6, сервисный сбор 4: итог 98 USD. Система резервирует 98 из бюджета, оставляя 2 доступными для новых обязательств. Цена билета сама по себе не является проверяемой суммой платежа. Если после выбора доставки итог становится 103 USD, прежнее поручение не покрывает покупку.
+**Synthetic example.** The buyer's budget for the task is 100 USD. The ticket costs 80, delivery 8, tax 6, service fee 4: a total of 98 USD. The system reserves 98 from the budget, leaving 2 available for new obligations. The ticket price by itself is not the verifiable payment amount. If after choosing delivery the total becomes 103 USD, the original instruction does not cover the purchase.
 
-В момент банковской авторизации 98 USD могут быть заблокированы, но еще не списаны окончательно. Если продавец затем принимает заказ, это подтверждает торговое обязательство. Получение билета подтверждается отдельным результатом: билет существует, действителен на нужное событие и доступен покупателю. Схема ниже — учебная модель, а не универсальная последовательность конкретного рельса:
+At the moment of bank authorization, 98 USD may be blocked but not yet finally debited. If the merchant then accepts the order, this confirms a commercial obligation. Receipt of the ticket is confirmed by a separate result: the ticket exists, is valid for the right event and is available to the buyer. The diagram below is a teaching model, not a universal sequence for a specific rail:
 
 ```mermaid
 flowchart LR
-  I[Поручение principal] --> Q[Финальные условия покупки]
-  Q --> P[Проверка политики]
-  P --> H{Нужно участие человека?}
-  H -->|Да| C[Показ точных условий и согласие]
-  H -->|Нет, полномочие уже выдано| K[Выдача scoped credential]
+  I[Instruction from principal] --> Q[Final purchase terms]
+  Q --> P[Policy check]
+  P --> H{Human involvement needed?}
+  H -->|Yes| C[Show exact terms and consent]
+  H -->|No, authority already granted| K[Issue scoped credential]
   C --> K
-  K --> A[Платежный процесс]
-  A --> O[Заказ принят]
-  O --> F[Товар или услуга получены]
+  K --> A[Payment process]
+  A --> O[Order accepted]
+  O --> F[Goods or service received]
 ```
 
-### Что ломается
+### What breaks
 
-Самая незаметная ошибка — поменять смысл между отображением и исполнением: показать 98 USD, подписать предел 980 USD; показать разовый платеж, создать повторяющееся поручение; разрешить одного продавца, передать универсальную карту. Другой сбой — выдать ресурс после любого HTTP 200. В Stripe `PaymentIntent` имеет собственный `status`; `requires_action` и `processing` отличаются от `succeeded`. Успех HTTP означает успешную обработку API-запроса, а не обязательно завершение денежного действия. [P07-S040]
+The least noticeable error is changing the meaning between display and execution: showing 98 USD but signing a limit of 980 USD; showing a one-time payment but creating a recurring instruction; approving one merchant but passing a universal card. Another failure is releasing the resource after any HTTP 200. In Stripe, a `PaymentIntent` has its own `status`; `requires_action` and `processing` differ from `succeeded`. HTTP success means that the API request was processed successfully, not necessarily that the money action was completed. [P07-S040]
 
-Следовательно, граница checkout определяется не наличием браузера. Важнее, может ли система связать увиденное человеком поручение, машинный запрос и наблюдаемый результат, а при невозможности продолжения оставить понятное состояние и безопасную точку возврата.
+So the checkout boundary is not defined by whether there is a browser. What matters more is whether the system can link the instruction the person saw, the machine request and the observed result, and, when it cannot continue, leave a clear state and a safe point of return.
 
 <a id="module-7-2"></a>
 <a id="72-карточные-ответы-рынка"></a>
-## 7.2 Что предлагают карточные платёжные сети
+## 7.2 What card payment networks offer
 
-### Credential: возможность предъявить требование к платежному инструменту
+### Credential: the ability to present a claim against a payment instrument
 
-**Payment credential** — данные или ограниченный идентификатор, позволяющий инициировать использование платежного инструмента. PAN карты, network token, токен PSP и одноразовый делегированный token не взаимозаменяемы. Один тип работает внутри конкретного процессора, другой переносится через карточную сеть; различаются привязки, допустимые получатели и проверяющие стороны.
+A **payment credential** is data or a restricted identifier that makes it possible to initiate the use of a payment instrument. A card PAN, a network token, a PSP token and a one-time delegated token are not interchangeable. One type works inside a specific processor, another travels across the card network; they differ in their bindings, permitted recipients and verifying parties.
 
-Передать агенту основной номер карты — значит дать ему материал, который может пережить текущую задачу. Более узкая конструкция дает право на один платеж определенному продавцу, до заданной суммы и времени. Но ограничение полезно только там, где его действительно проверяют. Если интерфейс пишет «лимит 100», а процессор получил неограниченные реквизиты, это лишь обещание интерфейса.
+Giving an agent the primary card number means giving it material that can outlive the current task. A narrower construction grants the right to one payment to a specific merchant, up to a set amount and time. But a restriction is useful only where it is actually checked. If the interface says "limit 100" while the processor received unrestricted card details, this is just a promise made by the interface.
 
-Stripe Shared Payment Token, **SPT**, — scoped grant продавцу на использование платежного метода клиента. В прочитанной документации token адресован Stripe profile продавца и имеет usage/expiration limits. Продавец создает `PaymentIntent` с этим token; выданный token еще не является списанием. Документация описывает отзыв, истечение срока и потребление token. На дату чтения указаны US, Canada и выбранные европейские страны; пример API использует `2026-04-22.preview`. Это не глобальная доступность каждому агенту. [P07-S022]
+Stripe Shared Payment Token, **SPT**, is a scoped grant to a merchant to use a customer's payment method. In the documentation we read, the token is addressed to the merchant's Stripe profile and has usage/expiration limits. The merchant creates a `PaymentIntent` with this token; an issued token is not yet a charge. The documentation describes revocation, expiry and consumption of the token. As of the reading date, the US, Canada and selected European countries are listed; the API example uses `2026-04-22.preview`. This is not global availability to every agent. [P07-S022]
 
-**Учебный пример.** Клиент разрешает покупку за 32,50 EUR у M. Credential ограничен 3 250 минимальными единицами EUR, продавцом M и временем 18:05. Передача такого credential не уменьшает баланс на 32,50 EUR. Списание возникает при успешном платежном процессе. Попытка M получить 33 EUR должна быть отвергнута в точке исполнения ограничения; запрос от другого продавца не должен пользоваться этим разрешением. Возврат по исходной покупке — отдельная операция, а не «обратное использование» уже потребленного token.
+**Teaching example.** A customer approves a purchase for 32.50 EUR from M. The credential is limited to 3,250 minor units of EUR, to merchant M and to a deadline of 18:05. Handing over such a credential does not reduce the balance by 32.50 EUR. The debit occurs when the payment process succeeds. An attempt by M to collect 33 EUR must be rejected at the point where the restriction is enforced; a request from another merchant must not be able to use this permission. A refund for the original purchase is a separate operation, not a "reverse use" of an already consumed token.
 
-### Что подтверждено для карточных продуктов
+### What is confirmed for card products
 
-Название продукта нельзя использовать как единственный статус. Нужны как минимум две оси: зрелость опубликованной спецификации и доступность коммерческой реализации. Таблица фиксирует только то, что следует из прочитанной первички на 15.09.2026.
+A product name cannot be used as the only status. At least two axes are needed: the maturity of the published specification and the availability of a commercial implementation. The table records only what follows from the primary sources read as of 2026-09-15.
 
-| Объект | Подтвержденное содержание | Статус и предел доказательства |
+| Item | Confirmed content | Status and limits of the evidence |
 |---|---|---|
-| Stripe agent integrations / SPT | Делегированные payment credentials, лимиты, привязка к seller profile | Agents отмечены private preview; SPT описан с preview API и географическим списком. Наличие документации не подтверждает доступ аккаунта. [P07-S024][P07-S022] |
-| Visa Intelligent Commerce | Agent-specific tokens, аутентифицированные payment instructions, network controls, commerce signals | Developer page сообщает development/deployment и возможную недоступность в отдельных рынках; sandbox отдельно от production onboarding. [P07-S026] |
-| Visa Trusted Agent Protocol, TAP | Подписанные сообщения для распознавания агента, consumer/device identity и payment container | Открыто читаемая merchant specification с собственными Product Terms. Это не универсальная гарантия merchant acceptance или снятие антифрод-проверок. [P07-S027] |
-| Visa Intelligent Commerce Connect | Предлагаемая интеграция нескольких сетей, token vaults и commerce protocols | Анонс 09.04.2026 сообщает pilot с выбранными партнерами. Из него нельзя вывести, что вся программа стала GA к сентябрю. [P07-S028] |
-| Mastercard Agent Pay Acceptance Framework | Регистрация/проверка агентов и распознаваемые agentic tokens | Публикация 14.10.2025 описывает framework и сбор обратной связи. Условия допуска конкретной платформы требуют отдельной проверки. [P07-S029] |
-| Mastercard Agent Pay for Machines, AP4M | Credentialing, permissioning, высокочастотные платежи и multi-rail settlement | Анонс 10.06.2026 и сотрудничество для проверки use cases. Заявления о settlement — заявления вендора; договорные исключения и общая developer availability не установлены. [P07-S030] |
+| Stripe agent integrations / SPT | Delegated payment credentials, limits, binding to a seller profile | Agents are marked private preview; SPT is described with a preview API and a list of geographies. The existence of documentation does not confirm that an account has access. [P07-S024][P07-S022] |
+| Visa Intelligent Commerce | Agent-specific tokens, authenticated payment instructions, network controls, commerce signals | The developer page reports development/deployment and possible unavailability in some markets; sandbox is separate from production onboarding. [P07-S026] |
+| Visa Trusted Agent Protocol, TAP | Signed messages for recognizing the agent, consumer/device identity and payment container | An openly readable merchant specification with its own Product Terms. It is not a universal guarantee of merchant acceptance or a waiver of anti-fraud checks. [P07-S027] |
+| Visa Intelligent Commerce Connect | A proposed integration of multiple networks, token vaults and commerce protocols | The announcement of 2026-04-09 reports a pilot with selected partners. It does not follow from it that the whole program was GA by September. [P07-S028] |
+| Mastercard Agent Pay Acceptance Framework | Agent registration/verification and recognizable agentic tokens | The publication of 2025-10-14 describes the framework and the collection of feedback. The eligibility conditions for a specific platform require separate verification. [P07-S029] |
+| Mastercard Agent Pay for Machines, AP4M | Credentialing, permissioning, high-frequency payments and multi-rail settlement | An announcement of 2026-06-10 and a collaboration to test use cases. Statements about settlement are vendor statements; contractual exceptions and general developer availability have not been established. [P07-S030] |
 
-Visa разделяет пользовательскую инструкцию, получение платежных данных и контроль поступившей авторизации. В TAP распознавание агента основано на HTTP Message Signatures и доверенном источнике ключей. Даже корректная подпись означает утверждение конкретного подписанта в определенной программе; она не доказывает полезность товара, отсутствие мошенничества или юридическую действительность любой покупки. Merchant может не внедрить TAP. [P07-S026][P07-S027]
+Visa separates the user's instruction, the retrieval of payment credentials and the control of the incoming authorization. In TAP, agent recognition is based on HTTP Message Signatures and a trusted source of keys. Even a valid signature means an assertion by a specific signer within a certain program; it does not prove that the item is useful, that there is no fraud, or that any purchase is legally valid. A merchant may not implement TAP. [P07-S026][P07-S027]
 
-### ACP и UCP описывают торговлю поверх платежей
+### ACP and UCP describe commerce on top of payments
 
-**Agentic Commerce Protocol, ACP**, — открытая спецификация взаимодействия покупателя, агента и продавца, поддерживаемая OpenAI и Stripe. В проверенном репозитории общий статус — beta; последняя выпущенная датированная спецификация — **2026-04-17**. Каталог `unreleased` содержит дальнейшую разработку. Стабильная дата API и статус beta не противоречат друг другу: первое фиксирует контракт, второе — зрелость проекта. [P07-S010]
+The **Agentic Commerce Protocol, ACP**, is an open specification for interaction between buyer, agent and merchant, maintained by OpenAI and Stripe. In the repository we checked, the overall status is beta; the latest released dated specification is **2026-04-17**. The `unreleased` directory contains further development. A stable API date and beta status do not contradict each other: the first fixes the contract, the second describes the maturity of the project. [P07-S010]
 
-ACP задает структурированные операции checkout и обмен связанными событиями. Delegated Payment specification описывает tokenization с **Allowance**: разовое использование, максимальная сумма, валюта, checkout session, merchant и expiry. Эти поля связывают платежные данные с конкретной покупкой. Обязательный для POST `Idempotency-Key` помогает различить повтор прежней операции и новую операцию. Но исполнение allowance и способ подключения продавца к его PSP остаются практической интеграционной задачей. [P07-S011][P07-S012]
+ACP defines structured checkout operations and the exchange of related events. The Delegated Payment specification describes tokenization with an **Allowance**: single use, maximum amount, currency, checkout session, merchant and expiry. These fields bind the payment credentials to a specific purchase. The `Idempotency-Key`, mandatory for POST, helps distinguish a retry of an earlier operation from a new operation. But enforcing the allowance and the way the merchant connects to its PSP remain a practical integration task. [P07-S011][P07-S012]
 
-**Universal Commerce Protocol, UCP**, — другой проект, не новая версия ACP. В этой главе используется выпущенный **v2026-08-25**. Он описывает discovery профилей, пересечение поддерживаемых capabilities и payment handlers. Handler объясняет, кто выдает инструмент, кто его принимает, какие предварительные отношения нужны и как происходит обработка. Наличие общего формата checkout не означает, что оба участника поддерживают один handler. [P07-S013][P07-S015]
+The **Universal Commerce Protocol, UCP**, is a different project, not a new version of ACP. This chapter uses the released **v2026-08-25**. It describes profile discovery, the intersection of supported capabilities, and payment handlers. A handler explains who issues the instrument, who accepts it, what prior relationships are needed and how processing happens. A shared checkout format does not mean that both participants support the same handler. [P07-S013][P07-S015]
 
-Издатель — открытый проект Universal-Commerce-Protocol. Его governance назначает Governing Council владельцем UCP assets, Google — хранителем домена ucp.dev, а Google и Shopify — организациями-основателями с постоянными местами в совете. Технические советы ведут свои domains. Это установленная проектом модель управления открытой спецификацией, не акт государственного регулятора и не доказательство независимой сертификации. [P07-S042]
+The publisher is the open Universal-Commerce-Protocol project. Its governance names the Governing Council as the owner of UCP assets, Google as the custodian of the ucp.dev domain, and Google and Shopify as founding organizations with permanent seats on the council. Technical councils run their own domains. This is a governance model for an open specification established by the project, not an act of a government regulator and not proof of independent certification. [P07-S042]
 
-У UCP заказ не появляется на стадии `ready_for_complete`. В редакции главы промежуточный `complete_in_progress` означает принятое в обработку завершение и не должен содержать `order`; `completed` означает размещенный заказ. При `requires_escalation` используется переход к покупателю. Даже `completed` не означает доставку товара или payout продавцу. [P07-S014]
+In UCP, an order does not appear at the `ready_for_complete` stage. In the version used for this chapter, the intermediate `complete_in_progress` means that completion has been accepted for processing, and it must not contain an `order`; `completed` means a placed order. With `requires_escalation`, the flow hands over to the buyer. Even `completed` does not mean delivery of the goods or a payout to the merchant. [P07-S014]
 
-Практическая проверка совместимости выглядит так: агент и merchant согласовали версии; оба поддерживают нужную capability; доступен payment handler; credential допустим для merchant и PSP; поддержан challenge; доступен путь завершения и восстановления. Пропуск одного звена дает «совместимость на бумаге».
+A practical compatibility check looks like this: the agent and the merchant have agreed on versions; both support the needed capability; a payment handler is available; the credential is acceptable for the merchant and the PSP; the challenge is supported; a completion and recovery path is available. Missing one link gives "compatibility on paper."
 
-Наконец, **distribution** — попадание предложения к покупателю — отличается от совместимости. OpenAI на прочитанной странице начинает интеграцию с product feed и сообщает, что onboarding feeds доступен одобренным партнерам. Значит, корректный ACP endpoint сам по себе не обещает индексацию, показ или продажи в ChatGPT. [P07-S025] Тот же принцип применим к каталогу любого другого агента: обнаруживаемость, допуск площадки и надежный checkout проверяются отдельно.
+Finally, **distribution** — getting the offer in front of the buyer — is different from compatibility. On the page we read, OpenAI starts the integration with a product feed and states that feed onboarding is available to approved partners. So a correct ACP endpoint by itself does not promise indexing, display or sales in ChatGPT. [P07-S025] The same principle applies to the catalog of any other agent: discoverability, admission to the platform and reliable checkout are checked separately.
 
 <a id="module-7-3"></a>
 <a id="73-machine-native-protocols"></a>
-## 7.3 Протоколы машинных платежей
+## 7.3 Machine payment protocols
 
-### HTTP 402 не содержит готовый платежный механизм
+### HTTP 402 does not contain a ready-made payment mechanism
 
-В RFC 9110, §15.5.3, код **402 Payment Required** зарезервирован для будущего использования. Сам по себе он не определяет валюту, подпись, банк, wallet, модель возврата или порядок расчета. x402 и MPP задают дополнительные соглашения. Их следует читать по именам полей и версиям, а не считать одним протоколом из-за общего числа 402. [P07-S001]
+In RFC 9110, §15.5.3, the code **402 Payment Required** is reserved for future use. By itself it does not define a currency, signature, bank, wallet, refund model or settlement procedure. x402 and MPP define additional conventions. They should be read by their field names and versions, not treated as one protocol because they share the number 402. [P07-S001]
 
-**x402 v2** разделяет типы сообщений, механизм перемещения стоимости и транспорт. Клиент обращается к resource server; сервер предъявляет платежные требования; клиент выбирает поддерживаемый вариант и передает соответствующее разрешение; facilitator проверяет и/или выполняет расчет. Facilitator — программная роль, которую можно вынести в сервис или реализовать самостоятельно. Наличие этой роли ничего само по себе не говорит о лицензии организации. [P07-S002]
+**x402 v2** separates message types, the mechanism for moving value, and the transport. The client calls a resource server; the server presents payment requirements; the client chooses a supported option and passes the corresponding authorization; the facilitator verifies and/or settles. The facilitator is a software role that can be delegated to a service or implemented in-house. The existence of this role says nothing by itself about an organization's license. [P07-S002]
 
-В HTTP transport v2 платежные требования идут в `PAYMENT-REQUIRED`, платежный payload — в `PAYMENT-SIGNATURE`, результат settlement — в `PAYMENT-RESPONSE`. Формат — кодированный JSON; base64 обеспечивает представление данных, не шифрование. Сетевой ответ и поля необходимо проверять как недоверенный вход. Наименование заголовка не гарантирует, что каждое поле JSON криптографически подписано. [P07-S003]
+In HTTP transport v2, payment requirements go in `PAYMENT-REQUIRED`, the payment payload in `PAYMENT-SIGNATURE`, and the settlement result in `PAYMENT-RESPONSE`. The format is encoded JSON; base64 provides a data representation, not encryption. The network response and the fields must be checked as untrusted input. The name of a header does not guarantee that every JSON field is cryptographically signed. [P07-S003]
 
-В частности, для EVM `exact` с EIP-3009 авторизация содержит отправителя, получателя, точную сумму, интервал действия и nonce. Подпись позволяет facilitator представить такое разрешение контракту, не менять сумму или получателя. Проверка подписи и симуляция еще не перемещают деньги. В актуальной спецификации EVM также описаны Permit2 и ERC-7710; предпосылки этих способов отличаются, поэтому «все x402 gasless и одноразовые» — неверное обобщение. [P07-S004]
+In particular, for EVM `exact` with EIP-3009, the authorization contains the sender, the recipient, the exact amount, the validity interval and a nonce. The signature allows the facilitator to submit this authorization to the contract, but not to change the amount or the recipient. Signature verification and simulation do not yet move any money. The current EVM specification also describes Permit2 and ERC-7710; the prerequisites of these methods differ, so "all x402 is gasless and single-use" is a wrong generalization. [P07-S004]
 
-### Когда происходят расчет и исполнение
+### When settlement and execution happen
 
-У x402 нет одного порядка для всех механизмов. Core v2 описывает три модели:
+x402 has no single order for all mechanisms. Core v2 describes three models:
 
-| Модель | Последовательность | Главный риск, который следует обработать |
+| Model | Sequence | Main risk to handle |
 |---|---|---|
-| `authorization` | verify → resource execution → settle → response | Ресурс уже исполнялся, а последующий settlement может не состояться |
-| `upfront` | settle → resource execution → response | Деньги уже переведены, а исполнение может завершиться ошибкой |
-| `escrow` | первоначальное settle → resource execution → окончательное settle → response | Нужно различать внесенный депозит, окончательный charge и возврат остатка |
+| `authorization` | verify → resource execution → settle → response | The resource has already been executed, but the subsequent settlement may not happen |
+| `upfront` | settle → resource execution → response | The money has already been transferred, but execution may end in an error |
+| `escrow` | initial settle → resource execution → final settle → response | You must distinguish the deposit made, the final charge and the refund of the remainder |
 
-Это пересказ порядка из §6.1, а не обещание атомарной сделки «деньги за товар». Поддержка определяется конкретной комбинацией scheme, network и asset transfer method. Незнакомый `paymentFlow` нельзя молча обработать как знакомый. [P07-S002]
+This is a paraphrase of the order in §6.1, not a promise of an atomic "money for goods" transaction. Support is determined by the specific combination of scheme, network and asset transfer method. An unfamiliar `paymentFlow` must not be silently handled as a familiar one. [P07-S002]
 
-**Синтетический пример микроплатежа.** API стоит 0,020000 USDC, token имеет шесть знаков: payload содержит 20 000 минимальных единиц. Начальный остаток покупателя — 2,000000 USDC. После одного подтвержденного перевода остаток — 1,980000, у получателя прирост 0,020000. Если facilitator расходует 0,000010 единицы другого gas asset, этот расход записывается отдельно; он не вычитается из USDC покупателя без соответствующего условия. Фраза «нулевой gas для клиента» не означает отсутствие сетевой себестоимости.
+**Synthetic micropayment example.** An API call costs 0.020000 USDC, and the token has six decimal places: the payload contains 20,000 minor units. The buyer's starting balance is 2.000000 USDC. After one confirmed transfer the balance is 1.980000, and the recipient gains 0.020000. If the facilitator spends 0.000010 units of another gas asset, this cost is recorded separately; it is not deducted from the buyer's USDC without a corresponding condition. The phrase "zero gas for the client" does not mean there is no network cost.
 
-Покупатель получил `200` и JSON, но JSON не содержит обещанного отчета. Денежная часть может быть завершена, товарная — спорной. Обратная ситуация: отчет вычислен и сохранен, но клиент оборвал соединение до получения ответа. Новая подпись с новым nonce способна создать второй реальный платеж за тот же отчет. Поэтому application operation ID должен пережить сетевой обрыв.
+The buyer received `200` and JSON, but the JSON does not contain the promised report. The money part may be complete, while the goods part is disputed. The opposite situation: the report has been computed and saved, but the client dropped the connection before receiving the response. A new signature with a new nonce can create a second real payment for the same report. That is why the application operation ID must survive a network drop.
 
-Расширение x402 `payment-identifier` задает ключ идемпотентности: повтор одинакового payload возвращает сохраненный ответ, другой payload с тем же ID — конфликт. Оно рекомендует привязать ID к нормализованным параметрам, включая network, asset, сумму, получателя, путь, метод и order ID. Это отдельное расширение и поведение реализации, а не следствие одного EIP-3009 nonce. Nonce предотвращает повтор конкретного разрешения; он не запрещает создать другое разрешение для той же покупки. [P07-S005]
+The x402 `payment-identifier` extension defines an idempotency key: a retry with an identical payload returns the stored response, while a different payload with the same ID is a conflict. It recommends binding the ID to normalized parameters, including network, asset, amount, recipient, path, method and order ID. This is a separate extension and implementation behavior, not a consequence of a single EIP-3009 nonce. A nonce prevents the replay of a specific authorization; it does not prevent the creation of a different authorization for the same purchase. [P07-S005]
 
-### MPP: Payment authentication плюс конкретный метод
+### MPP: Payment authentication plus a specific method
 
-**Machine Payments Protocol, MPP**, опубликован через `mpp.dev` и `tempoxyz/mpp-specs`; среди авторов core — Tempo Labs и Stripe. Для главы проверен **draft-httpauth-payment-01**, опубликованный IETF 09.09.2026. Это Internet-Draft с intended status Standards Track, а не принятый RFC. Заголовок «open standard» на сайте проекта и статус в процессе IETF — разные описания. [P07-S006]
+The **Machine Payments Protocol, MPP**, is published via `mpp.dev` and `tempoxyz/mpp-specs`; the authors of the core include Tempo Labs and Stripe. For this chapter we checked **draft-httpauth-payment-01**, published by the IETF on 2026-09-09. It is an Internet-Draft with intended status Standards Track, not an adopted RFC. The "open standard" heading on the project's website and the status in the IETF process are different descriptions. [P07-S006]
 
-MPP server возвращает `WWW-Authenticate: Payment` с challenge ID, method, intent и данными request. Клиент предоставляет credential в `Authorization: Payment`; challenge может выбрать `Payment-Authorization`. Метод описывает конкретные платежные данные и settlement; intent различает, например, charge и session. `Payment-Receipt` служит результатом протокольного обмена. Core требует одноразовости proof на уровне платежного метода, контроля конкурирующих запросов и проверки суммы, получателя, актива и срока; для побочных эффектов нужны дополнительные idempotency-механизмы. [P07-S006]
+An MPP server returns `WWW-Authenticate: Payment` with a challenge ID, method, intent and request data. The client provides a credential in `Authorization: Payment`; the challenge may choose `Payment-Authorization`. The method describes the specific payment data and settlement; the intent distinguishes, for example, charge and session. `Payment-Receipt` serves as the result of the protocol exchange. Core requires single use of the proof at the payment method level, control of concurrent requests and checks of amount, recipient, asset and expiry; side effects need additional idempotency mechanisms. [P07-S006]
 
-В **Stripe charge method** credential несет SPT, а сервер создает соответствующий Stripe `PaymentIntent`. Это машинный интерфейс к платежному продукту Stripe, со счетами, правилами и обработкой процессором. Иным способом реализуется **Solana charge**: в pull mode клиент передает подписанную транзакцию серверу; в push mode — подтверждение собственной отправки. Метод требует проверки фактического перевода и атомарного учета уже потребленных transaction signatures. Одну старую транзакцию нельзя принять повторно под новым challenge ID. [P07-S007][P07-S009]
+In the **Stripe charge method**, the credential carries an SPT, and the server creates a corresponding Stripe `PaymentIntent`. This is a machine interface to Stripe's payment product, with its accounts, rules and processor handling. **Solana charge** is implemented differently: in pull mode the client passes a signed transaction to the server; in push mode, it passes confirmation of a transaction it submitted itself. The method requires verification of the actual transfer and atomic accounting of already consumed transaction signatures. One old transaction must not be accepted again under a new challenge ID. [P07-S007][P07-S009]
 
-Таким образом, MPP не означает «обязательно stablecoin»; x402 не означает «обязательно конкретный facilitator»; ни один transport не отменяет предварительное пополнение инструмента, допуска провайдера и проверки исполнения.
+Thus MPP does not mean "necessarily a stablecoin"; x402 does not mean "necessarily a specific facilitator"; and no transport removes the need to fund the instrument in advance, to be admitted by the provider, and to verify execution.
 
-### Микроплатежи, sessions и предоплата
+### Micropayments, sessions and prepayment
 
-**Agent account** может означать техническую учетную запись с API key, баланс предоплаченных услуг, wallet address либо аккаунт клиента финансового провайдера. Это разные объекты. В предлагаемой архитектуре учетная запись связывает actor с principal и журналом действий; отдельная запись бюджета связывает задачу с разрешенными расходами. API key для чтения каталога не должен автоматически давать право списывать деньги. Если сервис ведет credits, нужно определить владельца требования, срок действия, порядок отмены и возврата. Слово account само по себе не говорит, защищены ли средства как банковский вклад и разрешена ли передача баланса другому лицу.
+An **agent account** may mean a technical account with an API key, a balance of prepaid services, a wallet address, or a customer account at a financial provider. These are different objects. In the proposed architecture, the account links the actor to the principal and to an action log; a separate budget record links the task to the permitted spending. An API key for reading a catalog must not automatically grant the right to debit money. If a service keeps credits, it must define who holds the claim, the validity period, and the procedure for cancellation and refund. The word account by itself does not say whether the funds are protected like a bank deposit or whether the balance may be transferred to another person.
 
-Оплата каждого API-вызова удобна как договорная единица, но не всегда эффективна как отдельная операция на рельсе. Возможны три модели:
+Paying for each API call is convenient as a contractual unit, but not always efficient as a separate operation on the rail. Three models are possible:
 
-1. **Pay per call:** каждый вызов получает отдельное денежное доказательство. Простая граница покупки, но много операций и расходов.
-2. **Prepaid credits:** клиент переводит 5 USD, сервис записывает обязательство предоставить эквивалент услуг, затем уменьшает кредит по потреблению. Это баланс у конкретного сервиса, а не новый банковский счет агента.
-3. **Payment session/channel:** клиент заранее обеспечивает лимит, а затем подписывает промежуточные требования. Денежный расчет агрегируется, но счетчик потребления и спор о последнем подтвержденном объеме становятся критичными.
+1. **Pay per call:** each call gets a separate proof of payment. A simple purchase boundary, but many operations and costs.
+2. **Prepaid credits:** the client transfers 5 USD, the service records an obligation to provide the equivalent in services, and then reduces the credit as services are consumed. This is a balance with a specific service, not a new bank account for the agent.
+3. **Payment session/channel:** the client secures a limit in advance and then signs interim claims. Money settlement is aggregated, but the consumption counter and disputes about the last confirmed volume become critical.
 
-MPP Tempo session описывает однонаправленный канал с on-chain escrow и off-chain vouchers. Рост подписанного значения позволяет рассчитываться за последовательное потребление без отдельной сетевой операции на каждый шаг. Это более сложная модель состояния, чем разовый charge; пользовательский бюджет, депозит и уже заработанная продавцом сумма различаются. [P07-S008]
+An MPP Tempo session describes a unidirectional channel with on-chain escrow and off-chain vouchers. A growing signed value makes it possible to settle sequential consumption without a separate network operation for each step. This is a more complex state model than a one-time charge; the user's budget, the deposit and the amount already earned by the merchant are all different things. [P07-S008]
 
-**Пример.** Пользователь внес в учебный канал 5,00 USDC. Услуга стоит 0,002 USDC за единицу. За 800 единиц накопленное требование — 1,60; за 1 000 — 2,00. Второе значение накопительное: нельзя сложить vouchers как 1,60 + 2,00 и списать 3,60. После окончательного расчета продавцу причитается 2,00, остаток депозита 3,00 возвращается по правилам канала. Блокировка этих 5,00 уменьшила доступность средств раньше, чем возник окончательный расход 2,00.
+**Example.** A user deposited 5.00 USDC into a teaching channel. The service costs 0.002 USDC per unit. For 800 units the accumulated claim is 1.60; for 1,000 units it is 2.00. The second value is cumulative: you cannot add the vouchers up as 1.60 + 2.00 and debit 3.60. After final settlement the merchant is owed 2.00, and the deposit remainder of 3.00 is returned under the channel's rules. Locking these 5.00 reduced the availability of the funds before the final spend of 2.00 arose.
 
-У account-based API также нужен лимит задачи. Сто обращений по 0,02 стоят 2,00, а тысяча — 20,00. Проверка «каждое обращение дешевое» не защищает от бесконечного цикла. Безопасная автоматика учитывает одновременно price per call, суммарный spend, скорость, число повторов и еще не разрешенные неопределенные операции.
+An account-based API also needs a task limit. A hundred calls at 0.02 cost 2.00, and a thousand cost 20.00. A check that "each call is cheap" does not protect against an infinite loop. Safe automation simultaneously takes into account the price per call, total spend, rate, number of retries and uncertain operations that have not yet been resolved.
 
 <a id="module-7-4"></a>
 <a id="74-crypto-native-agent-pay--merchant-fiat"></a>
-## 7.4 Агент платит криптовалютой, продавец получает обычные деньги
+## 7.4 The agent pays in crypto, the merchant receives ordinary money
 
-### Два платежных мира и один товарный договор
+### Two payment worlds and one sales contract
 
-Получить USDC от агента и выплатить merchant фиат можно только при наличии реального контура конвертации и выплаты. Catalog показывает, что продается; order API согласует покупку; x402/MPP передает платежные условия; stablecoin перемещается по blockchain; conversion provider меняет актив; PSP или банк переводит фиат. Совпадение этих функций в одном приложении не превращает их в одно событие.
+Receiving USDC from an agent and paying the merchant out in fiat is possible only if a real conversion and payout loop exists. The catalog shows what is for sale; the order API agrees on the purchase; x402/MPP conveys the payment terms; the stablecoin moves on the blockchain; the conversion provider exchanges the asset; the PSP or bank transfers fiat. Having these functions coincide in one application does not turn them into one event.
 
-В официальной документации Stripe Machine payments описан конкретный вариант: платеж поступает на Stripe balance с fiat settlement; поддержаны refunds через обычные средства Stripe. На дату чтения таблица указывает MPP/Tempo/USDC.e, MPP/Solana/USDC и x402/Base/USDC. Для stablecoin acceptance есть географические ограничения и проверка доступа; для SPT и stablecoins различаются минимальные суммы. Это свойства данного продукта, а не любых MPP/x402 endpoints. [P07-S023]
+Stripe's official Machine payments documentation describes a specific variant: the payment arrives in the Stripe balance with fiat settlement; refunds are supported through the usual Stripe tools. As of the reading date, the table lists MPP/Tempo/USDC.e, MPP/Solana/USDC and x402/Base/USDC. Stablecoin acceptance has geographic restrictions and an access review; the minimum amounts differ for SPT and for stablecoins. These are properties of this product, not of any MPP/x402 endpoints. [P07-S023]
 
-Роль поставщика требует отдельного выбора. При **direct merchant** клиент покупает у исходного продавца, а платежный посредник обслуживает оплату. При **PSP connector** программный connector работает в рамках разрешенного подключения к аккаунту merchant; то, кто технически вызвал API, не обязательно становится стороной продажи. При **Merchant of Record, MoR** отдельная организация принимает роль продавца в отношениях с покупателем и связанные торговые обязательства. Эти модели сравниваются в [1.3](../01-Market-rules-and-licensing/README.md) и [части 4](../04-Payment-providers/README.md). Включение агента в цепочку не выбирает модель автоматически.
+The provider's role requires a separate choice. With a **direct merchant**, the customer buys from the original merchant, and a payment intermediary handles the payment. With a **PSP connector**, a software connector works within an authorized connection to the merchant's account; whoever technically called the API does not necessarily become a party to the sale. With a **Merchant of Record, MoR**, a separate organization takes on the seller's role in the relationship with the buyer, together with the related commercial obligations. These models are compared in [1.3](../01-Market-rules-and-licensing/README.md) and [Chapter 4](../04-Payment-providers/README.md). Including an agent in the chain does not choose the model automatically.
 
-### Пример с проводками и двумя валютами
+### An example with journal entries and two currencies
 
-**Синтетическая модель direct merchant.** Покупатель согласовал итог 100,00 USDC. PSP принимает эти средства, конвертирует по согласованному для примера курсу 1 USDC = 1 USD, удерживает комиссию 2,00 USD и должен выплатить merchant 98,00 USD. Для простоты нет налога, FX spread, резерва и сетевых расходов.
+**Synthetic direct merchant model.** The buyer agreed on a total of 100.00 USDC. The PSP accepts these funds, converts them at a rate agreed for the example of 1 USDC = 1 USD, withholds a fee of 2.00 USD and must pay out 98.00 USD to the merchant. For simplicity there is no tax, FX spread, reserve or network cost.
 
-| Событие | Баланс/обязательство PSP | Что еще нельзя заявлять |
+| Event | PSP balance/liability | What cannot yet be claimed |
 |---|---|---|
-| Подтверждено получение 100 USDC | Актив USDC +100; обязательство перед merchant +100 в согласованном эквиваленте | USD еще не получены банком merchant |
-| Конвертация | USDC −100; USD +100; оценка 1:1 используется только в примере | Payout еще не исполнен |
-| Комиссия | Обязательство перед merchant −2; доход PSP +2 | Merchant не получил 98 USD лишь от начисления |
-| Подтвержден payout 98 USD | USD PSP −98; обязательство перед merchant −98 | Ничего не сказано о доставке товара |
+| Receipt of 100 USDC confirmed | USDC asset +100; liability to merchant +100 in the agreed equivalent | The USD has not yet been received by the merchant's bank |
+| Conversion | USDC −100; USD +100; the 1:1 valuation is used only in the example | The payout has not yet been executed |
+| Fee | Liability to merchant −2; PSP revenue +2 | The merchant has not received 98 USD merely because it was accrued |
+| Payout of 98 USD confirmed | PSP USD −98; liability to merchant −98 | Nothing is said about delivery of the goods |
 
-Итог: у PSP осталось 2 USD, обязательство перед merchant равно нулю, merchant получил 98 USD. В двойной записи на момент поступления: дебет актива 100, кредит обязательства 100. Комиссия: дебет обязательства 2, кредит дохода 2. Выплата: дебет обязательства 98, кредит денежного актива 98. Конвертация меняет состав активов; при реальном курсе появляются отдельные FX-компоненты. Это учебная схема учета посредника, не универсальная бухгалтерская политика.
+Result: the PSP has 2 USD left, the liability to the merchant is zero, and the merchant has received 98 USD. In double-entry bookkeeping at the moment of receipt: debit the asset 100, credit the liability 100. Fee: debit the liability 2, credit revenue 2. Payout: debit the liability 98, credit the cash asset 98. Conversion changes the composition of assets; with a real exchange rate, separate FX components appear. This is a teaching scheme for an intermediary's accounting, not a universal accounting policy.
 
-Если merchant запросил полный refund после payout, у PSP уже нет 100 USD свободного остатка от этой операции. Нужно знать, кто возвращает 98, кто несет 2 комиссии и в каком активе клиент получит возврат. Возможные условия — списание из следующего settlement merchant, списание отдельного баланса или обязанность MoR — нельзя выбирать по удобству интеграции. Refund должен ссылаться на исходный order/payment, иметь собственную сумму и собственное подтверждение исполнения.
+If the merchant requested a full refund after the payout, the PSP no longer has 100 USD of free balance from this operation. You need to know who returns the 98, who bears the 2 in fees, and in which asset the customer will receive the refund. The possible terms — a deduction from the merchant's next settlement, a debit to a separate balance, or an obligation of the MoR — must not be chosen for integration convenience. The refund must reference the original order/payment and have its own amount and its own confirmation of execution.
 
-### Сбой на границе blockchain и банка
+### Failure at the boundary between blockchain and bank
 
-Конвертация прошла, банк отклонил payout из-за реквизитов. Клиентская покупка может оставаться оплаченной, merchant payout — failed, а обязательство PSP перед merchant — открытым. Повторно брать USDC с покупателя для исправления payout неправильно. Исправляется банковская ветка той же операции; агенту показывают, какие состояния подтверждены.
+The conversion went through, but the bank rejected the payout because of the account details. The customer's purchase may remain paid, the merchant payout failed, and the PSP's obligation to the merchant still open. Charging the buyer USDC again to fix the payout is wrong. What needs fixing is the banking branch of the same operation; the agent is shown which states are confirmed.
 
-В обратном случае товар отсутствует после stablecoin payment. Это обязанность обработать торговую неудачу, а не доказательство, что blockchain перевод не состоялся. Даже идеально неизменяемая транзакция не делает каталог актуальным и не выдает физический товар.
+In the reverse case, the item is unavailable after a stablecoin payment. This creates an obligation to handle a commercial failure; it is not proof that the blockchain transfer did not happen. Even a perfectly immutable transaction does not make the catalog current and does not deliver a physical item.
 
-Публичный пост Solana от 25.03.2026 объявляет поддержку MPP и SDK. Он полезен как датированное свидетельство развития экосистемы; совместимость конкретного токена и метода подтверждается спецификацией и тестом реализации. Пост deX402 об x402 «без payment processors» выражает продуктовый тезис. Вполне возможен прямой crypto-платеж без карточного processor, но при модели stablecoin-in/fiat-out остаются конвертация, payout, учет и договорные обязанности. Ни пост, ни HTTP-код их не устраняют. [P07-S036][P07-S037]
+Solana's public post of 2026-03-25 announces support for MPP and an SDK. It is useful as dated evidence of how the ecosystem is developing; the compatibility of a specific token and method is confirmed by the specification and by testing the implementation. The deX402 post about x402 working without payment processors expresses a product claim. A direct crypto payment without a card processor is quite possible, but in the stablecoin-in/fiat-out model, conversion, payout, accounting and contractual obligations remain. Neither the post nor the HTTP code removes them. [P07-S036][P07-S037]
 
 <a id="module-7-5"></a>
 <a id="75-risk--liability"></a>
-## 7.5 Риски и ответственность
+## 7.5 Risks and liability
 
-### Угроза начинается до подписи
+### The threat starts before the signature
 
-**Prompt injection** — внедрение внешним источником инструкций в данные, которые читает агент. Например, описание товара просит считать новый адрес «официальным адресом оплаты» или заменить условия покупки. Контент продавца может рассказывать о товаре, но не имеет полномочий переписать бюджет клиента. Аналогично ответ инструмента не должен становиться разрешением раскрыть credential.
+**Prompt injection** is the insertion of instructions by an external source into data that the agent reads. For example, a product description asks the agent to treat a new address as the "official payment address" or to replace the purchase terms. The merchant's content may describe the item, but it has no authority to rewrite the customer's budget. Likewise, a tool's response must not become permission to disclose a credential.
 
-Граница защиты проходит между рассуждением и исполнением полномочия. Агент может предложить покупку, но отдельный компонент проверяет структурированные ограничения, получает при необходимости согласие человека и только после этого использует ключ. Если один и тот же LLM одновременно читает произвольный сайт и сам объявляет, что лимит соблюден, независимой проверки нет.
+The protection boundary runs between reasoning and the exercise of authority. The agent may propose a purchase, but a separate component checks the structured constraints, obtains human consent if needed, and only then uses the key. If the same LLM both reads an arbitrary website and itself declares that the limit has been respected, there is no independent check.
 
-В AP2 threat model агент прямо рассматривается как потенциальный атакующий; проверки выполняются детерминированно. Документ связывает closed mandate с open mandate и checkout, отдельно рассматривает credential theft и overlapping authorizations. Это полезная архитектурная постановка, но соблюдение описания конкретной реализацией нужно проверять. [P07-S021]
+The AP2 threat model explicitly treats the agent as a potential attacker; checks are performed deterministically. The document links a closed mandate to an open mandate and to checkout, and separately considers credential theft and overlapping authorizations. This is a useful architectural framing, but whether a specific implementation follows the description must be verified. [P07-S021]
 
-### Карта угроз и владельцев защиты
+### Map of threats and control owners
 
-Таблица ниже — учебный threat model для crypto→fiat покупки. «Владелец контроля» означает, у кого должен находиться исполняемый предохранитель; окончательная финансовая ответственность определяется применимым правом и договорами.
+The table below is a teaching threat model for a crypto→fiat purchase. "Control owner" means who should hold the enforceable safeguard; the ultimate financial liability is determined by the applicable law and contracts.
 
-| Угроза | Что нарушается | Контроль и его место |
+| Threat | What is violated | Control and where it sits |
 |---|---|---|
-| Подмена цены/получателя в tool output | Связь поручения с платежом | Trusted Surface показывает точные поля; credential provider сравнивает сумму, актив, merchant и срок |
-| Повтор credential | Одно разрешение дает несколько эффектов | Nonce/consumed-proof registry на рельсе и у processor; атомарная обработка |
-| Новый credential для старого заказа | Два допустимых разрешения оплачивают одну покупку | Application operation ID, order uniqueness, сохраненное состояние до отправки |
-| Параллельные покупки превышают бюджет | Каждый запрос допустим, сумма недопустима | Общий атомарный бюджет с резервами, velocity и лимитом параллельности |
-| Неверный товар при верной сумме | Денежный лимит соблюден, цель нет | Checkout hash, SKU, количество, условия доставки и запрет лишних line items |
-| Кража bearer credential из журнала | Посторонний получает платежную возможность | Минимизация секретов, ограниченный срок/получатель, защищенный signer, редактирование логов |
-| Поддельное сообщение «refund completed» | Нет реального возврата денег | Сверка refund ID и фактического состояния у исходного provider/rail |
+| Substitution of price/recipient in tool output | The link between instruction and payment | Trusted Surface shows the exact fields; the credential provider compares amount, asset, merchant and expiry |
+| Credential replay | One authorization produces several effects | Nonce/consumed-proof registry on the rail and at the processor; atomic processing |
+| New credential for an old order | Two valid authorizations pay for one purchase | Application operation ID, order uniqueness, state saved before sending |
+| Parallel purchases exceed the budget | Each request is allowed, the total is not | A shared atomic budget with reserves, velocity and a concurrency limit |
+| Wrong item at the right amount | The money limit is respected, the goal is not | Checkout hash, SKU, quantity, delivery terms and a ban on extra line items |
+| Theft of a bearer credential from a log | An outsider gains the ability to pay | Minimization of secrets, limited lifetime/recipient, protected signer, log redaction |
+| Fake "refund completed" message | No real refund of money | Reconciliation of the refund ID and the actual state at the original provider/rail |
 
-В модели 1.3, где компания только поставляет software, ее контур отвечает за безопасную обработку команд и доказуемый интерфейс, а финансовый провайдер — за собственные платежные обязанности. Если платформа принимает деньги или становится MoR, у нее появляются иные обязательства и собственная финансовая экспозиция. Название «агент» не освобождает ни одну из ролей и не устанавливает автоматический перенос убытка на principal.
+In the lesson 1.3 model where the company only supplies software, its scope covers safe command handling and a provable interface, while the financial provider is responsible for its own payment obligations. If the platform accepts money or becomes an MoR, it takes on different obligations and its own financial exposure. The label "agent" does not release any of the roles from their obligations and does not automatically shift losses to the principal.
 
-### Неизвестный settlement: особое состояние
+### Unknown settlement: a special state
 
-После отправки платежа timeout означает отсутствие ответа. Он не означает отсутствие платежа. x402 v2 предусматривает non-terminal `settlement_pending` с transaction hash и network, если транзакция отправлена, но подтверждение не установлено. Этот ответ дает точку для сверки, а не приглашает создать новую авторизацию. [P07-S004]
+After a payment is sent, a timeout means the absence of a response. It does not mean the absence of a payment. x402 v2 provides a non-terminal `settlement_pending` with a transaction hash and network if the transaction has been submitted but confirmation has not been established. This response gives a point for reconciliation; it is not an invitation to create a new authorization. [P07-S004]
 
 ```mermaid
 stateDiagram-v2
   [*] --> Prepared
-  Prepared --> Submitted: отправлена одна операция
-  Submitted --> Settled: provider или rail подтвердил
-  Submitted --> Failed: подтвержден окончательный отказ
-  Submitted --> Unknown: timeout или неоднозначный ответ
-  Unknown --> Reconciling: исходные ID и параметры
+  Prepared --> Submitted: one operation sent
+  Submitted --> Settled: provider or rail confirmed
+  Submitted --> Failed: final rejection confirmed
+  Submitted --> Unknown: timeout or ambiguous response
+  Unknown --> Reconciling: original IDs and parameters
   Reconciling --> Settled
   Reconciling --> Failed
-  Reconciling --> OperatorReview: доказательств недостаточно
+  Reconciling --> OperatorReview: insufficient evidence
   Settled --> FulfillmentPending
   FulfillmentPending --> Delivered
-  FulfillmentPending --> RefundPending: исполнение невозможно
-  RefundPending --> Refunded: подтвержден возврат
+  FulfillmentPending --> RefundPending: fulfillment impossible
+  RefundPending --> Refunded: refund confirmed
 ```
 
-Названия состояний здесь учебные. Принцип восстановления: сохранить order ID, operation ID, provider reference, network, asset, amount и получателя; запросить статус той же операции; проверить ledger и delivery; освободить резерв только при установленном исходе. В журнал не нужно класть raw card, secret key или повторно пригодный payment payload.
+The state names here are for teaching purposes. The recovery principle: save the order ID, operation ID, provider reference, network, asset, amount and recipient; query the status of the same operation; check the ledger and delivery; release the reserve only once the outcome is established. Do not put raw card data, a secret key or a reusable payment payload in the log.
 
-**Синтетический сбой.** У задачи осталось 10 USD; две параллельные операции по 6 USD читают один и тот же остаток. Если проверка и резерв не атомарны, обе проходят и итог 12 превышает лимит. Правильный результат: первая резервирует 6, доступно 4; вторая не получает полномочие. Если первая попала в unknown, ее 6 остаются резервом до сверки. Освобождение только по timeout снова откроет путь к превышению бюджета.
+**Synthetic failure.** A task has 10 USD left; two parallel operations of 6 USD each read the same balance. If the check and the reserve are not atomic, both pass, and the total of 12 exceeds the limit. The correct result: the first one reserves 6, leaving 4 available; the second one does not get authority. If the first one ends up unknown, its 6 stay reserved until reconciliation. Releasing the reserve on timeout alone reopens the path to exceeding the budget.
 
-### Что дают исследования безопасности
+### What security research contributes
 
-**AgentDojo**, опубликованная в NeurIPS 2024 работа, исследует взаимодействие агентов с инструментами и недоверенными данными. В прочитанной версии используются 97 пользовательских задач и 629 security cases; успех пользователя и успех атакующего проверяются по состоянию среды. Авторы отдельно оценивают utility без атак, utility под атакой и targeted attack success. Для главы важен метод: проверять конечное состояние, а не уверенный ответ модели. Модели и сценарии исследования относятся к своему периоду; проценты нельзя переносить на платежный продукт 2026 года или частоту реальных финансовых потерь. [P07-S033]
+**AgentDojo**, a paper published at NeurIPS 2024, studies how agents interact with tools and untrusted data. The version we read uses 97 user tasks and 629 security cases; user success and attacker success are checked against the state of the environment. The authors separately evaluate utility without attacks, utility under attack, and targeted attack success. What matters for this chapter is the method: check the final state, not the model's confident answer. The study's models and scenarios belong to their time; the percentages cannot be transferred to a 2026 payment product or to the frequency of real financial losses. [P07-S033]
 
-Препринт **A Formal Analysis of Agent Payment Protocols**, v1, строит Tamarin-модели x402, MPP, AP2 и ACP. Авторы допускают враждебные действия агента и конкурирующие сессии; связывают protocol events, формулируют свойства и сравнивают контрпример с исправленной моделью. Метод хорошо выявляет пропущенную привязку или неверный порядок состояний. Однако symbolic trace доказывает возможность внутри заданной модели. В статье различаются implementation PoC, schema/contract witness и условные сценарии; они не равны доказанному взлому каждого deployment. Версии моделей и репозиториев требуют повторной сверки перед эксплуатационным выводом. [P07-S034]
+The preprint **A Formal Analysis of Agent Payment Protocols**, v1, builds Tamarin models of x402, MPP, AP2 and ACP. The authors allow for hostile actions by the agent and for concurrent sessions; they link protocol events, formulate properties and compare a counterexample with a corrected model. The method is good at revealing a missing binding or a wrong order of states. However, a symbolic trace proves a possibility within the given model. The paper distinguishes an implementation PoC, a schema/contract witness and conditional scenarios; they are not the same as a proven break of every deployment. The versions of the models and repositories need to be re-checked before drawing an operational conclusion. [P07-S034]
 
-Препринт **Beyond the Mandate**, v1, анализирует AP2 v0.2 через threat modeling, собственный testbed, PoC и scanner. Авторы прямо объясняют отсутствие полного публичного deployment для оценки и используют контролируемую среду; проверка scanner проводится на той же среде. Поэтому работа полезна для проектирования тестов вокруг pre-signing context, отображения согласия и границ ролей. Она не дает независимой статистики production-инцидентов. Оба препринта здесь не объявляются peer-reviewed; атаки и инструменты автором главы не воспроизводились. [P07-S035]
+The preprint **Beyond the Mandate**, v1, analyzes AP2 v0.2 through threat modeling, its own testbed, a PoC and a scanner. The authors explicitly explain that no full public deployment was available for evaluation and use a controlled environment; the scanner is tested on the same environment. That is why the paper is useful for designing tests around the pre-signing context, the display of consent and role boundaries. It does not provide independent statistics on production incidents. Neither preprint is presented here as peer-reviewed; the chapter's author did not reproduce the attacks or the tools. [P07-S035]
 
-Публичный Reddit-кейс добавляет практический вопрос: автор IndianDownUnder описывает test-mode интеграцию SPT, где `requires_action` сопровождался HTTP 200, а ошибку decline легко было потерять в обработчике. Это свидетельство автора о его тестах, не наш эксперимент. Проверяемый общий вывод подтверждается моделью Stripe `PaymentIntent`: читать денежный status и соответствующее действие, сохранять отказ и не объявлять заказ оплаченным только по HTTP. [P07-S038][P07-S040]
+A public Reddit case adds a practical question: the author IndianDownUnder describes a test-mode SPT integration in which `requires_action` came with HTTP 200, and the decline error was easy to lose in the handler. This is the author's account of their own tests, not our experiment. The verifiable general conclusion is supported by Stripe's `PaymentIntent` model: read the money status and the corresponding action, save the decline, and do not declare an order paid on the basis of HTTP alone. [P07-S038][P07-S040]
 
 <a id="module-7-6"></a>
 <a id="76-identity-агента-vs-principal"></a>
-## 7.6 Как отличить агента от того, кто дал ему поручение
+## 7.6 How to tell the agent from the principal who instructed it
 
-### Четыре разных вида доказательства
+### Four different kinds of evidence
 
-**Identity** отвечает «какой субъект или компонент представлен». **Authentication** — «как проверено, кто предъявил данные». **Authorization** — «какое действие разрешено». **Accountability** — «кто отвечает за последствия и какие доказательства доступны». Эти понятия связываются, но ни одно не заменяет остальные.
+**Identity** answers "which subject or component is presented." **Authentication** answers "how it was verified who presented the data." **Authorization** answers "which action is permitted." **Accountability** answers "who is responsible for the consequences and what evidence is available." These concepts are linked, but none of them replaces the others.
 
-Подпись ключом агента подтверждает использование этого ключа. Чтобы связать подпись с компанией, нужен доверенный реестр или issuer. Чтобы связать компанию с конкретным поручением клиента, нужно делегирование. Чтобы разрешить расход, нужны проверенные ограничения. Чтобы установить гражданскую ответственность, недостаточно JSON с именем principal.
+A signature with the agent's key confirms that this key was used. To link the signature to a company, you need a trusted registry or issuer. To link the company to a specific customer instruction, you need delegation. To permit spending, you need verified constraints. To establish civil liability, a JSON with the principal's name is not enough.
 
-OAuth 2.0 Token Exchange различает **impersonation**, когда действующий субъект в определенном контексте выглядит как другой субъект, и **delegation**, когда actor сохраняет собственную идентичность и действует от имени subject. `subject_token`, `actor_token` и JWT `act` позволяют передать эту структуру. RFC не определяет сам по себе полную финансовую политику доверия. [P07-S031]
+OAuth 2.0 Token Exchange distinguishes **impersonation**, where the acting subject appears in a given context as another subject, from **delegation**, where the actor keeps its own identity and acts on behalf of the subject. `subject_token`, `actor_token` and JWT `act` make it possible to convey this structure. The RFC by itself does not define a complete financial trust policy. [P07-S031]
 
-**DPoP**, proof of possession, связывает применение access token с владением ключом и параметрами HTTP-запроса. RFC прямо предупреждает, что DPoP proof сам по себе не является механизмом аутентификации или контроля доступа. Он помогает против повторного использования украденного token посторонним без ключа; он не отвечает, имел ли обладатель ключа право купить именно этот товар. [P07-S032]
+**DPoP**, proof of possession, binds the use of an access token to possession of a key and to the parameters of the HTTP request. The RFC explicitly warns that a DPoP proof by itself is not an authentication or access control mechanism. It helps against the reuse of a stolen token by an outsider who does not have the key; it does not answer whether the key holder had the right to buy this particular item. [P07-S032]
 
-**Attested runtime** добавляет свидетельство о среде исполнения. В архитектуре RATS attester дает evidence, verifier оценивает его, relying party принимает решение по attestation result и своей политике. Подтверждение измеренной среды полезно для доверия к signer, но не превращает любой запущенный в ней код в полномочного покупателя. Само торговое поручение все равно должно быть связано с действием. [P07-S041]
+An **attested runtime** adds evidence about the execution environment. In the RATS architecture, the attester produces evidence, the verifier appraises it, and the relying party makes a decision based on the attestation result and its own policy. Confirmation of a measured environment is useful for trusting the signer, but it does not turn any code running in that environment into an authorized buyer. The commercial instruction itself must still be linked to the action. [P07-S041]
 
-В учебной spend policy отдельно задают allowlist продавцов, допустимые страны/географию услуги, network и asset, максимум одной операции, общий бюджет и velocity — число либо сумму операций за интервал. Технически валидный USDC transfer в другой сети не обязан удовлетворять поручению на выбранный инструмент. Географическая проверка требует надежных данных о продавце и услуге: IP агента не является полной картиной страны покупки. Это проектные controls, которые необходимо согласовать с возможностями credential provider.
+In a teaching spend policy, you separately set an allowlist of merchants, the permitted countries/geography of the service, the network and asset, the maximum for a single transaction, the total budget and velocity — the number or amount of transactions per interval. A technically valid USDC transfer on a different network does not necessarily satisfy an instruction for the chosen instrument. A geographic check requires reliable data about the merchant and the service: the agent's IP is not the full picture of the country of purchase. These are design controls that must be aligned with the capabilities of the credential provider.
 
-### AP2: связывание поручения и покупки
+### AP2: binding the mandate to the purchase
 
-**Agent Payments Protocol, AP2**, — слой авторизации агентских платежей. Для главы зафиксирована v0.2.0, опубликованная в changelog 28.04.2026. В этой версии два вида мандатов — Checkout и Payment, каждый может быть open или closed. Более ранние материалы с другой терминологией нельзя незаметно смешивать с этим контрактом. Commerce API и детали разрешения споров находятся за пределами core AP2. [P07-S017]
+The **Agent Payments Protocol, AP2**, is an authorization layer for agent payments. This chapter pins v0.2.0, published in the changelog on 2026-04-28. In this version there are two kinds of mandates — Checkout and Payment — and each can be open or closed. Earlier materials with different terminology must not be quietly mixed with this contract. The Commerce API and the details of dispute resolution are outside the scope of core AP2. [P07-S017]
 
-Open mandate задает допустимые условия до выбора финальной покупки. Closed mandate привязан к конкретному checkout/payment. При human-present процессе человек согласует closed mandates. При autonomous процессе он заранее согласует open mandates и ключ агента; агент предъявляет соответствующие closed mandates, а проверяющие стороны контролируют подписи и ограничения. AP2 отдельно описывает User Credential и Trusted Agent Provider как модели доверия к получению согласия. Это объясняет, кому verifier доверяет, но не является универсальным KYC-продуктом. [P07-S018]
+An open mandate sets the acceptable conditions before the final purchase is chosen. A closed mandate is tied to a specific checkout/payment. In a human-present flow, the person approves the closed mandates. In an autonomous flow, the person approves the open mandates and the agent's key in advance; the agent presents the corresponding closed mandates, and the verifying parties check the signatures and constraints. AP2 separately describes User Credential and Trusted Agent Provider as trust models for obtaining consent. This explains whom the verifier trusts, but it is not a universal KYC product. [P07-S018]
 
-Checkout mandate связывается через `checkout_hash` с merchant-signed checkout JWT. Payment mandate ограничивает, в частности, payee, instrument, amount, date и при необходимости recurrence/budget; budget требует учета предыдущих предъявлений. В документе Checkout line-items есть ограничение: рассматриваемая проверка не поддерживает разбиение одного open checkout mandate по нескольким checkouts. Значит, произвольный «флот агентов с одним мандатом» нельзя считать стандартным поддержанным сценарием. [P07-S019][P07-S020]
+A checkout mandate is linked via `checkout_hash` to a merchant-signed checkout JWT. A payment mandate constrains, among other things, the payee, instrument, amount, date and, where needed, recurrence/budget; a budget requires keeping track of previous presentations. The Checkout line-items document contains a limitation: the check in question does not support splitting one open checkout mandate across several checkouts. So an arbitrary "fleet of agents with one mandate" cannot be considered a standard supported scenario. [P07-S019][P07-S020]
 
-**Пример делегирования.** Компания разрешила агенту купить один отчет SKU R у поставщика M за максимум 40 USD до 18:00. Shopping agent согласовал 37 USD и получил signed checkout. Проверка должна установить одновременно: открытое поручение действительно; agent key тот же; merchant и SKU допустимы; closed checkout соответствует подписанному предложению; payment относится к тому же checkout; 37 не превышает 40; срок не истек. Если отчет стоит 37, а доставка в checkout меняет общий итог на 43, сравнение только цены SKU недостаточно.
+**Delegation example.** A company authorized an agent to buy one report, SKU R, from supplier M for a maximum of 40 USD before 18:00. The shopping agent agreed on 37 USD and received a signed checkout. The check must establish all of the following at once: the open mandate is valid; the agent key is the same; the merchant and SKU are permitted; the closed checkout matches the signed offer; the payment relates to the same checkout; 37 does not exceed 40; the deadline has not passed. If the report costs 37 but delivery in the checkout changes the total to 43, comparing only the SKU price is not enough.
 
-Подписание узкого поручения уменьшает риск, но не гарантирует разумный выбор. Два отчета могут формально соответствовать одинаковому SKU у недобросовестного продавца. Merchant signature подтверждает, что продавец подписал предложение; качество продукта требует отдельной проверки.
+Signing a narrow mandate reduces risk, but it does not guarantee a sensible choice. Two reports from a dishonest merchant may formally match the same SKU. A merchant signature confirms that the merchant signed the offer; the quality of the product requires a separate check.
 
-### Кто проходит KYC/KYB
+### Who undergoes KYC/KYB
 
-Для реального запуска следует установить клиента каждой организации: человек-плательщик, компания principal, оператор агентской платформы, merchant, провайдер custody/conversion. **KYC/KYB** относятся к проверке соответствующего клиента и бизнеса; они не заменяются выдачей агенту красивого имени или DID. Страница FATF guidance 2021 описывает scope virtual assets, ролей VASP, stablecoins и Travel Rule, но предупреждает о последующих изменениях стандартов, включая 2025 год. Здесь она используется только как исторический контекст: полный PDF не исследован, текущие обязанности из него не выводятся. Точная обязанность конкретного лица требует проверки действующих норм по деятельности и юрисдикции. [P07-S039]
+For a real launch, the customer of each organization must be identified: the paying person, the principal company, the agent platform operator, the merchant, the custody/conversion provider. **KYC/KYB** refer to the verification of the relevant customer and business; they are not replaced by giving the agent a nice name or a DID. The FATF 2021 guidance page describes the scope of virtual assets, VASP roles, stablecoins and the Travel Rule, but warns of subsequent changes to the standards, including in 2025. Here it is used only as historical context: the full PDF was not examined, and current obligations are not derived from it. The exact obligation of a particular entity requires checking the rules in force for the specific activity and jurisdiction. [P07-S039]
 
-Вопрос **whose wallet?** надо разобрать буквально. Компания владеет средствами, employee дал поручение, agent vendor хранит ключ, а custody provider исполняет перевод — четыре разные связи. Blockchain address показывает адрес в транзакции; он не раскрывает сам по себе владельца средств, beneficial owner, договорного клиента или источник поручения. Wallet proof полезен как техническое доказательство контроля, но не заменяет проверку этих отношений.
+The question **whose wallet?** must be taken literally. The company owns the funds, an employee gave the instruction, the agent vendor holds the key, and the custody provider executes the transfer — these are four different relationships. A blockchain address shows the address in the transaction; by itself it does not reveal the owner of the funds, the beneficial owner, the contractual customer or the source of the instruction. A wallet proof is useful as technical evidence of control, but it does not replace verification of these relationships.
 
-Поэтому на границе Travel Rule и sanctions заранее определяют originator/beneficiary в применимом режиме, обслуживающего провайдера и нужные данные. Нельзя подставить имя программы вместо проверяемого человека/организации только потому, что HTTP-запрос отправила программа. Нельзя и объявить каждую программу VASP: сначала анализируются выполняемые финансовые функции. Подробные нормы и географические границы — [часть 1](../01-Market-rules-and-licensing/README.md); этот модуль не вводит самостоятельную юридическую классификацию.
+So at the Travel Rule and sanctions boundary, the originator/beneficiary under the applicable regime, the servicing provider and the required data are determined in advance. You cannot substitute the name of a program for the person/organization that must be verified just because the HTTP request was sent by a program. Nor can you declare every program a VASP: first, the financial functions it performs are analyzed. Detailed rules and geographic boundaries are in [Chapter 1](../01-Market-rules-and-licensing/README.md); this module does not introduce a legal classification of its own.
 
-### Учебная RACI: agentic crypto→fiat
+### Teaching RACI: agentic crypto→fiat
 
-Ниже модель, в которой компания principal покупает у direct merchant, agent vendor предоставляет software, финансовый provider ведет прием/conversion/payout, а человек-владелец principal утверждает политику. **R** выполняет работу, **A** владеет результатом внутри процесса, **C** участвует в согласовании, **I** получает результат. Это проектная RACI, не распределение ответственности по закону. Договоры и обязанности организаций проверяются отдельно.
+Below is a model in which the principal company buys from a direct merchant, the agent vendor provides software, a financial provider handles acceptance/conversion/payout, and the principal's human owner approves the policy. **R** does the work, **A** owns the result within the process, **C** takes part in approval, **I** receives the result. This is a design RACI, not an allocation of liability under the law. The organizations' contracts and obligations are checked separately.
 
-| Работа | Principal / его человек | Agent vendor / runtime | Финансовый provider | Merchant |
+| Work | Principal / its human | Agent vendor / runtime | Financial provider | Merchant |
 |---|---|---|---|---|
-| Установить principal и полномочия человека | R | C | A/R в своем onboarding | I при необходимости |
-| Проверить merchant для финансового обслуживания | I | I | A/R | R за свои сведения |
-| Утвердить бюджет, товары и допустимых получателей | A/R | C | C по возможностям контроля | I |
-| Проверить agent identity и привязку credential | C | R | A/R в своем payment boundary | R на своей входной границе |
-| Атомарно учитывать бюджет задач и reservations | A за политику | R за реализацию | C, отдельные rail limits | I |
-| Провести и сверить payment/conversion/payout | I | R за корреляцию IDs | A/R за свои операции | C, проверка получения |
-| Выполнить товарный заказ | I | R за передачу и наблюдение | I | A/R |
-| Принять жалобу и собрать evidence | A за buyer case | R за журнал поручения | R за payment evidence | R за order evidence |
-| Решить и исполнить refund/dispute | C | C | R по своему рельсу | A/R по торговому решению в этой модели |
+| Establish the principal and the human's authority | R | C | A/R in its own onboarding | I if needed |
+| Verify the merchant for financial services | I | I | A/R | R for its own information |
+| Approve the budget, items and permitted payees | A/R | C | C on control capabilities | I |
+| Verify agent identity and credential binding | C | R | A/R within its payment boundary | R at its own entry boundary |
+| Atomically track task budgets and reservations | A for the policy | R for the implementation | C, separate rail limits | I |
+| Execute and reconcile payment/conversion/payout | I | R for correlating IDs | A/R for its own operations | C, checks receipt |
+| Fulfill the order for the goods | I | R for handover and monitoring | I | A/R |
+| Accept a complaint and collect evidence | A for the buyer case | R for the instruction log | R for payment evidence | R for order evidence |
+| Decide on and execute a refund/dispute | C | C | R on its own rail | A/R for the commercial decision in this model |
 
-Если финансовые функции разделены между custody provider, exchange и PSP, соответствующую колонку нужно разделить. Если продукт — MoR, торговые строки переходят к MoR по конкретному договору; «наш агент все сделал» не является назначением владельца разбирательства.
+If the financial functions are split among a custody provider, an exchange and a PSP, the corresponding column must be split as well. If the product is an MoR, the commercial rows move to the MoR under the specific contract; "our agent did everything" does not assign an owner to the dispute.
 
-### Минимальная история, достаточная для разбирательства
+### Minimum history sufficient for a dispute
 
-Для одной покупки сохраняют: кто дал поручение и когда; точные отображенные условия; policy/mandate version; actor и цепочку делегирования; merchant и order; сумму, валюту и включенные комиссии; credential ID и ограничения без секрета; результаты проверок; provider/rail IDs; отдельно settlement, delivery, cancellation и refund. Нужно связать эти события устойчивыми ID, а не только временем и похожими суммами.
+For each purchase, keep: who gave the instruction and when; the exact terms displayed; the policy/mandate version; the actor and the delegation chain; the merchant and the order; the amount, currency and included fees; the credential ID and its constraints, without the secret; the results of checks; provider/rail IDs; and, separately, settlement, delivery, cancellation and refund. These events must be linked by stable IDs, not just by time and similar amounts.
 
-У пользователя должны быть понятные средства контроля: посмотреть действующие поручения, ограничить сумму и срок, отозвать будущий доступ, остановить новые операции, узнать неопределенные исходы и открыть спор. Отзыв не стирает уже исполненный платеж; прекращение задания не доказывает cancellation у продавца. Если система не различает эти состояния, агент становится новым каналом fraud: он быстрее превращает недоверенные данные в расходы и хуже объясняет, чье поручение исполнил.
+The user must have clear controls: view active instructions, limit amount and duration, revoke future access, stop new transactions, find out about uncertain outcomes and open a dispute. Revocation does not erase a payment that has already been executed; stopping a task does not prove cancellation at the merchant. If the system does not distinguish between these states, the agent becomes a new fraud channel: it turns untrusted data into spending faster and is worse at explaining whose instruction it carried out.
 
-### Упражнения с ответами
+### Exercises with answers
 
-**1. Финальный итог.** Разрешены 60 USD. Товар стоит 49, налог 4, доставка 8; продавец предлагает «оплатить только товар, остальное позже». Можно ли исполнить без нового согласия?
+**1. Final total.** 60 USD is authorized. The item costs 49, tax 4, delivery 8; the merchant offers to "pay only for the item, the rest later." Can this be executed without new consent?
 
-**Ответ.** Общая известная стоимость 61 USD. Она превышает 60, даже если первый charge равен 49. Разбивка на операции не расширяет поручение. Нужно другое предложение либо новая авторизация пользователя, привязанная к полному обязательству.
+**Answer.** The total known cost is 61 USD. It exceeds 60, even if the first charge is 49. Splitting into several transactions does not expand the instruction. What is needed is a different offer or a new authorization from the user tied to the full obligation.
 
-**2. Проверка единиц.** Цена 0,015 USDC, шесть знаков после запятой. Начальный остаток 1,000 USDC, выполнены 12 платных запросов, gas оплачивает facilitator. Какие числа записать?
+**2. Checking units.** The price is 0.015 USDC, with six decimal places. The starting balance is 1.000 USDC, 12 paid requests have been made, and the facilitator pays the gas. Which numbers should be recorded?
 
-**Ответ.** Один запрос — 15 000 минимальных единиц; всего 180 000 = 0,180 USDC. Остаток клиента 0,820 USDC. Сетевые расходы facilitator записываются отдельно в соответствующем активе. Двенадцать успешных денежных переводов не доказывают получение двенадцати корректных результатов API.
+**Answer.** One request is 15,000 minor units; the total is 180,000 = 0.180 USDC. The client's balance is 0.820 USDC. The facilitator's network costs are recorded separately in the corresponding asset. Twelve successful money transfers do not prove that twelve correct API results were received.
 
-**3. Неизвестный исход.** x402 `settlement_pending` содержит hash H. Новый запрос возвращает новую цену и challenge. Следует ли подписать новый payload, чтобы быстрее получить товар?
+**3. Unknown outcome.** An x402 `settlement_pending` contains hash H. A new request returns a new price and challenge. Should you sign a new payload to get the item faster?
 
-**Ответ.** Сначала сверить H в указанной сети и исходный order. Новый challenge не опровергает прежний перевод. Если settlement подтвержден, восстанавливается delivery исходного заказа. Если данных недостаточно, операция остается unknown/operator review с резервом бюджета. Новый платеж допустим только после установления прежнего исхода и проверки действующих полномочий.
+**Answer.** First reconcile H on the specified network and the original order. A new challenge does not disprove the earlier transfer. If settlement is confirmed, delivery of the original order is resumed. If the data are insufficient, the operation stays in unknown/operator review with the budget reserve in place. A new payment is allowed only after the earlier outcome has been established and the current authority has been checked.
 
-**4. Session vouchers.** Депозит 3 USDC; vouchers подтверждают накопленные 0,50, 0,90 и 1,20. Сколько начислено за потребление и сколько осталось?
+**4. Session vouchers.** The deposit is 3 USDC; vouchers confirm cumulative amounts of 0.50, 0.90 and 1.20. How much has been accrued for consumption, and how much is left?
 
-**Ответ.** Накопленное требование 1,20, остаток депозита 1,80. Сумма трех значений 2,60 была бы повторным учетом. Отдельно проверяется, соответствует ли последний voucher действительно принятому объему услуги и правилам конкретного канала.
+**Answer.** The accumulated claim is 1.20, and the deposit remainder is 1.80. Adding the three values up to 2.60 would be double counting. Separately, check whether the last voucher actually corresponds to the volume of service accepted and to the rules of the specific channel.
 
-**5. Верная подпись.** Агент предъявляет действующий DPoP proof и access token. Merchant узнает ключ. Доказывает ли это согласие купить подписку за 20 USD ежемесячно?
+**5. A valid signature.** The agent presents a valid DPoP proof and access token. The merchant recognizes the key. Does this prove consent to buy a subscription for 20 USD per month?
 
-**Ответ.** Нет. Проверены условия использования token и владение ключом. Нужны полномочия на recurring purchase: продавец, валюта, период, число повторов/срок, бюджет и доказательство согласия principal. Разовый token или поручение не расширяется названием DPoP.
+**Answer.** No. What has been verified are the conditions for using the token and possession of the key. Authority for a recurring purchase is needed: merchant, currency, period, number of repetitions/duration, budget and proof of the principal's consent. A one-time token or instruction is not extended by the name DPoP.
 
-**6. Где успех?** Checkout сообщает `completed`, payment provider показывает settled, merchant payout ожидается, ссылка на цифровой товар возвращает ошибку. Как сообщить результат?
+**6. Where is success?** Checkout reports `completed`, the payment provider shows settled, the merchant payout is pending, and the link to the digital item returns an error. How should the result be reported?
 
-**Ответ.** «Заказ размещен, платеж подтвержден; товар пока недоступен; выплата merchant ожидается». Нужна работа с fulfillment либо refund. Нельзя назвать все failed и повторить charge, нельзя объявить покупку полностью исполненной и скрыть недоступность товара.
+**Answer.** "The order is placed, the payment is confirmed; the item is not yet available; the merchant payout is pending." Work on fulfillment or a refund is needed. You cannot call everything failed and repeat the charge, and you cannot declare the purchase fully completed while hiding that the item is unavailable.
 
-**7. Кто MoR?** Агент нашел товар, PSP обработал карту, исходный магазин выставил покупателю счет и отвечает за продажу по договору. Стал ли agent vendor MoR?
+**7. Who is the MoR?** The agent found the item, the PSP processed the card, and the original store invoiced the buyer and is responsible for the sale under the contract. Has the agent vendor become the MoR?
 
-**Ответ.** Из описанного программного участия это не следует. Сначала проверяются договор продажи, checkout disclosures и договорная модель участников. Роль покупающего агента сама по себе не делает его поставщика продавцом.
+**Answer.** This does not follow from the software involvement described. First, check the sales contract, the checkout disclosures and the participants' contractual model. The role of a purchasing agent does not by itself make its provider the seller.
 
-### Связи, границы и критерий готовности
+### Connections, boundaries and a readiness criterion
 
-Глава дает модель чтения протоколов и проектирования контролей. Для интеграции необходимы [часть 8](../08-Integrations-and-reliability/README.md) о ledger, idempotency и операционном восстановлении и сквозные кейсы части 9, запланированной в [структуре базы](../../Methodology/Original-plan.md). Публикация документации, действующий endpoint или найденный каталог не заменяют проверку полного пути конкретного продукта.
+The chapter provides a model for reading protocols and designing controls. For an integration, you also need [Chapter 8](../08-Integrations-and-reliability/README.md) on the ledger, idempotency and operational recovery, as well as the end-to-end cases of Chapter 9, planned in the [knowledge base structure](../../Methodology/Original-plan.md). Published documentation, a working endpoint or a discovered catalog does not replace verification of the full path of a specific product.
 
-Открыты для последующего прикладного исследования: договорная agentic liability Visa/Mastercard по выбранной программе и стране; eligibility конкретного provider account; воспроизведение security cases на точных версиях; совместимость selected payment handlers; реальные refund/fulfillment сценарии; сроки и обязательные данные KYC/Travel Rule в выбранной модели. Для юридических и финансовых решений нужен профильный review. В этой сборке реальные платежи, кошельки и клиентские данные не использовались.
+Open for follow-up applied research: the contractual agentic liability of Visa/Mastercard for a selected program and country; the eligibility of a specific provider account; reproduction of the security cases on exact versions; the compatibility of selected payment handlers; real refund/fulfillment scenarios; the timelines and mandatory data for KYC/Travel Rule in the chosen model. Legal and financial decisions require specialist review. No real payments, wallets or customer data were used in this build.
 
-**Критерий зрелого agentic payment:** можно показать, кем и на что выданы полномочия, почему конкретная операция была допустима, сколько и куда реально переместилось, какой товар получен и как будет обработан каждый незавершенный исход.
+**Criterion of a mature agentic payment:** you can show by whom and for what authority was granted, why a specific transaction was permissible, how much actually moved and where to, what goods were received, and how each unfinished outcome will be handled.
 
 [P07-S001]: https://www.rfc-editor.org/rfc/rfc9110.html#name-402-payment-required
 [P07-S002]: https://github.com/x402-foundation/x402/blob/6b9302737f16eea7de90b3bf617c045cef23e032/specs/x402-specification-v2.md
@@ -420,19 +420,19 @@ Checkout mandate связывается через `checkout_hash` с merchant-s
 
 ---
 
-### Источники и проверка
+### Sources and fact-check
 
-[Источники](Sources.md) · [Проверяемые утверждения](Claims.md) · [Фактчек главы](../../Fact-check/07-AI-agent-payments/README.md)
+[Sources](Sources.md) · [Verifiable claims](Claims.md) · [Chapter fact-check](../../Fact-check/07-AI-agent-payments/README.md)
 
-Текст подготовлен агентами и прошёл независимую агентную проверку 15–17 сентября 2026. Учебная редакция имеет ограничения; даты и границы применимости указаны в источниках. [Паспорт издания](../../Methodology/Edition-record.md).
+The text was prepared by agents and underwent an independent agent review on 15–17 September 2026. The teaching edition has limitations; the dates and limits of applicability are given in the sources. [Edition record](../../Methodology/Edition-record.md).
 
 <details>
-<summary>История и служебные сведения исходной рукописи</summary>
+<summary>History and metadata of the original manuscript</summary>
 
-Эти сведения описывают исследовательский этап до публикации. Текущая видимость — публичная; статус всего издания — `reviewed_with_limitations`. Прежние метки `private` и `independently_reviewed_draft` сохранены только как история.
+This information describes the research stage before publication. The current visibility is public; the status of the whole edition is `reviewed_with_limitations`. The earlier labels `private` and `independently_reviewed_draft` are kept only as history.
 
-**v0.1 · independently_reviewed_draft · private · срез 15.09.2026.** Автор: исследователь `part_07_research`. Самостоятельная проверка автора завершена; результат независимого review — в REVIEW.md (исторический или служебный материал; сохранен у владельца, вне этой копии). Дата обращения к источникам — 15.09.2026, Asia/Makassar. Точные версии, объем чтения и ограничения находятся в [Источники](Sources.md), проверяемые тезисы — в [Утверждения](Claims.md).
+**v0.1 · independently_reviewed_draft · private · cutoff 2026-09-15.** Author: researcher `part_07_research`. The author's self-check is complete; the result of the independent review is in REVIEW.md (historical or internal material; kept by the owner, outside this copy). Sources were accessed on 2026-09-15, Asia/Makassar. Exact versions, reading scope and limitations are in [Sources](Sources.md), and verifiable claims are in [Claims](Claims.md).
 
 </details>
 
-[← Криптовалюты и стейблкоины](../06-Crypto-and-stablecoins/README.md) · [Оглавление](../README.md) · [Интеграции и надёжность →](../08-Integrations-and-reliability/README.md)
+[← Crypto and stablecoins](../06-Crypto-and-stablecoins/README.md) · [Contents](../README.md) · [Integrations and reliability →](../08-Integrations-and-reliability/README.md)

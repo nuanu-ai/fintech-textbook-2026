@@ -1,5 +1,5 @@
 ---
-title: "Независимый аудит утверждений — часть 03"
+title: "Independent claim audit — Chapter 3"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,13 +8,13 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/03-Visa-and-Mastercard-cards/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/03-Visa-and-Mastercard-cards/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations have been preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Независимый аудит утверждений — часть 03
+# Independent claim audit — Chapter 3
 
-17.09.2026 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04 · private. Срез фактов 15.09.2026; прочитанные 17 Sep rolling pages не архив 15 Sep. Verified относится к указанной ограниченной области; verified_as_reported — к публикации предложения/заявления, а не эксплуатационному результату. Contradicted у rejected-строк означает подтвержденное основание для их отклонения.
+2026-09-17 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04 · private. Fact cutoff 2026-09-15; the rolling pages read on 17 Sep are not an archive of 15 Sep. Verified refers to the stated limited scope; verified_as_reported refers to the publication of an offer/statement, not to an operational result. Contradicted for rejected rows means a confirmed basis for rejecting them.
 
 | ID | verdict | independently_read_evidence (URL + locator) | checked_scope_and_date | finding / limits |
 |---|---|---|---|---|

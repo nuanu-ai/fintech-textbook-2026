@@ -1,5 +1,5 @@
 ---
-title: "FinTech 2026 — подробная проверка фактов и источников"
+title: "FinTech 2026 — detailed check of facts and sources"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,76 +8,76 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../Methodology/Edition-record.md).
 
-# FinTech 2026 — подробная проверка фактов и источников
+# FinTech 2026 — detailed check of facts and sources
 
-Завершено: 17.09.2026 17:08 WITA · private · второй независимый проход.
+Completed: 2026-09-17 17:08 WITA · private · second independent pass.
 
-## Результат
+## Result
 
-Три новых аудитора полностью прочитали десять глав и реестры, отдельно оценили каждое утверждение и самостоятельно проверили доступ к каждой карточке источника. Редактор исправлял материалы; аудиторы повторно читали исправления и фиксировали хеши окончательных файлов.
+Three new auditors read the ten chapters and the registers in full, assessed each claim separately and independently checked access to each source card. The editor corrected the materials; the auditors re-read the corrections and recorded the hashes of the final files.
 
-**471 запись в реестре утверждений · 352 опубликованные карточки источников и 1 запись об исключенном источнике · 10 комплектов независимых отчетов.** Во всех частях итог `reviewed_with_limitations`, открытых подтвержденных critical/major замечаний нет. Ограничения доказательств сохранены в индивидуальных оценках ниже.
+**471 records in the claims register · 352 published source cards and 1 record of an excluded source · 10 sets of independent reports.** In all chapters the outcome is `reviewed_with_limitations`; there are no open confirmed critical/major findings. Evidence limitations are preserved in the individual verdicts below.
 
-Исходный снимок содержал 470 утверждений и 349 карточек. При исправлении добавлены P01-C052 и четыре первоисточника: P01-S063 (PDPC), P01-S064 (FinCEN), P02-S043 (Federal Reserve), P03-S048 (PCI SSC). Все новые записи также проверены. В нумерации есть пропуски; повтор одного документа в разных частях не является независимым подтверждением.
+The original snapshot contained 470 claims and 349 cards. During correction, P01-C052 and four primary sources were added: P01-S063 (PDPC), P01-S064 (FinCEN), P02-S043 (Federal Reserve), P03-S048 (PCI SSC). All new records were also checked. There are gaps in the numbering; the same document repeated in different chapters is not an independent confirmation.
 
-Срез знаний — 15.09.2026; фактическая проверка — 17.09.2026. Даты публикации, подписи, версии, начала применения и чтения различаются. Динамическая страница без сохраненного снимка не устанавливает ее точный вид на 15 сентября.
+Knowledge cutoff: 2026-09-15; actual check: 2026-09-17. The dates of publication, signature, version, start of application and reading differ. A dynamic page without a saved snapshot does not establish its exact appearance as of 15 September.
 
-## Степень подтверждения в публичной редакции
+## Degree of confirmation in the public edition
 
-18.09.2026 две внутренние организационные записи P09-C008/C009 заменены редакционными положениями (verified → non_factual), P09-S021 оставлен только как запись об исключении. В исходном аудите было 298 verified и 36 non_factual; остальные оценки не изменились. Это публичная адаптация, а не новый внешний фактчек.
+On 2026-09-18, two internal organizational records, P09-C008/C009, were replaced with editorial positions (verified → non_factual), and P09-S021 was kept only as a record of exclusion. The original audit had 298 verified and 36 non_factual; the other verdicts did not change. This is a public adaptation, not a new external fact-check.
 
-| Оценка | Записей | Значение |
+| Verdict | Records | Meaning |
 |---|---:|---|
-| `verified` | 296 | Подтверждено в точном охвате первоисточника |
-| `verified_as_reported` | 78 | Подтверждено как опубликованное заявление |
-| `partial` | 24 | Подтверждена только часть или ограниченный фрагмент |
-| `unverifiable` | 21 | Не удалось установить по полученным доказательствам |
-| `non_factual` | 38 | Учебная конструкция, гипотеза или предложение |
-| `contradicted` | 14 | Опровергнуто источником; см. исходный статус тезиса |
-| **Всего** | **471** | Каждая запись имеет отдельную строку |
+| `verified` | 296 | Confirmed within the exact scope of the primary source |
+| `verified_as_reported` | 78 | Confirmed as a published statement |
+| `partial` | 24 | Only a part or a limited fragment is confirmed |
+| `unverifiable` | 21 | Could not be established from the evidence obtained |
+| `non_factual` | 38 | A teaching construct, hypothesis or proposal |
+| `contradicted` | 14 | Refuted by the source; see the original status of the statement |
+| **Total** | **471** | Each record has its own row |
 
-`verified` относится к конкретной формулировке, юрисдикции, версии и условиям источника. `verified_as_reported` подтверждает содержание публикации или заявления; реальная работоспособность, частота инцидентов и причинность требуют отдельных доказательств. `non_factual` не входит в число проверенных внешних фактов.
+`verified` applies to the specific wording, jurisdiction, version and conditions of the source. `verified_as_reported` confirms the content of a publication or statement; actual functioning, incident frequency and causation require separate evidence. `non_factual` is not counted among the verified external facts.
 
-Строки `contradicted` необходимо читать вместе с исходным статусом: в реестрах присутствуют намеренно отвергнутые мифы. Их ID: P00-C045, P00-C046, P02-C053, P02-C054, P02-C055, P02-C056, P02-C057, P03-C062, P04-C001, P04-C042, P05-C018, P06-C039, P06-C040, P06-C041. Подробности и корректность исходного отклонения указаны в каждой строке аудита.
+The `contradicted` rows must be read together with the original status: the registers include deliberately rejected myths. Their IDs: P00-C045, P00-C046, P02-C053, P02-C054, P02-C055, P02-C056, P02-C057, P03-C062, P04-C001, P04-C042, P05-C018, P06-C039, P06-C040, P06-C041. The details, and whether the original rejection was correct, are given in each audit row.
 
-## Отчеты по частям
+## Reports by chapter
 
-| Часть | Утверждения | Источники | Итог | Проверка утверждений | Проверка источников |
+| Chapter | Claims | Sources | Outcome | Claim check | Source check |
 |---|---:|---:|---|---|---|
-| 0 | 48 | 24 | [Вердикт](00-Money-and-fintech-basics/README.md) | [Все утверждения](00-Money-and-fintech-basics/Claim-check.md) | [Все источники](00-Money-and-fintech-basics/Source-check.md) |
-| 1 | 52 | 56 | [Вердикт](01-Market-rules-and-licensing/README.md) | [Все утверждения](01-Market-rules-and-licensing/Claim-check.md) | [Все источники](01-Market-rules-and-licensing/Source-check.md) |
-| 2 | 57 | 43 | [Вердикт](02-How-a-payment-works/README.md) | [Все утверждения](02-How-a-payment-works/Claim-check.md) | [Все источники](02-How-a-payment-works/Source-check.md) |
-| 3 | 75 | 48 | [Вердикт](03-Visa-and-Mastercard-cards/README.md) | [Все утверждения](03-Visa-and-Mastercard-cards/Claim-check.md) | [Все источники](03-Visa-and-Mastercard-cards/Source-check.md) |
-| 4 | 44 | 24 | [Вердикт](04-Payment-providers/README.md) | [Все утверждения](04-Payment-providers/Claim-check.md) | [Все источники](04-Payment-providers/Source-check.md) |
-| 5 | 45 | 33 | [Вердикт](05-Wallets-accounts-and-cards/README.md) | [Все утверждения](05-Wallets-accounts-and-cards/Claim-check.md) | [Все источники](05-Wallets-accounts-and-cards/Source-check.md) |
-| 6 | 43 | 34 | [Вердикт](06-Crypto-and-stablecoins/README.md) | [Все утверждения](06-Crypto-and-stablecoins/Claim-check.md) | [Все источники](06-Crypto-and-stablecoins/Source-check.md) |
-| 7 | 51 | 42 | [Вердикт](07-AI-agent-payments/README.md) | [Все утверждения](07-AI-agent-payments/Claim-check.md) | [Все источники](07-AI-agent-payments/Source-check.md) |
-| 8 | 30 | 28 | [Вердикт](08-Integrations-and-reliability/README.md) | [Все утверждения](08-Integrations-and-reliability/Claim-check.md) | [Все источники](08-Integrations-and-reliability/Source-check.md) |
-| 9 | 26 | 21 | [Вердикт](09-Payment-project-workshop/README.md) | [Все утверждения](09-Payment-project-workshop/Claim-check.md) | [Все источники](09-Payment-project-workshop/Source-check.md) |
+| 0 | 48 | 24 | [Verdict](00-Money-and-fintech-basics/README.md) | [All claims](00-Money-and-fintech-basics/Claim-check.md) | [All sources](00-Money-and-fintech-basics/Source-check.md) |
+| 1 | 52 | 56 | [Verdict](01-Market-rules-and-licensing/README.md) | [All claims](01-Market-rules-and-licensing/Claim-check.md) | [All sources](01-Market-rules-and-licensing/Source-check.md) |
+| 2 | 57 | 43 | [Verdict](02-How-a-payment-works/README.md) | [All claims](02-How-a-payment-works/Claim-check.md) | [All sources](02-How-a-payment-works/Source-check.md) |
+| 3 | 75 | 48 | [Verdict](03-Visa-and-Mastercard-cards/README.md) | [All claims](03-Visa-and-Mastercard-cards/Claim-check.md) | [All sources](03-Visa-and-Mastercard-cards/Source-check.md) |
+| 4 | 44 | 24 | [Verdict](04-Payment-providers/README.md) | [All claims](04-Payment-providers/Claim-check.md) | [All sources](04-Payment-providers/Source-check.md) |
+| 5 | 45 | 33 | [Verdict](05-Wallets-accounts-and-cards/README.md) | [All claims](05-Wallets-accounts-and-cards/Claim-check.md) | [All sources](05-Wallets-accounts-and-cards/Source-check.md) |
+| 6 | 43 | 34 | [Verdict](06-Crypto-and-stablecoins/README.md) | [All claims](06-Crypto-and-stablecoins/Claim-check.md) | [All sources](06-Crypto-and-stablecoins/Source-check.md) |
+| 7 | 51 | 42 | [Verdict](07-AI-agent-payments/README.md) | [All claims](07-AI-agent-payments/Claim-check.md) | [All sources](07-AI-agent-payments/Source-check.md) |
+| 8 | 30 | 28 | [Verdict](08-Integrations-and-reliability/README.md) | [All claims](08-Integrations-and-reliability/Claim-check.md) | [All sources](08-Integrations-and-reliability/Source-check.md) |
+| 9 | 26 | 21 | [Verdict](09-Payment-project-workshop/README.md) | [All claims](09-Payment-project-workshop/Claim-check.md) | [All sources](09-Payment-project-workshop/Source-check.md) |
 
-## Что исправлено
+## What was corrected
 
-Независимые аудиторы закрыли **3 существенных (major) и 16 небольших (minor) замечаний**. Полный [журнал правок и межглавной сверки](Cross-chapter-consistency.md) содержит эти 19 позиций и отдельное наблюдение о нестабильном доступе к Apple. Приоритет и повторное закрытие каждой находки зафиксированы в отчетах аудиторов.
+The independent auditors closed **3 major and 16 minor findings**. The full [log of corrections and cross-chapter reconciliation](Cross-chapter-consistency.md) contains these 19 items and a separate observation about unstable access to Apple. The priority and the repeat closure of each finding are recorded in the auditors' reports.
 
-- **Существенная ошибка атрибуции BIS:** в P06-C026 указанного доказательства про retail volume в статье не оказалось. Неверная ссылка как подтверждение удалена; в главе остался явно обозначенный синтетический контрпример. [Проверка и повторное закрытие](06-Crypto-and-stablecoins/README.md).
-- **Правовые источники:** гостевая статья BSA на сайте PDPC перестала обозначаться текстом регулятора; утверждение опирается на официальный guidance. Для MSB registration добавлен подходящий FinCEN alert. Уточнены точные статьи PSD2 и пункты FATF. [Часть1](01-Market-rules-and-licensing/README.md), [часть6](06-Crypto-and-stablecoins/README.md).
-- **Метаданные и интересы:** исправлены дата FAPI, авторство научной работы, draft/final статус EMVCo, заголовки Visa/JCB/Bridge, неподтвержденная версия J/Secure, рекламный интерес автора Reddit, подписант и смысл даты резервного отчета, неподтвержденная лицензия UCP GOVERNANCE.md. [Часть2](02-How-a-payment-works/README.md), [часть3](03-Visa-and-Mastercard-cards/README.md), [часть7](07-AI-agent-payments/README.md).
-- **Учебные механизмы:** исправлены округление и переход к нужному разделу redemption; добавлены точные определения nostro/vostro и ограничений PAR. Все изменения повторно проверены соответствующими аудиторами.
+- **Major BIS attribution error:** in P06-C026, the cited evidence about retail volume turned out not to be in the article. The incorrect citation was removed as supporting evidence; the chapter keeps a clearly labeled synthetic counterexample. [Check and repeat closure](06-Crypto-and-stablecoins/README.md).
+- **Legal sources:** the BSA guest article on the PDPC website is no longer labeled as the regulator's text; the claim relies on official guidance. A suitable FinCEN alert was added for MSB registration. The exact PSD2 articles and FATF paragraphs were specified. [Chapter 1](01-Market-rules-and-licensing/README.md), [Chapter 6](06-Crypto-and-stablecoins/README.md).
+- **Metadata and interests:** corrected the FAPI date, the authorship of a scientific paper, the EMVCo draft/final status, the Visa/JCB/Bridge titles, the unconfirmed J/Secure version, the Reddit author's promotional interest, the signatory and the meaning of the date of the reserve report, and the unconfirmed license of UCP GOVERNANCE.md. [Chapter 2](02-How-a-payment-works/README.md), [Chapter 3](03-Visa-and-Mastercard-cards/README.md), [Chapter 7](07-AI-agent-payments/README.md).
+- **Teaching mechanisms:** the rounding and the cross-reference to the correct redemption section were corrected; exact definitions of nostro/vostro and of the PAR limitations were added. All changes were re-checked by the relevant auditors.
 
-## Что осталось неустановленным
+## What remains unestablished
 
-Ниже перечислены все строки `unverifiable`; часть из них — заранее открытые вопросы о конкретном аккаунте, маршруте или внедрении. Недоступность оригинала сама по себе не доказывает ложность утверждения. Для строк `partial` точная неподтвержденная часть указана в матрицах; их всего 24.
+All `unverifiable` rows are listed below; some of them are questions left open in advance about a specific account, route or implementation. The unavailability of an original does not by itself prove that a claim is false. For `partial` rows, the exact unconfirmed part is given in the matrices; there are 24 of them in total.
 
-| Запись | Проверяемая область | Ограничение второго прохода |
+| Record | Area checked | Second-pass limitation |
 |---|---|---|
-| [P00-C029](00-Money-and-fintech-basics/Claim-check.md) | US FDIC | Fresh original content not obtained;not evidence claim false,chapter already bounds source. |
-| [P01-C009](01-Market-rules-and-licensing/Claim-check.md) | Actual final-rule trigger at15Sep2026 | No exhaustive register check;author correctly leaves open. |
-| [P01-C042](01-Market-rules-and-licensing/Claim-check.md) | BI cross-border QR | Fresh relevant original not obtained;historical index limitation already disclosed. |
-| [P01-C048](01-Market-rules-and-licensing/Claim-check.md) | Türkiye translation;bounded hypothesis | Fresh arts1–2 not read;not treated as false or complete permission advice. |
-| [P02-C038](02-How-a-payment-works/Claim-check.md) | Claimed WorldpayV2.63 | Both retrieval methods timed out; field meanings not independently rechecked in this pass. |
-| [P02-C050](02-How-a-payment-works/Claim-check.md) | EU current15Sep2026 exemption thresholds | Explicit open gap; no legal thresholds supplied from snippets. |
+| [P00-C029](00-Money-and-fintech-basics/Claim-check.md) | US FDIC | Fresh original content not obtained; not evidence claim false, chapter already bounds source. |
+| [P01-C009](01-Market-rules-and-licensing/Claim-check.md) | Actual final-rule trigger at 15 Sep 2026 | No exhaustive register check; author correctly leaves open. |
+| [P01-C042](01-Market-rules-and-licensing/Claim-check.md) | BI cross-border QR | Fresh relevant original not obtained; historical index limitation already disclosed. |
+| [P01-C048](01-Market-rules-and-licensing/Claim-check.md) | Türkiye translation; bounded hypothesis | Fresh arts 1–2 not read; not treated as false or complete permission advice. |
+| [P02-C038](02-How-a-payment-works/Claim-check.md) | Claimed Worldpay V2.63 | Both retrieval methods timed out; field meanings not independently rechecked in this pass. |
+| [P02-C050](02-How-a-payment-works/Claim-check.md) | EU current 15 Sep 2026 exemption thresholds | Explicit open gap; no legal thresholds supplied from snippets. |
 | [P02-C051](02-How-a-payment-works/Claim-check.md) | Unselected BNPL/crypto combination | Provider permission and real payment remain unestablished, as chapter states. |
 | [P02-C052](02-How-a-payment-works/Claim-check.md) | No live logs or payment evidence | A fabricated teaching trace cannot establish an actual past payment; author labels this limitation. |
 | [P03-C010](03-Visa-and-Mastercard-cards/Claim-check.md) | Universal Visa dual-message dominance | Rules/prices do not measure prevalence; chapter properly leaves claim open. |
@@ -89,23 +89,23 @@ tags: ["kind/research", "fintech-2026"]
 | [P03-C071](03-Visa-and-Mastercard-cards/Claim-check.md) | Current full High Integrity list | No exhaustive list supplied; member guide remains missing. |
 | [P03-C074](03-Visa-and-Mastercard-cards/Claim-check.md) | Claim of legal fraud finding | Later reported bank credit is not legal adjudication; bank/court primary absent. |
 | [P04-C029](04-Payment-providers/Claim-check.md) | Specific non-US merchant eligibility | The list is broader than the prose; no provider clarification or account evidence obtained. Gap remains explicit. |
-| [P05-C011](05-Wallets-accounts-and-cards/Claim-check.md) | US FDIC | Fresh pass-through guide narrower corroboration;historical source limitation preserved. |
-| [P05-C044](05-Wallets-accounts-and-cards/Claim-check.md) | User-specific availability/recovery | No account eligibility,executed contract or recovery test;author explicitly leaves open. |
-| [P06-C042](06-Crypto-and-stablecoins/Claim-check.md) | Авторская конструкция / явно открытый вопрос; проверено по финальному тексту17.09.2026 | Автор оставил open; company agreement/licences/eligibility не представлены. Допуск не доказан. |
-| [P09-C026](09-Payment-project-workshop/Claim-check.md) | Авторская конструкция / явно открытый вопрос; проверено по финальному тексту17.09.2026 | Архив15.09/commit для динамических страниц не получен. Автор честно оставил тождество версий open. |
+| [P05-C011](05-Wallets-accounts-and-cards/Claim-check.md) | US FDIC | Fresh pass-through guide narrower corroboration; historical source limitation preserved. |
+| [P05-C044](05-Wallets-accounts-and-cards/Claim-check.md) | User-specific availability/recovery | No account eligibility, executed contract or recovery test; author explicitly leaves open. |
+| [P06-C042](06-Crypto-and-stablecoins/Claim-check.md) | Author's construct / explicitly open question; checked against the final text of 2026-09-17 | The author left it open; company agreement/licenses/eligibility not provided. Eligibility is not proven. |
+| [P09-C026](09-Payment-project-workshop/Claim-check.md) | Author's construct / explicitly open question; checked against the final text of 2026-09-17 | An archive/commit of the dynamic pages as of 15 September was not obtained. The author honestly left open whether the versions are identical. |
 
-Полные эксперименты научных работ не воспроизводились; фактическое исполнение платежей, интеграций, eligibility аккаунтов и все национальные правовые режимы не проверялись. Reddit/X подтверждают публикацию и контекст доступного сообщения, а не банковские операции автора. В источниках отдельно отмечены пересказ индекса, полный ответ FAQ, выбранные пункты PDF, официальная альтернативная копия и недоступный текст.
+The full experiments of the scientific papers were not reproduced; the actual execution of payments and integrations, account eligibility and all national legal regimes were not checked. Reddit/X confirm the publication and the context of the available message, not the author's banking transactions. The sources separately mark an index summary, a full FAQ answer, selected PDF sections, an official alternative copy and unavailable text.
 
-## Доступ к ссылкам и воспроизводимость
+## Link access and reproducibility
 
-Дополнительный первичный HTTP-обход (исторический или служебный материал; сохранен у владельца, вне этой копии) охватил 354 уникальных внешних URL исходных карточек, включая вспомогательные ссылки: 317 ответов 200,22 ответа 403,6 ответов 202,2 ответа 404 и 7 сетевых ошибок/тайм-аутов. Это транспортная проверка; ответ 200 сам по себе не означает, что содержание прочитано. Apple 404 позднее сменился успешным независимым чтением. Альтернативные источники и последующие обращения отражены в SOURCE_AUDIT каждой части.
+An additional primary HTTP crawl (historical or internal material; kept by the owner, outside this copy) covered 354 unique external URLs of the original cards, including auxiliary links: 317 responses with 200, 22 responses with 403, 6 responses with 202, 2 responses with 404 and 7 network errors/timeouts. This is a transport check; a 200 response by itself does not mean that the content was read. The Apple 404 was later replaced by a successful independent read. Alternative sources and subsequent accesses are reflected in each chapter's SOURCE_AUDIT.
 
-Редактор отдельно сопоставил определения pending, условия stablecoin acceptance, idempotency и Circle redemption между главами. [Охват и источники](Cross-chapter-consistency.md).
+The editor separately compared the definitions of pending, the conditions of stablecoin acceptance, idempotency and Circle redemption across chapters. [Scope and sources](Cross-chapter-consistency.md).
 
-- Машинная проверка (исторический или служебный материал; сохранен у владельца, вне этой копии): полное соответствие ID матрицам, заполненность полей, отсутствие повторов/неизвестных ID, локальные ссылки и якоря, Markdown-ограждения, отсутствие внутренних токенов цитат, совпадение 30 хешей текущих CHAPTER/SOURCES/CLAIMS с отчетами. Ноль обнаруженных структурных ошибок.
-- Базовый манифест (исторический или служебный материал; сохранен у владельца, вне этой копии) и первая редакция (исторический или служебный материал; сохранен у владельца, вне этой копии): 64 файла сохранены неизменными. Исторические относительные ссылки сохраняют первоначальный контекст; их внешний для снимка путь не воспроизводит всё пространство Lab.
-- Старые REVIEW.md относятся к первой редакции. Новые AUDIT.md фиксируют текущую. Локальные хеши исследовательских файлов не являются архивными хешами внешних сайтов.
+- Machine check (historical or internal material; kept by the owner, outside this copy): full match of IDs to the matrices, completeness of fields, no duplicate/unknown IDs, local links and anchors, Markdown fences, no internal citation tokens, match of 30 hashes of the current CHAPTER/SOURCES/CLAIMS with the reports. Zero structural errors found.
+- Baseline manifest (historical or internal material; kept by the owner, outside this copy) and first edition (historical or internal material; kept by the owner, outside this copy): 64 files kept unchanged. Historical relative links keep their original context; their path outside the snapshot does not reproduce the entire Lab workspace.
+- The old REVIEW.md files belong to the first edition. The new AUDIT.md files record the current one. Local hashes of research files are not archive hashes of external websites.
 
-Сводка редактора дополнительно проверена независимым аудитором A: агрегаты и границы выводов подтверждены; ошибочное название Airwallex в описании исправления P06-S020 заменено на Bridge.
+The editor's summary was additionally checked by independent auditor A: the aggregates and the limits of the conclusions were confirmed; the erroneous name Airwallex in the description of the P06-S020 correction was replaced with Bridge.
 
-Этот отчет описывает исследовательскую проверку от 17.09.2026. Публичная адаптация выполнена 18.09.2026 и описана в паспорте; PDF в этой поставке нет. [Читать базу](../Textbook/README.md).
+This report describes the research check of 2026-09-17. The public adaptation was carried out on 2026-09-18 and is described in the edition record; there is no PDF in this release. [Read the knowledge base](../Textbook/README.md).

@@ -1,77 +1,79 @@
 <div align="center">
 
-**NUANU AI · УЧЕБНИК НА РУССКОМ**
+**NUANU AI · TEXTBOOK**
 
-# Финтех: как движутся деньги
+# Fintech: How Money Moves
 
-### От кнопки «Оплатить» до денег на счёте
+### From the "Pay" button to money in the account
 
-**2026 · 10 частей · 65 уроков · теория, примеры и практика**
+**2026 · 10 chapters · 65 lessons · theory, examples and practice**
 
-[Начать читать →](Textbook/00-Money-and-fintech-basics/README.md) · [Все уроки](Textbook/README.md) · [Источники и фактчек](Fact-check/README.md)
+[Start reading →](Textbook/00-Money-and-fintech-basics/README.md) · [All lessons](Textbook/README.md) · [Sources and fact-check](Fact-check/README.md)
 
 </div>
 
 ---
 
-Почему успешная оплата ещё не означает, что продавец получил деньги? Чем кошелёк отличается от банковского счёта? Кто отвечает за покупку, которую совершил ИИ-агент?
+Why does a successful payment not yet mean that the merchant has received the money? How is a wallet different from a bank account? Who is responsible for a purchase made by an AI agent?
 
-Этот учебник помогает разложить финансовую систему на понятные части: **участники → обязательства → движение денег → доказательство результата**. Основной фокус — платежи: от карт и банковских переводов до стейблкоинов и покупок с помощью агентов.
+This textbook helps you break the financial system down into understandable parts: **participants → obligations → movement of money → proof of the result**. The main focus is payments: from cards and bank transfers to stablecoins and purchases made by agents.
 
-Внутри — объяснения, схемы, разобранные расчёты, упражнения с ответами и ссылки на первоисточники.
+Inside are explanations, diagrams, worked calculations, exercises with answers and links to primary sources.
 
-## 📖 Содержание
+## 📖 Contents
 
-### I · Основа: деньги, право и платёж
+### I · Foundations: money, law and payments
 
-| Часть | Что разберём |
+| Chapter | What we cover |
 |---|---|
-| **[Введение. Деньги и основы финтеха](Textbook/00-Money-and-fintech-basics/README.md)** | Как устроены деньги, обязательства и учёт — и как проверять финансовые утверждения. |
-| **[1. Правила рынка и лицензии](Textbook/01-Market-rules-and-licensing/README.md)** | Кто вправе оказывать платёжную услугу и перед кем отвечает. |
-| **[2. Как проходит платёж](Textbook/02-How-a-payment-works/README.md)** | Путь от кнопки «Оплатить» до расчёта, выплаты продавцу и возможного возврата. |
+| **[Introduction. Money and fintech basics](Textbook/00-Money-and-fintech-basics/README.md)** | How money, obligations and accounting work — and how to check financial claims. |
+| **[1. Market rules and licensing](Textbook/01-Market-rules-and-licensing/README.md)** | Who may provide a payment service and to whom they are accountable. |
+| **[2. How a payment works](Textbook/02-How-a-payment-works/README.md)** | The path from the "Pay" button to settlement, payout to the merchant and a possible refund. |
 
-### II · Участники: сети, провайдеры и кошельки
+### II · Participants: networks, providers and wallets
 
-| Часть | Что разберём |
+| Chapter | What we cover |
 |---|---|
-| **[3. Карты Visa и Mastercard](Textbook/03-Visa-and-Mastercard-cards/README.md)** | Правила карточных сетей: участники, тарифы, токены и ограничения. |
-| **[4. Платёжные провайдеры](Textbook/04-Payment-providers/README.md)** | PSP, платформы, PayFac и Merchant of Record: ответственность и экономика. |
-| **[5. Кошельки, счета и карты](Textbook/05-Wallets-accounts-and-cards/README.md)** | Где лежат деньги, кто ими управляет и как работает выпуск карт. |
+| **[3. Cards: Visa and Mastercard](Textbook/03-Visa-and-Mastercard-cards/README.md)** | Card network rules: participants, fees, tokens and restrictions. |
+| **[4. Payment providers](Textbook/04-Payment-providers/README.md)** | PSPs, platforms, PayFacs and Merchants of Record: responsibility and economics. |
+| **[5. Wallets, accounts and cards](Textbook/05-Wallets-accounts-and-cards/README.md)** | Where money is held, who controls it and how card issuing works. |
 
-### III · Новые способы платить — и практика
+### III · New ways to pay — and practice
 
-| Часть | Что разберём |
+| Chapter | What we cover |
 |---|---|
-| **[6. Криптовалюты и стейблкоины](Textbook/06-Crypto-and-stablecoins/README.md)** | Платежи в блокчейне, обмен на обычные деньги, ликвидность и цифровые валюты центробанков. |
-| **[7. Платежи ИИ-агентов](Textbook/07-AI-agent-payments/README.md)** | Как программа покупает по поручению человека — с ограничениями и доказательством результата. |
-| **[8. Интеграции и надёжность](Textbook/08-Integrations-and-reliability/README.md)** | Как связать магазин, провайдера и учёт; найти расхождение и восстановить операцию. |
-| **[9. Практикум платёжного проекта](Textbook/09-Payment-project-workshop/README.md)** | Собираем деньги, договоры, данные и лицензии в одну картину; решаем сквозные задачи. |
+| **[6. Crypto and stablecoins](Textbook/06-Crypto-and-stablecoins/README.md)** | Blockchain payments, exchange into ordinary money, liquidity and central bank digital currencies. |
+| **[7. AI agent payments](Textbook/07-AI-agent-payments/README.md)** | How a program buys on a person's instruction — with limits and proof of the result. |
+| **[8. Integrations and reliability](Textbook/08-Integrations-and-reliability/README.md)** | How to connect a store, a provider and accounting; find a discrepancy and recover a transaction. |
+| **[9. Payment project workshop](Textbook/09-Payment-project-workshop/README.md)** | We put money, contracts, data and licenses into one picture and solve end-to-end problems. |
 
-## 🧭 Выберите маршрут
+## 🧭 Choose your route
 
-| С чего вы начинаете | Как читать |
+| Where you are starting | How to read |
 |---|---|
-| **Хочу разобраться с нуля** | Начните с введения и двигайтесь по порядку. В конце главы — переход к следующей. |
-| **Создаю платёжный продукт** | Введение → право → путь платежа → провайдеры → интеграции → практикум. |
-| **Интересуют криптовалюты и ИИ-агенты** | Сначала основы денег и путь платежа, затем кошельки → стейблкоины → платежи агентов. |
+| **I want to understand it from scratch** | Start with the introduction and go in order. At the end of each chapter there is a link to the next one. |
+| **I am building a payment product** | Introduction → law → payment path → providers → integrations → workshop. |
+| **I am interested in crypto and AI agents** | First money basics and the payment path, then wallets → stablecoins → agent payments. |
 
-**[Подробное оглавление всех 65 уроков →](Textbook/README.md)**
+**[Detailed contents of all 65 lessons →](Textbook/README.md)**
 
-## 🔎 На чём основан учебник
+## 🔎 What the textbook is based on
 
-**352 опубликованные карточки источников · 471 проверяемое утверждение.** Регуляторы, стандарты, научные работы, документация компаний, Reddit и X — с указанием происхождения, даты и границ применимости. Тип источника имеет значение: мнение участника обсуждения и действующее правило дают разные доказательства.
+**352 published source cards · 471 verifiable claims.** Regulators, standards, academic papers, company documentation, Reddit and X — with provenance, date and limits of applicability. The type of source matters: a forum participant's opinion and a rule in force are different kinds of evidence.
 
-Материал написан агентами и проверен другими агентами. Это **учебная редакция с оговорками** (`reviewed_with_limitations`), а не экспертная сертификация. В реестре также сохранена одна запись об исключённом внутреннем источнике. [Результаты и ограничения проверки →](Fact-check/Results.md)
+The material was written by agents and checked by other agents. This is a **teaching edition with limitations** (`reviewed_with_limitations`), not an expert certification. The register also keeps one record of an excluded internal source. [Fact-check results and limitations →](Fact-check/Results.md)
 
-**Срез знаний — 15 сентября 2026.** Источники читались и проверялись 15–17 сентября; публичное оформление обновлено 18 сентября. Это не обновление законов и продуктов на дату чтения. Денежные примеры синтетические; научные эксперименты не воспроизводились.
+**Knowledge cutoff — 15 September 2026.** Sources were read and checked on 15–17 September; the public layout was updated on 18 September. This is not an update of laws and products as of the reading date. Money examples are synthetic; scientific experiments were not reproduced.
+
+**English edition — 2026-10-22.** Translated from the Russian edition of 2026-09-18. The translation keeps the meaning, claim and source IDs, links and fact-check verdicts; it is not a new fact-check. The Russian original is kept under the tag [`ru-final`](https://github.com/nuanu-ai/fintech-textbook-2026/tree/ru-final).
 
 ---
 
-[Об издании](Methodology/Edition-record.md) · [Как мы работаем с источниками](Methodology/Working-with-sources.md) · [Редакторская мастерская](Methodology/README.md)
+[About this edition](Methodology/Edition-record.md) · [How we work with sources](Methodology/Working-with-sources.md) · [Editor's workshop](Methodology/README.md)
 
 <details>
-<summary>Формат и права на материалы</summary>
+<summary>Format and rights to materials</summary>
 
-Учебник опубликован в Markdown и читается прямо на GitHub. PDF в этой поставке нет. Сторонние PDF, иллюстрации, закрытые спецификации и внутренние документы организации не включены. Внешние материалы остаются у их издателей и имеют собственные условия использования; ограничения сохранены в карточках источников. Отдельная лицензия на повторное использование авторского текста этого репозитория пока не установлена.
+The textbook is published in Markdown and can be read directly on GitHub. There is no PDF in this release. Third-party PDFs, illustrations, closed specifications and internal documents of the organization are not included. External materials remain with their publishers and have their own terms of use; restrictions are preserved in the source cards. A separate license for reuse of the repository's own authored text has not yet been set.
 
 </details>

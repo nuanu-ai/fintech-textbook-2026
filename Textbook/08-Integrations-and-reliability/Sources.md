@@ -1,5 +1,5 @@
 ---
-title: "Часть 8 — каталог источников"
+title: "Chapter 8 — source catalog"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,25 +8,25 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Интеграции и надёжность](README.md) · [Оглавление](../README.md) · [Все источники и проверки](../../Fact-check/README.md)
+[← Integrations and reliability](README.md) · [Contents](../README.md) · [All sources and checks](../../Fact-check/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Часть 8 — каталог источников
+# Chapter 8 — source catalog
 
-**v0.1 · independently_reviewed_draft · private.** Автор: `part_08_research`. Срез знаний: **15.09.2026**. Все перечисленные оригиналы фактически открыты 15.09.2026, Asia/Makassar (UTC+08), в исследовательской сессии; `date_precision=day` для даты обращения. Поиск сам по себе не отмечается как чтение.
+**v0.1 · independently_reviewed_draft · private.** Author: `part_08_research`. Knowledge cutoff: **2026-09-15**. All originals listed were actually opened on 2026-09-15, Asia/Makassar (UTC+08), during the research session; `date_precision=day` for the access date. A search on its own is not recorded as reading.
 
-Фактчек исходной редакции завершен17.09.2026. Связь исходной версии с публичной копией, область адаптации и текущая навигация описаны в паспорте издания.
+The fact-check of the original edition was completed on 2026-09-17. The relationship between the original version and the public copy, the scope of adaptation and the current navigation are described in the edition record.
 
-## Общие значения и метод
+## Common values and method
 
-Следующие поля применяются к каждой карточке, если не переопределены: `supersedes=none`; `updated_at=unknown`; `effective_from/effective_to=not_applicable` для технических/учебных материалов (это не дата вступления закона); `language=en`; `locale=publisher original`; `access_status=partial_text` и `access_method=direct_page` для выбранных HTML-разделов, `official_pdf` для PDF издателя, `author_pdf` для Stanford; фактический `reviewed_scope` указан отдельно. `accessed_at=2026-09-15+08:00`, точность day. `reviewer=see_REVIEW.md`; `review_status=see_REVIEW.md`.
+The following fields apply to every card unless overridden: `supersedes=none`; `updated_at=unknown`; `effective_from/effective_to=not_applicable` for technical/teaching materials (this is not the date a law enters into force); `language=en`; `locale=publisher original`; `access_status=partial_text` and `access_method=direct_page` for selected HTML sections, `official_pdf` for publisher PDFs, `author_pdf` for Stanford; the actual `reviewed_scope` is given separately. `accessed_at=2026-09-15+08:00`, day precision. `reviewer=see_REVIEW.md`; `review_status=see_REVIEW.md`.
 
-`Snapshot ID` — идентификатор чтения, **не утверждение о сохраненной копии**. Для всех источников `local_path=not_saved`, `sha256=not_computed`; публичные страницы и чужие рисунки не копировались в эту папку. Полный документ, если прочитаны лишь разделы, не объявлен проверенным целиком. `origin_source_id=self`; independence group показывает общее происхождение — несколько страниц Stripe не считаются несколькими независимыми подтверждениями надежности Stripe.
+`Snapshot ID` is an identifier of a reading, **not a claim that a copy was saved**. For all sources `local_path=not_saved`, `sha256=not_computed`; public pages and third-party images were not copied into this folder. Where only sections were read, the full document is not declared checked in its entirety. `origin_source_id=self`; the independence group shows common origin — several Stripe pages do not count as several independent confirmations of Stripe's reliability.
 
-Права по умолчанию: copyright издателя/автора; разрешение на перепечатку полного текста, иллюстраций или коммерческое распространение **unknown**, не предполагается. Использованы прямые ссылки и оригинальный ограниченный синтез, без длинных цитат. `rights_basis_url` — URL карточки и явно указанные на нем notices; отдельная лицензия не проверена, кроме отмеченных ниже. Это не юридическая экспертиза прав. Данные publisher/locator служат трассировке, а не рекомендацией вендора.
+Default rights: copyright of the publisher/author; permission to reprint the full text or illustrations, or to distribute commercially, is **unknown** and is not assumed. Direct links and an original, limited synthesis are used, without long quotations. `rights_basis_url` is the card's URL and the notices explicitly shown there; no separate license was checked except where noted below. This is not a legal assessment of rights. Publisher/locator data serve traceability and are not a vendor recommendation.
 
-Для vendor-источников общий `interests`: издатель описывает собственный продукт и заинтересован в его использовании; docs подтверждают заявленный API scope, а не независимую эксплуатационную эффективность. `jurisdiction` для технических источников определяется product/account scope ниже, а не словом worldwide. Детальные merchant agreements и географические правовые разрешения не исследовались. Научный источник описывает свой метод и эксперимент, а social-публикация — опыт автора; индивидуальные пределы перечислены в соответствующих карточках. BCBS principles не устанавливают сами по себе национальное применение к конкретному оператору.
+For vendor sources, the shared `interests`: the publisher describes its own product and has an interest in its use; the docs confirm the stated API scope, not independent operational effectiveness. For technical sources, `jurisdiction` is determined by the product/account scope below, not by the word worldwide. Detailed merchant agreements and geographic legal authorizations were not researched. The research source describes its own method and experiment, and the social post describes the author's experience; individual limits are listed in the corresponding cards. The BCBS principles do not by themselves establish national application to a specific operator.
 
 ## P08-S001
 
@@ -37,10 +37,10 @@ tags: ["kind/research", "fintech-2026"]
 - **Class / kind:** `vendor` / API documentation; **independence_group:** `woo`.
 - **Published:** unknown; **updated:** unknown; **version/status:** Store API namespace v1; docs commit unknown. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
-- **Reviewed scope / locator:** Вводный раздел; Requirements and limitations; Store API Namespace; Extensibility.
-- **Activity / audience / jurisdiction scope:** public customer-facing API; фактическая версия магазина unknown.
-- **Limitations / interests:** Не читать unauthenticated как разрешение доступа к чужим заказам.
-- **Rights:** Footer Woo docs указывает GPLv3; здесь только ссылки и собственный синтез, код/рисунки не перенесены; license scope отдельно не аудирован. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Reviewed scope / locator:** Introductory section; Requirements and limitations; Store API Namespace; Extensibility.
+- **Activity / audience / jurisdiction scope:** public customer-facing API; actual store version unknown.
+- **Limitations / interests:** Do not read unauthenticated as permission to access other people's orders.
+- **Rights:** The Woo docs footer states GPLv3; only links and our own synthesis are used here, no code/images were carried over; license scope was not separately audited. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S002
 
@@ -49,12 +49,12 @@ tags: ["kind/research", "fintech-2026"]
 - **Snapshot:** `P08-S002-20260915`; **author/publisher:** WooCommerce / Automattic.
 - **URL / canonical:** [WooCommerce REST API](https://developer.woocommerce.com/docs/apis/rest-api/).
 - **Class / kind:** `vendor` / API documentation; **independence_group:** `woo`.
-- **Published:** unknown; **updated:** unknown; **version/status:** wc/v3 в прочитанном примере; установленная WC version unknown. Effective dates: not_applicable.
+- **Published:** unknown; **updated:** unknown; **version/status:** wc/v3 in the example read; installed WC version unknown. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Generate keys; Make a basic request; Request/Response format; API version history.
 - **Activity / audience / jurisdiction scope:** authenticated merchant administration.
-- **Limitations / interests:** Примеры старых версий и советы для localhost не являются безопасной production-конфигурацией.
-- **Rights:** Footer Woo docs указывает GPLv3; здесь только ссылки и собственный синтез, код/рисунки не перенесены; license scope отдельно не аудирован. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Examples for old versions and tips for localhost are not a safe production configuration.
+- **Rights:** The Woo docs footer states GPLv3; only links and our own synthesis are used here, no code/images were carried over; license scope was not separately audited. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S003
 
@@ -67,8 +67,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Creating a basic payment gateway; process_payment; Order Status Best Practice; Working with Payment Gateway Callbacks.
 - **Activity / audience / jurisdiction scope:** classic/default checkout; incoming gateway callback.
-- **Limitations / interests:** Classic gateway не доказывает Blocks support; исторический callback-пример с заменой https на http не воспроизводится.
-- **Rights:** Footer Woo docs указывает GPLv3; здесь только ссылки и собственный синтез, код/рисунки не перенесены; license scope отдельно не аудирован. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** A classic gateway does not prove Blocks support; the historical callback example that replaces https with http is not reproduced.
+- **Rights:** The Woo docs footer states GPLv3; only links and our own synthesis are used here, no code/images were carried over; license scope was not separately audited. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S004
 
@@ -81,8 +81,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Client Side integration; Server Side Integration; Processing Payments (legacy support); Processing Payments via the Store API.
 - **Activity / audience / jurisdiction scope:** WooCommerce Checkout Blocks.
-- **Limitations / interests:** Регистрация UI и сервера отделена от платежного processing API; весь исходный код примеров не аудирован.
-- **Rights:** Footer Woo docs указывает GPLv3; здесь только ссылки и собственный синтез, код/рисунки не перенесены; license scope отдельно не аудирован. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** UI and server registration is separate from the payment processing API; the full source code of the examples was not audited.
+- **Rights:** The Woo docs footer states GPLv3; only links and our own synthesis are used here, no code/images were carried over; license scope was not separately audited. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S005
 
@@ -94,9 +94,9 @@ tags: ["kind/research", "fintech-2026"]
 - **Published:** unknown; **updated:** unknown; **version/status:** dynamic docs; default configurable. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `full_text` / `direct_page`.
 - **Reviewed scope / locator:** What are webhooks; Creating webhooks; Webhook logs.
-- **Activity / audience / jurisdiction scope:** исходящие WooCommerce notifications.
-- **Limitations / interests:** Пять retries — указанное default поведение, меняется фильтром; не контракт входящего PSP callback.
-- **Rights:** Footer Woo docs указывает GPLv3; здесь только ссылки и собственный синтез, код/рисунки не перенесены; license scope отдельно не аудирован. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Activity / audience / jurisdiction scope:** outgoing WooCommerce notifications.
+- **Limitations / interests:** Five retries is the stated default behavior and can be changed with a filter; this is not the contract for an incoming PSP callback.
+- **Rights:** The Woo docs footer states GPLv3; only links and our own synthesis are used here, no code/images were carried over; license scope was not separately audited. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S006
 
@@ -107,10 +107,10 @@ tags: ["kind/research", "fintech-2026"]
 - **Class / kind:** `vendor` / platform documentation; **independence_group:** `shopify`.
 - **Published:** unknown; **updated:** unknown; **version/status:** dynamic docs; stable commit unknown. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
-- **Reviewed scope / locator:** Вводный раздел; How it works; Build options; Considerations; Supported features.
+- **Reviewed scope / locator:** Introductory section; How it works; Build options; Considerations; Supported features.
 - **Activity / audience / jurisdiction scope:** Shopify Payments Platform; approved Partners; custom extensions eligibility.
-- **Limitations / interests:** Описание платформы не подтверждает доступ конкретного app/merchant.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** The platform description does not confirm access for a specific app/merchant.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S007
 
@@ -121,10 +121,10 @@ tags: ["kind/research", "fintech-2026"]
 - **Class / kind:** `vendor` / API reference; **independence_group:** `shopify`.
 - **Published:** unknown; **updated:** unknown; **version/status:** selector 2026-07 latest; latest URL mutable. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
-- **Reviewed scope / locator:** Вводный раздел; Shopify Plus notice; Building your extension.
+- **Reviewed scope / locator:** Introductory section; Shopify Plus notice; Building your extension.
 - **Activity / audience / jurisdiction scope:** information/shipping/payment checkout steps.
-- **Limitations / interests:** Plus requirement касается указанных шагов; UI extension не заменяет Payments Platform approval.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** The Plus requirement applies to the listed steps; a UI extension does not replace Payments Platform approval.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S008
 
@@ -135,10 +135,10 @@ tags: ["kind/research", "fintech-2026"]
 - **Class / kind:** `vendor` / API reference; **independence_group:** `shopify`.
 - **Published:** unknown; **updated:** unknown; **version/status:** selector 2026-07 latest; immutable SHA unavailable. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
-- **Reviewed scope / locator:** Headers; Example request headers; Getting started; не весь каталог topics.
-- **Activity / audience / jurisdiction scope:** общие shop webhook deliveries.
-- **Limitations / interests:** Webhook-Id и Event-Id различны; прямой /2026-07 URL не открылся, использован фактически прочитанный latest.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Reviewed scope / locator:** Headers; Example request headers; Getting started; not the whole topics catalog.
+- **Activity / audience / jurisdiction scope:** general shop webhook deliveries.
+- **Limitations / interests:** Webhook-Id and Event-Id are different; the direct /2026-07 URL did not open, so the latest version that was actually read was used.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S009
 
@@ -151,8 +151,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** HMAC verification; Ignoring duplicates; HTTPS delivery considerations; Queue webhooks to handle traffic bursts.
 - **Activity / audience / jurisdiction scope:** Shopify HTTPS webhook receiving.
-- **Limitations / interests:** Исходный URL /subscribe/https перенаправил сюда; правила не переносятся на другие платформы.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** The original URL /subscribe/https redirected here; the rules do not carry over to other platforms.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S010
 
@@ -165,8 +165,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `full_text` / `direct_page`.
 - **Reviewed scope / locator:** What is Adobe Commerce payment provider gateway; operations; component list; Terms used.
 - **Activity / audience / jurisdiction scope:** Adobe Commerce payment gateway abstraction.
-- **Limitations / interests:** Страница краткая концептуальная; не прочитан весь связанный chapter и не подтверждены возможности конкретного PSP.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** The page is short and conceptual; the whole related chapter was not read, and the capabilities of any specific PSP are not confirmed.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S011
 
@@ -177,10 +177,10 @@ tags: ["kind/research", "fintech-2026"]
 - **Class / kind:** `vendor` / API reference; **independence_group:** `stripe`.
 - **Published:** unknown; **updated:** unknown; **version/status:** API v1 idempotency surface; dynamic docs; request version not pinned. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `full_text` / `direct_page`.
-- **Reviewed scope / locator:** Основной текст после примера: saved result, key lifetime, parameters, execution start, POST scope.
+- **Reviewed scope / locator:** Main text after the example: saved result, key lifetime, parameters, execution start, POST scope.
 - **Activity / audience / jurisdiction scope:** Stripe API contract.
-- **Limitations / interests:** 24h — минимальный возраст до возможной очистки, не обещание вечного действия ключа.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** 24h is the minimum age before possible pruning, not a promise that the key stays valid forever.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S012
 
@@ -193,8 +193,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Create a handler; Event delivery behaviors; Event ordering; Preventing replay attacks.
 - **Activity / audience / jurisdiction scope:** Stripe event delivery; live versus sandbox distinctions.
-- **Limitations / interests:** Не весь код примеров прочитан; сроки доставки, signature freshness и экономическая дедупликация — разные параметры.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Not all example code was read; delivery time limits, signature freshness and economic deduplication are different parameters.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S013
 
@@ -207,8 +207,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Errors in HTTP; Network errors; Server errors; Idempotency.
 - **Activity / audience / jurisdiction scope:** Stripe mutating requests.
-- **Limitations / interests:** 500 может иметь побочный эффект; новый key не безопасный способ расследования старой операции.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** A 500 may have a side effect; a new key is not a safe way to investigate an old operation.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S014
 
@@ -221,8 +221,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Retries and semantic equivalence; Late arriving requests; Same client request ID, different intent.
 - **Activity / audience / jurisdiction scope:** AWS distributed API design examples.
-- **Limitations / interests:** Не PSP contract и не доказательство exactly-once между независимыми компаниями.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Not a PSP contract and not proof of exactly-once between independent companies.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S015
 
@@ -235,8 +235,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Intent; Motivation; Issues and considerations; Implementation using AWS services.
 - **Activity / audience / jurisdiction scope:** database + event publication pattern.
-- **Limitations / interests:** Гарантии очереди не расширяются автоматически на эффект внешнего платежного сервиса.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Queue guarantees do not automatically extend to the effect of an external payment service.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S016
 
@@ -249,8 +249,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `author_pdf`.
 - **Reviewed scope / locator:** Abstract/introduction; §§2–4, PDF pp. 2–6: requirements, architecture, completion records, leases.
 - **Activity / audience / jurisdiction scope:** distributed storage/RPC; RAMCloud implementation.
-- **Limitations / interests:** Не финансовый field study. Прочитаны выбранные разделы; performance evaluation целиком не рецензировалась, цифры не перенесены.
-- **Rights:** PDF p.1 допускает personal/classroom copies при условиях notice, noncommercial use; копия не сохранялась и изображения не переносились. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Not a financial field study. Selected sections were read; the performance evaluation was not reviewed in full, and its figures were not carried over.
+- **Rights:** PDF p.1 permits personal/classroom copies subject to notice and noncommercial use; no copy was saved and no images were carried over. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S017
 
@@ -261,10 +261,10 @@ tags: ["kind/research", "fintech-2026"]
 - **Class / kind:** `vendor` / financial reporting documentation; **independence_group:** `adyen`.
 - **Published:** unknown; **updated:** unknown; **version/status:** dynamic report schema; generated schema depends on account/settings. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
-- **Reviewed scope / locator:** Report structure; Transactions; Deposit corrections; Merchant payout; Columns 6–8,15–17.
+- **Reviewed scope / locator:** Report structure; Transactions; Deposit corrections; Merchant payout; Columns 6–8, 15–17.
 - **Activity / audience / jurisdiction scope:** Adyen merchant settlement reconciliation.
-- **Limitations / interests:** Примеры строк исторические; Modification Reference может совпадать между capture и chargeback; это не универсальный уникальный ключ.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** The example rows are historical; the Modification Reference can be the same for a capture and a chargeback; it is not a universal unique key.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S018
 
@@ -277,8 +277,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Overview; Balance summary; Payout reconciliation; Failed payouts; Ending balance reconciliation.
 - **Activity / audience / jurisdiction scope:** automatic payouts; stated platform/connected-account exception.
-- **Limitations / interests:** Manual/instant payout scopes различаются; отчет не подменяет выписку банка.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Manual/instant payout scopes differ; the report does not substitute for a bank statement.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S019
 
@@ -291,8 +291,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Attributes: amount, available_on, currency, exchange_rate, fee, net, status, source.
 - **Activity / audience / jurisdiction scope:** Stripe balance movements.
-- **Limitations / interests:** available_on относится к Stripe balance; не универсальный банковский settlement timestamp.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** available_on refers to the Stripe balance; it is not a universal bank settlement timestamp.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S020
 
@@ -305,8 +305,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Specify amounts in API requests; Zero-decimal currencies; Special cases, ISK/HUF; conversion context.
 - **Activity / audience / jurisdiction scope:** Stripe amount encoding and currencies.
-- **Limitations / interests:** ISO exponent не всегда достаточен для API encoding. В главе использован ISK; currency eligibility конкретного аккаунта не проверена.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** The ISO exponent is not always sufficient for API encoding. The chapter uses ISK; the currency eligibility of any specific account was not checked.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S021
 
@@ -319,8 +319,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `official_pdf`.
 - **Reviewed scope / locator:** Examples 2–3, pp. 2–3; especially Example 3 discussion.
 - **Activity / audience / jurisdiction scope:** elementary double-entry and trial balance education.
-- **Limitations / interests:** Исторический учебный материал для устойчивого учетного механизма; не текущая IFRS policy. IAS2 Example 1 не используется.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Historical teaching material for a stable accounting mechanism; not current IFRS policy. IAS 2 Example 1 is not used.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S022
 
@@ -331,10 +331,10 @@ tags: ["kind/research", "fintech-2026"]
 - **Class / kind:** `vendor` / product eligibility documentation; **independence_group:** `stripe`.
 - **Published:** unknown; **updated:** unknown; **version/status:** dynamic support matrix; snapshot date only. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
-- **Reviewed scope / locator:** Вводные ограничения; Country and currency support; Connected accounts notice; Product/API support structure.
+- **Reviewed scope / locator:** Introductory limitations; Country and currency support; Connected accounts notice; Product/API support structure.
 - **Activity / audience / jurisdiction scope:** Stripe payment method eligibility by scope.
-- **Limitations / interests:** Не прочитаны все individual method terms; глава не объявляет конкретный метод доступным конкретному мерчанту.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Not all individual method terms were read; the chapter does not declare any specific method available to any specific merchant.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S023
 
@@ -347,8 +347,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Monitor a PaymentIntent with webhooks; client-side fulfillment warning.
 - **Activity / audience / jurisdiction scope:** Stripe PaymentIntent lifecycle and fulfillment trigger.
-- **Limitations / interests:** Payment success не подтверждает выполненную выдачу и не доказывает payout.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Payment success does not confirm that fulfillment was completed and does not prove a payout.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S024
 
@@ -361,8 +361,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Architecture; Syncing state from Stand-in; Correlating data; Enabling Stand-in; You might have seen Monzo Stand-in.
 - **Activity / audience / jurisdiction scope:** UK bank operator experience.
-- **Limitations / interests:** Самоотчет оператора; не независимый SLO audit, не полный root-cause postmortem. Стоимость и маркетинговые оценки не перенесены.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** The operator's self-report; not an independent SLO audit and not a full root-cause postmortem. Costs and marketing estimates were not carried over.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S025
 
@@ -371,12 +371,12 @@ tags: ["kind/research", "fintech-2026"]
 - **Snapshot:** `P08-S025-20260915`; **author/publisher:** Basel Committee on Banking Supervision / Bank for International Settlements.
 - **URL / canonical:** [Principles for operational resilience](https://www.bis.org/publications/202103-guidelines-principles-operational-resilience.pdf).
 - **Class / kind:** `regulator` / international supervisory principles; **independence_group:** `bcbs`.
-- **Published:** 2021-03-31 per publisher page; PDF March 2021; **updated:** unknown; **version/status:** final principles, March 2021. Effective dates: not_applicable; для BCBS национальное применение не устанавливается.
+- **Published:** 2021-03-31 per publisher page; PDF March 2021; **updated:** unknown; **version/status:** final principles, March 2021. Effective dates: not_applicable; for BCBS, national application is not established.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `official_pdf`.
 - **Reviewed scope / locator:** Principles 3–6; printed pp. 5–7, PDF pp. 9–11.
 - **Activity / audience / jurisdiction scope:** banks; international principles, national legal implementation not assessed.
-- **Limitations / interests:** Не самостоятельный закон для всех commerce operators. Использованы принципы тестирования, зависимостей и recovery.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Not a standalone law for all commerce operators. The principles on testing, dependencies and recovery are used.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S026
 
@@ -389,8 +389,8 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Is the API Vulnerable?; Example Attack Scenarios; How To Prevent.
 - **Activity / audience / jurisdiction scope:** API business-flow abuse; global technical guidance.
-- **Limitations / interests:** Не обязательный отраслевой закон и не свидетельство реальной атаки на названный продукт.
-- **Rights:** OWASP open guidance; точная лицензия страницы отдельно не проверена, full reuse не предполагается. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Not a binding industry law and not evidence of a real attack on a named product.
+- **Rights:** OWASP open guidance; the page's exact license was not separately checked, and full reuse is not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S027
 
@@ -401,10 +401,10 @@ tags: ["kind/research", "fintech-2026"]
 - **Class / kind:** `social` / developer question and public thread; **independence_group:** `reddit_indication`.
 - **Published:** unknown; page displays 22h ago; crawl metadata inconsistent; **updated:** unknown; **version/status:** mutable post; no immutable archive. Effective dates: not_applicable.
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
-- **Reviewed scope / locator:** Основной пост; контекст нескольких верхних комментариев; benchmark comments not used.
+- **Reviewed scope / locator:** Main post; context of several top comments; benchmark comments not used.
 - **Activity / audience / jurisdiction scope:** public developer anecdote.
-- **Limitations / interests:** Самоотбор, ненаблюдаемая конфигурация, неизвестная абсолютная дата; не доказаны частота, причина или throughput.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** Self-selection, unobserved configuration, unknown absolute date; frequency, cause and throughput are not proven.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 
 ## P08-S028
 
@@ -417,6 +417,6 @@ tags: ["kind/research", "fintech-2026"]
 - **Access:** 2026-09-15, Asia/Makassar, day precision; `partial_text` / `direct_page`.
 - **Reviewed scope / locator:** Intro; Check the endpoint secret; Check the request body; Retrieve the raw request body.
 - **Activity / audience / jurisdiction scope:** Stripe signed webhook body.
-- **Limitations / interests:** Подпись проверяет сообщение, не бизнес-право на произвольное действие. Инструкция печатать секрет не переносится в главу.
-- **Rights:** См. общие условия; права на полную перепечатку/иллюстрации не предполагаются. Rights basis: оригинал по URL выше; local copy/hash отсутствуют.
+- **Limitations / interests:** The signature verifies the message, not a business right to take an arbitrary action. The instruction to print the secret is not carried over into the chapter.
+- **Rights:** See the common terms; rights to full reprinting/illustrations are not assumed. Rights basis: the original at the URL above; no local copy/hash.
 

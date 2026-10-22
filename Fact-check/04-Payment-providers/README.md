@@ -1,5 +1,5 @@
 ---
-title: "Итог независимого фактчека — часть 04"
+title: "Independent fact-check results — Chapter 4"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,19 +8,19 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/04-Payment-providers/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/04-Payment-providers/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Verification dates and source limitations are preserved. Hashes in historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Итог независимого фактчека — часть 04
+# Independent fact-check results — Chapter 4
 
-17.09.2026 · Asia/Makassar (UTC+08) · auditor: `deep_audit_02_03_04` · private. Срез знаний: 15.09.2026; новые обращения — 17.09.2026. Точные исторические байты rolling documentation не восстановлены.
+2026-09-17 · Asia/Makassar (UTC+08) · auditor: `deep_audit_02_03_04` · private. Knowledge cutoff: 2026-09-15; new accesses on 2026-09-17. The exact historical bytes of the rolling documentation were not recovered.
 
-## Результат и охват
+## Result and coverage
 
-Полностью прочитаны CHAPTER.md, CLAIMS.md и SOURCES.md. Все 44 claim ID и 24 source ID имеют отдельные строки: [CLAIM_AUDIT.md](Claim-check.md), [SOURCE_AUDIT.md](Source-check.md). Все оригинальные URL самостоятельно запрошены. Содержательные нужные фрагменты получены у всех 24 источников; при 403/оболочке использован web original, а для Stripe дополнительно его официальный Markdown, что отдельно отражено в матрице. Это не означает полного чтения каждого большого rulebook.
+CHAPTER.md, CLAIMS.md and SOURCES.md were read in full. All 44 claim IDs and 24 source IDs have their own rows: [CLAIM_AUDIT.md](Claim-check.md), [SOURCE_AUDIT.md](Source-check.md). All original URLs were requested independently. The relevant substantive fragments were obtained for all 24 sources; where there was a 403 or an empty shell, the web original was used, and for Stripe also its official Markdown, which is noted separately in the matrix. This does not mean that every large rulebook was read in full.
 
-**Новых исправляемых findings: 0 critical, 0 major, 0 minor.** Оставшиеся вопросы ниже — ограничения доказательства, явно сохранённые в главе. Два contradicted относятся к отвергнутым автором утверждениям о лицензии/паспорте; шесть non_factual — к моделям и предложениям, не к доказанным рыночным фактам. Финальные три файла root отличаются от baseline только актуальными ссылками на аудит/обозначением первой рецензии; эти изменения сверены.
+**New fixable findings: 0 critical, 0 major, 0 minor.** The remaining issues below are evidence limitations that are explicitly preserved in the chapter. The two contradicted verdicts concern claims about a license/passport that the author rejected; the six non_factual verdicts concern models and proposals, not proven market facts. The final three root files differ from the baseline only in updated links to the audit and the designation of the first review; these changes were checked.
 
 | Verdict | Claims |
 |---|---:|
@@ -30,49 +30,49 @@ tags: ["kind/research", "fintech-2026"]
 | contradicted | 2 |
 | unverifiable | 1 |
 | non_factual | 6 |
-| **Всего** | **44** |
+| **Total** | **44** |
 
-## Проверенные области повышенного риска
+## High-risk areas checked
 
-- **PayFac и MoR liability:** непосредственно прочитаны Mastercard §7.6.5–7.6.5.1, pp.172–174, Stripe MoR charge types и on_behalf_of, Paddle MSA §2.1 и §§8,10.4. Делегирование не снимает ответственность acquirer; роль reseller не исключает supplier recourse за refunds/chargebacks. У Paddle проверены дата 8 October 2025 и разная применимость к новым/существующим suppliers; индивидуальный order form отсутствует.
-- **Payout и reconciliation:** Stripe payout schedule не сокращает pending availability; paid может позже перейти в failed. В Adyen settlement report commission и component columns 11–14 не складываются дважды. Прочитан смысл отдельных fee/reserve/merchant payout entries; отчёт провайдера не доказательство зачисления банком.
-- **Split payments:** полный нужный текст официального Markdown Separate charges and transfers подтвердил раздельные объекты и отсутствие автоматического reverse transfer при refund. Предположение о доступных 10 при обязательстве refund 80 не замаскировано формальным successful charge.
-- **Pricing и eligibility:** Stripe Connect 2 USD за active account плюс 0.25% + 0.25 USD per payout проверены в US offer, отдельно от payment processing. Stablecoin page и её Markdown прочитаны по токенам, сетям, local-currency settlement и возврату в исходный wallet. US merchant eligibility отделена от private preview EU/HK/MX/CH и более широкого country-code list.
-- **Лицензия и sponsorship:** FCA marketplace guidance, VisaNet Connect Issuing eligibility/risk review/production steps, US interagency guidance 6 June 2023 и CBI passporting проверены напрямую. Sandbox/API/слово BIN не являются разрешением работать в любой стране. Общая third-party guidance не превращена в самостоятельную BaaS licence.
+- **PayFac and MoR liability:** Mastercard §7.6.5–7.6.5.1, pp.172–174, Stripe MoR charge types and on_behalf_of, and Paddle MSA §2.1 and §§8,10.4 were read directly. Delegation does not remove the acquirer's responsibility; the reseller role does not exclude supplier recourse for refunds/chargebacks. For Paddle, the date 8 October 2025 and the different applicability to new/existing suppliers were checked; there is no individual order form.
+- **Payout and reconciliation:** the Stripe payout schedule does not shorten pending availability; paid can later turn into failed. In the Adyen settlement report, commission and the component columns 11–14 are not added up twice. The meaning of the separate fee/reserve/merchant payout entries was read; a provider's report is not proof that the bank has credited the funds.
+- **Split payments:** the full relevant text of the official Markdown for Separate charges and transfers confirmed that the objects are separate and that there is no automatic reverse transfer on refund. The assumption of 10 available against a refund obligation of 80 is not masked by a formally successful charge.
+- **Pricing and eligibility:** Stripe Connect 2 USD per active account plus 0.25% + 0.25 USD per payout were checked in the US offer, separately from payment processing. The stablecoin page and its Markdown were read for tokens, networks, local-currency settlement and refunds to the original wallet. US merchant eligibility is kept separate from the private preview for EU/HK/MX/CH and from the broader country-code list.
+- **License and sponsorship:** the FCA marketplace guidance, VisaNet Connect Issuing eligibility/risk review/production steps, the US interagency guidance of 6 June 2023 and CBI passporting were checked directly. Sandbox/API/the word BIN do not amount to permission to operate in any country. The general third-party guidance has not been turned into a standalone BaaS license.
 
-## Papers: версии, метод и предпосылки
+## Papers: versions, method and assumptions
 
-- [FEDS 2009-23](https://www.federalreserve.gov/pubs/feds/2009/200923/): Prager, Manuszak, Kiser и Borzekowski, 13 May 2009; прочитаны executive summary и основные теоретические различия. Это обзор литературы, не причинная оценка тарифа 2026 года; вывод об эффективном interchange зависит от предпосылок.
-- [Rochet–Tirole](https://tse-fr.eu/sites/default/files/medias/doc/wp/2002/platform.pdf): авторский draft 13 December 2002, §2/§2.1, pp.8–10. Проверены linear usage prices, отсутствие фиксированных расходов участия в указанной модели, экзогенные выгоды и joint-volume формула прибыли. Не приписана текущая эмпирическая точность или равенство этой версии журнальной.
-- [Aurazo, BIS WP1163](https://www.bis.org/publications/working-paper-1163-interchange-fees-access-pricing-and-sub-acquirers-payment-markets.pdf): January 2024, sole author; прочитаны модель §3 и niche case §6, physical PDF pp.18–20. Проверены шесть типов участников, отсутствие membership fees, карта у всех consumers, отсутствие direct bypass и отдельные предпосылки выгод/расходов для niche case. Направление access-price incentive не превращено в наблюдение за всеми банками. Не выполнена полная математическая репликация всех propositions.
+- [FEDS 2009-23](https://www.federalreserve.gov/pubs/feds/2009/200923/): Prager, Manuszak, Kiser and Borzekowski, 13 May 2009; the executive summary and the main theoretical distinctions were read. This is a literature review, not a causal estimate of a 2026 tariff; the conclusion about efficient interchange depends on the assumptions.
+- [Rochet–Tirole](https://tse-fr.eu/sites/default/files/medias/doc/wp/2002/platform.pdf): author draft of 13 December 2002, §2/§2.1, pp.8–10. Checked: linear usage prices, the absence of fixed participation costs in the stated model, exogenous benefits and the joint-volume profit formula. Neither current empirical accuracy nor equivalence of this version to the journal version is claimed.
+- [Aurazo, BIS WP1163](https://www.bis.org/publications/working-paper-1163-interchange-fees-access-pricing-and-sub-acquirers-payment-markets.pdf): January 2024, sole author; the model in §3 and the niche case in §6, physical PDF pp.18–20, were read. Checked: six types of participants, no membership fees, every consumer holds a card, no direct bypass, and separate benefit/cost assumptions for the niche case. The direction of the access-price incentive is not turned into an observation about all banks. A full mathematical replication of all propositions was not performed.
 
-## Вся глава и арифметика вне отдельных claims
+## The whole chapter and arithmetic outside individual claims
 
-Дополнительно к реестру прочитаны полные модели loss, reserve, Friday T+2, delivery split, conversion-adjusted contribution и partner-exit checklist. Новых значимых необоснованных фактов вне реестра не найдено. Простая архитектурная диаграмма и роль connector не доказывают licence, юридическое consent или разрешение на конкретный запуск.
+In addition to the register, the full models of loss, reserve, Friday T+2, delivery split, conversion-adjusted contribution and the partner-exit checklist were read. No new significant unsupported facts were found outside the register. The simple architecture diagram and the connector role do not prove a license, legal consent or permission for a specific launch.
 
-Арифметика перепроверена независимо:
+The arithmetic was rechecked independently:
 
-- При GMV 1 млн, revenue 32000 и указанных disjoint cost/loss строках contribution = 6100, margin = 0.61%, после fixed cost 15000 profit = −8900. Break-even = 15000 / 0.0061 = 2 459 016.39; при GMV 2 млн profit = −2800. При дополнительных потерях 0.4% break-even = 7 142 857.14. Постоянство mix и маржи — условие модели.
-- Connect: 100 accounts, 100000 volume, 400 payouts → 550; 100 payouts → 475. Payment processing не включён в эти суммы.
-- Fixed-plus-percentage fee: для 2 USD сумма 0.358 (17.9%); для 20 USD — 0.88 (4.4%). Сумма до округления отделяется от actual currency minor-unit rounding.
-- Четыре условные cost строки 0.69/0.29/0.70/0.40 после дополнительных 0.20 становятся 0.89/0.49/0.90/0.60. При указанных conversions contribution 80 × (8 − 0.69) = 584.80 и 70 × (8 − 0.29) = 539.70.
-- Delivery 60 + 8 + 2 + 10 = 80. Fee, principal loss, reserve и transfer receivable не сведены в одно число и не посчитаны повторно.
+- With GMV of 1 million, revenue of 32000 and the stated disjoint cost/loss rows, contribution = 6100, margin = 0.61%, and after a fixed cost of 15000 profit = −8900. Break-even = 15000 / 0.0061 = 2,459,016.39; at GMV of 2 million profit = −2800. With additional losses of 0.4%, break-even = 7,142,857.14. Constant mix and margin are a condition of the model.
+- Connect: 100 accounts, 100000 volume, 400 payouts → 550; 100 payouts → 475. Payment processing is not included in these sums.
+- Fixed-plus-percentage fee: for 2 USD the amount is 0.358 (17.9%); for 20 USD it is 0.88 (4.4%). The amount before rounding is kept separate from actual currency minor-unit rounding.
+- The four hypothetical cost rows 0.69/0.29/0.70/0.40 become 0.89/0.49/0.90/0.60 after the additional 0.20. With the stated conversions, contribution is 80 × (8 − 0.69) = 584.80 and 70 × (8 − 0.29) = 539.70.
+- Delivery 60 + 8 + 2 + 10 = 80. Fee, principal loss, reserve and transfer receivable are not combined into one number and are not counted twice.
 
-## Ограничения
+## Limitations
 
-- **C029 unverifiable:** расхождение Stripe preview prose и более широкого country-code list не снято первичным подтверждением провайдера или account evidence. Допуск конкретного non-US merchant остаётся open; глава не обещает доступ.
-- Triple-A FAQ подтверждает опубликованное предложение и указанный automatic withdrawal threshold 3000 USD equivalent. Не получен индивидуальный SLA, contract или доказательство лицензии/реального withdrawal.
-- Reddit u/songtu-staygold прочитан с уточнением автора об acquiring. Это подтверждает вопрос/путаницу терминов, не правила сетей, фактический контракт или личность автора. Exact date не установлен по relative age.
-- Mastercard global base rules проверены в нужных местах; не проведён исчерпывающий аудит всех regional supplements. BOE/CBI/FCA и US guidance не заменяют анализ конкретного юрлица и всего действующего законодательства.
-- Нет проверки production, merchant accounts, ledger, bank credit, фактической конверсии, согласия клиента или общего правового заключения. Синтетические расчёты проверяют внутреннюю арифметику, не реалистичность коммерческой модели.
+- **C029 unverifiable:** the discrepancy between Stripe's preview prose and the broader country-code list has not been resolved by primary confirmation from the provider or by account evidence. Eligibility of a specific non-US merchant remains open; the chapter does not promise access.
+- The Triple-A FAQ confirms the published offering and the stated automatic withdrawal threshold of 3000 USD equivalent. No individual SLA, contract or evidence of a license or of an actual withdrawal was obtained.
+- Reddit u/songtu-staygold was read together with the author's clarification about acquiring. This confirms the question and the confusion of terms, not network rules, an actual contract or the author's identity. The exact date was not established from the relative age.
+- The Mastercard global base rules were checked in the relevant places; no exhaustive audit of all regional supplements was carried out. BOE/CBI/FCA and US guidance do not replace an analysis of a specific legal entity and of all legislation in force.
+- There is no check of production, merchant accounts, the ledger, bank credit, actual conversion, customer consent or an overall legal opinion. The synthetic calculations check internal arithmetic, not how realistic the commercial model is.
 
-## Финальная проверка версии
+## Final version check
 
-Независимая проверка источников и конечного текста выполнена в исследовательском объеме; эта запись описывает аудит 17.09.2026. Изменения канонических файлов вносил root; данный аудитор пишет только отчёты своей части.
+An independent check of the sources and the final text was carried out within the research scope; this entry describes the audit of 2026-09-17. Changes to the canonical files were made by root; this auditor writes only the reports for its own chapter.
 
 `final_verdict=reviewed_with_limitations` · `open_critical=0` · `open_major=0` · `open_minor=0`.
 
-Повторно проверены реальные окончательные CHAPTER/SOURCES/CLAIMS после уведомления root о завершении правок. SHA-256 ниже относится к этим файлам, не к старой REVIEW и не к байтам внешних сайтов. Любая последующая правка требует обновления проверки и хешей.
+The actual final CHAPTER/SOURCES/CLAIMS were rechecked after root reported that the edits were complete. The SHA-256 values below refer to these files, not to the old REVIEW and not to the bytes of external sites. Any later edit requires the check and the hashes to be updated.
 
 | Final canonical file | SHA-256 |
 |---|---|

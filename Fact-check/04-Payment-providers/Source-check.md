@@ -1,5 +1,5 @@
 ---
-title: "Независимый аудит источников — часть 04"
+title: "Independent source audit — Chapter 4"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,13 +8,13 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/04-Payment-providers/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/04-Payment-providers/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Verification dates and source limitations are preserved. Hashes in historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Независимый аудит источников — часть 04
+# Independent source audit — Chapter 4
 
-17.09.2026 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04. Все 24 original URL самостоятельно попытался получить. Доступ к содержимому подтверждается указанным прочитанным разделом; HTML 200 сам по себе недостаточен. Недатированные страницы не объявлены неизменной копией 15 Sep. Большие документы прочитаны выборочно в существенных местах, не целиком; исследования не реплицированы.
+2026-09-17 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04. The auditor independently attempted to retrieve all 24 original URLs. Access to the content is confirmed by the stated section that was read; an HTML 200 by itself is not sufficient. Undated pages are not declared to be an unchanged copy from 15 Sep. Large documents were read selectively in the relevant places, not in full; the studies were not replicated.
 
 | ID | original URL | actual access method/status | metadata/version result | independently read scope / limits |
 |---|---|---|---|---|

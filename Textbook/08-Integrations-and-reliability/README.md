@@ -1,479 +1,479 @@
-[← Платежи ИИ-агентов](../07-AI-agent-payments/README.md) · [Оглавление](../README.md) · [Практикум платёжного проекта →](../09-Payment-project-workshop/README.md)
+[← AI agent payments](../07-AI-agent-payments/README.md) · [Contents](../README.md) · [Payment project workshop →](../09-Payment-project-workshop/README.md)
 
 <a id="часть-8-интеграции-продукт-и-операционка"></a>
-# Глава 8. Интеграции и надёжность
+# Chapter 8. Integrations and reliability
 
-> Как связать магазин, провайдера и учёт; найти расхождение и восстановить операцию.
+> How to connect the store, the provider and the accounting; find a discrepancy and recover an operation.
 
-**6 уроков** · Срез знаний: **15 сентября 2026** · [Источники](Sources.md) · [Проверка и ограничения](../../Fact-check/Results.md)
+**6 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md)
 
-## В этой главе
+## In this chapter
 
-- [8.1 · Как устроены торговые платформы](#module-8-1)
-- [8.2 · Как спроектировать платёжный коннектор](#module-8-2)
-- [8.3 · Отчётность, сверка и ежедневная работа](#module-8-3)
-- [8.4 · Как проверять обещания платёжного продукта](#module-8-4)
-- [8.5 · Денежный журнал, сверка и контроль балансов](#module-8-5)
-- [8.6 · Надёжность, безопасность и восстановление](#module-8-6)
+- [8.1 · How commerce platforms work](#module-8-1)
+- [8.2 · How to design a payment connector](#module-8-2)
+- [8.3 · Reporting, reconciliation and daily operations](#module-8-3)
+- [8.4 · How to check a payment product's promises](#module-8-4)
+- [8.5 · Money ledger, reconciliation and balance control](#module-8-5)
+- [8.6 · Reliability, security and recovery](#module-8-6)
 
 ---
 
-Эта часть объясняет, как соединить магазин, платежного провайдера и учет так, чтобы успешный запрос превращался в проверяемый результат покупателя. Она охватывает интерфейсы commerce-платформ, проектирование коннектора, ежедневную сверку, доказательства продуктовых обещаний, денежный журнал и восстановление после сбоев. Все числа и компании в учебных примерах синтетические. Реальные документы компаний показывают их собственные API и опыт, а не готовность какого-либо продукта Lab.
+This chapter explains how to connect a store, a payment service provider and accounting so that a successful request turns into a verifiable outcome for the buyer. It covers the interfaces of commerce platforms, connector design, daily reconciliation, evidence for product promises, the money ledger and recovery after failures. All numbers and companies in the teaching examples are synthetic. Real company documents show their own APIs and experience, not the readiness of any Lab product.
 
-Предварительно полезны [учет 0.5](../00-Money-and-fintech-basics/README.md), [модели ответственности 1.3](../01-Market-rules-and-licensing/README.md), [платежные состояния части 2](../02-How-a-payment-works/README.md) и [PSP/PayFac/MoR части 4](../04-Payment-providers/README.md). После чтения вы сможете:
+Useful prerequisites are [accounting 0.5](../00-Money-and-fintech-basics/README.md), [responsibility models 1.3](../01-Market-rules-and-licensing/README.md), [payment states in Chapter 2](../02-How-a-payment-works/README.md) and [PSP/PayFac/MoR in Chapter 4](../04-Payment-providers/README.md). After reading, you will be able to:
 
-- различить доступ к каталогу, право менять заказ и возможность обработать платеж;
-- восстановить неизвестный результат операции, сохранив ее идентичность;
-- пройти от заказа через выписку PSP к банку и объяснить каждое расхождение;
-- проверить денежные инварианты и превратить рекламное обещание в измеримый критерий пилота.
+- distinguish access to the catalog, the right to change an order and the ability to process a payment;
+- recover the unknown result of an operation while preserving its identity;
+- trace a path from the order through the PSP statement to the bank and explain every discrepancy;
+- check money invariants and turn a marketing promise into a measurable pilot criterion.
 
 <a id="module-8-1"></a>
 <a id="81-commerce-platforms"></a>
-## 8.1 Как устроены торговые платформы
+## 8.1 How commerce platforms work
 
-**Вопрос:** почему доступный API магазина еще не означает, что через него можно безопасно продавать и принимать деньги? **Ответ:** магазин описывает товар и заказ; платежный участник подтверждает платеж в своем контуре; продавец исполняет обязательство. Интеграция должна связать эти факты, сохранив границы прав.
+**Question:** why does an available store API not yet mean that you can safely sell and accept money through it? **Answer:** the store describes the product and the order; the payment participant confirms the payment within its own domain; the merchant performs the obligation. The integration must link these facts while preserving the boundaries of rights.
 
-### Три предмета интеграции
+### Three objects of integration
 
-Каталог — сведения о SKU, варианте товара, цене и наличии. Корзина — выбранный состав покупки до окончательного заказа. Заказ — сохраненное коммерческое намерение с суммой, валютой, покупателем и правилами исполнения. Платежная попытка относится к заказу, но имеет собственные идентификаторы и состояния. Один заказ может иметь неудачную попытку и затем успешную; два capture могут относиться к одному заказу с частичной отгрузкой. Поэтому поле `paid=true` не заменяет историю денег.
+The catalog is information about the SKU, product variant, price and availability. The cart is the selected contents of a purchase before the final order. The order is a saved commercial intent with an amount, a currency, a buyer and fulfillment rules. A payment attempt belongs to an order but has its own identifiers and states. One order can have a failed attempt followed by a successful one; two captures can belong to one order with partial shipment. That is why a `paid=true` field does not replace the history of the money.
 
-Доступ к данным также не дает права распоряжаться ими произвольно. Backend магазина может читать заказы для сверки; браузеру покупателя нужен только его собственный контекст. Идентификатор заказа, переданный пользователем, нельзя считать разрешением читать чужой заказ. Коннектору следует получать ровно те права, которые требуются выбранному сценарию: например, чтение каталога отдельно от возвратов и изменения платежных реквизитов.
+Access to data also does not give the right to use it arbitrarily. The store backend may read orders for reconciliation; the buyer's browser needs only its own context. An order ID passed by a user cannot be treated as permission to read someone else's order. The connector should receive exactly the permissions the chosen scenario requires: for example, reading the catalog separately from refunds and from changing payment details.
 
-### WooCommerce: две API-поверхности и два checkout
+### WooCommerce: two API surfaces and two checkouts
 
-WooCommerce Store API предназначен для клиентских сценариев каталога, корзины и checkout. Документация называет его unauthenticated в смысле отсутствия обычных API keys, но отдельно ограничивает доступ текущим покупателем и требует защитные токены для изменяющих запросов. Это не анонимный административный доступ. Authenticated WooCommerce REST API используется для более широкого чтения и изменения данных магазина; документация показывает ключи пользователя с правами и пространство `wc/v3`, тогда как Store API использует `wc/store/v1`. [P08-C001–C002; Store API](https://developer.woocommerce.com/docs/apis/store-api/), [REST API](https://developer.woocommerce.com/docs/apis/rest-api/).
+The WooCommerce Store API is intended for client-side catalog, cart and checkout scenarios. The documentation calls it unauthenticated in the sense that it has no ordinary API keys, but it separately limits access to the current customer and requires protective tokens for state-changing requests. This is not anonymous administrative access. The authenticated WooCommerce REST API is used for broader reading and changing of store data; the documentation shows keys of a user with permissions and the `wc/v3` namespace, while the Store API uses `wc/store/v1`. [P08-C001–C002; Store API](https://developer.woocommerce.com/docs/apis/store-api/), [REST API](https://developer.woocommerce.com/docs/apis/rest-api/).
 
-Платежный gateway — расширение, связывающее WooCommerce с обработчиком платежа. В классическом checkout метод `process_payment` управляет обработкой и возвратом результата для интерфейса. В официальном примере оплаты чеком результат `success` возвращается при заказе `On-Hold`: это успех программного шага, деньги еще ожидаются. Вызов `payment_complete` допустим после проверенного основания считать оплату состоявшейся в выбранной модели; он управляет также состоянием заказа и складскими действиями. [P08-C003; Payment Gateway API, Creating a basic payment gateway / process_payment](https://developer.woocommerce.com/docs/features/payments/payment-gateway-api/).
+A payment gateway is an extension that connects WooCommerce to a payment processor. In the classic checkout, the `process_payment` method handles the processing and returns the result to the interface. In the official check payment example, the `success` result is returned with an `On-Hold` order: this is the success of a software step, while the money is still expected. Calling `payment_complete` is appropriate after there is a verified basis for treating the payment as completed in the chosen model; it also manages the order status and stock actions. [P08-C003; Payment Gateway API, Creating a basic payment gateway / process_payment](https://developer.woocommerce.com/docs/features/payments/payment-gateway-api/).
 
-Совместимость такого gateway с Checkout Blocks не следует автоматически. Для Blocks есть клиентская регистрация метода и серверная интеграция через `AbstractPaymentMethodType`; документация явно отделяет ее от Payment Gateway API. Возможность повторно использовать серверную обработку старого gateway не подтверждает наличие необходимых компонентов в блоковом интерфейсе. При приёмке проверяют фактический checkout, установленную версию WooCommerce, расширение и поддержанные сценарии. [P08-C004; Payment method integration, Server Side Integration / Processing Payments](https://developer.woocommerce.com/docs/block-development/extensible-blocks/cart-and-checkout-blocks/checkout-payment-methods/payment-method-integration/).
+Compatibility of such a gateway with Checkout Blocks does not follow automatically. For Blocks there is client-side registration of the method and server-side integration via `AbstractPaymentMethodType`; the documentation explicitly separates the latter from the Payment Gateway API. Being able to reuse the server-side processing of the old gateway does not confirm that the necessary components exist in the block-based interface. Acceptance testing checks the actual checkout, the installed WooCommerce version, the extension and the supported scenarios. [P08-C004; Payment method integration, Server Side Integration / Processing Payments](https://developer.woocommerce.com/docs/block-development/extensible-blocks/cart-and-checkout-blocks/checkout-payment-methods/payment-method-integration/).
 
-Важно различать направления уведомлений. Исходящий WooCommerce webhook сообщает внешнему приложению об изменении заказа или товара. Входящий callback PSP приносит магазину сведения о платеже. Настройка первого не создает второй. WooCommerce описывает отключение исходящего webhook после пяти неудачных повторов по умолчанию; это настраиваемое поведение, а не обещание бесконечной доставки. Условия повторов PSP проверяют в его документации. [P08-C005; WooCommerce webhooks, Creating webhooks](https://developer.woocommerce.com/docs/best-practices/urls-and-routing/webhooks/).
+It is important to distinguish the directions of notifications. An outgoing WooCommerce webhook tells an external application about a change to an order or product. An incoming PSP callback brings the store information about a payment. Setting up the first does not create the second. WooCommerce describes disabling an outgoing webhook after five failed retries by default; this is configurable behavior, not a promise of endless delivery. The PSP's retry conditions are checked in its own documentation. [P08-C005; WooCommerce webhooks, Creating webhooks](https://developer.woocommerce.com/docs/best-practices/urls-and-routing/webhooks/).
 
-### Shopify: приложение, интерфейс и обработка платежа
+### Shopify: app, interface and payment processing
 
-На Shopify обычное приложение, Checkout UI extension и Payments extension решают разные задачи. Первое получает разрешенные данные и операции приложения. Второе меняет поддерживаемые элементы checkout. Третье интегрирует платежный сервис и проходит отдельные требования платформы. По прочитанным 15.09.2026 docs payments extensions доступны одобренным Partners; для custom payments extensions указана дополнительная eligibility Shopify Plus. UI extensions на information/shipping/payment шагах также ограничены Plus, но наличие Plus само по себе не заменяет одобрение платежного расширения. [P08-C006–C007; Extensions for payments](https://shopify.dev/docs/apps/build/payments), [Checkout UI extensions, selector 2026-07](https://shopify.dev/docs/api/checkout-ui-extensions/latest).
+On Shopify, a regular app, a Checkout UI extension and a Payments extension solve different tasks. The first receives the data and operations permitted to the app. The second changes the supported elements of checkout. The third integrates a payment service and has to meet separate platform requirements. According to the docs read on 2026-09-15, payments extensions are available to approved Partners; for custom payments extensions, additional Shopify Plus eligibility is stated. UI extensions on the information/shipping/payment steps are also limited to Plus, but having Plus does not by itself replace approval of the payment extension. [P08-C006–C007; Extensions for payments](https://shopify.dev/docs/apps/build/payments), [Checkout UI extensions, selector 2026-07](https://shopify.dev/docs/api/checkout-ui-extensions/latest).
 
-Практический вывод: обещание «подключим платежи к любому Shopify-магазину за один вызов» требует сначала установить допустимую поверхность интеграции. Разрешенный внешний интерфейс каталога не позволяет обойти ограничения checkout. Headless означает отделение пользовательского интерфейса от commerce-backend; договоры, роли платежных участников, доступные операции и ответственность сохраняются. Собственный frontend не превращает оператора интерфейса в эквайера и не делает невозможный платежный метод доступным магазину.
+The practical takeaway: the promise "we'll connect payments to any Shopify store with one call" first requires establishing the permitted integration surface. A permitted external catalog interface does not let you bypass checkout restrictions. Headless means separating the user interface from the commerce backend; contracts, the roles of payment participants, available operations and liability remain. Your own frontend does not turn the interface operator into an acquirer and does not make an impossible payment method available to the store.
 
-### Adobe Commerce и собственный backend
+### Adobe Commerce and your own backend
 
-Adobe Commerce описывает payment provider gateway как слой между sales management и PSP. В нем разделены команды, построение запроса, клиент, проверка и обработка ответа; перечислены authorize, sale, capture, refund и void. Это удобная карта обязанностей адаптера, но перечень операций платформы не гарантирует поддержку каждой операции конкретным PSP и методом. [P08-C008; Commerce payment provider gateway](https://developer.adobe.com/commerce/php/development/payments-integrations/payment-gateway/).
+Adobe Commerce describes the payment provider gateway as a layer between sales management and the PSP. It separates commands, request building, the client, validation and response handling; it lists authorize, sale, capture, refund and void. This is a convenient map of an adapter's duties, but the platform's list of operations does not guarantee that a specific PSP and method support each operation. [P08-C008; Commerce payment provider gateway](https://developer.adobe.com/commerce/php/development/payments-integrations/payment-gateway/).
 
-Собственный backend переносит эти обязанности на команду: расчет цены, резервирование товара, создание заказа, платежная попытка, проверка внешнего результата, выдача, возврат. Удалить платформу из схемы можно; удалить сами обязательства нельзя. Полезная таблица приемки содержит не бренды, а строки «создать заказ», «получить фактическую цену», «узнать текущий payment status», «вернуть часть суммы», «восстановить пропущенное событие» и ответственного за каждую строку.
+Your own backend shifts these duties onto the team: price calculation, product reservation, order creation, the payment attempt, verification of the external result, delivery, refund. You can remove the platform from the setup; you cannot remove the obligations themselves. A useful acceptance table contains not brands but rows such as "create an order", "get the actual price", "find out the current payment status", "refund part of the amount", "recover a missed event", and an owner for each row.
 
-### Пример: последняя единица товара
+### Example: the last unit in stock
 
-Два клиента одновременно увидели одну лицензию за 50 USD. Простое чтение каталога не зарезервировало ее. Если оба платежа прошли, а лицензия одна, магазин получил 100 USD против возможности исполнить только 50 USD. Проверка цены и остатка непосредственно перед созданием подтвержденного заказа уменьшает окно гонки; атомарная запись резерва с временем истечения предотвращает двойное распределение в самом магазине. Но внешняя оплата все равно может завершиться после истечения резерва.
+Two customers saw a single license for 50 USD at the same time. Simply reading the catalog did not reserve it. If both payments went through but there is only one license, the store received 100 USD against the ability to fulfill only 50 USD. Checking the price and stock immediately before creating a confirmed order narrows the race window; an atomic reservation record with an expiry time prevents double allocation within the store itself. But the external payment can still complete after the reservation expires.
 
-Поэтому схема заранее определяет поздний платеж: повторно проверить наличие; при возможности исполнить тот же заказ; иначе сформировать обязательство возврата и провести его отдельно. Нельзя стереть успешную оплату, заменив заказ на `failed`. Для клиента нужен понятный результат: «оплата подтверждена, товар ожидает выдачи» либо «возврат инициирован, его зачисление еще проверяется». Главная ошибка здесь — использовать один статус для наличия товара, денег и доставки.
+So the design defines in advance what happens to a late payment: check availability again; if possible, fulfill the same order; otherwise create a refund obligation and process it separately. You cannot erase a successful payment by switching the order to `failed`. The customer needs a clear outcome: "payment confirmed, the product is awaiting delivery" or "refund initiated, its crediting is still being checked". The main mistake here is using one status for product availability, money and delivery.
 
 <a id="module-8-2"></a>
 <a id="82-connector-design"></a>
-## 8.2 Как спроектировать платёжный коннектор
+## 8.2 How to design a payment connector
 
-**Вопрос:** как коннектор должен переживать повтор, задержку и частичный сбой? **Ответ:** каждой экономической операции нужна долговечная идентичность, проверяемые переходы состояния и отдельный путь восстановления.
+**Question:** how should a connector survive a retry, a delay and a partial failure? **Answer:** each economic operation needs a durable identity, verifiable state transitions and a separate recovery path.
 
-### Что хранить до внешнего действия
+### What to store before an external action
 
-Коннектор связывает локальную операцию с чужими объектами. До отправки платежного запроса он сохраняет `operation_id`, магазин/tenant, order ID, сумму и валюту, разрешенное действие, выбранного провайдера и fingerprint существенных параметров. Fingerprint — контрольное представление параметров, позволяющее обнаружить, что под прежним ключом пытаются отправить уже другую сумму. Секреты и персональные данные в ключ не включают.
+A connector links a local operation to other parties' objects. Before sending a payment request, it stores the `operation_id`, the store/tenant, the order ID, the amount and currency, the permitted action, the chosen provider and a fingerprint of the essential parameters. A fingerprint is a check value computed from the parameters that makes it possible to detect an attempt to send a different amount under the earlier key. Secrets and personal data are not included in the key.
 
-| Ключ | Что обозначает | Почему не заменяется соседним |
+| Key | What it identifies | Why a neighboring key cannot replace it |
 |---|---|---|
-| `order_id` | Коммерческий заказ | Не различает его попытки и частичные capture |
-| `payment_attempt_id` | Одну попытку выбранным методом | Повтор транспорта должен ссылаться на ту же попытку |
-| `operation_id` | Capture, refund или другое действие | Новый refund — новая операция, retry того же refund — прежняя |
-| `provider_payment_id` | Объект PSP | Не обязательно идентифицирует каждое движение баланса |
-| `provider_balance_tx_id` / modification ID | Конкретное финансовое изменение | Нужен для проводки и сверки, учитывая contract scope |
-| `event_id`, `delivery_id` | Событие и его доставка | Подтверждение приема сообщения не равно учету денег |
-| `payout_id`, bank reference | Групповая выплата и ее внешний след | Один payout обычно включает много операций |
+| `order_id` | The commercial order | Does not distinguish its attempts and partial captures |
+| `payment_attempt_id` | One attempt with the chosen method | A transport retry must refer to the same attempt |
+| `operation_id` | A capture, refund or other action | A new refund is a new operation; a retry of the same refund is the earlier one |
+| `provider_payment_id` | The PSP object | Does not necessarily identify every balance movement |
+| `provider_balance_tx_id` / modification ID | A specific financial change | Needed for journal entries and reconciliation, taking the contract scope into account |
+| `event_id`, `delivery_id` | An event and its delivery | Acknowledging receipt of a message is not the same as accounting for money |
+| `payout_id`, bank reference | A batched payout and its external trace | One payout usually includes many operations |
 
-Это предлагаемая внутренняя модель, а не универсальный набор полей всех PSP. Например, Adyen предупреждает, что Modification Reference для chargeback в некоторых случаях совпадает с reference capture. Поэтому уникальность нельзя строить по одному «красиво выглядящему» ID без типа записи, merchant account и контракта источника. [P08-C009; Settlement details report, Columns](https://docs.adyen.com/reporting/settlement-reconciliation/transaction-level/settlement-details-report/).
+This is a proposed internal model, not a universal set of fields for all PSPs. For example, Adyen warns that the Modification Reference for a chargeback in some cases matches the capture reference. So uniqueness cannot be built on a single "nice-looking" ID without the record type, the merchant account and the source's contract. [P08-C009; Settlement details report, Columns](https://docs.adyen.com/reporting/settlement-reconciliation/transaction-level/settlement-details-report/).
 
-### Идемпотентность имеет границу
+### Idempotency has a boundary
 
-Идемпотентность означает, что допустимый повтор того же действия не создает дополнительного экономического эффекта. Для Stripe API v1 документация описывает сохранение первого результата начавшего исполнение запроса, включая `500`; повтор с тем же ключом возвращает сохраненный результат. Ключи могут удаляться после возраста не менее 24 часов; повтор после удаления может стать новым запросом. Ошибки проверки параметров и некоторые конфликты конкурентного исполнения не сохраняют результат. Это конкретный контракт, не общая гарантия всех API. [P08-C010; Idempotent requests](https://docs.stripe.com/api/idempotent_requests).
+Idempotency means that a permitted retry of the same action does not create an additional economic effect. For Stripe API v1, the documentation describes saving the first result of a request that began execution, including a `500`; a retry with the same key returns the saved result. Keys may be removed once they are at least 24 hours old; a retry after removal may become a new request. Parameter validation errors and some concurrent-execution conflicts do not save a result. This is a specific contract, not a general guarantee of all APIs. [P08-C010; Idempotent requests](https://docs.stripe.com/api/idempotent_requests).
 
-Внутренний срок хранения операции поэтому выбирают по жизненному циклу платежа, расследования и учетным требованиям, а не равным минимальному окну PSP. Ключ нужен вместе с результатом, параметрами, состоянием и ссылкой на внешнюю операцию. Запись в памяти процесса пропадет при рестарте; локальная база должна защищать уникальность и одновременную обработку несколькими workers. Блокировка только в браузере не мешает повтору из другого устройства.
+The internal retention period for an operation is therefore chosen according to the life cycle of the payment, of investigations and of accounting requirements, rather than set equal to the PSP's minimum window. The key is needed together with the result, the parameters, the state and a reference to the external operation. A record in process memory disappears on restart; the local database must enforce uniqueness and guard against concurrent processing by several workers. A lock only in the browser does not prevent a retry from another device.
 
-AWS объясняет полезное свойство контрактов повторов: ответ на повтор должен сохранять смысл первоначального результата для клиента. Также отдельно разбираются поздние запросы и повтор одного идентификатора с другим намерением. Это помогает отличать «пользователь снова хочет купить такой же товар» от «сеть повторила прошлый запрос». [P08-C011; Making retries safe with idempotent APIs, Retries and semantic equivalence / Late arriving requests](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
+AWS explains a useful property of retry contracts: the response to a retry should preserve the meaning of the original result for the client. Late-arriving requests and reuse of one identifier with a different intent are also discussed separately. This helps to distinguish "the user wants to buy the same product again" from "the network repeated the previous request". [P08-C011; Making retries safe with idempotent APIs, Retries and semantic equivalence / Late arriving requests](https://aws.amazon.com/builders-library/making-retries-safe-with-idempotent-APIs/).
 
-### Научная опора: что требуется для exactly once
+### Research basis: what exactly once requires
 
-Работа Lee, Park, Kejriwal, Matsushita и Ousterhout, SOSP 2015, описывает RIFL: уникальный RPC ID, устойчивую запись результата, ее атомарное сохранение с изменениями и обнаружение этой записи после миграции данных. Авторы отдельно учитывают очистку записей и срок жизни клиента. Это исследование распределенного хранилища; оно не доказывает сквозное exactly-once между независимыми PSP, магазином и банком. Учебный вывод уже: обещание «ровно один эффект» требует указать, какие изменения покрывает атомарность и как восстановление находит прежний результат. [P08-C012; RIFL, §§2–4, PDF pp. 3–6](https://web.stanford.edu/~ouster/cgi-bin/papers/rifl.pdf).
+The paper by Lee, Park, Kejriwal, Matsushita and Ousterhout, SOSP 2015, describes RIFL: a unique RPC ID, a durable record of the result, saving that record atomically together with the changes, and finding the record after data migration. The authors separately address cleanup of records and client lifetime. This is research on a distributed storage system; it does not prove end-to-end exactly-once between an independent PSP, store and bank. The teaching takeaway is narrower: a promise of "exactly one effect" requires stating which changes the atomicity covers and how recovery finds the earlier result. [P08-C012; RIFL, §§2–4, PDF pp. 3–6](https://web.stanford.edu/~ouster/cgi-bin/papers/rifl.pdf).
 
-### Собственная машина состояний
+### Your own state machine
 
-Следующая схема — проектный пример, не названия статусов конкретного провайдера:
+The following diagram is a design example, not the status names of a specific provider:
 
 ```mermaid
 stateDiagram-v2
   [*] --> prepared
-  prepared --> submitted: сохранен запрос и выдано право отправки
-  submitted --> confirmed: внешний результат проверен
-  submitted --> failed_known: доказан отказ без оплаты
-  submitted --> unknown: ответ потерян или неоднозначен
-  unknown --> confirmed: найден результат той же операции
-  unknown --> failed_known: доказано отсутствие эффекта
-  unknown --> manual_review: данные противоречивы или недоступны
-  confirmed --> recorded: финансовое основание учтено
-  recorded --> fulfillment_pending: назначено исполнение заказа
-  fulfillment_pending --> fulfilled: результат поставщика проверен
+  prepared --> submitted: request saved and permission to send granted
+  submitted --> confirmed: external result verified
+  submitted --> failed_known: refusal without payment proven
+  submitted --> unknown: response lost or ambiguous
+  unknown --> confirmed: result of the same operation found
+  unknown --> failed_known: absence of effect proven
+  unknown --> manual_review: data contradictory or unavailable
+  confirmed --> recorded: financial basis recorded
+  recorded --> fulfillment_pending: order fulfillment assigned
+  fulfillment_pending --> fulfilled: supplier result verified
 ```
 
-`confirmed` здесь обязательно уточняется типом доказательства: authorization, capture, поступление on-chain или иной факт. Оно не означает «вся цепочка завершена». Состояние заказа и состояния settlement/payout продолжают жить отдельно. Refund и chargeback — новые события, а не перемотка истории успешной покупки назад.
+`confirmed` here must always be qualified by the type of evidence: authorization, capture, an incoming on-chain transfer or another fact. It does not mean "the whole chain is complete". The order state and the settlement/payout states continue to live separately. A refund and a chargeback are new events, not a rewind of the history of a successful purchase.
 
-Если подтверждена только authorization, `recorded` означает сохраненный факт блокировки в операционной модели. Он не дает основания автоматически создать требование к PSP или выручку из примера 8.5. Для каждой разновидности операции переход к финансовой проводке имеет собственный критерий.
+If only an authorization is confirmed, `recorded` means the saved fact of a hold in the operational model. It gives no basis for automatically creating a receivable from the PSP or revenue as in the example in 8.5. For each kind of operation, the transition to a financial journal entry has its own criterion.
 
-После сетевого timeout нельзя заключить, что PSP ничего не сделал. Stripe прямо рассматривает результат server error как потенциально неопределенный, с возможными пользовательскими эффектами. Следует расследовать исходную операцию по сохраненным IDs, событиям и отчетам; документированный повтор с тем же ключом и параметрами возможен внутри действующего контракта. Создание нового ключа или смена PSP для неизвестной старой оплаты создает риск второго списания. [P08-C013; Advanced error handling, Server errors / Idempotency](https://docs.stripe.com/error-low-level).
+After a network timeout, you cannot conclude that the PSP did nothing. Stripe explicitly treats a server error result as potentially indeterminate, with possible user-facing effects. The original operation should be investigated using the saved IDs, events and reports; a documented retry with the same key and parameters is possible within the applicable contract. Creating a new key or switching PSPs for an unknown old payment creates the risk of a second charge. [P08-C013; Advanced error handling, Server errors / Idempotency](https://docs.stripe.com/error-low-level).
 
-### Inbox, outbox и граница подтверждения
+### Inbox, outbox and the acknowledgment boundary
 
-Inbox — устойчивое хранилище принятых входящих сообщений. Обработчик проверяет подпись и контекст, сохраняет сообщение либо надежно ставит его в очередь, затем быстро подтверждает прием. Worker отдельно применяет бизнес-изменение. Если сначала ответить `200`, а потом процесс упадет до сохранения, уведомление может быть потеряно для приложения.
+An inbox is durable storage for accepted incoming messages. The handler checks the signature and context, saves the message or reliably queues it, then quickly acknowledges receipt. A worker applies the business change separately. If you respond `200` first and the process then crashes before saving, the notification may be lost to the application.
 
-Outbox — запись о предстоящем исходящем действии в той же транзакции базы, где меняется локальное состояние. Например, «платеж учтен» и «заказ надо выдать» фиксируются вместе. Отдельный процесс читает outbox и обращается к fulfillment-сервису. Он может отправить сообщение повторно, поэтому получателю также нужна защита от повторного эффекта. Outbox закрывает локальную проблему двух записей — «состояние сохранили, уведомление потеряли»; он не делает чужой API частью транзакции своей базы. [P08-C014; AWS Transactional outbox, Intent / Issues and considerations / Implementation](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html).
+An outbox is a record of an upcoming outgoing action written in the same database transaction in which the local state changes. For example, "payment recorded" and "order must be fulfilled" are committed together. A separate process reads the outbox and calls the fulfillment service. It may send a message more than once, so the recipient also needs protection against a repeated effect. The outbox solves the local problem of two writes — "state saved, notification lost"; it does not make someone else's API part of your own database transaction. [P08-C014; AWS Transactional outbox, Intent / Issues and considerations / Implementation](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html).
 
-Блокировка worker должна сопровождаться версией/правом выполнения: проснувшийся старый worker не должен перезаписать более новое решение. Но даже fencing token собственной базы не останавливает уже отправленный чужому PSP запрос. Это еще одна причина хранить состояние `unknown`, а не начинать новую оплату после истечения локального lock.
+A worker lock should be accompanied by a version/right to execute: an old worker that wakes up must not overwrite a newer decision. But even a fencing token in your own database does not stop a request already sent to an external PSP. This is one more reason to keep an `unknown` state rather than start a new payment after a local lock expires.
 
-### Пример: on-chain оплата есть, заказа нет
+### Example: an on-chain payment exists, but no order
 
-Покупатель отправил 20 USDC на указанный адрес в нужной сети. Магазин вернул timeout при создании заказа. Коннектор сохранил quote ID, payment operation ID и транзакцию, но order ID пока отсутствует. Нельзя повторно взять 20 USDC и нельзя объявить продажу завершенной.
+A buyer sent 20 USDC to the specified address on the correct network. The store returned a timeout when creating the order. The connector saved the quote ID, the payment operation ID and the transaction, but there is no order ID yet. You cannot take 20 USDC again, and you cannot declare the sale complete.
 
-Восстановление сначала проверяет ту же транзакцию: сеть, asset/contract, получателя, сумму и достижение принятого критерия подтверждения. Затем ищет исходный заказ по внешней ссылке, поскольку timeout мог произойти после его создания. Если заказ найден, связывает существующие объекты. Если доказано, что заказа нет, и товар доступен, создает его однократно по прежнему намерению. Если выполнить покупку нельзя, фиксирует обязательство вернуть 20 USDC и открывает отдельный возврат по согласованным условиям. Комиссия сети в другом активе учитывается отдельно.
+Recovery first checks the same transaction: the network, the asset/contract, the recipient, the amount and whether the accepted confirmation criterion has been reached. Then it looks for the original order by the external reference, since the timeout could have happened after the order was created. If the order is found, it links the existing objects. If it is proven that there is no order and the product is available, it creates the order once, according to the original intent. If the purchase cannot be completed, it records an obligation to return 20 USDC and opens a separate refund under agreed terms. The network fee in another asset is accounted for separately.
 
-В журнале магазина такое поступление до исполнения может соответствовать активу и обязательству перед покупателем, а не выручке. Конкретная правовая роль держателя адреса, допустимость custody и окончательность сети рассматриваются в [частях 1](../01-Market-rules-and-licensing/README.md) и [6](../06-Crypto-and-stablecoins/README.md). Пример описывает восстановление данных и обязательств, не разрешение принять чужие средства.
+In the store's ledger, such a receipt before fulfillment may correspond to an asset and an obligation to the buyer, not to revenue. The specific legal role of the address holder, whether custody is permissible and the network's finality are covered in [Chapters 1](../01-Market-rules-and-licensing/README.md) and [6](../06-Crypto-and-stablecoins/README.md). The example describes the recovery of data and obligations, not permission to accept other people's funds.
 
 <a id="module-8-3"></a>
 <a id="83-reporting-reconciliation-ops"></a>
-## 8.3 Отчётность, сверка и ежедневная работа
+## 8.3 Reporting, reconciliation and daily operations
 
-**Вопрос:** если webhooks уже обрабатываются, зачем нужны отчеты и ежедневная сверка? **Ответ:** уведомление ускоряет реакцию; сверка обнаруживает то, о чем уведомление не пришло, пришло дважды или было понято неверно.
+**Question:** if webhooks are already being processed, why are reports and daily reconciliation needed? **Answer:** a notification speeds up the reaction; reconciliation catches cases where a notification never arrived, arrived twice or was misinterpreted.
 
-### От события к закрываемому периоду
+### From an event to a period that can be closed
 
-Reporting — представление данных за период. Reconciliation — сопоставление независимых наборов записей с объяснением отличий. Close — управляемое закрытие периода после проверки полноты, корректности и оставшихся исключений. Красивый отчет может быть построен на неполных данных; закрывать период по наличию dashboard нельзя.
+Reporting is the presentation of data for a period. Reconciliation is matching independent sets of records and explaining the differences. Close is the controlled closing of a period after checking completeness, correctness and the remaining exceptions. A good-looking report can be built on incomplete data; you cannot close a period just because a dashboard exists.
 
-У операции несколько времен: создание заказа, событие у PSP, получение webhook, дата доступности денег, включение в settlement batch, отправка payout и банковская дата. Хранят UTC timestamp и исходную зону/деловую дату отчета. При сравнении сначала согласуют границы периода. Продажа в 23:59 одного дня и settlement следующего не обязаны попадать в один отчет.
+An operation has several times: order creation, the event at the PSP, webhook receipt, the date the money becomes available, inclusion in a settlement batch, payout dispatch and the bank date. Store the UTC timestamp and the report's original time zone/business date. When comparing, first agree on the period boundaries. A sale at 23:59 on one day and its settlement on the next do not have to fall into the same report.
 
-Adyen Settlement details report содержит отдельные типы строк для транзакций, комиссий, корректировок резервов и выплат. `MerchantPayout` содержит ссылку и номер batch для сопоставления с банковским следом. Это означает, что gross продаж нельзя напрямую сравнивать с одной строкой банка: нужны промежуточные изменения. [P08-C015; Settlement details report, Report structure / Merchant payout](https://docs.adyen.com/reporting/settlement-reconciliation/transaction-level/settlement-details-report/).
+The Adyen Settlement details report contains separate row types for transactions, fees, reserve adjustments and payouts. `MerchantPayout` contains a reference and a batch number for matching with the bank trail. This means that gross sales cannot be compared directly with a single bank line: the intermediate changes are needed. [P08-C015; Settlement details report, Report structure / Merchant payout](https://docs.adyen.com/reporting/settlement-reconciliation/transaction-level/settlement-details-report/).
 
-Stripe Payout reconciliation ориентирован на automatic payouts и показывает состав выплат и незавершенный остаток. Для manual payouts без оговоренного случая платформы с automatic payouts у connected accounts документация направляет к Balance report; instant payouts также требуют собственной сверки. Выбор неправильного отчета способен создать кажущееся расхождение даже при правильных платежах. [P08-C016; Payout reconciliation, Overview / Report details](https://docs.stripe.com/reports/payout-reconciliation).
+Stripe Payout reconciliation is designed for automatic payouts and shows the composition of payouts and the unsettled balance. For manual payouts — outside the specified case of a platform with automatic payouts on connected accounts — the documentation points to the Balance report; instant payouts also require their own reconciliation. Choosing the wrong report can create an apparent discrepancy even when the payments are correct. [P08-C016; Payout reconciliation, Overview / Report details](https://docs.stripe.com/reports/payout-reconciliation).
 
-### Ежедневный цикл оператора
+### The operator's daily cycle
 
-Предлагаемый цикл состоит из пяти шагов. Первый — получить полный набор данных с контрольными признаками: account, среда, валюта, период, номер файла/batch, страницы, число строк и итог. Второй — нормализовать его без потери исходных IDs и денежных единиц. Третий — сопоставить строки с журналом. Четвертый — создать исключения, назначив владельца. Пятый — проверить payout по банку или on-chain факту и сохранить результат close.
+The proposed cycle has five steps. The first is to obtain a complete data set with control attributes: account, environment, currency, period, file/batch number, pages, row count and total. The second is to normalize it without losing the original IDs and money units. The third is to match the rows against the ledger. The fourth is to create exceptions and assign an owner. The fifth is to verify the payout against the bank or an on-chain fact and save the close result.
 
-Пропуск страницы при чтении API — потеря данных, даже если каждый полученный ответ был `200`. Повторный импорт одного файла не должен создавать новые проводки. Новый файл с корректировкой старого периода, напротив, нельзя просто отбросить по совпавшей дате: нужна версия/идентичность отчета и сравнение строк. Хранят происхождение каждой нормализованной записи и результаты обработки; только изменяемой сводной таблицы недостаточно.
+Skipping a page when reading an API is data loss, even if every response received was `200`. Re-importing the same file must not create new journal entries. Conversely, a new file with an adjustment to an old period cannot simply be discarded because the date matches: you need the report's version/identity and a row-by-row comparison. Store the provenance of each normalized record and the processing results; a mutable summary table alone is not enough.
 
-### Очередь исключений
+### The exception queue
 
-Исключение должно быть объектом работы: сумма и валюта риска, связанные IDs, тип расхождения, возраст, владелец, следующий шаг, срок и ссылки на доказательства. Aging — распределение таких объектов по времени ожидания. Оно отличает нормальную задержку settlement от зависших денег.
+An exception should be a work item: the amount and currency at risk, related IDs, the type of discrepancy, age, owner, next step, deadline and links to evidence. Aging is the distribution of such items by waiting time. It distinguishes a normal settlement delay from stuck money.
 
-| Исключение | Что проверять первым | Ответственный контур |
+| Exception | What to check first | Responsible function |
 |---|---|---|
-| Заказ ожидает, PSP подтверждает capture | Привязку попытки, сумму, currency, очередь выдачи | Payment ops + fulfillment |
-| Ledger содержит платеж, PSP его не находит | Account/environment, исходный ответ, сохраненный key | Connector owner |
-| PSP отправил payout, банк не показывает зачисление | Reference, cut-off, статус возврата перевода | Treasury |
-| Банк показывает сумму без payout | Отправителя, назначение, отдельную корректировку | Accounting/treasury |
-| Refund принят, но не завершен | Тот же refund ID и его внешний статус | Payment ops/support |
-| Остаток отличается на комиссию | Отчетный тип, валюта комиссии, повторное списание | Accounting + connector |
+| The order is pending, the PSP confirms the capture | Attempt linkage, amount, currency, fulfillment queue | Payment ops + fulfillment |
+| The ledger contains a payment, the PSP cannot find it | Account/environment, original response, saved key | Connector owner |
+| The PSP sent a payout, the bank shows no credit | Reference, cut-off, transfer return status | Treasury |
+| The bank shows an amount with no payout | Sender, payment description, a separate adjustment | Accounting/treasury |
+| Refund accepted but not completed | The same refund ID and its external status | Payment ops/support |
+| The balance differs by a fee | Report type, fee currency, a duplicate debit | Accounting + connector |
 
-Это распределение обязанностей, не перенос финансовой ответственности на сотрудника поддержки. Поддержка собирает сведения и объясняет наблюдаемое состояние; решение о новом переводе или списании принимает обладатель соответствующих полномочий.
+This is an allocation of duties, not a transfer of financial responsibility to a support employee. Support gathers information and explains the observed state; the decision on a new transfer or debit is made by whoever holds the corresponding authority.
 
-### «Деньги ушли, товар не отдали»
+### "The money is gone, but the goods were not delivered"
 
-У клиента может быть блокировка на карте, завершенное списание, банковский перевод или транзакция сети. Эти доказательства не взаимозаменяемы. Сначала поддержка связывает обращение с магазином, заказом, временем, суммой и валютой; не просит полный номер карты или секрет кошелька. Затем оператор определяет текущий внешний факт и статус товара. Скриншот клиента помогает найти операцию, но не заменяет проверку в системе участника.
+The customer may have a hold on the card, a completed charge, a bank transfer or a network transaction. These pieces of evidence are not interchangeable. First, support links the request to the store, order, time, amount and currency; it does not ask for the full card number or the wallet secret. Then the operator determines the current external fact and the product status. The customer's screenshot helps to find the operation but does not replace a check in the participant's system.
 
-Синтетический случай: клиент заплатил 40 EUR; PSP подтверждает успешную оплату; worker выдачи лицензии остановился. Выписка PSP и запись ledger сходятся. Финансовой ошибки нет, но обязательство продавца не исполнено. Повторный платеж только ухудшит ситуацию. Нужно безопасно возобновить выдачу с исходным fulfillment ID, проверить единственную лицензию и сообщить клиенту результат. Если выдача невозможна, возврат становится отдельной отслеживаемой операцией. Документация Stripe предупреждает, что нельзя полагаться на клиентскую страницу для запуска fulfillment: пользователь может уйти после оплаты. [P08-C017; Verify payment status, Monitor a PaymentIntent with webhooks](https://docs.stripe.com/payments/payment-intents/verifying-status).
+Synthetic case: the customer paid 40 EUR; the PSP confirms a successful payment; the license delivery worker has stopped. The PSP statement and the ledger entry match. There is no financial error, but the merchant's obligation has not been performed. A repeat payment would only make things worse. You need to safely resume delivery with the original fulfillment ID, check that exactly one license is issued and tell the customer the result. If delivery is impossible, the refund becomes a separate tracked operation. Stripe's documentation warns that you should not rely on the client-side page to trigger fulfillment: the user may leave after paying. [P08-C017; Verify payment status, Monitor a PaymentIntent with webhooks](https://docs.stripe.com/payments/payment-intents/verifying-status).
 
 ### Treasury break-glass
 
-Break-glass — заранее определенный аварийный доступ, позволяющий выполнить ограниченное действие при отказе обычного контура. Он не должен означать «выдать всем права на кошелек». В учебном плане фиксируют trigger, владельца решения, конкретный счет/сеть, максимальный объем, разрешенные получатели, срок доступа и обязательную последующую сверку. Второй исполнитель проверяет исходную операцию и реквизиты; журнал объясняет основание каждого действия.
+Break-glass is predefined emergency access that allows a limited action to be performed when the normal path fails. It must not mean "give everyone rights to the wallet". The teaching plan records the trigger, the decision owner, the specific account/network, the maximum volume, the permitted recipients, the access period and mandatory follow-up reconciliation. A second operator checks the original operation and the payment details; the log explains the basis for each action.
 
-Например, PSP недоступен, а 30 подтвержденных возвратов ожидают исполнения. Перевод клиентам из другого банка может закрыть обязательство только после проверки, что исходный PSP не исполнит их одновременно, и проверки допустимого альтернативного маршрута. Список «pending» сам по себе этого не доказывает. В сомнительном случае нужно управлять задержкой и коммуникацией, а не создавать возможные двойные выплаты. Связь с резервами ликвидности и аварийной политикой — [6.7](../06-Crypto-and-stablecoins/README.md).
+For example, the PSP is unavailable and 30 confirmed refunds are waiting to be executed. A transfer to customers from another bank can close the obligation only after checking that the original PSP will not execute them at the same time, and after checking that the alternative route is permissible. A "pending" list does not prove this by itself. In a doubtful case, you need to manage the delay and the communication rather than create possible double payouts. For the link with liquidity reserves and the emergency policy, see [6.7](../06-Crypto-and-stablecoins/README.md).
 
 <a id="module-8-4"></a>
 <a id="84-go-to-market-claims-hygiene"></a>
-## 8.4 Как проверять обещания платёжного продукта
+## 8.4 How to check a payment product's promises
 
-**Вопрос:** какое обещание можно вынести на сайт платежного продукта? **Ответ:** такое, для которого определены субъект, маршрут, условия доступности и наблюдаемое доказательство. Широкая формулировка не должна скрывать узкий scope пилота.
+**Question:** which promise can be put on a payment product's website? **Answer:** one for which the entity, the route, the availability conditions and observable evidence are defined. Broad wording must not hide the narrow scope of a pilot.
 
-### Обещание начинается с модели ответственности
+### A promise starts with the responsibility model
 
-Следующая таблица использует пять **учебных**, а не законодательных категорий из 1.3. Она задает метод проверки текста; не подтверждает юридическую допустимость модели в конкретной стране.
+The following table uses five **teaching** categories from 1.3, not statutory ones. It sets out a method for checking text; it does not confirm that a model is legally permissible in a particular country.
 
-| Модель | Что именно проверять в обещании | Опасный пропуск |
+| Model | What exactly to check in the promise | Dangerous omission |
 |---|---|---|
-| 1. Software connector | Какое ПО соединяется, кто принимает платеж, у кого merchant account | «Мы принимаем деньги», когда оператор лишь передает данные |
-| 2. Direct merchant–PSP | Договор продавца с PSP, страна аккаунта, метод, settlement | «Любой продавец», хотя onboarding и eligibility ограничены |
-| 3. Platform / PayFac | Модель charges/transfers, onboarding, ответственность за отрицательный баланс | «Никаких платежных рисков» при регрессе к платформе |
-| 4. MoR / reseller | Кто продавец в договоре/чеке, scope налогов, refunds и disputes | «MoR» как название кнопки без реальной роли продавца |
-| 5. Own payment stack / custody | Кто контролирует средства, регулируемый субъект, лицензия/партнерство и их scope | «Собственный банк» как синоним API кошелька |
+| 1. Software connector | Which software connects, who accepts the payment, whose merchant account it is | "We accept money" when the operator only passes data |
+| 2. Direct merchant–PSP | The merchant's contract with the PSP, the account country, the method, settlement | "Any merchant", even though onboarding and eligibility are limited |
+| 3. Platform / PayFac | The charges/transfers model, onboarding, liability for a negative balance | "No payment risks" while there is recourse to the platform |
+| 4. MoR / reseller | Who the seller is in the contract/receipt, the scope of taxes, refunds and disputes | "MoR" as a button label without a real seller role |
+| 5. Own payment stack / custody | Who controls the funds, the regulated entity, the license/partnership and their scope | "Our own bank" as a synonym for a wallet API |
 
-Проверка состоит не в выборе красивой строки, а в сопоставлении утверждения с договором и фактическим маршрутом. Если на сайте написано «деньги получает продавец напрямую», надо установить, на чьем балансе они находятся до выплаты и кто вправе менять получателя. Если обещан возврат, требуется проверить его денежный источник, API, сроки обработки и подтверждение результата.
+The check is not about choosing an attractive row but about comparing the claim with the contract and the actual route. If the website says "the merchant receives the money directly", you need to establish on whose balance the money sits before the payout and who has the right to change the recipient. If a refund is promised, you need to check its source of funds, the API, the processing times and the confirmation of the result.
 
-### Geography и APM list hygiene
+### Geography and APM list hygiene
 
-APM — alternative payment method, альтернативный платежный метод. Список его логотипов должен быть производным от матрицы возможностей. Строка матрицы содержит: юридическое лицо продавца, business location, страну покупателя, currency, метод/rail, продукт PSP, checkout-поверхность, тип операции, eligibility, статус тестирования и дату проверки.
+APM is an alternative payment method. A list of APM logos should be derived from a capability matrix. A row of the matrix contains: the merchant's legal entity, the business location, the buyer's country, the currency, the method/rail, the PSP product, the checkout surface, the operation type, eligibility, testing status and the date of the check.
 
-Stripe прямо разделяет business location, customer country, валюты, продуктовую и API-поддержку; у connected accounts условия могут отличаться. Поэтому объединить все страны и все валюты из разных строк в одно «worldwide» некорректно. Поддержка разовой оплаты не доказывает recurring; возможность charge не доказывает partial refund или payout в той же валюте. [P08-C018; Payment method support, Country and currency support / Product support](https://docs.stripe.com/payments/payment-methods/payment-method-support).
+Stripe explicitly separates business location, customer country, currencies, and product and API support; conditions may differ for connected accounts. So combining all countries and all currencies from different rows into a single "worldwide" is incorrect. Support for a one-time payment does not prove recurring support; the ability to charge does not prove a partial refund or a payout in the same currency. [P08-C018; Payment method support, Country and currency support / Product support](https://docs.stripe.com/payments/payment-methods/payment-method-support).
 
-Синтетический пример: коннектор прошел 12 sandbox-сценариев для магазина в стране A, карточной оплаты в EUR и одного checkout. Корректный результат — «проверена интеграция этих сценариев в sandbox». Из него не следует, что реальному merchant account разрешена работа, что деньги поступили в банк или что доступен любой метод в стране B. Даже production authorization не заменяет payout и fulfillment evidence.
+Synthetic example: the connector passed 12 sandbox scenarios for a store in country A, card payment in EUR and one checkout. The correct result is "the integration of these scenarios was verified in the sandbox". It does not follow that a real merchant account is allowed to operate, that money reached the bank or that any method is available in country B. Even a production authorization does not replace payout and fulfillment evidence.
 
-### Зрелость продукта и лестница доказательств
+### Product maturity and the evidence ladder
 
-Announcement подтверждает публикацию намерения. Private preview означает ограниченный доступ на условиях издателя; public preview не означает принятую эксплуатационную готовность. GA — объявленная общая доступность в указанном scope, но не отсутствие eligibility, региональных ограничений и исключений. Версия спецификации — отдельная характеристика: стабильная спецификация и незавершенный продукт могут существовать одновременно.
+An announcement confirms that an intent has been published. Private preview means limited access on the publisher's terms; public preview does not mean accepted operational readiness. GA is declared general availability within the stated scope, but it does not mean there are no eligibility requirements, regional restrictions or exceptions. The specification version is a separate characteristic: a stable specification and an unfinished product can exist at the same time.
 
-Для собственного продукта полезна лестница доказательств:
+For your own product, an evidence ladder is useful:
 
-1. Документированный API contract: какие действия вообще предусмотрены.
-2. Доступ и разрешенная модель: кто и на каких условиях может их выполнять.
-3. Тестовый результат: определенный набор сценариев прошел в указанной среде.
-4. Подтвержденная реальная операция: сумма, external ID, ledger, соответствующее движение средств.
-5. Клиентский результат: товар выдан или обязательство корректно закрыто.
-6. Повторяемость: наблюдаемый период, объем, ошибки, восстановление и поддержка.
+1. Documented API contract: which actions are provided for at all.
+2. Access and the permitted model: who can perform them and on what terms.
+3. Test result: a defined set of scenarios passed in the stated environment.
+4. Confirmed real operation: amount, external ID, ledger, the corresponding movement of funds.
+5. Customer outcome: the product was delivered or the obligation was correctly closed.
+6. Repeatability: the observed period, volume, errors, recovery and support.
 
-Эта лестница — редакционный метод. Ни количество API routes, ни число регистраций, ни процент HTTP `200` не подменяют следующие ступени. У рекламного тезиса должен быть owner, источник, дата и событие, после которого его пересматривают: новая страна, PSP, версия интеграции или изменение условий.
+This ladder is an editorial method. Neither the number of API routes, nor the number of sign-ups, nor the percentage of HTTP `200` responses substitutes for the next rungs. A marketing claim must have an owner, a source, a date and an event after which it is reviewed: a new country, PSP, integration version or a change in terms.
 
-### Пилотный чеклист с прекращением эксперимента
+### Pilot checklist with a way to stop the experiment
 
-Синтетический пилот: один продавец, один SKU за 25 EUR, 20 покупок, максимальная совокупная сумма 500 EUR, один согласованный маршрут. До начала фиксируют legal model, rail, geography и роли; возможность возврата; допустимую формулировку на сайте; способ сверки и владельца исключений. Это учебные лимиты, не рекомендация или разрешение запускать такой пилот.
+Synthetic pilot: one merchant, one SKU at 25 EUR, 20 purchases, a maximum total amount of 500 EUR, one agreed route. Before the start, record the legal model, rail, geography and roles; the ability to refund; the permitted wording on the website; the reconciliation method and the owner of exceptions. These are teaching limits, not a recommendation or permission to launch such a pilot.
 
-Критерии успеха: каждую успешную покупку можно связать с внешним платежом, записью учета и выдачей; одна и та же попытка не создает повторного эффекта; контролируемый частичный возврат восстановим по истории. Kill criteria — условия остановки новых покупок: двойное списание, неизвестный получатель средств, нарушение денежного инварианта, необъясненный остаток старше согласованного порога, невозможность исполнить возврат. Остановка приема не отменяет обслуживание уже возникших обязательств.
+Success criteria: every successful purchase can be linked to an external payment, an accounting record and a delivery; the same attempt does not create a repeated effect; a controlled partial refund can be reconstructed from the history. Kill criteria are the conditions for stopping new purchases: a double charge, an unknown recipient of funds, a breach of a money invariant, an unexplained balance older than the agreed threshold, inability to execute a refund. Stopping acceptance does not cancel the servicing of obligations that have already arisen.
 
 <a id="module-8-5"></a>
 <a id="85-ledger-сверка-и-финансовые-инварианты"></a>
-## 8.5 Денежный журнал, сверка и контроль балансов
+## 8.5 Money ledger, reconciliation and balance control
 
-**Вопрос:** что значит «деньги сходятся»? **Ответ:** внутренние записи арифметически сбалансированы, правильно отражают обязательства и сопоставлены с внешними источниками. Одно условие не заменяет остальные.
+**Question:** what does "the money adds up" mean? **Answer:** the internal records are arithmetically balanced, correctly reflect the obligations and have been matched against external sources. One condition does not replace the others.
 
-### Журнал событий, subledger и general ledger
+### Event log, subledger and general ledger
 
-Журнал событий сообщает, что система наблюдала: запрос отправлен, webhook получен, заказ выдан. Бухгалтерский журнал — набор денежных записей по счетам с основанием. Subledger — подробный учет отдельного участка, например расчетов с PSP по каждой операции. General ledger — главная книга организации, куда данные попадают по утвержденной учетной политике. Один технический event может не создавать проводку, создавать несколько записей или требовать предварительной проверки.
+The event log reports what the system observed: a request was sent, a webhook was received, an order was delivered. The accounting journal is a set of money entries across accounts, each with a basis. A subledger is detailed accounting for a particular area, for example settlements with the PSP for each operation. The general ledger is the organization's main book, into which data flows under the approved accounting policy. A single technical event may create no journal entry, create several entries or require prior verification.
 
-Ниже используется **операционный subledger продавца**, который продает собственный товар напрямую через PSP. Продавец рассматривает сумму к получению от PSP как актив, свою обязанность вернуть деньги — как обязательство. Это синтетическая модель контроля, не универсальная IFRS/GAAP-политика: момент признания выручки, principal/agent, налоги, стоимость товара, impairment и отчетная классификация требуют учета конкретного договора и проверки бухгалтером.
+Below we use the **operational subledger of a merchant** that sells its own product directly through a PSP. The merchant treats the amount receivable from the PSP as an asset, and its duty to return money as a liability. This is a synthetic control model, not a universal IFRS/GAAP policy: the timing of revenue recognition, principal/agent, taxes, cost of goods, impairment and reporting classification require taking the specific contract into account and review by an accountant.
 
-Дебет и кредит — стороны записи, не синонимы «хорошо» и «плохо». Для активов увеличение обычно отражают по дебету; для обязательств и капитала — по кредиту. В каждой валюте сумма дебетов журнала равна сумме кредитов. Trial balance — оборотно-сальдовая проверка конечных остатков по этим сторонам. Ее равенство необходимо, но не исключает одинаково сбалансированную ошибку или пропуск. [P08-C019; ACCA, FA2 Examiner’s report, Example 3, p. 3](https://www.accaglobal.com/content/dam/acca/global/PDF-students/fia/examreports/fa2/fa2-examreport-jul-dec2016.pdf).
+Debit and credit are the sides of an entry, not synonyms for "good" and "bad". For assets, an increase is usually recorded as a debit; for liabilities and equity, as a credit. In each currency, the total of the journal's debits equals the total of its credits. A trial balance is a check of the closing balances on these two sides. Its equality is necessary, but it does not rule out an equally balanced error or omission. [P08-C019; ACCA, FA2 Examiner’s report, Example 3, p. 3](https://www.accaglobal.com/content/dam/acca/global/PDF-students/fia/examreports/fa2/fa2-examreport-jul-dec2016.pdf).
 
-### Pending, posted и available
+### Pending, posted and available
 
-`Posted` означает, что запись принята в соответствующий учетный контур. `Pending` описывает ожидающее состояние по правилам этого контура. `Available` — сколько можно использовать сейчас с учетом ограничений. Эти оси нельзя автоматически свести к одному порядку. Учетная запись может быть posted, а отраженные ею средства — еще недоступны к payout.
+`Posted` means that an entry has been accepted into the relevant accounting system. `Pending` describes a waiting state under that system's rules. `Available` is how much can be used now, taking restrictions into account. These axes cannot be automatically reduced to a single ordering. An accounting entry can be posted while the funds it reflects are not yet available for payout.
 
-Stripe Balance Transaction отдельно содержит `amount`, `fee`, `net`, `currency`, `available_on` и `status`; определение `available_on` относится к доступности net funds в Stripe balance, а не к банковскому зачислению. Не следует трактовать одно поле как универсальное доказательство finality. [P08-C020; Balance Transaction object, Attributes](https://docs.stripe.com/api/balance_transactions/object).
+A Stripe Balance Transaction separately contains `amount`, `fee`, `net`, `currency`, `available_on` and `status`; the definition of `available_on` refers to the availability of net funds in the Stripe balance, not to a bank credit. No single field should be treated as universal proof of finality. [P08-C020; Balance Transaction object, Attributes](https://docs.stripe.com/api/balance_transactions/object).
 
-Для своего subledger задают правила явно: `PSP pending` — подтвержденное требование к PSP до доступности; `PSP reserve` — удержанное требование; `PSP position` — расчетная позиция, которая может стать долгом продавца; `in transit` — средства между подтвержденными точками движения; `bank` — учтенное банковское зачисление. Резерв не является расходом, пока он остается принадлежащим продавцу требованием; расход и риск невозврата рассматривают отдельно.
+For your own subledger, set the rules explicitly: `PSP pending` is a confirmed receivable from the PSP before it becomes available; `PSP reserve` is a withheld receivable; `PSP position` is a settlement position that can become the merchant's debt; `in transit` is funds between confirmed points of movement; `bank` is a recorded bank credit. A reserve is not an expense as long as it remains a receivable belonging to the merchant; the expense and the risk of non-recovery are considered separately.
 
-### Полный синтетический цикл в USD
+### A full synthetic cycle in USD
 
-Начальные условия: у магазина 1 000,00 USD собственного капитала в банке, других остатков нет. Проданы и выданы два цифровых товара: заказ A на 120,00 и B на 80,00 USD. По **учебному договору** processing fee составляет 3,90 и 2,70 USD; резерв 10% от gross; fee не возвращается. Позже по A возвращают 30,00 USD с отдельной комиссией 1,00. После release резерва по B окончательно проигран спор на 80,00 USD с fee 15,00. PSP разрешает отрицательную позицию до пополнения. Это не тариф или учетная политика названного провайдера.
+Starting conditions: the store has 1,000.00 USD of its own equity in the bank and no other balances. Two digital products have been sold and delivered: order A for 120.00 and B for 80.00 USD. Under the **teaching contract**, the processing fee is 3.90 and 2.70 USD; the reserve is 10% of gross; the fee is not refunded. Later, 30.00 USD is refunded on A with a separate fee of 1.00. After the reserve release, a dispute on B for 80.00 USD is finally lost, with a fee of 15.00. The PSP allows a negative position until it is topped up. This is not the pricing or accounting policy of any named provider.
 
-Все суммы в следующем журнале — USD. Проводки объединяют две продажи для компактности; аналитика сохраняет A/B и отдельные PSP IDs. Проводка J1 делается по проверенному финансовому основанию PSP, не по authorization или HTTP-ответу.
+All amounts in the following journal are in USD. The entries combine the two sales for compactness; the analytics keep A/B and the separate PSP IDs. Entry J1 is made on the basis of a verified PSP financial record, not on an authorization or an HTTP response.
 
-| № / время | Основание | Дебет | Кредит | Сумма |
+| No. / time | Basis | Debit | Credit | Amount |
 |---|---|---|---|---:|
-| J0 / начало | Внесен капитал | Банк | Капитал | 1 000,00 |
-| J1 / день 1 | PSP признал средства двух покупок | PSP pending | Обязательство исполнить заказы | 200,00 |
-| J2 / день 1 | Обе лицензии выданы | Обязательство исполнить заказы | Выручка | 200,00 |
-| J3 / день 1 | Processing fees A/B | Расходы PSP | PSP pending | 6,60 |
-| J4 / день 1 | Удержан резерв | PSP reserve | PSP pending | 20,00 |
-| J5 / день 2 | Net доступен для выплаты | PSP position | PSP pending | 173,40 |
-| J6 / день 2 | Payout P1 отправлен | Выплата в пути | PSP position | 173,40 |
-| J7 / день 3 | Банк подтвердил P1 | Банк | Выплата в пути | 173,40 |
-| J8 / день 4 | Принят частичный возврат A | Возвраты продаж | Обязательство возврата | 30,00 |
-| J9 / день 4 | PSP исполнил возврат R1 | Обязательство возврата | PSP position | 30,00 |
-| J10 / день 4 | Комиссия R1 | Расходы PSP | PSP position | 1,00 |
-| J11 / день 5 | Весь резерв освобожден | PSP position | PSP reserve | 20,00 |
-| J12 / день 6 | Chargeback B окончательно проигран | Убыток по спору | PSP position | 80,00 |
-| J13 / день 6 | Комиссия спора | Расходы PSP | PSP position | 15,00 |
-| J14 / день 7 | Пополнение T1 ушло из банка | Пополнение в пути | Банк | 106,00 |
-| J15 / день 8 | PSP зачислил T1 | PSP position | Пополнение в пути | 106,00 |
+| J0 / start | Equity contributed | Bank | Equity | 1,000.00 |
+| J1 / day 1 | The PSP recognized the funds for two purchases | PSP pending | Obligation to fulfill orders | 200.00 |
+| J2 / day 1 | Both licenses delivered | Obligation to fulfill orders | Revenue | 200.00 |
+| J3 / day 1 | Processing fees A/B | PSP expenses | PSP pending | 6.60 |
+| J4 / day 1 | Reserve withheld | PSP reserve | PSP pending | 20.00 |
+| J5 / day 2 | Net available for payout | PSP position | PSP pending | 173.40 |
+| J6 / day 2 | Payout P1 sent | Payout in transit | PSP position | 173.40 |
+| J7 / day 3 | The bank confirmed P1 | Bank | Payout in transit | 173.40 |
+| J8 / day 4 | Partial refund on A accepted | Sales refunds | Refund obligation | 30.00 |
+| J9 / day 4 | The PSP executed refund R1 | Refund obligation | PSP position | 30.00 |
+| J10 / day 4 | R1 fee | PSP expenses | PSP position | 1.00 |
+| J11 / day 5 | Entire reserve released | PSP position | PSP reserve | 20.00 |
+| J12 / day 6 | Chargeback on B finally lost | Dispute loss | PSP position | 80.00 |
+| J13 / day 6 | Dispute fee | PSP expenses | PSP position | 15.00 |
+| J14 / day 7 | Top-up T1 left the bank | Top-up in transit | Bank | 106.00 |
+| J15 / day 8 | The PSP credited T1 | PSP position | Top-up in transit | 106.00 |
 
-После J3–J5: `200 − 6,60 − 20 = 173,40` доступно, 20,00 удержано, pending обнулен. После J6 банк еще не вырос: 173,40 находится в пути. Только J7 увеличивает банк до 1 173,40.
+After J3–J5: `200 − 6.60 − 20 = 173.40` is available, 20.00 is withheld, pending is zero. After J6 the bank balance has not grown yet: 173.40 is in transit. Only J7 increases the bank balance to 1,173.40.
 
 ```mermaid
 stateDiagram-v2
-  [*] --> eligible: сумма доступна к payout
-  eligible --> in_transit: PSP подтвердил отправку
-  in_transit --> bank_confirmed: найдено зачисление по reference
-  in_transit --> investigating: ожидаемый срок истек
-  investigating --> bank_confirmed: найден прежний перевод
-  investigating --> returned: PSP подтвердил возврат перевода
-  returned --> eligible: восстановлена расчетная позиция
+  [*] --> eligible: amount available for payout
+  eligible --> in_transit: PSP confirmed dispatch
+  in_transit --> bank_confirmed: credit found by reference
+  in_transit --> investigating: expected time elapsed
+  investigating --> bank_confirmed: original transfer found
+  investigating --> returned: PSP confirmed the transfer was returned
+  returned --> eligible: settlement position restored
 ```
 
-Это учебная схема выплаты; `investigating` не означает автоматический повтор перевода.
+This is a teaching payout diagram; `investigating` does not mean an automatic retry of the transfer.
 
-После возврата позиция PSP равна `0 − 30 − 1 = −31,00`. Release резерва дает `−31 + 20 = −11,00`. Спор и его комиссия приводят к `−11 − 80 − 15 = −106,00`. Это кредитовый остаток, то есть долг продавца PSP; доступно для payout ноль. Его нельзя показать клиенту как отрицательный «доступный актив» без объяснения. Пополнение 106,00 закрывает долг, снижая банк до **1 067,40 USD**.
+After the refund, the PSP position is `0 − 30 − 1 = −31.00`. The reserve release gives `−31 + 20 = −11.00`. The dispute and its fee lead to `−11 − 80 − 15 = −106.00`. This is a credit balance, that is, the merchant's debt to the PSP; zero is available for payout. It cannot be shown to the customer as a negative "available asset" without an explanation. The top-up of 106.00 closes the debt, reducing the bank balance to **1,067.40 USD**.
 
-J8 признает обязательство refund отдельно от его исполнения J9. Аналогично, отправка T1 и зачисление у PSP — два факта. При споре в процессе, а не окончательно проигранном, потребовалась бы другая временная классификация; пример не задает универсальный момент признания dispute loss. Также refund request accepted не является доказательством, что банк покупателя уже отразил зачисление.
+J8 recognizes the refund obligation separately from its execution in J9. Likewise, sending T1 and its crediting at the PSP are two facts. With a dispute still in progress, rather than finally lost, a different interim classification would be needed; the example does not set a universal moment for recognizing a dispute loss. Also, an accepted refund request is not proof that the buyer's bank has already posted the credit.
 
-### Внешние контрольные данные
+### External control data
 
-Синтетическая выписка PSP содержит следующие движения **совокупной позиции**, включая резерв; внутренний перевод pending→available или reserve→available не меняет ее итог.
+The synthetic PSP statement contains the following movements of the **total position**, including the reserve; an internal transfer pending→available or reserve→available does not change its total.
 
-| PSP event | Изменение USD | Остаток USD |
+| PSP event | Change, USD | Balance, USD |
 |---|---:|---:|
-| Начало | — | 0,00 |
-| Sale A | +120,00 | 120,00 |
-| Sale B | +80,00 | 200,00 |
-| Fee A | −3,90 | 196,10 |
-| Fee B | −2,70 | 193,40 |
-| Payout P1 | −173,40 | 20,00 |
-| Refund R1 | −30,00 | −10,00 |
-| Refund fee | −1,00 | −11,00 |
-| Chargeback B | −80,00 | −91,00 |
-| Dispute fee | −15,00 | −106,00 |
-| Top-up T1 | +106,00 | 0,00 |
+| Start | — | 0.00 |
+| Sale A | +120.00 | 120.00 |
+| Sale B | +80.00 | 200.00 |
+| Fee A | −3.90 | 196.10 |
+| Fee B | −2.70 | 193.40 |
+| Payout P1 | −173.40 | 20.00 |
+| Refund R1 | −30.00 | −10.00 |
+| Refund fee | −1.00 | −11.00 |
+| Chargeback B | −80.00 | −91.00 |
+| Dispute fee | −15.00 | −106.00 |
+| Top-up T1 | +106.00 | 0.00 |
 
-Выписка банка: начало 1 000,00; поступление P1 `+173,40`; списание T1 `−106,00`; конец **1 067,40**. Коммерческий реестр: выполненные заказы A/B `200,00`; возврат A `30,00`; проигранный спор B `80,00`. Экономический результат без прочих расходов: `200 − 30 − 80 − 6,60 − 1 − 15 = 67,40`. Изменение банка `173,40 − 106 = 67,40` совпало с ним только потому, что весь цикл закрыт и прочие остатки нулевые.
+Bank statement: opening 1,000.00; receipt of P1 `+173.40`; debit for T1 `−106.00`; closing **1,067.40**. Commercial register: fulfilled orders A/B `200.00`; refund on A `30.00`; lost dispute on B `80.00`. Economic result excluding other expenses: `200 − 30 − 80 − 6.60 − 1 − 15 = 67.40`. The change in the bank balance `173.40 − 106 = 67.40` matched it only because the whole cycle is closed and the other balances are zero.
 
-### Конечный trial balance
+### Closing trial balance
 
-| Счет | Дебетовый остаток | Кредитовый остаток |
+| Account | Debit balance | Credit balance |
 |---|---:|---:|
-| Банк | 1 067,40 | — |
-| Возвраты продаж | 30,00 | — |
-| Расходы PSP: 6,60 + 1 + 15 | 22,60 | — |
-| Убыток по спору | 80,00 | — |
-| Капитал | — | 1 000,00 |
-| Выручка | — | 200,00 |
-| PSP pending/reserve/position, оба in-transit, обязательства | 0,00 | 0,00 |
-| **Итого** | **1 200,00** | **1 200,00** |
+| Bank | 1,067.40 | — |
+| Sales refunds | 30.00 | — |
+| PSP expenses: 6.60 + 1 + 15 | 22.60 | — |
+| Dispute loss | 80.00 | — |
+| Equity | — | 1,000.00 |
+| Revenue | — | 200.00 |
+| PSP pending/reserve/position, both in-transit accounts, obligations | 0.00 | 0.00 |
+| **Total** | **1,200.00** | **1,200.00** |
 
-«Банк равен выручке» здесь очевидно неверно. Выручка gross — 200,00; коммерческая выручка после refund — 170,00; из нее еще не вычтены dispute loss и fees. Payout 173,40 тоже не является прибылью: он произошел до возврата и спора.
+"The bank equals revenue" is clearly wrong here. Gross revenue is 200.00; commercial revenue after the refund is 170.00; the dispute loss and fees have not yet been deducted from it. The 173.40 payout is not profit either: it happened before the refund and the dispute.
 
-### Найти missing и duplicate event
+### Finding a missing and a duplicate event
 
-Теперь внесем две ошибки в учет, оставив внешние операции прежними. Webhook R1 потерян, поэтому J9 не создана, хотя J8 уже есть. Позднее другая доставка/импорт повторно признает processing fee 6,60: дебет расходов, кредит PSP position. Это повтор **экономического события**, даже если transport event ID новый.
+Now let us introduce two errors into the accounting while leaving the external operations unchanged. The R1 webhook is lost, so J9 is not created, although J8 already exists. Later, another delivery/import recognizes the 6.60 processing fee a second time: debit expenses, credit PSP position. This is a repeat of the **economic event**, even if the transport event ID is new.
 
-Ошибочный итог: PSP position **+23,40** вместо нуля, незакрытое обязательство refund **30,00**, расходы PSP **29,20** вместо 22,60. Причина расхождения PSP: `+30,00 пропущенного списания − 6,60 повторной комиссии = +23,40`. При этом trial balance все еще равен: дебеты `1 067,40 + 23,40 + 30 + 29,20 + 80 = 1 230,00`; кредиты `1 000 + 200 + 30 = 1 230,00`.
+Erroneous result: PSP position **+23.40** instead of zero, an open refund obligation of **30.00**, PSP expenses of **29.20** instead of 22.60. The cause of the PSP discrepancy: `+30.00 missed debit − 6.60 duplicate fee = +23.40`. Meanwhile, the trial balance still balances: debits `1,067.40 + 23.40 + 30 + 29.20 + 80 = 1,230.00`; credits `1,000 + 200 + 30 = 1,230.00`.
 
-Сверка обнаружит refund в PSP без финансовой записи и повтор fee относительно одной исходной операции. Исправление: провести пропущенную J9 по найденному R1; обратной записью отменить лишние 6,60 — дебет PSP position, кредит расходов PSP. Старые записи не удаляют: добавляют ссылку на исправляемую запись, основание, время и проверившего. После этого возвращаемся к trial balance 1 200,00 и внешнему нулевому остатку PSP.
+Reconciliation will find a refund at the PSP with no financial entry, and a duplicate fee for a single original operation. The fix: post the missing J9 based on the R1 that was found; reverse the extra 6.60 with a reversing entry — debit PSP position, credit PSP expenses. Old entries are not deleted: a reference to the entry being corrected, the basis, the time and the reviewer are added. After this, we are back to a trial balance of 1,200.00 and an external PSP balance of zero.
 
-### Трехсторонняя сверка и close
+### Three-way reconciliation and close
 
-Первая сторона — коммерческий реестр и внутренний subledger: заказ, capture, refund, обязательство выдачи. Вторая — PSP/network statement: какие деньги и корректировки признает внешний участник. Третья — банк либо проверяемая on-chain запись на конечном адресе. Это можно записать как `order ↔ ledger ↔ provider ↔ bank/chain`; название «трехсторонняя» группирует order/ledger во внутреннюю сторону, не позволяет пропустить проверку заказа.
+The first side is the commercial register and the internal subledger: order, capture, refund, delivery obligation. The second is the PSP/network statement: which money and adjustments the external participant recognizes. The third is the bank or a verifiable on-chain record at the final address. This can be written as `order ↔ ledger ↔ provider ↔ bank/chain`; the name "three-way" groups order/ledger into the internal side; it does not allow the order check to be skipped.
 
-Матч проводят по точным идентификаторам, account, currency и типу операции. Совпадение суммы и дня — кандидат, не доказательство: два заказа по 20 USD не взаимозаменяемы. Для payout допустима связь many-to-one; для частичного refund — one-to-many относительно платежа. Отдельно сверяют количество строк, gross, fees, refunds, reserves, in-transit и конечные остатки. Неразрешенные различия сохраняют с aging и владельцем; не прячут их в «прочее», чтобы получить ноль.
+Matching is done on exact identifiers, account, currency and operation type. A match on amount and day is a candidate, not proof: two orders of 20 USD each are not interchangeable. For a payout, a many-to-one link is allowed; for a partial refund, one-to-many relative to the payment. The row count, gross, fees, refunds, reserves, in-transit amounts and closing balances are reconciled separately. Unresolved differences are kept with aging and an owner; they are not hidden under "other" to get a zero.
 
-### Мультивалютность и точность
+### Multiple currencies and precision
 
-Сумма всегда хранится с валютой/asset и единицей. 1 000 означает 10,00 USD только при известном exponent 2. Stripe документирует исключения: например, 5 ISK передается как 500 для совместимости, хотя дробные ISK не принимаются. Поэтому таблица ISO minor units сама по себе не заменяет контракт конкретного API. Decimal либо целые единицы с масштабом предпочтительнее двоичного floating point для денежной арифметики. [P08-C021; Supported currencies, Special cases](https://docs.stripe.com/currencies).
+An amount is always stored with its currency/asset and unit. 1,000 means 10.00 USD only when the exponent 2 is known. Stripe documents exceptions: for example, 5 ISK is passed as 500 for compatibility, although fractional ISK amounts are not accepted. So the ISO minor units table alone does not replace the contract of a specific API. Decimal or integer units with a scale are preferable to binary floating point for money arithmetic. [P08-C021; Supported currencies, Special cases](https://docs.stripe.com/currencies).
 
-Отдельный синтетический FX-пример: покупатель платит 100,00 EUR. PSP конвертирует по 1,1000 USD/EUR: gross settlement 110,00 USD. Conversion fee 1,10 USD, processing fee 3,20 USD, net 105,70 USD. Это не `100 − 4,30 = 95,70`: валюты различаются. В исходной валюте сохраняется продажа 100 EUR; в расчетной — 110 USD и две комиссии. Если промежуточный учет велся по 1,0800, первоначальная оценка требования 108 USD; при расчете отдельно объясняется разница 2 USD. Ее отчетная квалификация зависит от учетной политики.
+A separate synthetic FX example: the buyer pays 100.00 EUR. The PSP converts at 1.1000 USD/EUR: gross settlement of 110.00 USD. Conversion fee 1.10 USD, processing fee 3.20 USD, net 105.70 USD. This is not `100 − 4.30 = 95.70`: the currencies differ. In the original currency, the 100 EUR sale is kept; in the settlement currency, 110 USD and two fees. If interim accounting used 1.0800, the initial measurement of the receivable is 108 USD; on settlement, the 2 USD difference is explained separately. Its reporting classification depends on the accounting policy.
 
-Возврат 25 EUR при новом курсе 1,1200 требует 28,00 USD до отдельной комиссии. Он не равен четверти старого net: `105,70 / 4 = 26,425 USD`. При округлении three-way сверка должна знать, на каком шаге и по какому правилу округлял PSP. Разницы округления имеют отдельное основание и лимит; ими нельзя маскировать пропущенный платеж. Денежный баланс строят по каждой валюте, а сводный отчет — через явный курс и дату оценки, никогда простым сложением EUR, USD и токенов.
+A refund of 25 EUR at the new rate of 1.1200 requires 28.00 USD before a separate fee. It is not equal to a quarter of the old net: `105.70 / 4 = 26.425 USD`. When rounding is involved, three-way reconciliation must know at which step and by which rule the PSP rounded. Rounding differences have their own basis and limit; they cannot be used to mask a missed payment. The money balance is built separately for each currency, and a consolidated report is built using an explicit rate and measurement date, never by simply adding up EUR, USD and tokens.
 
 <a id="module-8-6"></a>
 <a id="86-надежность-безопасность-и-восстановление"></a>
-## 8.6 Надёжность, безопасность и восстановление
+## 8.6 Reliability, security and recovery
 
-**Вопрос:** что важнее — всегда отвечать или никогда не потерять деньги? **Ответ:** нужны измеримые цели по обоим направлениям; при неопределенности система должна сохранять факты и ограничивать новые эффекты.
+**Question:** what matters more — always responding or never losing money? **Answer:** you need measurable targets in both directions; under uncertainty, the system must preserve facts and limit new effects.
 
-### Duplicate, out-of-order и omission
+### Duplicate, out-of-order and omission
 
-Stripe не гарантирует порядок доставки событий и описывает автоматические повторы до трех дней в live mode. Поэтому пропущенное сообщение восстанавливают из других доступных источников, а позднее событие не должно слепо откатывать текущее состояние. Доставка может повториться уже после ручной обработки. [P08-C022; Stripe webhooks, Event delivery behaviors](https://docs.stripe.com/webhooks).
+Stripe does not guarantee the order in which events are delivered and describes automatic retries for up to three days in live mode. So a missed message is recovered from other available sources, and a late event must not blindly roll back the current state. A delivery may be repeated even after manual processing. [P08-C022; Stripe webhooks, Event delivery behaviors](https://docs.stripe.com/webhooks).
 
-У Shopify webhook reference с selector 2026-07 различает `X-Shopify-Webhook-Id`, идентифицирующий delivery, и `X-Shopify-Event-Id`, общий для доставок одного merchant action. Это не order ID и не платежный ID. Несколько подписок могут создать разные delivery IDs для одного действия. Нужно определить, какие потребители обязаны независимо обработать событие, а где возникает недопустимый повтор бизнес-эффекта. [P08-C023; Shopify Webhooks, Headers](https://shopify.dev/docs/api/webhooks/latest).
+At Shopify, the webhook reference with selector 2026-07 distinguishes `X-Shopify-Webhook-Id`, which identifies a delivery, from `X-Shopify-Event-Id`, which is shared by the deliveries of one merchant action. This is neither an order ID nor a payment ID. Several subscriptions can create different delivery IDs for one action. You need to determine which consumers must process the event independently, and where an impermissible repeat of a business effect arises. [P08-C023; Shopify Webhooks, Headers](https://shopify.dev/docs/api/webhooks/latest).
 
-Shopify рекомендует persistent duplicate tracking, быстрое подтверждение HTTPS-доставки и периодический reconciliation job; для HTTPS описаны one-second connection и five-second overall timeouts. Эти интервалы нельзя переносить на WooCommerce или PSP. [P08-C024; Verify webhook deliveries, Ignoring duplicates / HTTPS delivery considerations](https://shopify.dev/docs/apps/build/webhooks/verify-deliveries).
+Shopify recommends persistent duplicate tracking, quick acknowledgment of HTTPS delivery and a periodic reconciliation job; for HTTPS, one-second connection and five-second overall timeouts are described. These intervals cannot be carried over to WooCommerce or a PSP. [P08-C024; Verify webhook deliveries, Ignoring duplicates / HTTPS delivery considerations](https://shopify.dev/docs/apps/build/webhooks/verify-deliveries).
 
-Синтетический порядок: сначала пришло `refund.completed`, затем старое `payment.succeeded`. Правильный обработчик сохраняет оба факта и рассчитывает net outcome; он не заменяет «возвращено» на «оплачено» только потому, что второе сообщение пришло позднее. Если refund ссылается на неизвестный payment, сообщение помещают в ожидание зависимости и запрашивают связанный объект. Время получения не является порядком экономических событий.
+Synthetic ordering: first `refund.completed` arrived, then an old `payment.succeeded`. A correct handler saves both facts and calculates the net outcome; it does not replace "refunded" with "paid" just because the second message arrived later. If a refund refers to an unknown payment, the message is put on hold until the dependency is resolved, and the related object is requested. The time of receipt is not the order of economic events.
 
-### Подлинность, права и злоупотребление
+### Authenticity, permissions and abuse
 
-Webhook endpoint проверяет подпись на исходных байтах тела, правильный signing secret и соответствие tenant/account/environment. Документация Stripe отдельно предупреждает об изменении raw body middleware при проверке подписи. [P08-C025; Resolve webhook signature verification errors, Check the request body](https://docs.stripe.com/webhooks/signature).
+A webhook endpoint verifies the signature over the raw bytes of the body, the correct signing secret and the tenant/account/environment match. Stripe's documentation specifically warns about middleware altering the raw body when the signature is verified. [P08-C025; Resolve webhook signature verification errors, Check the request body](https://docs.stripe.com/webhooks/signature).
 
-Подпись подтверждает источник сообщения в своем контракте, но не право выполнить любую операцию, написанную в payload. Сумма, получатель, asset и связь с локальным заказом также проверяются. Replay protection требует проверки свежести там, где контракт подписывает timestamp, и дедупликации: в Stripe timestamp входит в подпись, а повторная доставка получает новую подпись и время. Свежесть delivery не доказывает новизну бизнес-события. [P08-C026; Stripe webhooks, Preventing replay attacks](https://docs.stripe.com/webhooks).
+The signature confirms the source of the message within its contract, but not the right to perform any operation written in the payload. The amount, recipient, asset and link to the local order are also checked. Replay protection requires a freshness check where the contract signs a timestamp, plus deduplication: at Stripe, the timestamp is part of the signature, and a repeated delivery gets a new signature and time. The freshness of a delivery does not prove that the business event is new. [P08-C026; Stripe webhooks, Preventing replay attacks](https://docs.stripe.com/webhooks).
 
-Секреты хранят вне журналов и клиентского кода; доступ чтения отчетов отделяют от refunds и payout. Изменение банковского получателя — отдельное чувствительное действие с подтверждением владельца, проверкой реквизитов по независимому каналу и audit trail. Recovery не должен незаметно расширять права. Входящие свободные тексты, включая инструкции для агента, остаются данными; они не могут менять allowlist получателей или лимит расходов.
+Secrets are stored outside logs and client code; read access to reports is separated from refunds and payouts. Changing the bank recipient is a separate sensitive action with owner confirmation, verification of the details through an independent channel and an audit trail. Recovery must not quietly expand permissions. Incoming free text, including instructions for an agent, remains data; it cannot change the recipient allowlist or the spending limit.
 
-Даже корректно авторизованный API можно использовать во вред бизнесу. OWASP API6:2023 рассматривает злоупотребление чувствительными потоками, например массовое резервирование ограниченного ресурса. Для платежного коннектора отсюда следует проверять не только запросы в секунду, но и число активных резервов, совокупную сумму, многократные возвраты и аномальные попытки по одному principal. Это проектные меры, а не утверждение о конкретной атаке на магазин. [P08-C027; OWASP API6:2023, Is the API Vulnerable? / Example Attack Scenarios](https://api-security.owasp.org/editions/2023/en/0xa6-unrestricted-access-to-sensitive-business-flows/).
+Even a correctly authorized API can be used to harm a business. OWASP API6:2023 covers abuse of sensitive flows, for example mass reservation of a limited resource. For a payment connector, this means checking not only requests per second but also the number of active reservations, the total amount, repeated refunds and anomalous attempts by a single principal. These are design measures, not a claim about a specific attack on a store. [P08-C027; OWASP API6:2023, Is the API Vulnerable? / Example Attack Scenarios](https://api-security.owasp.org/editions/2023/en/0xa6-unrestricted-access-to-sensitive-business-flows/).
 
-### Наблюдаемость результата
+### Observability of outcomes
 
-Availability SLI показывает долю доступных запросов; финансовые инварианты показывают сохранность денег. В учебной системе полезно независимо измерять: число и сумму unknown операций; возраст «payment confirmed, fulfillment pending»; разницу ledger/provider/bank по валютам; возраст денег в пути; повторные финансовые записи; долю непривязанных платежей. У метрик есть знаменатель, окно и допустимое исключение. «99,9% запросов успешны» без определения запроса не сообщает, сколько покупателей получили товар.
+An availability SLI shows the share of requests for which the service was available; financial invariants show that the money is safe. In a teaching system, it is useful to measure independently: the number and amount of unknown operations; the age of "payment confirmed, fulfillment pending"; the ledger/provider/bank difference by currency; the age of money in transit; duplicate financial entries; the share of unlinked payments. Metrics have a denominator, a window and permitted exclusions. "99.9% of requests succeed" without a definition of a request does not tell you how many buyers received the product.
 
-HTTP-ошибки тоже неодинаковы. Отказ checkout до отправки PSP — известное отсутствие внешней операции. Timeout после отправки — неизвестный результат. Ошибка выдачи после подтвержденной оплаты — возникшее обязательство перед покупателем. Нужны разные алерты и маршруты действий, иначе одна кнопка retry будет одновременно безвредной для чтения и опасной для денег.
+HTTP errors are not all the same either. A checkout failure before sending to the PSP is a known absence of an external operation. A timeout after sending is an unknown result. A delivery error after a confirmed payment is an obligation to the buyer that has already arisen. Different alerts and action paths are needed; otherwise a single retry button will be both harmless for reads and dangerous for money.
 
-### Реальный опыт Monzo: ограниченный резервный контур
+### Monzo's real-world experience: a limited backup system
 
-Daniel Chatfield и Andrew Lawson в публикации Monzo от 13.02.2025 описали крупный сбой августа 2024, продолжавшийся примерно час, и включение Stand-in. По их рассказу, независимый ограниченный контур поддерживал основные банковские действия. Они описывают durable queue для последующего переноса эффектов и correlation IDs против двойного учета при обратной синхронизации. Это свидетельство инженеров оператора, а не независимая оценка доступности или полный postmortem причины сбоя. [P08-C028; Tolerating full cloud outages with Monzo Stand-in, Syncing state / Correlating data / You might have seen](https://monzo.com/blog/tolerating-full-cloud-outages-with-monzo-stand-in).
+Daniel Chatfield and Andrew Lawson, in a Monzo post dated 2025-02-13, described a major outage in August 2024 that lasted about an hour, and the activation of Stand-in. According to their account, an independent limited system supported core banking actions. They describe a durable queue for applying effects later and correlation IDs to prevent double counting during back-synchronization. This is testimony from the operator's engineers, not an independent assessment of availability or a full postmortem of the outage's cause. [P08-C028; Tolerating full cloud outages with Monzo Stand-in, Syncing state / Correlating data / You might have seen](https://monzo.com/blog/tolerating-full-cloud-outages-with-monzo-stand-in).
 
-Учебный вывод из такого подхода: резервный режим должен иметь ограниченный набор действий, собственный журнал решений и путь возвращения в основной учет. «Переключились на другой сервер» не отвечает на вопрос о платежах, которые оба контура успели увидеть. Для небольшого магазина минимальный резервный режим может быть скромнее: остановить новые оплаты, продолжить доступ к истории и поддержку, сохранить incoming events и безопасно закрывать подтвержденные обязательства.
+The teaching takeaway from this approach: a backup mode should have a limited set of actions, its own decision log and a path back into the main ledger. "We switched to another server" does not answer the question about payments that both systems managed to see. For a small store, a minimal backup mode can be more modest: stop new payments, keep access to history and support, save incoming events and safely close confirmed obligations.
 
-### Сбой в середине оплаты: два восстановления
+### A failure in the middle of a payment: two recoveries
 
-**Известный результат.** PSP подтверждает capture 60 USD по исходному ID, журнал создан, выдача не началась из-за остановки worker. После восстановления worker берет прежний fulfillment operation, проверяет отсутствие уже выданного товара, делает одну выдачу и сохраняет evidence. Платеж повторно не отправляется. Если товар уже выдан, задача завершается ссылкой на прежний результат.
+**Known result.** The PSP confirms a capture of 60 USD under the original ID, the journal entry has been created, but delivery has not started because the worker stopped. After recovery, the worker picks up the earlier fulfillment operation, checks that the product has not already been delivered, performs one delivery and saves the evidence. The payment is not sent again. If the product has already been delivered, the task completes with a reference to the earlier result.
 
-**Неизвестный результат.** Запрос capture 60 USD ушел, ответ потерян, PSP status API недоступен. Коннектор сохраняет `unknown`, блокирует новый capture того же намерения и показывает клиенту «проверяем оплату». После восстановления канала он ищет исходную операцию. Найденный success ведет к учету и выдаче; доказанный отказ — к предложению новой попытки. Если установленного способа доказать отсутствие эффекта нет, случай остается на разборе. Истечение таймера не является доказательством отказа.
+**Unknown result.** A capture request for 60 USD went out, the response was lost, and the PSP status API is unavailable. The connector saves `unknown`, blocks a new capture for the same intent and shows the customer "checking your payment". After the channel recovers, it looks for the original operation. A success that is found leads to accounting and delivery; a proven refusal leads to offering a new attempt. If there is no established way to prove the absence of an effect, the case stays under review. A timer expiring is not proof of refusal.
 
-В обоих случаях «провайдер снова доступен» — начало recovery, а не конец инцидента. Требуются сверка периода сбоя, обработка backlog, проверка повторов и пользовательских обязательств. Очередь очищают только после проверки результатов, а не массовым изменением статуса.
+In both cases, "the provider is available again" is the start of recovery, not the end of the incident. You need reconciliation of the outage period, backlog processing, and checks of retries and customer obligations. The queue is cleared only after the results are checked, not by a mass status change.
 
-Повторы ограничивают общим deadline, числом попыток и объемом воздействия; задержку увеличивают, добавляя случайный разброс, чтобы множество workers не атаковали восстановившийся PSP одновременно. Эти настройки выбирают по контракту операции. Предохранитель, временно прекращающий новые запросы к недоступному сервису, полезен для ограничения нагрузки; он не меняет уже отправленные `unknown` операции на `failed`. Статусы читают с учетом лимитов API, а большие backlog разбирают постепенно, приоритетно закрывая старые клиентские обязательства. Так восстановление не создает второй инцидент.
+Retries are limited by an overall deadline, the number of attempts and the scope of impact; the delay is increased with added random jitter so that many workers do not hit the recovered PSP all at once. These settings are chosen according to the operation's contract. A circuit breaker that temporarily stops new requests to an unavailable service is useful for limiting load; it does not change `unknown` operations that have already been sent to `failed`. Statuses are read within API limits, and large backlogs are worked through gradually, with priority given to closing old customer obligations. That way, recovery does not create a second incident.
 
-### Backup, restore и выход от провайдера
+### Backup, restore and exiting a provider
 
-Backup должен включать не только суммы счетов, но и IDs операций, записи дедупликации, связи с внешними объектами, inbox/outbox и необходимые ключи восстановления в защищенном контуре. После restore из старого снимка PSP мог уже исполнить новые операции. Если сразу возобновить выдачу и списания, восстановленная база воспримет их как новые. Поэтому сначала ограничивают изменения, догружают внешние факты после точки восстановления и выполняют сверку.
+A backup must include not only account amounts but also operation IDs, deduplication records, links to external objects, the inbox/outbox and the necessary recovery keys in a protected environment. After a restore from an old snapshot, the PSP may have already executed new operations. If you immediately resume delivery and charges, the restored database will treat them as new. So first restrict changes, load the external facts from after the recovery point, and perform reconciliation.
 
-RPO — допустимая потеря данных по времени; RTO — целевое время восстановления. Даже RPO в несколько секунд может охватывать реальные деньги. «Снимок восстановился» не доказывает соблюдение денежных инвариантов. Учебная проверка restore включает одни и те же платежи до и после сбоя, пропущенные сообщения, late retries и проверку итогов по независимой выписке.
+RPO is the acceptable data loss measured in time; RTO is the target recovery time. Even an RPO of a few seconds can cover real money. "The snapshot was restored" does not prove that money invariants hold. A teaching restore test includes the same payments before and after the failure, missed messages, late retries and checking totals against an independent statement.
 
-BCBS Principles for operational resilience, March 2021, обращены к банкам: они включают упражнения по тяжелым правдоподобным сценариям, mapping зависимостей, управление третьими сторонами и incident response. Здесь это источник организационных принципов, не утверждение, что документ сам по себе юридически обязателен любому магазину. [P08-C029; Principles 3–6, printed pp. 5–7](https://www.bis.org/publications/202103-guidelines-principles-operational-resilience.pdf).
+The BCBS Principles for operational resilience, March 2021, are addressed to banks: they include exercises based on severe but plausible scenarios, mapping of dependencies, third-party management and incident response. Here they serve as a source of organizational principles, not a claim that the document is by itself legally binding on any store. [P08-C029; Principles 3–6, printed pp. 5–7](https://www.bis.org/publications/202103-guidelines-principles-operational-resilience.pdf).
 
-Exit plan от PSP предусматривает выгрузку истории, сохранение договорных/учетных доказательств, обслуживание оставшихся refunds/disputes, проверку доступности резерва и судьбу токенов/мандатов. Переключение новых покупок не переносит автоматически старые обязательства. Финальное закрытие требует ledger, внешнего расчета и исполнения заказа; каждый незакрытый хвост имеет владельца.
+A PSP exit plan provides for exporting the history, preserving contractual/accounting evidence, servicing the remaining refunds/disputes, checking the availability of the reserve, and deciding the fate of tokens/mandates. Switching new purchases does not automatically move old obligations. Final closure requires the ledger, external settlement and order fulfillment; every loose end has an owner.
 
-### Публичный вопрос разработчика как упражнение
+### A developer's public question as an exercise
 
-В r/shopifyDev пользователь **IndicationOne9495** спрашивает, стоит ли всегда ставить Shopify webhooks в очередь, описывая дубли и медленные ответы при росте нагрузки. Абсолютная дата поста не установлена: страница показала относительное `22h ago`, несовместимое с частью crawl metadata. Прочитан именно публичный текст; объем нагрузки и причины независимо не подтверждены. [P08-C030; исходный пост](https://www.reddit.com/r/shopifyDev/comments/1vtcxj0/do_you_process_shopify_webhooks_inline_or_always/).
+On r/shopifyDev, the user **IndicationOne9495** asks whether Shopify webhooks should always be queued, describing duplicates and slow responses as load grows. The absolute date of the post has not been established: the page showed a relative `22h ago`, which is inconsistent with part of the crawl metadata. Only the public text was read; the load volume and causes have not been independently confirmed. [P08-C030; original post](https://www.reddit.com/r/shopifyDev/comments/1vtcxj0/do_you_process_shopify_webhooks_inline_or_always/).
 
-Полезный вопрос к этому случаю — не «какую очередь выбрать», а «в какой момент сообщение стало устойчивым и где предотвращается второй эффект». Ответ `200` перед долговечным сохранением оставляет окно потери. Очередь без дедупликации оставляет окно повторного исполнения. Это вывод из механизма, а не диагноз конкретного приложения автора.
+The useful question for this case is not "which queue to choose" but "at what point did the message become durable, and where is a second effect prevented". A `200` response before durable storage leaves a window for loss. A queue without deduplication leaves a window for repeated execution. This is a conclusion from the mechanism, not a diagnosis of the author's specific application.
 
-### Упражнения
+### Exercises
 
-1. Gateway работает в классическом WooCommerce checkout; команда заявляет поддержку Checkout Blocks. Какие два слоя evidence отсутствуют?
-2. После timeout PSP-запроса прошло 25 часов. Можно ли отправить его с тем же Stripe key, считая повтор заведомо безопасным?
-3. В цикле 8.5 банк получил 173,40 USD, резерв 20 USD еще удержан, возврата пока нет. Сколько новых денег в банке и сколько требований к PSP? Каков результат после fees?
-4. В конце цикла внутренний PSP balance +23,40, внешний ноль; refund payable 30,00; fees 29,20. Найдите обе ошибки и записи исправления.
-5. Платеж 80 EUR конвертирован по 1,125 USD/EUR, комиссия 2,50 USD. Позднее refund 20 EUR по 1,150 с fee 0,70 USD. Найдите первоначальный net и последующее списание за refund.
-6. Две Shopify subscriptions получили разные delivery IDs и одинаковый event ID. Один consumer отправляет email, другой обновляет каталог. Нужно ли глобально отбросить второй delivery?
-7. После restore база не содержит вчерашнего заказа, но PSP сообщает, что его оплата успешна. Назовите безопасный порядок действий.
-8. На сайте написано «worldwide, мгновенное settlement», а evidence — sandbox capture и один webhook `200`. Что подтверждено и что необходимо проверить?
-
----
-
-### Ответы и критерии
-
-1. Нужны клиентская/серверная интеграция payment method с Blocks и проверка фактического полного сценария на нужной версии/конфигурации. Рабочая серверная обработка gateway не подтверждает отображение, передачу данных и результат блокового checkout.
-2. Нет такой гарантии: документированная возможность удаления ключа начинается после возраста не менее 24 часов. Сначала расследуют исходную операцию по сохраненным ссылкам и PSP. Сам ключ без знания его действующего scope/срока не доказывает отсутствие второго эффекта.
-3. Прирост банка 173,40; требование к PSP в резерве 20,00; результат продаж после fees 193,40. При начальных 1 000 банк равен 1 173,40. Удержание резерва не уменьшило этот результат как расход.
-4. Пропущено исполнение refund 30; повторно признано fee 6,60. Дебет refund payable / кредит PSP 30; затем дебет PSP / кредит расходов 6,60. Остатки PSP и refund payable нулевые, расходы 22,60. История сохраняется.
-5. Gross `80 × 1,125 = 90,00 USD`, net `87,50 USD`. Refund `20 × 1,150 + 0,70 = 23,70 USD`. Оставшийся денежный результат `63,80 USD`; это не 75% первоначального net, поскольку курс и комиссии различны.
-6. Нет. Event ID коррелирует одно действие, но оба разных потребителя могут иметь необходимые эффекты. Дедупликация должна учитывать назначение consumer и экономическую операцию, а не запрещать все вторые доставки глобально.
-7. Ограничить новые действия по этому намерению; восстановить исходные IDs и доказательство оплаты; проверить, не был ли товар уже выдан; восстановить учет/заказ; безопасно исполнить только незавершенное обязательство; сверить весь пропущенный период. Новый платеж не нужен.
-8. Подтвержден тестовый программный сценарий и прием сообщения. Не подтверждены live eligibility, географии, поступление средств, время settlement/payout и товарный результат. Каждое обещание требует собственного определения и evidence.
-
-### Итог, источники и пробелы
-
-Надежная интеграция сохраняет не только успешный ответ, но и возможность объяснить каждый долг, актив и незавершенный результат. Полный цикл проходит через коммерческое намерение, платеж, журнал, внешний расчет и исполнение; на каждой границе есть свой ID, владелец и способ восстановления.
-
-Каталог: [Источники](Sources.md); ключевые утверждения: [Утверждения](Claims.md); ограничения чтения: [RESEARCH_NOTES.md](Research-notes.md). Срез 15.09.2026; источники прочитаны 15.09.2026, Asia/Makassar. Динамические docs не закреплены immutable commit. Реальные установленные версии магазинов, merchant eligibility, договоры, тарифы и production resilience не проверялись. Monzo — рассказ оператора; Reddit — атрибутированный вопрос с неизвестной абсолютной датой. Эта глава не является аудитом, учетной политикой или разрешением на запуск.
-
-Далее: [часть 9 — сквозные кейсы](../09-Payment-project-workshop/README.md). Для agentic spending связать эту модель с [частью 7](../07-AI-agent-payments/README.md): право агента отправить запрос не снимает обязательства доказать денежный и клиентский результат.
+1. A gateway works in the classic WooCommerce checkout; the team claims support for Checkout Blocks. Which two layers of evidence are missing?
+2. 25 hours have passed since a PSP request timed out. Can it be sent with the same Stripe key, treating the retry as guaranteed to be safe?
+3. In the 8.5 cycle, the bank received 173.40 USD, the 20 USD reserve is still withheld, and there is no refund yet. How much new money is in the bank, and how much is receivable from the PSP? What is the result after fees?
+4. At the end of the cycle, the internal PSP balance is +23.40 and the external one is zero; refund payable is 30.00; fees are 29.20. Find both errors and the correcting entries.
+5. A payment of 80 EUR was converted at 1.125 USD/EUR, with a fee of 2.50 USD. Later there is a refund of 20 EUR at 1.150 with a fee of 0.70 USD. Find the initial net and the subsequent debit for the refund.
+6. Two Shopify subscriptions received different delivery IDs and the same event ID. One consumer sends an email; the other updates the catalog. Should the second delivery be discarded globally?
+7. After a restore, the database does not contain yesterday's order, but the PSP reports that its payment succeeded. Name a safe sequence of actions.
+8. The website says "worldwide, instant settlement", and the evidence is a sandbox capture and one webhook `200`. What is confirmed and what needs to be checked?
 
 ---
 
-### Источники и проверка
+### Answers and criteria
 
-[Источники](Sources.md) · [Проверяемые утверждения](Claims.md) · [Фактчек главы](../../Fact-check/08-Integrations-and-reliability/README.md)
+1. You need the client-side/server-side integration of the payment method with Blocks, and a check of the actual end-to-end scenario on the required version/configuration. Working server-side processing in the gateway does not confirm the display, data transfer and result of the block-based checkout.
+2. There is no such guarantee: the documented possibility of key removal starts once a key is at least 24 hours old. First, investigate the original operation using the saved references and the PSP. The key itself, without knowing its current scope/lifetime, does not prove the absence of a second effect.
+3. The bank increase is 173.40; the receivable from the PSP held in the reserve is 20.00; the sales result after fees is 193.40. With the initial 1,000, the bank balance is 1,173.40. Withholding the reserve did not reduce this result as an expense.
+4. The execution of the 30 refund was missed; the 6.60 fee was recognized twice. Debit refund payable / credit PSP 30; then debit PSP / credit expenses 6.60. The PSP and refund payable balances are zero, expenses are 22.60. The history is preserved.
+5. Gross `80 × 1.125 = 90.00 USD`, net `87.50 USD`. Refund `20 × 1.150 + 0.70 = 23.70 USD`. The remaining money result is `63.80 USD`; this is not 75% of the initial net, because the rate and fees differ.
+6. No. The event ID correlates one action, but each of the two different consumers may have a necessary effect. Deduplication must take into account the consumer's purpose and the economic operation, rather than globally forbidding all second deliveries.
+7. Restrict new actions for this intent; recover the original IDs and proof of payment; check whether the product has already been delivered; restore the accounting/order; safely perform only the outstanding obligation; reconcile the entire missed period. No new payment is needed.
+8. A test software scenario and receipt of a message are confirmed. Not confirmed: live eligibility, geographies, receipt of funds, settlement/payout timing and the product outcome. Each promise requires its own definition and evidence.
 
-Текст подготовлен агентами и прошёл независимую агентную проверку 15–17 сентября 2026. Учебная редакция имеет ограничения; даты и границы применимости указаны в источниках. [Паспорт издания](../../Methodology/Edition-record.md).
+### Summary, sources and gaps
+
+A reliable integration preserves not only a successful response but also the ability to explain every debt, asset and unfinished result. The full cycle passes through the commercial intent, the payment, the ledger, external settlement and fulfillment; each boundary has its own ID, owner and recovery method.
+
+Catalog: [Sources](Sources.md); key claims: [Claims](Claims.md); reading limitations: [RESEARCH_NOTES.md](Research-notes.md). Cutoff 2026-09-15; sources read on 2026-09-15, Asia/Makassar. Dynamic docs are not pinned to an immutable commit. Actual installed store versions, merchant eligibility, contracts, pricing and production resilience were not checked. Monzo is the operator's own account; Reddit is an attributed question with an unknown absolute date. This chapter is not an audit, an accounting policy or permission to launch.
+
+Next: [Chapter 9 — end-to-end cases](../09-Payment-project-workshop/README.md). For agentic spending, connect this model with [Chapter 7](../07-AI-agent-payments/README.md): an agent's right to send a request does not remove the obligation to prove the money and customer outcome.
+
+---
+
+### Sources and fact-check
+
+[Sources](Sources.md) · [Verifiable claims](Claims.md) · [Chapter fact-check](../../Fact-check/08-Integrations-and-reliability/README.md)
+
+The text was prepared by agents and passed an independent agent review on 15–17 September 2026. The teaching edition has limitations; dates and limits of applicability are given in the sources. [Edition record](../../Methodology/Edition-record.md).
 
 <details>
-<summary>История и служебные сведения исходной рукописи</summary>
+<summary>History and metadata of the original manuscript</summary>
 
-Эти сведения описывают исследовательский этап до публикации. Текущая видимость — публичная; статус всего издания — `reviewed_with_limitations`. Прежние метки `private` и `independently_reviewed_draft` сохранены только как история.
+This information describes the research stage before publication. Current visibility is public; the status of the whole edition is `reviewed_with_limitations`. The former labels `private` and `independently_reviewed_draft` are kept only as history.
 
-**Версия:** v0.1 · **Статус:** `independently_reviewed_draft` · **Срез:** 15.09.2026 · **Автор:** исследователь `part_08_research` · **Видимость:** private. Первая рецензия: см. REVIEW.md (исторический или служебный материал; сохранен у владельца, вне этой копии).
+**Version:** v0.1 · **Status:** `independently_reviewed_draft` · **Cutoff:** 2026-09-15 · **Author:** researcher `part_08_research` · **Visibility:** private. First review: see REVIEW.md (historical or internal material; kept by the owner, outside this copy).
 
 </details>
 
-[← Платежи ИИ-агентов](../07-AI-agent-payments/README.md) · [Оглавление](../README.md) · [Практикум платёжного проекта →](../09-Payment-project-workshop/README.md)
+[← AI agent payments](../07-AI-agent-payments/README.md) · [Contents](../README.md) · [Payment project workshop →](../09-Payment-project-workshop/README.md)

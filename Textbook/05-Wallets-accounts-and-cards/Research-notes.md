@@ -1,5 +1,5 @@
 ---
-title: "Часть 5 — журнал исследования"
+title: "Chapter 5 — research log"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,45 +8,45 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Кошельки, счета и карты](README.md) · [Оглавление](../README.md) · [Все источники и проверки](../../Fact-check/README.md)
+[← Wallets, accounts and cards](README.md) · [Contents](../README.md) · [All sources and fact-checks](../../Fact-check/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Часть 5 — журнал исследования
+# Chapter 5 — research log
 
-Внутренняя организационная ссылка из исторической авторской заметки исключена из публичного издания; исследовательская методика и внешние источники сохранены.
+An internal organizational link from the historical author's note has been removed from the public edition; the research methodology and external sources are preserved.
 
-## Прочитано и согласовано
+## Read and agreed
 
-- RESEARCH_BRIEF, README учебной базы, SOURCE_DATASET_SCHEMA, MODULE_TEMPLATE, RESEARCH_RUN, часть 5 и границы частей 4/6 структуры v02.
-- Части 0/1/2 просмотрены для терминов и связей: safeguarding не депозитная страховка, операция refund не отменяет окончательность исходного расчёта, операционный субрегистр не обязательная форма финансовой отчётности.
-- Гипотезы редактора из рабочих заметок проверялись по оригиналам. Данные продуктов и клиентов Lab не используются.
+- RESEARCH_BRIEF, the learning base README, SOURCE_DATASET_SCHEMA, MODULE_TEMPLATE, RESEARCH_RUN, Chapter 5 and the boundaries of Chapters 4/6 in the v02 structure.
+- Chapters 0/1/2 were reviewed for terms and connections: safeguarding is not deposit insurance; a refund operation does not undo the finality of the original settlement; an operational sub-ledger is not a mandatory form of financial reporting.
+- The editor's hypotheses from the working notes were checked against the originals. Data on Lab products and clients is not used.
 
-## Ограничения доступа
+## Access limitations
 
-- FDIC: прямое открытие двух страниц вернуло HTTP403. Использовано индексное представление: S004 — содержательные фрагменты, S005 — полный текст §§I–VI. Это не прямое чтение страниц, объём доступа различается. Условия конкретного банка/счёта не проверены.
-- EBA Q&A 2022_6336 и 2018_4272: прямой fetch дал internal error; финальные ответы доступны через индекс. Содержательный объём и дата публикации фиксируются в SOURCES.
-- EBA Travel Rule Guidelines PDF: direct open internal error; основной текст руководства не используется для порогов и перечня обязательных проверок. Использован прочитанный официальный анонс, где изложены область и дата применения; подробный country-by-country анализ в части 1/6.
-- Reddit: тред о pending refunds читается; тред 1dpqzb9 и 1lm0hul напрямую недоступны. Их сниппеты не включены как доказательства. Точные даты комментариев в доступном треде не восстановлены из относительного ‘2y ago’. Дата поста привязана к видимому архивному указателю Reddit16.07.2024, точность отдельно указана.
-- X не требовался для отдельного независимого кейса после нахождения содержательного Reddit-треда. Квота соцсетей не устанавливалась.
-- Fireblocks: прочитана публичная overview backup/recovery. Закрытая процедура support-портала и фактическое восстановление не проверялись. Наличие документации не считается успешным recovery конкретного кошелька.
-- Документация провайдеров динамична; точные commits и immutable snapshots не получены. Snapshot IDs обозначают дату чтения, не сохранённую копию или hash.
+- FDIC: opening the two pages directly returned HTTP 403. The index representation was used: S004 — substantive excerpts, S005 — the full text of §§I–VI. This is not a direct reading of the pages, and the extent of access differs. The terms of any specific bank/account were not checked.
+- EBA Q&A 2022_6336 and 2018_4272: a direct fetch gave an internal error; the final answers are available through the index. The substantive extent and the publication date are recorded in SOURCES.
+- EBA Travel Rule Guidelines PDF: direct open internal error; the main text of the guidelines is not used for thresholds or for the list of mandatory checks. The official announcement that was read is used; it sets out the scope and the date of application; a detailed country-by-country analysis is in Chapters 1/6.
+- Reddit: the thread about pending refunds is readable; threads 1dpqzb9 and 1lm0hul are not directly accessible. Their snippets are not included as evidence. The exact dates of comments in the accessible thread were not reconstructed from the relative ‘2y ago’. The post date is tied to the visible Reddit archive pointer 2024-07-16; its precision is stated separately.
+- X was not needed for a separate independent case once a substantive Reddit thread had been found. No social-media quota was set.
+- Fireblocks: the public backup/recovery overview was read. The closed support-portal procedure and actual recovery were not checked. The existence of documentation is not treated as a successful recovery of a specific wallet.
+- Provider documentation is dynamic; exact commits and immutable snapshots were not obtained. Snapshot IDs mark the date of reading, not a saved copy or hash.
 
-## Важные разграничения для review
+## Key distinctions for review
 
-1. Coinbase Card: доступный экземпляр US соглашения называет issuer Pathward, program manager Marqeta, продукт prepaid. Help overview использует debit. Договорный термин Coinbase Wallet не приравнивается к одноимённому self-custody приложению.
-2. Stripe processor-only: нет центрального Issuing Balance; модель funding отличается от стандартного интегрированного продукта. API controls относятся к auth, не к последующему capture.
-3. EIP/ ERC4337 на прочитанной странице помечен Final. Дата creation 2021-09-29 не дата финализации. EntryPoint deployment/version/SHA не установлены.
-4. UK supplementary safeguarding regime: дата применения 07.05.2026 проверена по PS25/12; будущий post-repeal end-state не объявлен уже действующим.
-5. MiCA Art75 — регулируемая custody EU в собственной сфере; не глобальная гарантия возмещения, не страхование цены токена.
-6. Научная статья 2016 изучается как историческое исследование аутентификации refund destination; вывод о текущей уязвимости Coinbase/BitPay не делается.
+1. Coinbase Card: the available copy of the US agreement names Pathward as issuer, Marqeta as program manager, and the product as prepaid. The Help overview uses debit. The contractual term Coinbase Wallet is not equated with the self-custody app of the same name.
+2. Stripe processor-only: there is no central Issuing Balance; the funding model differs from the standard integrated product. API controls apply to auth, not to the subsequent capture.
+3. EIP/ ERC4337 is marked Final on the page that was read. The creation date 2021-09-29 is not the finalization date. The EntryPoint deployment/version/SHA were not established.
+4. UK supplementary safeguarding regime: the application date 2026-05-07 was checked against PS25/12; the future post-repeal end-state is not declared to be already in force.
+5. MiCA Art75 — regulated EU custody within its own scope; not a global guarantee of compensation, not insurance of the token price.
+6. The 2016 academic paper is studied as historical research on authentication of the refund destination; no conclusion is drawn about a current vulnerability at Coinbase/BitPay.
 
-## Не сделано и не заявляется
+## Not done and not claimed
 
-Нет реальных переводов, подписей, private keys, подключения кошельков, юридического заключения, аудита вендоров или проверки доступности продуктов для конкретного пользователя. Нет копирования чужих PDF/иллюстраций в поставку. Автор не проводит независимую приёмку своей главы.
+No real transfers, signatures, private keys, wallet connections, legal opinion, vendor audit or check of product availability for a specific user. No third-party PDFs/illustrations are copied into the deliverable. The author does not carry out independent acceptance of their own chapter.
 
-Дополнение после согласования: независимо прочитана Circle Europe MiCA Redemption Policy, updated 13.07.2026 (P05-S033). В 5.3 добавлено различие обменного off-ramp и issuer redemption, без обобщения institutional-only. В 5.4 и упражнении 6 показаны приблизительный результат и округление вверх для полного погашения при шести десятичных знаках.
+Addition after alignment: the Circle Europe MiCA Redemption Policy, updated 2026-07-13 (P05-S033), was read independently. In 5.3 a distinction between an exchange off-ramp and issuer redemption was added, without generalizing institutional-only. In 5.4 and exercise 6 the approximate result and rounding up for full discharge of the debt at six decimal places are shown.
 
-## Проверка рукописи перед handoff
+## Manuscript check before handoff
 
-Пять module headings совпадают со структурой v02; 33 source IDs и 33 явных snapshot IDs связаны с 45 claims. Проверены денежные таблицы, арифметика и оба округления вверх; заглушек нет. Локальные ссылки собственной части и готовых частей 0–4 действительны. Ссылки на части 6/7/8 используют разрешённые brief будущие пути: файлы ещё пишутся другими авторами, это зависимость сборки, не повреждённое имя. Статус остаётся draft_for_review.
+The five module headings match the v02 structure; 33 source IDs and 33 explicit snapshot IDs are linked to 45 claims. The money tables, the arithmetic and both round-ups were checked; there are no placeholders. Local links within this chapter and to the finished Chapters 0–4 are valid. Links to Chapters 6/7/8 use future paths allowed by the brief: those files are still being written by other authors; this is a build dependency, not a broken name. The status remains draft_for_review.

@@ -1,164 +1,164 @@
-[← Обложка](../README.md)
+[← Cover](../README.md)
 
-# Оглавление
+# Contents
 
-**Введение и девять глав — 65 уроков о том, как работают деньги и платежи.**
+**An introduction and nine chapters — 65 lessons on how money and payments work.**
 
-Начните с введения или выберите нужный вопрос. В каждом разделе — объяснения, примеры и задания. Номер перед точкой обозначает часть: `0` — введение, `1–9` — главы. Эти номера также связывают уроки с источниками и проверкой.
+Start with the introduction or pick the question you need. Each section has explanations, examples and exercises. The number before the dot indicates the chapter: `0` is the introduction, `1–9` are the chapters. These numbers also link the lessons to their sources and fact-check.
 
-## Введение. Деньги и основы финтеха
+## Introduction. Money and fintech basics
 
-Как устроены деньги, обязательства и учёт — и как проверять финансовые утверждения.
+How money, obligations and accounting work — and how to check financial claims.
 
-- [0.1 · Как пользоваться учебником](00-Money-and-fintech-basics/README.md#module-0-1)
-- [0.2 · Как проверять источники](00-Money-and-fintech-basics/README.md#module-0-2)
-- [0.3 · Словарь: термины и единицы](00-Money-and-fintech-basics/README.md#module-0-3)
-- [0.4 · Деньги, банки и финансовый риск](00-Money-and-fintech-basics/README.md#module-0-4)
-- [0.5 · Первый денежный журнал: основы учёта](00-Money-and-fintech-basics/README.md#module-0-5)
-- [0.6 · Финтех за пределами платежей](00-Money-and-fintech-basics/README.md#module-0-6)
+- [0.1 · How to use this textbook](00-Money-and-fintech-basics/README.md#module-0-1)
+- [0.2 · How to check sources](00-Money-and-fintech-basics/README.md#module-0-2)
+- [0.3 · Glossary: terms and units](00-Money-and-fintech-basics/README.md#module-0-3)
+- [0.4 · Money, banks and financial risk](00-Money-and-fintech-basics/README.md#module-0-4)
+- [0.5 · A first money ledger: accounting basics](00-Money-and-fintech-basics/README.md#module-0-5)
+- [0.6 · Fintech beyond payments](00-Money-and-fintech-basics/README.md#module-0-6)
 
-**[Читать целиком →](00-Money-and-fintech-basics/README.md)**
-
----
-
-## Глава 1. Правила рынка и лицензии
-
-Кто вправе оказывать платёжную услугу и перед кем отвечает.
-
-- [1.1 · Зачем регулировать платежи](01-Market-rules-and-licensing/README.md#module-1-1)
-- [1.2 · Лицензии и роли участников](01-Market-rules-and-licensing/README.md#module-1-2)
-- [1.3 · Пять моделей приёма платежей](01-Market-rules-and-licensing/README.md#module-1-3)
-- [1.4 · Как сравнивать страны и правовые режимы](01-Market-rules-and-licensing/README.md#module-1-4)
-- [1.5 · Проверка клиентов, санкции и борьба с отмыванием денег](01-Market-rules-and-licensing/README.md#module-1-5)
-- [1.6 · Защита данных и устойчивость платёжных систем](01-Market-rules-and-licensing/README.md#module-1-6)
-- [1.7 · Работа через партнёра: роли и ограничения](01-Market-rules-and-licensing/README.md#module-1-7)
-- [1.8 · Как читать договоры платёжных участников](01-Market-rules-and-licensing/README.md#module-1-8)
-- [1.9 · Права покупателя и разрешение претензий](01-Market-rules-and-licensing/README.md#module-1-9)
-
-**[Читать целиком →](01-Market-rules-and-licensing/README.md)**
+**[Read the whole chapter →](00-Money-and-fintech-basics/README.md)**
 
 ---
 
-## Глава 2. Как проходит платёж
+## Chapter 1. Market rules and licensing
 
-Путь от кнопки «Оплатить» до расчёта, выплаты продавцу и возможного возврата.
+Who may provide a payment service and to whom they are accountable.
 
-- [2.1 · Участники платежа и их роли](02-How-a-payment-works/README.md#module-2-1)
-- [2.2 · Авторизация, клиринг и расчёт](02-How-a-payment-works/README.md#module-2-2)
-- [2.3 · Банковские переводы, быстрые платежи и открытый банкинг](02-How-a-payment-works/README.md#module-2-3)
-- [2.4 · Эквайринг: из чего складывается цена](02-How-a-payment-works/README.md#module-2-4)
-- [2.5 · Мошенничество, 3-D Secure и оценка риска](02-How-a-payment-works/README.md#module-2-5)
-- [2.6 · Возвраты, споры и чарджбэки](02-How-a-payment-works/README.md#module-2-6)
-- [2.7 · Как передаётся запрос на карточную оплату](02-How-a-payment-works/README.md#module-2-7)
-- [2.8 · Другие способы оплаты: кошельки, QR и рассрочка](02-How-a-payment-works/README.md#module-2-8)
+- [1.1 · Why regulate payments](01-Market-rules-and-licensing/README.md#module-1-1)
+- [1.2 · Licenses and participant roles](01-Market-rules-and-licensing/README.md#module-1-2)
+- [1.3 · Five models for accepting payments](01-Market-rules-and-licensing/README.md#module-1-3)
+- [1.4 · How to compare countries and legal regimes](01-Market-rules-and-licensing/README.md#module-1-4)
+- [1.5 · Customer checks, sanctions and anti-money laundering](01-Market-rules-and-licensing/README.md#module-1-5)
+- [1.6 · Data protection and payment system resilience](01-Market-rules-and-licensing/README.md#module-1-6)
+- [1.7 · Working through a partner: roles and limits](01-Market-rules-and-licensing/README.md#module-1-7)
+- [1.8 · How to read payment participants' contracts](01-Market-rules-and-licensing/README.md#module-1-8)
+- [1.9 · Buyer rights and complaint resolution](01-Market-rules-and-licensing/README.md#module-1-9)
 
-**[Читать целиком →](02-How-a-payment-works/README.md)**
-
----
-
-## Глава 3. Карты Visa и Mastercard
-
-Правила карточных сетей: участники, тарифы, токены и ограничения.
-
-- [3.1 · Карточная сеть как система правил](03-Visa-and-Mastercard-cards/README.md#module-3-1)
-- [3.2 · Как устроена Visa](03-Visa-and-Mastercard-cards/README.md#module-3-2)
-- [3.3 · Как устроена Mastercard](03-Visa-and-Mastercard-cards/README.md#module-3-3)
-- [3.4 · Другие карточные сети](03-Visa-and-Mastercard-cards/README.md#module-3-4)
-- [3.5 · Токены, сохранённые карты и подписки](03-Visa-and-Mastercard-cards/README.md#module-3-5)
-- [3.6 · Категории торговцев, запреты и высокий риск](03-Visa-and-Mastercard-cards/README.md#module-3-6)
-
-**[Читать целиком →](03-Visa-and-Mastercard-cards/README.md)**
+**[Read the whole chapter →](01-Market-rules-and-licensing/README.md)**
 
 ---
 
-## Глава 4. Платёжные провайдеры
+## Chapter 2. How a payment works
 
-PSP, платформы, PayFac и Merchant of Record: ответственность и экономика.
+The path from the "Pay" button to settlement, payout to the merchant and a possible refund.
 
-- [4.1 · Какие бывают платёжные провайдеры](04-Payment-providers/README.md#module-4-1)
-- [4.2 · Как провайдер проверяет и подключает продавца](04-Payment-providers/README.md#module-4-2)
-- [4.3 · Когда и как продавец получает деньги](04-Payment-providers/README.md#module-4-3)
-- [4.4 · Экономика платёжного провайдера](04-Payment-providers/README.md#module-4-4)
-- [4.5 · Практика: обычный PSP и приём криптовалюты](04-Payment-providers/README.md#module-4-5)
-- [4.6 · Экономика банковского партнёрства и спонсорства](04-Payment-providers/README.md#module-4-6)
+- [2.1 · Payment participants and their roles](02-How-a-payment-works/README.md#module-2-1)
+- [2.2 · Authorization, clearing and settlement](02-How-a-payment-works/README.md#module-2-2)
+- [2.3 · Bank transfers, instant payments and open banking](02-How-a-payment-works/README.md#module-2-3)
+- [2.4 · Acquiring: what the price is made of](02-How-a-payment-works/README.md#module-2-4)
+- [2.5 · Fraud, 3-D Secure and risk scoring](02-How-a-payment-works/README.md#module-2-5)
+- [2.6 · Refunds, disputes and chargebacks](02-How-a-payment-works/README.md#module-2-6)
+- [2.7 · How a card payment request travels](02-How-a-payment-works/README.md#module-2-7)
+- [2.8 · Other ways to pay: wallets, QR and installments](02-How-a-payment-works/README.md#module-2-8)
 
-**[Читать целиком →](04-Payment-providers/README.md)**
-
----
-
-## Глава 5. Кошельки, счета и карты
-
-Где лежат деньги, кто ими управляет и как работает выпуск карт.
-
-- [5.1 · Какие бывают кошельки и счета](05-Wallets-accounts-and-cards/README.md#module-5-1)
-- [5.2 · Кто контролирует ключи и остаток](05-Wallets-accounts-and-cards/README.md#module-5-2)
-- [5.3 · Как обменивать обычные деньги на криптовалюту и обратно](05-Wallets-accounts-and-cards/README.md#module-5-3)
-- [5.4 · Возврат денег и обратимость операций](05-Wallets-accounts-and-cards/README.md#module-5-4)
-- [5.5 · Выпуск карты: от создания до закрытия](05-Wallets-accounts-and-cards/README.md#module-5-5)
-
-**[Читать целиком →](05-Wallets-accounts-and-cards/README.md)**
+**[Read the whole chapter →](02-How-a-payment-works/README.md)**
 
 ---
 
-## Глава 6. Криптовалюты и стейблкоины
+## Chapter 3. Cards: Visa and Mastercard
 
-Платежи в блокчейне, обмен на обычные деньги, ликвидность и цифровые валюты центробанков.
+Card network rules: participants, fees, tokens and restrictions.
 
-- [6.1 · Цифровые активы для платежей](06-Crypto-and-stablecoins/README.md#module-6-1)
-- [6.2 · Как проходит платёж в блокчейне](06-Crypto-and-stablecoins/README.md#module-6-2)
-- [6.3 · Сервисы расчётов в стейблкоинах](06-Crypto-and-stablecoins/README.md#module-6-3)
-- [6.4 · Покупатель платит криптовалютой, продавец получает обычные деньги](06-Crypto-and-stablecoins/README.md#module-6-4)
-- [6.5 · Правила и проверки для криптоплатежей](06-Crypto-and-stablecoins/README.md#module-6-5)
-- [6.6 · Мифы о криптоплатежах](06-Crypto-and-stablecoins/README.md#module-6-6)
-- [6.7 · Ликвидность, валютный риск и расчётные счета](06-Crypto-and-stablecoins/README.md#module-6-7)
-- [6.8 · Цифровые валюты центробанков: CBDC](06-Crypto-and-stablecoins/README.md#module-6-8)
+- [3.1 · A card network as a system of rules](03-Visa-and-Mastercard-cards/README.md#module-3-1)
+- [3.2 · How Visa works](03-Visa-and-Mastercard-cards/README.md#module-3-2)
+- [3.3 · How Mastercard works](03-Visa-and-Mastercard-cards/README.md#module-3-3)
+- [3.4 · Other card networks](03-Visa-and-Mastercard-cards/README.md#module-3-4)
+- [3.5 · Tokens, stored cards and subscriptions](03-Visa-and-Mastercard-cards/README.md#module-3-5)
+- [3.6 · Merchant categories, prohibitions and high risk](03-Visa-and-Mastercard-cards/README.md#module-3-6)
 
-**[Читать целиком →](06-Crypto-and-stablecoins/README.md)**
+**[Read the whole chapter →](03-Visa-and-Mastercard-cards/README.md)**
 
 ---
 
-## Глава 7. Платежи ИИ-агентов
+## Chapter 4. Payment providers
 
-Как программа покупает по поручению человека — с ограничениями и доказательством результата.
+PSPs, platforms, PayFacs and Merchants of Record: responsibility and economics.
 
-- [7.1 · Почему агентам нужен другой процесс покупки](07-AI-agent-payments/README.md#module-7-1)
-- [7.2 · Что предлагают карточные платёжные сети](07-AI-agent-payments/README.md#module-7-2)
-- [7.3 · Протоколы машинных платежей](07-AI-agent-payments/README.md#module-7-3)
-- [7.4 · Агент платит криптовалютой, продавец получает обычные деньги](07-AI-agent-payments/README.md#module-7-4)
-- [7.5 · Риски и ответственность](07-AI-agent-payments/README.md#module-7-5)
-- [7.6 · Как отличить агента от того, кто дал ему поручение](07-AI-agent-payments/README.md#module-7-6)
+- [4.1 · Types of payment providers](04-Payment-providers/README.md#module-4-1)
+- [4.2 · How a provider vets and onboards a merchant](04-Payment-providers/README.md#module-4-2)
+- [4.3 · When and how the merchant gets paid](04-Payment-providers/README.md#module-4-3)
+- [4.4 · The economics of a payment provider](04-Payment-providers/README.md#module-4-4)
+- [4.5 · Practice: a regular PSP and accepting crypto](04-Payment-providers/README.md#module-4-5)
+- [4.6 · The economics of bank partnership and sponsorship](04-Payment-providers/README.md#module-4-6)
 
-**[Читать целиком →](07-AI-agent-payments/README.md)**
-
----
-
-## Глава 8. Интеграции и надёжность
-
-Как связать магазин, провайдера и учёт; найти расхождение и восстановить операцию.
-
-- [8.1 · Как устроены торговые платформы](08-Integrations-and-reliability/README.md#module-8-1)
-- [8.2 · Как спроектировать платёжный коннектор](08-Integrations-and-reliability/README.md#module-8-2)
-- [8.3 · Отчётность, сверка и ежедневная работа](08-Integrations-and-reliability/README.md#module-8-3)
-- [8.4 · Как проверять обещания платёжного продукта](08-Integrations-and-reliability/README.md#module-8-4)
-- [8.5 · Денежный журнал, сверка и контроль балансов](08-Integrations-and-reliability/README.md#module-8-5)
-- [8.6 · Надёжность, безопасность и восстановление](08-Integrations-and-reliability/README.md#module-8-6)
-
-**[Читать целиком →](08-Integrations-and-reliability/README.md)**
+**[Read the whole chapter →](04-Payment-providers/README.md)**
 
 ---
 
-## Глава 9. Практикум платёжного проекта
+## Chapter 5. Wallets, accounts and cards
 
-Собираем деньги, договоры, данные и лицензии в одну картину; решаем сквозные задачи.
+Where money is held, who controls it and how card issuing works.
 
-- [9.1 · Карта проекта: деньги, договоры, данные и лицензии](09-Payment-project-workshop/README.md#module-9-1)
-- [9.2 · Рабочие гипотезы и способы их проверить](09-Payment-project-workshop/README.md#module-9-2)
-- [9.3 · Границы учебника](09-Payment-project-workshop/README.md#module-9-3)
-- [9.4 · Как из исследования получается урок](09-Payment-project-workshop/README.md#module-9-4)
-- [9.5 · Сквозные кейсы и итоговая проверка](09-Payment-project-workshop/README.md#module-9-5)
+- [5.1 · Types of wallets and accounts](05-Wallets-accounts-and-cards/README.md#module-5-1)
+- [5.2 · Who controls the keys and the balance](05-Wallets-accounts-and-cards/README.md#module-5-2)
+- [5.3 · How to exchange ordinary money for crypto and back](05-Wallets-accounts-and-cards/README.md#module-5-3)
+- [5.4 · Refunds and reversibility of transactions](05-Wallets-accounts-and-cards/README.md#module-5-4)
+- [5.5 · Issuing a card: from creation to closure](05-Wallets-accounts-and-cards/README.md#module-5-5)
 
-**[Читать целиком →](09-Payment-project-workshop/README.md)**
+**[Read the whole chapter →](05-Wallets-accounts-and-cards/README.md)**
 
 ---
 
-[Как проверены факты и источники](../Fact-check/README.md) · [Об издании](../Methodology/Edition-record.md) · [На обложку](../README.md)
+## Chapter 6. Crypto and stablecoins
+
+Blockchain payments, exchange into ordinary money, liquidity and central bank digital currencies.
+
+- [6.1 · Digital assets for payments](06-Crypto-and-stablecoins/README.md#module-6-1)
+- [6.2 · How a blockchain payment works](06-Crypto-and-stablecoins/README.md#module-6-2)
+- [6.3 · Stablecoin settlement services](06-Crypto-and-stablecoins/README.md#module-6-3)
+- [6.4 · The buyer pays in crypto, the merchant receives ordinary money](06-Crypto-and-stablecoins/README.md#module-6-4)
+- [6.5 · Rules and checks for crypto payments](06-Crypto-and-stablecoins/README.md#module-6-5)
+- [6.6 · Myths about crypto payments](06-Crypto-and-stablecoins/README.md#module-6-6)
+- [6.7 · Liquidity, FX risk and settlement accounts](06-Crypto-and-stablecoins/README.md#module-6-7)
+- [6.8 · Central bank digital currencies: CBDC](06-Crypto-and-stablecoins/README.md#module-6-8)
+
+**[Read the whole chapter →](06-Crypto-and-stablecoins/README.md)**
+
+---
+
+## Chapter 7. AI agent payments
+
+How a program buys on a person's instruction — with limits and proof of the result.
+
+- [7.1 · Why agents need a different purchase flow](07-AI-agent-payments/README.md#module-7-1)
+- [7.2 · What card payment networks offer](07-AI-agent-payments/README.md#module-7-2)
+- [7.3 · Machine payment protocols](07-AI-agent-payments/README.md#module-7-3)
+- [7.4 · The agent pays in crypto, the merchant receives ordinary money](07-AI-agent-payments/README.md#module-7-4)
+- [7.5 · Risks and liability](07-AI-agent-payments/README.md#module-7-5)
+- [7.6 · How to tell the agent from the principal who instructed it](07-AI-agent-payments/README.md#module-7-6)
+
+**[Read the whole chapter →](07-AI-agent-payments/README.md)**
+
+---
+
+## Chapter 8. Integrations and reliability
+
+How to connect a store, a provider and accounting; find a discrepancy and recover a transaction.
+
+- [8.1 · How commerce platforms work](08-Integrations-and-reliability/README.md#module-8-1)
+- [8.2 · How to design a payment connector](08-Integrations-and-reliability/README.md#module-8-2)
+- [8.3 · Reporting, reconciliation and daily operations](08-Integrations-and-reliability/README.md#module-8-3)
+- [8.4 · How to check a payment product's promises](08-Integrations-and-reliability/README.md#module-8-4)
+- [8.5 · Money ledger, reconciliation and balance control](08-Integrations-and-reliability/README.md#module-8-5)
+- [8.6 · Reliability, security and recovery](08-Integrations-and-reliability/README.md#module-8-6)
+
+**[Read the whole chapter →](08-Integrations-and-reliability/README.md)**
+
+---
+
+## Chapter 9. Payment project workshop
+
+We put money, contracts, data and licenses into one picture and solve end-to-end problems.
+
+- [9.1 · Project map: money, contracts, data and licenses](09-Payment-project-workshop/README.md#module-9-1)
+- [9.2 · Working hypotheses and how to test them](09-Payment-project-workshop/README.md#module-9-2)
+- [9.3 · The limits of this textbook](09-Payment-project-workshop/README.md#module-9-3)
+- [9.4 · How research becomes a lesson](09-Payment-project-workshop/README.md#module-9-4)
+- [9.5 · End-to-end cases and final review](09-Payment-project-workshop/README.md#module-9-5)
+
+**[Read the whole chapter →](09-Payment-project-workshop/README.md)**
+
+---
+
+[How facts and sources were checked](../Fact-check/README.md) · [About this edition](../Methodology/Edition-record.md) · [Back to the cover](../README.md)

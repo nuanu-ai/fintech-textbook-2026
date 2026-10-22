@@ -1,5 +1,5 @@
 ---
-title: "Независимый аудит источников — часть 02"
+title: "Independent source audit — Chapter 02"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,13 +8,13 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/02-How-a-payment-works/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/02-How-a-payment-works/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Независимый аудит источников — часть 02
+# Independent source audit — Chapter 02
 
-17.09.2026 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04. Все 43 исходных URL попытался получить самостоятельно. HTTP200 считается доступом только при получении содержательного текста. Большие оригиналы читались в указанных разделах; полного чтения каждого PDF не заявляю. Полные внешние копии не сохранены. Для недатированных rolling pages точная историческая редакция 15.09 не восстановлена; метаданные unknown не превращены в установленную дату.
+2026-09-17 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04. I attempted to retrieve all 43 original URLs myself. HTTP 200 counts as access only when substantive text is obtained. Large originals were read in the indicated sections; I do not claim to have read every PDF in full. Full external copies were not saved. For undated rolling pages, the exact historical version as of 15 September was not restored; unknown metadata were not turned into an established date.
 
 | ID | original URL | actual access method/status | metadata/version result | independently read scope / limits |
 |---|---|---|---|---|

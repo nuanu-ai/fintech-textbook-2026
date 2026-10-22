@@ -1,5 +1,5 @@
 ---
-title: "Independent factual audit — Part 07"
+title: "Independent factual audit — Chapter 7"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,37 +8,37 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/07-AI-agent-payments/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/07-AI-agent-payments/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Independent factual audit — Part 07
+# Independent factual audit — Chapter 7
 
-17.09.2026 · Asia/Makassar (UTC+8) · auditor deep_audit_06_07_08_09 · private
+2026-09-17 · Asia/Makassar (UTC+8) · auditor deep_audit_06_07_08_09 · private
 
-## Результат и findings
+## Result and findings
 
-Прочитаны полные CHAPTER/SOURCES/CLAIMS, индивидуально оценен51 claim и42 source cards. Новых ошибок платежного механизма не подтверждено. Один minor по правам источника закрыт.
+The full CHAPTER/SOURCES/CLAIMS were read; 51 claims and 42 source cards were assessed individually. No new errors in payment mechanisms were confirmed. One minor finding on source rights has been closed.
 
-- **F07-01, minor, closed — S042.** В полном pinned GOVERNANCE.md нет copyright/license header. Ранее приписанный этому файлу Apache-2.0 notice не подтверждается. Редактор убрал атрибуцию и указал license coverage unknown. Итоговая карточка перечитана; содержательный C051 о council/domain/founding seats подтверждён.
-- **L07-01, metadata limitation — S036.** X показывает24.03.2026 18:18, прежняя карточка25.03 02:18 с неизвестным timezone. Разница8часов совместима с отображением по поясам, не доказывает иной день события. Сам пост и продолжения прочитаны; SDK не тестировались.
-- **L07-02, historical version limitation.** AgentDojo v3 самостоятельно прочитан; NeurIPS2024 Datasets and Benchmarks отдельно подтверждён [официальной записью proceedings](https://proceedings.neurips.cc/paper_files/paper/2024/hash/97091a5177d8dc64b1da8bf3e1f6fb54-Abstract-Datasets_and_Benchmarks_Track.html). Архив15.09 для прежнего незакреплённого чтения отсутствует, что сохранено в S033.
+- **F07-01, minor, closed — S042.** The full pinned GOVERNANCE.md has no copyright/license header. The Apache-2.0 notice previously attributed to this file is not supported. The editor removed the attribution and stated license coverage unknown. The final card was re-read; the substantive C051 on council/domain/founding seats is confirmed.
+- **L07-01, metadata limitation — S036.** X shows 2026-03-24 18:18; the earlier card had 25 March 02:18 with an unknown timezone. The 8-hour difference is consistent with display in different time zones and does not prove a different event date. The post itself and the continuations were read; the SDKs were not tested.
+- **L07-02, historical version limitation.** AgentDojo v3 was read independently; NeurIPS 2024 Datasets and Benchmarks is separately confirmed by the [official proceedings record](https://proceedings.neurips.cc/paper_files/paper/2024/hash/97091a5177d8dc64b1da8bf3e1f6fb54-Abstract-Datasets_and_Benchmarks_Track.html). There is no 15 September archive for the earlier unpinned reading; this is recorded in S033.
 
-## Версии и проверенные механизмы
+## Versions and checked mechanisms
 
-GitHub API независимо подтвердил commits: x4026b930…15.09.2026 14:04:22Z; MPPa938…09.09.2026 21:20:04Z; ACP7fdd…18.07.2026 04:51:51Z; UCPcd78…25.08.2026 13:47:10Z; AP2e1ea…29.04.2026 16:51:41Z; governanceced53…15.09.2026 07:55:35Z. UCP tagv2026-08-25 разрешается вcd78…. Полные hashes присутствуют в original URLs матрицы. Exact release publication timestamp не подменялся commit timestamp.
+The GitHub API independently confirmed the commits: x402 6b930… 2026-09-15 14:04:22Z; MPP a938… 2026-09-09 21:20:04Z; ACP 7fdd… 2026-07-18 04:51:51Z; UCP cd78… 2026-08-25 13:47:10Z; AP2 e1ea… 2026-04-29 16:51:41Z; governance ced53… 2026-09-15 07:55:35Z. The UCP tag v2026-08-25 resolves to cd78…. Full hashes are present in the original URLs of the matrix. The exact release publication timestamp was not replaced with the commit timestamp.
 
-В x402 проверены три порядка resource/settlement, readonly verify, EIP3009 branch, optional payment identifier и non-terminal pending. В MPP прочитаны draft status, Stripe/Tempo/Solana branches и атомарная consumed-signature registry. В ACP/UCP checked session/order/complete states и отдельные payment handlers. В AP2v0.2 проверены текущие Checkout/Payment названия, trusted surface, deterministic validation, checkout hash и cumulative budget presentations. Ни одна спецификация не принята за сертификат совместимости работающего продукта.
+In x402, the following were checked: three resource/settlement orderings, readonly verify, the EIP3009 branch, the optional payment identifier and non-terminal pending. In MPP, the draft status, the Stripe/Tempo/Solana branches and the atomic consumed-signature registry were read. In ACP/UCP, session/order/complete states and separate payment handlers were checked. In AP2 v0.2, the current Checkout/Payment names, trusted surface, deterministic validation, checkout hash and cumulative budget presentations were checked. No specification was taken as a compatibility certificate for a working product.
 
-## Papers, social и важные незарегистрированные выводы
+## Papers, social and important unregistered conclusions
 
-AgentDojo:97tasks/629security cases, utility и attack success в контролируемом benchmark; не payment-loss rate. Formal Analysis: символические Tamarin traces отделены от проверок реализации;86cases не названы86живыми уязвимостями. Beyond the Mandate: testbed/scanner и raters не эквивалентны production field study. Peer review двух2026preprints не установлен.
+AgentDojo: 97 tasks/629 security cases, utility and attack success in a controlled benchmark; not a payment-loss rate. Formal Analysis: symbolic Tamarin traces are kept separate from implementation checks; the 86 cases are not called 86 live vulnerabilities. Beyond the Mandate: testbed/scanner and raters are not equivalent to a production field study. Peer review of the two 2026 preprints has not been established.
 
-Полная глава проверена на незарегистрированные переносы identity→authority, verify→settlement, settlement→delivery, protocol→liability. Такие переходы не утверждаются. Синтетический бюджет6+6>10 и правила reconciliation сформулированы как авторские нормативные конструкции, поэтому C002/C028/C035/C037/C048 имеют non_factual, а не механический verified. Посты X/Reddit подтверждают только публикацию слов авторов.
+The full chapter was checked for unregistered leaps identity→authority, verify→settlement, settlement→delivery, protocol→liability. No such leaps are asserted. The synthetic budget 6+6>10 and the reconciliation rules are formulated as the author's normative constructs, so C002/C028/C035/C037/C048 are rated non_factual rather than being mechanically marked verified. The X/Reddit posts confirm only that the authors published those words.
 
-## Ограничения
+## Limitations
 
-Не выполнены live payments, SDK conformance tests, reproduction security papers и отдельное юридическое заключение о liability. Динамические vendor docs наблюдались17.09; historical sameness15.09 не доказана. HTTP200 shell Reddit не считался чтением: оригинальный body получен отдельным web extraction. Рекламные обещания Visa/Mastercard не стали договорными гарантиями.
+Not performed: live payments, SDK conformance tests, reproduction of the security papers and a separate legal opinion on liability. Dynamic vendor docs were observed on 17 September; their historical sameness on 15 September is not proven. The Reddit HTTP 200 shell was not counted as reading: the original body was obtained by a separate web extraction. Visa/Mastercard promotional promises did not become contractual guarantees.
 
 ## Coverage and verdict counts
 
@@ -50,7 +50,7 @@ Claims: 51; source cards: 42. Every ID has one matrix row.
 
 ## Final recheck and hashes
 
-Все перечисленные исправления перечитаны после provisional freeze редактора. Хеши ниже рассчитаны по фактическому содержимому окончательных файлов. Предыдущая рецензия использовалась только как указатель риска, не как evidence.
+All the corrections listed were re-read after the editor's provisional freeze. The hashes below were calculated from the actual content of the final files. The previous review was used only as a risk pointer, not as evidence.
 
 final_verdict: reviewed_with_limitations
 
@@ -61,5 +61,5 @@ open_major: 0
 | File | SHA-256 |
 |---|---|
 | [CHAPTER.md](../../Textbook/07-AI-agent-payments/README.md) | 255aeb73f4b56c114bce54fe29219a3f801e70ed25feeaa298ae8a87e010faf8 |
-| [Источники](../../Textbook/07-AI-agent-payments/Sources.md) | e83e77f5d2da6b4c0465ac9e84e6ad756c0bd6d77227041777df6922ea708f57 |
-| [Утверждения](../../Textbook/07-AI-agent-payments/Claims.md) | d997c5631a66b4f2c09650169d92be38ac4dee4ffbf70198b123ad14e1669ea1 |
+| [Sources](../../Textbook/07-AI-agent-payments/Sources.md) | e83e77f5d2da6b4c0465ac9e84e6ad756c0bd6d77227041777df6922ea708f57 |
+| [Claims](../../Textbook/07-AI-agent-payments/Claims.md) | d997c5631a66b4f2c09650169d92be38ac4dee4ffbf70198b123ad14e1669ea1 |

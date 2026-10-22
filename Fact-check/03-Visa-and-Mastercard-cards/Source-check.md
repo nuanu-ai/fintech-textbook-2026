@@ -1,5 +1,5 @@
 ---
-title: "Независимый аудит источников — часть 03"
+title: "Independent source audit — Chapter 3"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,13 +8,13 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/03-Visa-and-Mastercard-cards/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/03-Visa-and-Mastercard-cards/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations have been preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Независимый аудит источников — часть 03
+# Independent source audit — Chapter 3
 
-17.09.2026 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04. Все 48 оригинальных URL, включая новый S048, попытался получить самостоятельно. Большие PDF прочитаны в перечисленных местах; HTTP200/индекс не считается полным чтением. Официальная альтернатива явно отделена от недоступного исходного URL. Точные исторические байты rollingpages15 Sep не восстановлены.
+2026-09-17 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04. The auditor independently attempted to retrieve all 48 original URLs, including the new S048. Large PDFs were read in the places listed; an HTTP 200/index is not counted as a full reading. An official alternative is explicitly kept separate from an unavailable original URL. The exact historical bytes of the rolling pages as of 15 Sep were not recovered.
 
 | ID | original URL | actual access method/status | metadata/version result | independently read scope / limits |
 |---|---|---|---|---|

@@ -1,5 +1,5 @@
 ---
-title: "Углубленный фактчек FinTech 2026 — второй проход"
+title: "In-depth fact-check of FinTech 2026 — second pass"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,43 +8,43 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../Methodology/Edition-record.md).
 
-# Углубленный фактчек FinTech 2026 — второй проход
+# In-depth fact-check of FinTech 2026 — second pass
 
-17.09.2026 · private · задание на аудит: подробная проверка фактов и источников отдельными субагентами. Предыдущая выборочная рецензия не является доказательством нового прохода.
+2026-09-17 · private · audit assignment: a detailed check of facts and sources by separate subagents. The previous sample-based review is not evidence for the new pass.
 
-## Цель
+## Goal
 
-Полный реестр результатов проверки всех 470 зарегистрированных утверждений и всех 349 карточек источников. Каждое утверждение получает индивидуальную оценку. Каждый источник нужно самостоятельно попытаться открыть и проверить нужный фрагмент; недоступность записать честно. Это не обещание, что все источники доступны и все утверждения окажутся доказаны. Дополнительно читать главы на значимые факты вне CLAIMS.
+A complete register of check results for all 470 registered claims and all 349 source cards. Each claim gets an individual verdict. For each source, independently try to open it and check the relevant fragment; record unavailability honestly. This is not a promise that all sources are available and that all claims will turn out to be proven. Additionally, read the chapters for significant facts outside CLAIMS.
 
-470/349 — объем исходного снимка. Записи, добавленные при исправлениях, также проходят построчную проверку; окончательные числа фиксируются в REPORT.md и VALIDATION.json. Максимальный номер ID не является числом карточек: в нумерации есть пропуски.
+470/349 is the size of the original snapshot. Records added during corrections also go through a row-by-row check; the final numbers are recorded in REPORT.md and VALIDATION.json. The highest ID number is not the number of cards: there are gaps in the numbering.
 
-Срез знаний остается 15.09.2026. Реальные обращения второго прохода датировать фактической датой и часовым поясом. Новые версии не выдавать за исторический текст. Опубликовано, принято, применяется, запущено, доступно аккаунту — разные факты.
+The knowledge cutoff remains 2026-09-15. Date the actual accesses of the second pass with the real date and time zone. Do not present new versions as the historical text. Published, adopted, applies, launched, available to an account — these are different facts.
 
-## Входы и ответственность
+## Inputs and responsibilities
 
-Прочитать source-dataset-schema.md, соответствующую часть structure.md и целиком chapter.md, sources.md и claims.md. Старый REVIEW использовать как список рисков, не вместо собственного evidence. Базовый снимок — baseline/ и BASELINE.json.
+Read source-dataset-schema.md, the relevant part of structure.md, and chapter.md, sources.md and claims.md in full. Use the old REVIEW as a list of risks, not as a substitute for your own evidence. The baseline snapshot is baseline/ and BASELINE.json.
 
-Аудитор пишет только свою папку part-NN внутри audit-2026-09-17. Главы и прежние рецензии исправляет root. Существенные findings сразу сообщать root с ID, точной цитатой проверяемой фразы, первичным URL/locator и конкретной правкой. Не создавать новых агентов. Не трогать Flow, канон, публикацию и реальные платежи.
+An auditor writes only to their own part-NN folder inside audit-2026-09-17. Root corrects the chapters and earlier reviews. Report material findings to root immediately, with the ID, the exact quotation of the phrase being checked, the primary URL/locator and a specific correction. Do not create new agents. Do not touch Flow, the canon, publication or real payments.
 
-## Что проверить
+## What to check
 
-1. Каждый claim: в источнике действительно есть данный вывод, совпадают субъект, деятельность, юрисдикция, дата, условие и версия; нет склейки сильного/слабого выводов.
-2. Все source cards: существование и подлинность, точный заголовок/автор, дата публикации/обновления, статус/версия, effective date, характер реального доступа. HTTP 200 не доказывает чтение текста. При blocked искать разрешенный оригинал, официальный PDF/другую первичку; индекс обозначать как индекс.
-3. Право, scheme rules, fees, eligibility, finality и financial controls: независимое прямое чтение решающего места. FAQ/анонс/consultation не становятся действующим законом; маркетинг не становится договорной гарантией.
-4. Papers: версия/peer-review, метод/выборка/период, действительные результаты, ограничения, необоснованная причинность и перенос на другой продукт. Courses: реально доступный урок/раздел.
-5. Reddit/X: permalink, автор/дата и контекст; подтверждено только опубликованное сообщение, без приписывания причин, частоты или вины. Если доступ не получен, не ставить verified_as_reported.
-6. Читать полный текст главы на важные утверждения вне реестра, противоречия и некорректные обобщения. Арифметику перепроверять при подозрении/неясных предпосылках, особенно округление и источники ликвидности. Root отдельно проверяет согласованность между группами и ссылки.
+1. Each claim: the source really contains this conclusion; the subject, activity, jurisdiction, date, condition and version match; strong and weak conclusions are not glued together.
+2. All source cards: existence and authenticity, exact title/author, publication/update date, status/version, effective date, the nature of the actual access. HTTP 200 does not prove that the text was read. If blocked, look for a permitted original, an official PDF/another primary source; label an index as an index.
+3. Law, scheme rules, fees, eligibility, finality and financial controls: an independent direct reading of the decisive passage. An FAQ/announcement/consultation does not become law in force; marketing does not become a contractual guarantee.
+4. Papers: version/peer review, method/sample/period, actual results, limitations, unjustified causation and transfer to another product. Courses: the lesson/section that is actually accessible.
+5. Reddit/X: permalink, author/date and context; only the published message is confirmed, without attributing causes, frequency or fault. If access was not obtained, do not assign verified_as_reported.
+6. Read the full text of the chapter for important claims outside the register, contradictions and incorrect generalizations. Re-check the arithmetic when something looks suspicious or the premises are unclear, especially rounding and sources of liquidity. Root separately checks consistency between groups and the links.
 
-## Выход на каждую часть
+## Output for each chapter
 
-- CLAIM_AUDIT.md: таблица с отдельной строкой на каждый claim ID: ID | verdict | independently_read_evidence (URL + точный locator) | checked_scope_and_date | finding/limits. Не группировать разные IDs одной строкой.
-- SOURCE_AUDIT.md: отдельная строка на каждый source ID: ID | original URL | actual access method/status | metadata/version result | прочитанный scope/ограничения. Не выдавать поиск по заголовку за проверку оригинала.
-- AUDIT.md: summary, дата/автор, counts, findings с приоритетом и исправлением, незарегистрированные существенные факты, ограничения и история повторной проверки. В конце после исправлений: final_verdict, open_critical, open_major и SHA-256 CHAPTER/SOURCES/CLAIMS. Проверять реальный окончательный текст после правок root.
+- CLAIM_AUDIT.md: a table with a separate row for each claim ID: ID | verdict | independently_read_evidence (URL + exact locator) | checked_scope_and_date | finding/limits. Do not group different IDs in one row.
+- SOURCE_AUDIT.md: a separate row for each source ID: ID | original URL | actual access method/status | metadata/version result | scope read/limitations. Do not present a search by title as a check of the original.
+- AUDIT.md: summary, date/author, counts, findings with priority and correction, unregistered material facts, limitations and re-check history. At the end, after corrections: final_verdict, open_critical, open_major and SHA-256 of CHAPTER/SOURCES/CLAIMS. Check the actual final text after root's edits.
 
-Допустимые claim verdict: verified (в точном scope первички), verified_as_reported (доказан только факт высказывания/декларации), partial (доказана лишь часть), contradicted (первичка противоречит), unverifiable (оригинал/нужный фрагмент не получен), non_factual (явная гипотеза/нормативное предложение/синтетическое условие, не внешний факт). Статусы автора confirmed/open/rejected не копировать механически. Partial/unverifiable не равно false; если фраза честно ограничена, это limitation, а не обязательная ошибка. Не ставить verified только потому, что предыдущий рецензент так написал.
+Allowed claim verdicts: verified (within the exact scope of the primary source), verified_as_reported (only the fact of the statement/declaration is proven), partial (only a part is proven), contradicted (the primary source contradicts it), unverifiable (the original/the relevant fragment was not obtained), non_factual (an explicit hypothesis/normative proposal/synthetic condition, not an external fact). Do not copy the author's confirmed/open/rejected statuses mechanically. Partial/unverifiable does not equal false; if a phrase is honestly bounded, that is a limitation, not necessarily an error. Do not assign verified just because the previous reviewer wrote so.
 
-Critical: ошибка с существенным финансовым/правовым/безопасностным следствием. Major: неверный механизм либо значимое недоказанное уверенное утверждение. Minor: локальная метаданная/редакторская ошибка без изменения механизма. Финальный reviewed_with_limitations допустим только без открытых critical/major после исправлений или корректного ограничения утверждений. Сохранить исходное замечание и основание, даже когда закрыто.
+Critical: an error with a material financial/legal/security consequence. Major: an incorrect mechanism or a significant unproven confident claim. Minor: a local metadata/editorial error that does not change the mechanism. A final reviewed_with_limitations is allowed only with no open critical/major findings after corrections or after the claims are properly bounded. Keep the original finding and its basis, even when it is closed.
 
-Не вводить квоту источников и не расширять тему. Проверить все назначенные строки; недоступные честно учесть. Отчет не является полным юридическим аудитом, репликацией исследований или эксплуатационным тестом.
+Do not introduce a source quota and do not broaden the topic. Check all assigned rows; account honestly for the unavailable ones. The report is not a full legal audit, a replication of research or an operational test.

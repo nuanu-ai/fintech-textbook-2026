@@ -1,540 +1,540 @@
-[← Деньги и основы финтеха](../00-Money-and-fintech-basics/README.md) · [Оглавление](../README.md) · [Как проходит платёж →](../02-How-a-payment-works/README.md)
+[← Money and fintech basics](../00-Money-and-fintech-basics/README.md) · [Contents](../README.md) · [How a payment works →](../02-How-a-payment-works/README.md)
 
 <a id="часть-1-право-географии-и-ответственность-в-платежах"></a>
-# Глава 1. Правила рынка и лицензии
+# Chapter 1. Market rules and licensing
 
-> Кто вправе оказывать платёжную услугу и перед кем отвечает.
+> Who is allowed to provide a payment service, and to whom they are answerable.
 
-**9 уроков** · Срез знаний: **15 сентября 2026** · [Источники](Sources.md) · [Проверка и ограничения](../../Fact-check/Results.md)
+**9 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md)
 
-## В этой главе
+## In this chapter
 
-- [1.1 · Зачем регулировать платежи](#module-1-1)
-- [1.2 · Лицензии и роли участников](#module-1-2)
-- [1.3 · Пять моделей приёма платежей](#module-1-3)
-- [1.4 · Как сравнивать страны и правовые режимы](#module-1-4)
-- [1.5 · Проверка клиентов, санкции и борьба с отмыванием денег](#module-1-5)
-- [1.6 · Защита данных и устойчивость платёжных систем](#module-1-6)
-- [1.7 · Работа через партнёра: роли и ограничения](#module-1-7)
-- [1.8 · Как читать договоры платёжных участников](#module-1-8)
-- [1.9 · Права покупателя и разрешение претензий](#module-1-9)
-- [Проверка понимания: задачи и ответы](#проверка-понимания-задачи-и-ответы)
+- [1.1 · Why regulate payments](#module-1-1)
+- [1.2 · Licenses and participant roles](#module-1-2)
+- [1.3 · Five models for accepting payments](#module-1-3)
+- [1.4 · How to compare countries and legal regimes](#module-1-4)
+- [1.5 · Customer checks, sanctions and anti-money laundering](#module-1-5)
+- [1.6 · Data protection and payment system resilience](#module-1-6)
+- [1.7 · Working through a partner: roles and limits](#module-1-7)
+- [1.8 · How to read payment participants' contracts](#module-1-8)
+- [1.9 · Buyer rights and complaint resolution](#module-1-9)
+- [Check your understanding: exercises and answers](#check-your-understanding-exercises-and-answers)
 
 ---
 
-Эта часть объясняет, как из фактических действий построить карту прав, денежных обязательств и ответственности. Основной фокус — прием платежей, кошельки и переход между fiat и crypto. Это сравнительный учебник, а не заключение о допустимости конкретного бизнеса. Для эксплуатации необходима проверка применимого местного права и договора профильным специалистом; учебные модели не являются решениями о запуске проектов Lab.
+This chapter explains how to build a map of rights, monetary obligations and liability from what participants actually do. The main focus is payment acceptance, wallets, and moving between fiat and crypto. This is a comparative textbook, not an opinion on whether a specific business is permissible. Operating a business requires a qualified specialist to check the applicable local law and the contract; the teaching models are not decisions to launch Lab projects.
 
-После чтения читатель сможет: различать продавца, технического подрядчика и регулируемого поставщика услуги; нарисовать деньги отдельно от договоров; объяснить ограничения партнерской модели в шести географиях; составить проверяемую карту AML, данных и претензий. Предварительно: [деньги, обязательства и учет — часть 0](../00-Money-and-fintech-basics/README.md). Правила карточек доказательств: [Источники](Sources.md), существенные тезисы: [Утверждения](Claims.md).
+After reading, the reader will be able to: distinguish a merchant, a technical contractor and a regulated service provider; draw the money separately from the contracts; explain the limits of the partner model in six geographies; build a verifiable map of AML, data and complaints. Prerequisite: [money, obligations and accounting — Chapter 0](../00-Money-and-fintech-basics/README.md). Rules for evidence cards: [Sources](Sources.md); material claims: [Claims](Claims.md).
 
-В тексте **норма** означает положение акта или обязательного правила в указанной сфере; **guidance** — объяснение или надзорное ожидание; **договор** — условия конкретного участника; **интерпретация** — учебный вывод автора. Иллюстрации и числа синтетические, если прямо не указано иное. Дата чтения ссылки не означает, что весь связанный режим проверен до последней национальной поправки.
+In this text, a **rule** means a provision of a legal act or a binding rule in the stated area; **guidance** means an explanation or a supervisory expectation; a **contract** means the terms of a specific participant; an **interpretation** means the author's teaching conclusion. Illustrations and figures are synthetic unless explicitly stated otherwise. The date on which a link was read does not mean that the whole related regime has been checked down to the latest national amendment.
 
 <a id="module-1-1"></a>
 <a id="11-логика-регулятора-не-список-аббревиатур"></a>
-## 1.1 Зачем регулировать платежи
+## 1.1 Why regulate payments
 
-**Вопрос:** почему две компании с одинаковым checkout могут иметь совершенно разные обязанности? **Ответ:** право смотрит на услугу, обещание клиенту и контроль над результатом. Цвет кнопки и название API этого не определяют.
+**Question:** why can two companies with the same checkout have completely different obligations? **Answer:** the law looks at the service, the promise to the customer and control over the outcome. The color of the button and the name of the API do not determine this.
 
-Платеж создает несколько рисков. Покупатель может потерять деньги до того, как продавец их получит. Посредник может использовать чужие остатки как собственное финансирование. Преступник может провести доход через формально обычную покупку. Пользователь может не понимать цену, курс или адресата претензии. Наконец, отказ крупного участника способен остановить платежи других организаций. Поэтому требования к капиталу, защите клиентских средств, идентификации, раскрытиям и устойчивости решают разные задачи. Исполнение одного требования не доказывает исполнение остальных.
+A payment creates several risks. The buyer may lose money before the merchant receives it. An intermediary may use other people's balances as its own funding. A criminal may run proceeds through what looks like an ordinary purchase. A user may not understand the price, the exchange rate or whom to complain to. Finally, the failure of a large participant can stop payments for other organizations. That is why requirements for capital, safeguarding of customer funds, identification, disclosures and resilience address different problems. Meeting one requirement does not prove that the others are met.
 
-Есть два взаимодополняющих способа определения периметра. **Activity-based regulation** начинается с действия: перевод, выпуск стоимости, хранение ключей, эквайринг. **Entity-based regulation** привязывает часть обязанностей к статусу учреждения: например, банка. Платежное учреждение ЕС получает разрешение на конкретные услуги, а не на «все финансы». В PSD2 платежный счет служит проведению платежей; это не самостоятельное разрешение принимать банковские депозиты. [P01-S001, ст. 11, 18 и приложение I](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575).
+There are two complementary ways to define the perimeter. **Activity-based regulation** starts from the action: a transfer, issuing value, holding keys, acquiring. **Entity-based regulation** ties some obligations to the status of the institution, for example a bank. An EU payment institution is authorized for specific services, not for "all of finance". Under PSD2, a payment account serves to execute payments; it is not a standalone authorization to take bank deposits. [P01-S001, Arts. 11, 18 and Annex I](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575).
 
-Перед классификацией полезно составить три предложения без рекламных слов:
+Before classifying, it helps to write three sentences without marketing language:
 
-1. **Кто кому должен?** После получения 100 EUR у клиента требование к банку, EMI, продавцу, кастодиану или платформе? Что произойдет при банкротстве каждого?
-2. **Кто способен распорядиться?** Кто меняет получателя, подписывает перевод, задерживает выплату, делает refund или блокирует счет? Юридическое полномочие и фактическая техническая возможность могут различаться; проверять надо обе.
-3. **Кому и где оказывается услуга?** Где учрежден поставщик; где клиент; где ведется привлечение; какой товар и актив; B2B или B2C; кто обслуживает местный счет?
+1. **Who owes whom?** Once 100 EUR has been received from a customer, is the claim against the bank, the EMI, the merchant, the custodian or the platform? What happens if each of them goes bankrupt?
+2. **Who can direct the money?** Who changes the payee, signs the transfer, holds a payout, makes a refund or blocks an account? Legal authority and actual technical ability may differ; both must be checked.
+3. **To whom and where is the service provided?** Where is the provider incorporated; where is the customer; where does customer acquisition take place; what goods and asset are involved; B2B or B2C; who services the local account?
 
-**Пример.** Компания Alfa продает интернет-магазину программу за 20 EUR в месяц. Покупатель магазина платит непосредственно его PSP, Alfa получает только идентификатор статуса. Затем Alfa добавляет функцию: покупатель сначала пополняет единый остаток у Alfa и распоряжается им у разных магазинов. Денежная сумма и дизайн могут не измениться, но появилось новое требование покупателя к Alfa. Третий вариант: Alfa не держит остаток, однако сама оказывает клиенту услугу инициирования банковского платежа. Из отсутствия денег на банковском счете Alfa нельзя заключить, что регулирования нет: PSD2 прямо отделяет payment initiation и account information от исключения технического поставщика; MAS в 2024 году расширил охват некоторых DPT-посредников, даже если деньги и токены не поступают в их владение. [P01-S001, ст. 3(j), приложение I](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575); [P01-S011, п. 2](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release_MAS%20Expands%20Scope%20of%20Regulated%20Payment%20Services%20Introduces%20User%20Protection%20Requirements%20for%20Digital%20Payment%20Token%20Service%20Providers.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20240402-2%2Fattachment%2FMAS+Media+Release_MAS+Expands+Scope+of+Regulated+Payment+Services+Introduces+User+Protection+Requirements+for+Digital+Payment+Token+Service+Providers.pdf).
+**Example.** Alfa sells software to an online store for 20 EUR a month. The store's buyer pays the store's PSP directly; Alfa receives only a status identifier. Then Alfa adds a feature: the buyer first tops up a single balance with Alfa and spends it at different stores. The amount of money and the design may stay the same, but the buyer now has a new claim against Alfa. A third variant: Alfa holds no balance but itself provides the customer with a bank payment initiation service. From the absence of money in Alfa's bank account one cannot conclude that there is no regulation: PSD2 explicitly separates payment initiation and account information from the technical service provider exclusion; in 2024 MAS expanded the scope to cover certain DPT intermediaries even when money and tokens do not come into their possession. [P01-S001, Art. 3(j), Annex I](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575); [P01-S011, para. 2](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release_MAS%20Expands%20Scope%20of%20Regulated%20Payment%20Services%20Introduces%20User%20Protection%20Requirements%20for%20Digital%20Payment%20Token%20Service%20Providers.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20240402-2%2Fattachment%2FMAS+Media+Release_MAS+Expands+Scope+of+Regulated+Payment+Services+Introduces+User+Protection+Requirements+for+Digital+Payment+Token+Service+Providers.pdf).
 
-**География — не адрес сервера.** Иностранная регистрация не стирает местное предложение услуги. Например, новый режим сингапурских digital token service providers специально затрагивает охватываемые лица, обслуживающие исключительно иностранных клиентов. Но обратная крайность тоже неверна: наличие иностранного посетителя сайта само по себе не устанавливает все юридические связи. Нужны факты о таргетировании, заключении договора, исполнении и контроле. [P01-S012, Scope of New Regulation](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release%20-%20Clarification%20Statement%20on%20DTSP%20Regulatory%20Regime.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20250606-1%2Fattachment%2FMAS+Media+Release+-+Clarification+Statement+on+DTSP+Regulatory+Regime.pdf).
+**Geography is not a server address.** Foreign registration does not erase a local offering of a service. For example, the new Singapore regime for digital token service providers specifically covers in-scope persons that serve only foreign customers. But the opposite extreme is also wrong: the presence of a foreign visitor on a website does not by itself establish every legal connection. You need facts about targeting, contract formation, performance and control. [P01-S012, Scope of New Regulation](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release%20-%20Clarification%20Statement%20on%20DTSP%20Regulatory%20Regime.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20250606-1%2Fattachment%2FMAS+Media+Release+-+Clarification+Statement+on+DTSP+Regulatory+Regime.pdf).
 
-**B2B и B2C относятся к конкретному отношению.** У платформы может быть корпоративный договор с PSP, у продавца — B2C-продажа физическому лицу, а у этого лица — отдельный договор со своим банком. Надпись «B2B infrastructure» на сайте платформы не отменяет прав покупателя товара. При этом нельзя автоматически переносить потребительские сроки на компанию, купившую услугу для бизнеса. Сначала устанавливают качество стороны в каждом договоре, затем подходящий режим.
+**B2B and B2C refer to a specific relationship.** A platform may have a corporate contract with a PSP, a merchant may have a B2C sale to an individual, and that individual may have a separate contract with their bank. The label "B2B infrastructure" on the platform's website does not cancel the rights of the buyer of the goods. At the same time, consumer time limits cannot automatically be applied to a company that bought a service for its business. First establish the capacity in which each party acts in each contract, then the appropriate regime.
 
-Типовая ошибка расследования — начать с вопроса «какая лицензия нужна?» до фиксации этих фактов. Получается ответ на воображаемый продукт. Правильный результат первичного анализа — не список аббревиатур, а диаграмма с участниками, действиями и конкретными неопределенностями.
+A typical research mistake is to start with the question "which license is needed?" before these facts are pinned down. The result is an answer for an imaginary product. The right output of an initial analysis is not a list of abbreviations but a diagram with participants, actions and specific uncertainties.
 
 <a id="module-1-2"></a>
 <a id="12-типы-лицензий-и-ролей-карта-разрешений"></a>
-## 1.2 Лицензии и роли участников
+## 1.2 Licenses and participant roles
 
-**Вопрос:** что именно подтверждает запись компании в реестре? **Ответ:** только указанный статус, услуги, ограничения и субъект на дату проверки. Она не подтверждает качество продукта и не переносится на другую компанию группы.
+**Question:** what exactly does a company's entry in a register confirm? **Answer:** only the stated status, services, restrictions and legal entity as of the date of the check. It does not confirm product quality and does not carry over to another company in the group.
 
-**Лицензия/authorization** — разрешение предусмотренного законом вида; **registration** — регистрационный режим, содержание которого зависит от закона. Иногда регистрация связана с AML, иногда с ограниченным видом платежной услуги. **Бизнес-роль** описывает место в цепочке: процессор, шлюз, ISO, PayFac, Merchant of Record. Коммерческие обозначения PSP, «sponsor» или SSP нельзя считать международными категориями разрешения.
+A **license/authorization** is a permission of a type provided for by law; **registration** is a registration regime whose content depends on the law. Sometimes registration is tied to AML, sometimes to a limited type of payment service. A **business role** describes a position in the chain: processor, gateway, ISO, PayFac, Merchant of Record. Commercial labels such as PSP, "sponsor" or SSP cannot be treated as international authorization categories.
 
-Ниже — учебная карта, а не трансграничная таблица эквивалентности лицензий. «Баланс» здесь обозначает экономическое требование и учетную запись; точное отражение custody и safeguarding в финансовой отчетности определяется соответствующим режимом и учетной политикой.
+Below is a teaching map, not a cross-border table of license equivalence. "Balance" here means an economic claim and an accounting record; exactly how custody and safeguarding are reflected in financial statements is determined by the relevant regime and accounting policy.
 
-| Действие | Что проверяем по существу | Пример разрешительного периметра | Чьи деньги/обязательство | Кто отвечает пользователю |
+| Action | What we check in substance | Example of the authorization perimeter | Whose money/obligation | Who is liable to the user |
 |---|---|---|---|---|
-| Accept: принять оплату за собственный товар | Продажа или оказание платежной услуги третьему лицу | Сам факт торговли не делает продавца PI; эквайринг как услуга выделен отдельно | Выручка продавца; до расчета требование к acquiring-цепочке | Продавец — за товар; PSP — за свою платежную услугу |
-| Hold: сохранять стоимость | Депозит, e-money, платежные средства в процессе перевода или crypto-custody | Банк / EMI / соответствующий PSP или CASP — в зависимости от фактов | У клиента требование; режим защиты различается | Именованный эмитент/держатель/поставщик услуги |
-| Transfer: переводить | Кто получает поручение и исполняет перевод | PI/remittance, US money transmitter, MAS money transfer или DPT-service | Обычно передаваемые клиентские средства, не доход посредника | Поставщик перевода в пределах закона и договора |
-| Convert: обменивать | Fiat FX, обмен crypto/fiat, исполнение поручения или собственная торговля | Разные режимы FX, CASP/VASP, DPT или exchange business | Актив одного вида заменяется другим; есть риск курса и контрагента | Контрагент обмена и соответствующий посредник |
-| Payout: выплатить продавцу | Погашение собственного долга или перевод чужих средств | Название payout само по себе ничего не решает | Требование продавца уменьшается; счет получателя кредитуется | Должник и поставщик перевода по разным основаниям |
-| Issue: выпустить | Карта/платежный инструмент, e-money или токен | Issuing-разрешение, банковский/EMI-периметр, специальные token rules | Инструмент дает доступ; выпущенная денежная стоимость создает требование | Эмитент; программа/дистрибьютор — за собственные действия |
+| Accept: take payment for one's own goods | A sale, or the provision of a payment service to a third party | Trading as such does not make the merchant a PI; acquiring as a service is singled out separately | The merchant's revenue; until settlement, a claim against the acquiring chain | Merchant — for the goods; PSP — for its payment service |
+| Hold: store value | Deposit, e-money, payment funds in the course of transfer, or crypto custody | Bank / EMI / relevant PSP or CASP — depending on the facts | The customer has a claim; the protection regime varies | The named issuer/holder/service provider |
+| Transfer: send funds | Who receives the instruction and executes the transfer | PI/remittance, US money transmitter, MAS money transfer or DPT service | Usually customer funds being transferred, not the intermediary's revenue | The transfer provider, within the limits of the law and the contract |
+| Convert: exchange | Fiat FX, crypto/fiat exchange, executing an order or proprietary trading | Different regimes: FX, CASP/VASP, DPT or exchange business | An asset of one kind is replaced by another; there is exchange rate and counterparty risk | The exchange counterparty and the relevant intermediary |
+| Payout: pay the merchant | Paying off one's own debt or transferring someone else's funds | The name "payout" decides nothing by itself | The merchant's claim decreases; the recipient's account is credited | The debtor and the transfer provider, on different grounds |
+| Issue: issue | Card/payment instrument, e-money or token | Issuing authorization, bank/EMI perimeter, special token rules | The instrument gives access; issued monetary value creates a claim | Issuer; program/distributor — for its own actions |
 
-Источники определения ролей: [FCA, payment services и e-money](https://www.fca.org.uk/firms/payment-services-regulations-e-money-regulations), [MiCA, recitals 18–22; scope limitations в SOURCES](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80808), [BI, PBI 10/2025](https://www.bi.go.id/id/publikasi/peraturan/Documents/PBI-102025.pdf). Таблица — авторский сравнительный синтез; локальные разрешения не взаимозаменяемы.
+Sources for the role definitions: [FCA, payment services and e-money](https://www.fca.org.uk/firms/payment-services-regulations-e-money-regulations), [MiCA, recitals 18–22; scope limitations in SOURCES](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80808), [BI, PBI 10/2025](https://www.bi.go.id/id/publikasi/peraturan/Documents/PBI-102025.pdf). The table is the author's comparative synthesis; local authorizations are not interchangeable.
 
-**Три отношения с партнером.** При аутсорсинге подрядчик выполняет функцию для регулируемого учреждения. При агентской модели он действует от имени principal в установленном объеме; может требоваться регистрация агента. White-label описывает брендинг, а не один из этих правовых статусов. В ЕС использование агента и передача важных функций не освобождают платежное учреждение от ответственности; контроль аутсорсинга описан в ст.19(6), а полная ответственность — в ст.20(2) PSD2. [P01-S001](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575).
+**Three relationships with a partner.** In outsourcing, a contractor performs a function for a regulated institution. In the agent model, it acts on behalf of the principal within a defined scope; registration of the agent may be required. White-label describes branding, not one of these legal statuses. In the EU, using an agent or outsourcing important functions does not release the payment institution from liability; control over outsourcing is described in Art. 19(6), and full liability in Art. 20(2) of PSD2. [P01-S001](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575).
 
-**Пример регистрации против лицензии.** US-компания показывает FinCEN MSB registration и обещает «полную лицензию на хранение долларов для всего мира». Такая формулировка не следует из регистрации. FinCEN прямо разъясняет: MSB registration не является лицензией на работу в США; регистрация также не означает одобрения бизнеса ведомством. Применимые разрешения штатов и территорий проверяются отдельно. [P01-S064](https://www.fincen.gov/system/files/2024-12/Alert-FinCEN-Scams-FINAL508.pdf), p6; [P01-C021](Claims.md). Даже платежный процессор, претендующий на исключение, должен соответствовать фактам и условиям исключения. FinCEN в FIN-2014-R009 отдельно исследовал ISO и payment processing, включая договор с продавцом и использование регулируемых clearing/settlement-систем. Это конкретное административное толкование, а не универсальное освобождение любого checkout. [P01-S002](https://www.fincen.gov/resources/statutes-regulations/administrative-rulings/application-money-services-business).
+**Example: registration versus license.** A US company shows its FinCEN MSB registration and promises "a full license to hold dollars for the whole world". That wording does not follow from the registration. FinCEN explains explicitly that MSB registration is not a license to operate in the United States, and that registration does not mean the agency endorses the business. Applicable state and territorial licenses are checked separately. [P01-S064](https://www.fincen.gov/system/files/2024-12/Alert-FinCEN-Scams-FINAL508.pdf), p. 6; [P01-C021](Claims.md). Even a payment processor that claims an exemption must match the facts and conditions of the exemption. In FIN-2014-R009, FinCEN separately examined an ISO and payment processing, including the contract with the merchant and the use of regulated clearing/settlement systems. This is a specific administrative interpretation, not a universal exemption for any checkout. [P01-S002](https://www.fincen.gov/resources/statutes-regulations/administrative-rulings/application-money-services-business).
 
-Проверка партнера поэтому идет от **точного legal entity** к реестру, от реестра к перечисленным услугам и от них к вашему потоку. Затем проверяют разрешенную агентскую/подрядную роль и договор. Сертификат сестринской компании, логотип схемы или письмо sales не заполняют отсутствующее звено.
+So a partner check goes from the **exact legal entity** to the register, from the register to the listed services, and from those to your flow. Then the permitted agent/contractor role and the contract are checked. A sister company's certificate, a scheme logo or a letter from sales does not fill the missing link.
 
 <a id="module-1-3"></a>
 <a id="13-пять-учебных-моделей-организации-приема-платежей"></a>
-## 1.3 Пять моделей приёма платежей
+## 1.3 Five models for accepting payments
 
-**Вопрос:** какие модели стоит различать до обсуждения API? **Ответ:** кто продает, кто оказывает платежную услугу, кто контролирует средства и кто несет отрицательный результат. Следующие пять моделей — учебные крайние случаи. Реальные продукты комбинируют их, поэтому нельзя автоматически считать любую platform PayFac, любой reseller MoR или любой собственный процессинг custody.
+**Question:** which models are worth distinguishing before discussing the API? **Answer:** who sells, who provides the payment service, who controls the funds and who bears a negative outcome. The following five models are teaching extremes. Real products combine them, so one cannot automatically treat every platform as a PayFac, every reseller as an MoR or every in-house processing setup as custody.
 
-### Модель 1. Software connector
+### Model 1. Software connector
 
-Программа помогает продавцу подключить платежного партнера. В этом примере она передает технические данные, не принимает поручение на регулируемую услугу от своего имени и не распоряжается средствами. Никакой универсальной «software exemption» мы не предполагаем: квалификация меняется, если меняются эти факты.
+The software helps a merchant connect to a payment partner. In this example it passes technical data, does not accept an instruction for a regulated service in its own name and does not control funds. We do not assume any universal "software exemption": the classification changes if these facts change.
 
-**Договоры:**
+**Contracts:**
 
 ```mermaid
 flowchart LR
- B[Покупатель] ---|Продажа товара| M[Продавец]
- M ---|Платежные услуги| P[PSP]
- M ---|Лицензия на ПО / поддержка| S[Connector]
+ B[Buyer] ---|Sale of goods| M[Merchant]
+ M ---|Payment services| P[PSP]
+ M ---|Software license / support| S[Connector]
 ```
 
-**Деньги; 100 EUR за товар, 3 EUR комиссия PSP, 2 EUR отдельная плата за ПО:**
+**Money; 100 EUR for the goods, 3 EUR PSP fee, 2 EUR separate software fee:**
 
 ```mermaid
 flowchart LR
- B[Покупатель 100 EUR] --> P[PSP / acquiring-цепочка]
- P -->|97 EUR| M[Продавец]
- P -->|3 EUR| F[Комиссия PSP]
- M -->|2 EUR отдельный счет| S[Connector]
+ B[Buyer 100 EUR] --> P[PSP / acquiring chain]
+ P -->|97 EUR| M[Merchant]
+ P -->|3 EUR| F[PSP fee]
+ M -->|2 EUR separate invoice| S[Connector]
 ```
 
-Продавец получает 97 EUR и после оплаты ПО сохраняет 95 EUR. Connector заработал 2 EUR; через него не прошли 100 EUR покупателя. Возврат товара адресуется продавцу. Ошибка интеграции — connector по договору поддержки. Спор по карте проходит через issuer/acquirer, а не исчезает из-за технической роли connector. AML платежного партнера остается у соответствующего обязанного лица; подрядчику могут поручить сбор данных, но договор о разработке сам по себе не делегирует ему решение об открытии счета.
+The merchant receives 97 EUR and keeps 95 EUR after paying for the software. The connector earned 2 EUR; the buyer's 100 EUR did not pass through it. A return of the goods is addressed to the merchant. An integration error is the connector's responsibility under the support contract. A card dispute goes through the issuer/acquirer and does not disappear because of the connector's technical role. The payment partner's AML stays with the relevant obliged entity; a contractor may be tasked with collecting data, but a development contract does not by itself delegate to it the decision to open an account.
 
-**Сбой:** connector видит timeout и создает новую оплату вместо проверки первой. Техническая ошибка способна породить двойное списание, даже если connector не держит деньги. Поэтому нельзя обещать «никакой ответственности»; можно обещать только конкретную функцию и согласованный уровень сервиса. Источник границы technical provider: [PSD2, ст. 3(j)](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575); правила повторов — [часть 8](../08-Integrations-and-reliability/README.md).
+**Failure:** the connector sees a timeout and creates a new payment instead of checking the first one. A technical error can produce a double charge even if the connector does not hold money. So one cannot promise "no liability at all"; one can only promise a specific function and an agreed service level. Source for the technical provider boundary: [PSD2, Art. 3(j)](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575); retry rules — [Chapter 8](../08-Integrations-and-reliability/README.md).
 
-### Модель 2. Direct merchant–PSP
+### Model 2. Direct merchant–PSP
 
-Продавец напрямую заключает договор платежного обслуживания. Он может использовать готовый hosted checkout без собственного connector. Важное отличие от модели 1 — это схема принятия торговых платежей как целое; модель 1 описывает роль еще одного участника. Эти категории могут сосуществовать.
+The merchant enters into a payment services contract directly. It may use a ready-made hosted checkout without its own connector. The important difference from model 1: this describes the arrangement for accepting merchant payments as a whole, while model 1 describes the role of one more participant. These categories can coexist.
 
-**Договоры:**
+**Contracts:**
 
 ```mermaid
 flowchart LR
- B[Покупатель] ---|Продажа| M[Продавец]
- B ---|Карта / счет| I[Issuer / банк]
+ B[Buyer] ---|Sale| M[Merchant]
+ B ---|Card / account| I[Issuer / bank]
  M ---|Acquiring / processing terms| P[PSP / acquirer]
 ```
 
-**Деньги:**
+**Money:**
 
 ```mermaid
 flowchart LR
- B[Покупатель] -->|100 EUR| R[Банк и платежная цепочка]
+ B[Buyer] -->|100 EUR| R[Bank and payment chain]
  R --> P[PSP / acquirer]
- P -->|97 EUR| M[Продавец]
- P -->|3 EUR| F[Комиссия]
+ P -->|97 EUR| M[Merchant]
+ P -->|3 EUR| F[Fee]
 ```
 
-Успешный capture не тождественен доступной выплате 97 EUR. Договор может предусматривать сроки, reserve и удержания. При refund на 100 EUR продавцу может потребоваться довнести 3 EUR, если первоначальная комиссия по учебным условиям не возвращается. Кредитование счета покупателя — отдельный факт от принятия запроса на refund.
+A successful capture is not the same as an available payout of 97 EUR. The contract may provide for timelines, a reserve and holdbacks. On a refund of 100 EUR, the merchant may need to top up 3 EUR if, under the teaching terms, the original fee is not returned. Crediting the buyer's account is a separate fact from accepting a refund request.
 
-**Претензии:** продавец отвечает за товар, PSP — за платежную услугу в ее договорном и законном объеме. Проверка продавца и мониторинг осуществляются платежными участниками по их ролям; идентификация держателя карты его банком не заменяет due diligence продавца эквайером. Нельзя обещать «окончательность без споров» или «выплату в любую страну» на основании общего слова acquiring.
+**Complaints:** the merchant is liable for the goods, the PSP for the payment service within its contractual and statutory scope. Merchant checks and monitoring are carried out by payment participants according to their roles; the cardholder's identification by their bank does not replace the acquirer's due diligence on the merchant. One cannot promise "finality without disputes" or "payouts to any country" on the strength of the general word acquiring.
 
-### Модель 3. Platform / PayFac
+### Model 3. Platform / PayFac
 
-Платформа объединяет продавцов, onboarding, интерфейс и распределение средств. **Payment facilitator (PayFac)** — конкретная роль в acquiring/scheme-цепочке; платформа может вместо нее работать с прямыми merchant accounts. В примере ниже платформа договорно отвечает перед своим acquiring-партнером за определенные убытки субмерчантов. Это выбранное условие модели, не свойство всех платформ.
+The platform brings together merchants, onboarding, the interface and the distribution of funds. A **payment facilitator (PayFac)** is a specific role in the acquiring/scheme chain; a platform may instead work with direct merchant accounts. In the example below, the platform is contractually liable to its acquiring partner for certain submerchant losses. This is a chosen condition of the model, not a property of all platforms.
 
-**Договоры:**
+**Contracts:**
 
 ```mermaid
 flowchart TD
  SC[Card scheme] ---|Membership / scheme rules| AC[Acquirer / sponsor]
- AC ---|PayFac / sponsorship agreement| PF[Платформа / PayFac]
- PF ---|Submerchant agreement| M[Продавец]
- M ---|Продажа| B[Покупатель]
- AC -.->|Дополнительные прямые terms, если требуются| M
+ AC ---|PayFac / sponsorship agreement| PF[Platform / PayFac]
+ PF ---|Submerchant agreement| M[Merchant]
+ M ---|Sale| B[Buyer]
+ AC -.->|Additional direct terms, if required| M
 ```
 
-**Деньги; комиссия platform 10 EUR, processing 3 EUR:**
+**Money; platform fee 10 EUR, processing 3 EUR:**
 
 ```mermaid
 flowchart LR
- B[Покупатель] -->|100 EUR| AC[Acquirer / расчетный контур]
- AC -->|87 EUR| M[Продавец]
- AC -->|10 EUR| PF[Платформа]
+ B[Buyer] -->|100 EUR| AC[Acquirer / settlement flow]
+ AC -->|87 EUR| M[Merchant]
+ AC -->|10 EUR| PF[Platform]
  AC -->|3 EUR| F[Processing]
 ```
 
-Сумма распределения 87 + 10 + 3 = 100 EUR. Стрелка к платформе не означает, что клиентские средства сначала находились на ее обычном банковском счете: split может осуществлять PSP. И наоборот, красивый dashboard с отдельными балансами не доказывает юридическую сегрегацию денег.
+The distribution adds up to 87 + 10 + 3 = 100 EUR. The arrow to the platform does not mean that customer funds were first held in its ordinary bank account: the split may be performed by the PSP. Conversely, a nice dashboard with separate balances does not prove legal segregation of the money.
 
-**Сбой:** продавец получил 87 EUR и исчез, покупатель оспорил 100 EUR, а chargeback fee по синтетическому договору равна 15 EUR. Валовой денежный расход по спору — 115 EUR; внутренняя экономика зависит от возвращаемых комиссий и регресса к продавцу. Если платформа удержала свои 10 EUR и ничего более не взыскала, ее чистый результат по этой продаже составляет 10 − 115 = −105 EUR. Нельзя сравнивать риск только с take rate 10%.
+**Failure:** the merchant received 87 EUR and disappeared, the buyer disputed 100 EUR, and the chargeback fee under the synthetic contract is 15 EUR. The gross cash outflow on the dispute is 115 EUR; the internal economics depend on returned fees and recourse against the merchant. If the platform kept its 10 EUR and recovered nothing more, its net result on this sale is 10 − 115 = −105 EUR. Risk cannot be compared only with a 10% take rate.
 
-Stripe служит полезным публичным контрпримером универсальному правилу: документация Connect различает liability connected account и ответственность платформы за собственный negative balance; тип charge и распределение loss liability имеют значение. Это описание конкретного продукта, не норма закона и не доказательство условий вашего аккаунта. [P01-S032, Marketplace liability / Negative balance responsibility](https://docs.stripe.com/connect/risk-management).
+Stripe is a useful public counterexample to a universal rule: the Connect documentation distinguishes connected account liability from the platform's responsibility for its own negative balance; the charge type and the allocation of loss liability matter. This is a description of a specific product, not a rule of law, and not proof of the terms of your account. [P01-S032, Marketplace liability / Negative balance responsibility](https://docs.stripe.com/connect/risk-management).
 
-Onboarding-сбор может выполняться платформой, а окончательное принятие merchant — партнером. Кто ведет monitoring, расследует alert и подает SAR/STR, устанавливается применимым законом и operating agreement. Нельзя обещать «подключим любого продавца без проверки» или «мы только интерфейс, все убытки у банка», если договор распределяет обязанности иначе.
+Onboarding data collection may be done by the platform, while the final acceptance of the merchant is done by the partner. Who runs monitoring, investigates an alert and files a SAR/STR is determined by applicable law and the operating agreement. One cannot promise "we will onboard any merchant without checks" or "we are just the interface, all losses sit with the bank" if the contract allocates obligations differently.
 
-### Модель 4. Merchant of Record / reseller
+### Model 4. Merchant of Record / reseller
 
-**Merchant of Record (MoR)** в этой модели сам выступает продавцом покупателю; поставщик продукта продает через него на основании отдельного соглашения. Термин не имеет единого всемирного статуса. Необходимо проверить реальную договорную цепочку, налоги и роль в acquiring; одной надписи в выписке недостаточно.
+A **Merchant of Record (MoR)** in this model itself acts as the seller to the buyer; the product supplier sells through it under a separate agreement. The term has no single worldwide status. You need to check the real contractual chain, taxes and the role in acquiring; a label on a statement is not enough.
 
-**Договоры:**
+**Contracts:**
 
 ```mermaid
 flowchart LR
- SUP[Поставщик продукта] ---|Supply / resale agreement| MOR[MoR — продавец]
- MOR ---|Buyer terms / продажа| B[Покупатель]
+ SUP[Product supplier] ---|Supply / resale agreement| MOR[MoR — seller]
+ MOR ---|Buyer terms / sale| B[Buyer]
  MOR ---|Acquiring agreement| AC[PSP / acquirer]
- SUP -.->|Условия использования / лицензия на продукт| B
+ SUP -.->|Terms of use / product license| B
 ```
 
-**Деньги; условно без налогов, supply price 90 EUR:**
+**Money; taxes ignored for simplicity, supply price 90 EUR:**
 
 ```mermaid
 flowchart LR
- B[Покупатель] -->|100 EUR| AC[PSP]
- AC -->|97 EUR после processing 3| MOR[MoR]
- MOR -->|90 EUR договорная выплата| SUP[Поставщик]
- MOR -->|7 EUR остаток до прочих расходов| MG[Маржа MoR]
+ B[Buyer] -->|100 EUR| AC[PSP]
+ AC -->|97 EUR after processing 3| MOR[MoR]
+ MOR -->|90 EUR contractual payout| SUP[Supplier]
+ MOR -->|7 EUR remainder before other costs| MG[MoR margin]
 ```
 
-При полной выплате поставщику MoR сохраняет 7 EUR. Если возвращает покупателю 100 EUR, не получает назад processing 3 EUR и по supply terms полностью взыскивает с поставщика 90 EUR, результат MoR: 100 − 3 − 90 − 100 + 90 = −3 EUR. Договор должен объяснять, когда такой регресс возможен; до взыскания у MoR есть потребность в ликвидности.
+After paying the supplier in full, the MoR keeps 7 EUR. If it refunds the buyer 100 EUR, does not get back the 3 EUR processing fee and, under the supply terms, recovers the full 90 EUR from the supplier, the MoR's result is: 100 − 3 − 90 − 100 + 90 = −3 EUR. The contract must explain when such recourse is possible; until the recovery, the MoR has a liquidity need.
 
-Публичный MSA Paddle прямо описывает non-exclusive reseller и право продавца обработать refund; он также запрещает поставщику отдельно выставлять покупателю счет за ту же Transaction. Это помогает увидеть различие между поставкой продукта и продажей покупателю. Сама поставка, поддержка, IP и информация о продукте остаются важными обязанностями supplier. [P01-S033, §§2.2(ii), 9, 10.1–10.2](https://www.paddle.com/legal/terms); [P01-S034, Relationship with Suppliers](https://www.paddle.com/legal/buyer-terms).
+Paddle's public MSA explicitly describes a non-exclusive reseller and the seller's right to process a refund; it also prohibits the supplier from separately invoicing the buyer for the same Transaction. This helps to see the difference between supplying a product and selling to the buyer. Delivery itself, support, IP and product information remain important obligations of the supplier. [P01-S033, §§2.2(ii), 9, 10.1–10.2](https://www.paddle.com/legal/terms); [P01-S034, Relationship with Suppliers](https://www.paddle.com/legal/buyer-terms).
 
-**Сбой:** supplier обещает клиенту возврат и отправляет деньги напрямую, после чего MoR также исполняет chargeback. В учете возникает двойная компенсация; доступ к продукту мог остаться активным. Поэтому sale/refund должен иметь единого операционного владельца и связанный журнал. Нельзя обещать поставщику «MoR забирает абсолютно все риски, налоги и претензии»: пределы продукта, стран, прав на контент и indemnity определяет договор.
+**Failure:** the supplier promises the customer a refund and sends the money directly, after which the MoR also processes a chargeback. The books now show double compensation; access to the product may have stayed active. So sale/refund must have a single operational owner and a linked ledger. One cannot promise the supplier that "the MoR takes on absolutely all risks, taxes and claims": the limits on products, countries, content rights and indemnity are set by the contract.
 
-### Модель 5. Own payment stack / custody
+### Model 5. Own payment stack / custody
 
-Собственный стек — технический выбор. Custody — отдельный вопрос о хранении активов и возможности действовать от имени клиента. Можно написать собственный процессинг и оставаться подрядчиком банка; можно использовать чужой API и при этом быть стороной, принимающей обязательство вернуть клиентский остаток.
+An in-house stack is a technical choice. Custody is a separate question: holding assets and being able to act on the customer's behalf. You can write your own processing and remain a bank's contractor; you can use someone else's API and still be the party that takes on the obligation to return the customer's balance.
 
-**Договоры в учебном варианте custodial wallet:**
+**Contracts in the teaching custodial wallet variant:**
 
 ```mermaid
 flowchart TD
- U[Клиент кошелька] ---|Хранение / перевод / погашение| W[Оператор кошелька]
- W ---|Банковский / safeguarding / custody договор| B[Банк или кастодиан]
- W ---|Условия приема| M[Продавец]
- W ---|Processing / сеть| R[Платежные партнеры]
+ U[Wallet customer] ---|Custody / transfer / redemption| W[Wallet operator]
+ W ---|Bank / safeguarding / custody agreement| B[Bank or custodian]
+ W ---|Acceptance terms| M[Merchant]
+ W ---|Processing / network| R[Payment partners]
 ```
 
-**Деньги/обязательства; 100 EUR пополнение, 30 EUR покупка:**
+**Money/obligations; 100 EUR top-up, 30 EUR purchase:**
 
 ```mermaid
 flowchart LR
- U[Клиент] -->|100 EUR| B[Защищаемый денежный контур]
- B -.->|Обеспечивает обязательства| W[Учет оператора]
- W -->|После покупки: 70 EUR| UC[Требование клиента]
- W -->|До выплаты: 30 EUR| MC[Требование продавца]
+ U[Customer] -->|100 EUR| B[Safeguarded funds pool]
+ B -.->|Backs the obligations| W[Operator's books]
+ W -->|After purchase: 70 EUR| UC[Customer's claim]
+ W -->|Before payout: 30 EUR| MC[Merchant's claim]
 ```
 
-Здесь две нижние стрелки — **не банковские переводы**, а изменение требований. До выплаты актив денежного контура 100 EUR соответствует 70 + 30 EUR обязательств; после выплаты продавцу 30 EUR остается 70 EUR актива и 70 EUR требования клиента. Это не выручка кошелька 100 EUR и не прибыль 30 EUR. Для crypto модель дополняется количеством токенов, адресами, правами на ключи и отдельным учетом fiat-конверсии.
+Here the two lower arrows are **not bank transfers** but changes in claims. Before the payout, the 100 EUR asset in the funds pool matches 70 + 30 EUR of obligations; after the merchant is paid 30 EUR, there remain 70 EUR of assets and 70 EUR of the customer's claim. This is not 100 EUR of wallet revenue, nor 30 EUR of profit. For crypto, the model is extended with token quantities, addresses, rights to keys and separate accounting for fiat conversion.
 
-Оператор принимает на себя существенно больше функций: учет, сверку, redemption/withdrawal, мониторинг, доступность и восстановление. Партнеры продолжают нести собственные обязанности, но их наличие не устраняет роль оператора. Нельзя обещать страхование депозита, мгновенную ликвидность или гарантированную номинальную стоимость без отдельного основания. Например, FCA прямо предупреждает, что деньги у небанковского payment/e-money provider не получают прямую защиту FSCS; safeguarding имеет другую конструкцию. [P01-S008 и consumer guidance](https://www.fca.org.uk/consumers/using-payment-service-providers).
+The operator takes on significantly more functions: accounting, reconciliation, redemption/withdrawal, monitoring, availability and recovery. Partners continue to bear their own obligations, but their presence does not remove the operator's role. One cannot promise deposit insurance, instant liquidity or a guaranteed face value without a separate basis. For example, the FCA explicitly warns that money held with a non-bank payment/e-money provider does not get direct FSCS protection; safeguarding works differently. [P01-S008 and consumer guidance](https://www.fca.org.uk/consumers/using-payment-service-providers).
 
-**Итог пяти моделей.** Изменение business model — это прежде всего изменение должника и распределения потерь. Новый endpoint, субсчет или token не доказывает, что это изменение юридически оформлено. Перед переходом между моделями следует заново разобрать договор, контролируемые действия и деньги.
+**Summary of the five models.** Changing the business model is above all a change of debtor and of how losses are allocated. A new endpoint, sub-account or token does not prove that this change has been legally formalized. Before moving between models, the contract, the controlled actions and the money should be analyzed again.
 
 <a id="module-1-4"></a>
 <a id="14-географии--скрининг-обязательный-минимум"></a>
-## 1.4 Как сравнивать страны и правовые режимы
+## 1.4 How to compare countries and legal regimes
 
-**Вопрос:** можно ли выбрать одну «удобную лицензию» и обслуживать весь мир? **Ответ:** карта строится по сочетанию деятельности, юридического лица, актива и клиента. Ни одна строка ниже не является разрешением конкретной фирме. Карточки сопоставимы по семи измерениям, но не обещают исчерпывающего анализа каждого национального права. CBDC — обязательство центрального банка; название пилота CBDC не подтверждает доступность коммерческого подключения. Производственный статус CBDC по шести странам здесь не проверялся.
+**Question:** can you pick one "convenient license" and serve the whole world? **Answer:** the map is built from the combination of activity, legal entity, asset and customer. None of the rows below is an authorization for a specific firm. The country cards are comparable along seven dimensions but do not promise an exhaustive analysis of each national law. A CBDC is an obligation of the central bank; the name of a CBDC pilot does not confirm that commercial connection is available. The production status of CBDCs in the six countries was not checked here.
 
-### 1.4.1 США
+### 1.4.1 United States
 
-**Регуляторы и permission.** Федеральный BSA/MSB-анализ FinCEN сосуществует с банковским надзором и законами штатов о money transmission. Услуга приема денег для передачи другому лицу требует отдельного анализа; собственная торговая выручка — другой случай. Bank partnership определяет, какие действия совершает банк, какие — подрядчик, кто предлагает счет и контролирует средства. FinCEN ruling об ISO/payment processor помогает разобрать условия конкретной модели, но не заменяет карту штатов. [P01-S002](https://www.fincen.gov/resources/statutes-regulations/administrative-rulings/application-money-services-business).
+**Regulators and permission.** FinCEN's federal BSA/MSB analysis coexists with bank supervision and state money transmission laws. A service of accepting money for transfer to another person requires separate analysis; a merchant's own trading revenue is a different case. A bank partnership determines which actions the bank performs and which the contractor performs, who offers the account and who controls the funds. The FinCEN ruling on an ISO/payment processor helps analyze the conditions of a specific model but does not replace the state map. [P01-S002](https://www.fincen.gov/resources/statutes-regulations/administrative-rulings/application-money-services-business).
 
-**Crypto/stablecoin.** На срез уже существует GENIUS Act — Public Law119-27, одобренный 18.07.2025. Его определения и разрешенные эмитенты относятся к payment stablecoins; это не один режим для любых crypto brokers. Закон нельзя описывать как прежний законопроект. При этом §20 задает условную общую дату: раньше 18 месяцев после принятия либо 120 дней после определенного final implementing regulation. Вторая ветка в этом исследовании полностью не сверена; подтвержденный OCC документ 25.02.2026 — proposal. §3(b)(1) содержит собственный трехлетний срок. Значит, «принят», «правила предложены» и «конкретная обязанность применяется» — три разных утверждения. [P01-S003, §§2–4,20](https://www.govinfo.gov/content/pkg/PLAW-119publ27/html/PLAW-119publ27.htm); [P01-S004](https://www.occ.gov/news-issuances/news-releases/2026/nr-occ-2026-9.html).
+**Crypto/stablecoin.** As of the cutoff, the GENIUS Act already exists — Public Law 119-27, approved on 2025-07-18. Its definitions and permitted issuers relate to payment stablecoins; it is not a single regime for all crypto brokers. The law can no longer be described as a bill, as it was earlier. At the same time, §20 sets a conditional general effective date: the earlier of 18 months after enactment or 120 days after a specified final implementing regulation. The second branch has not been fully verified in this research; the confirmed OCC document of 2026-02-25 is a proposal. §3(b)(1) contains its own three-year period. So "adopted", "rules proposed" and "a specific obligation applies" are three different statements. [P01-S003, §§2–4, 20](https://www.govinfo.gov/content/pkg/PLAW-119publ27/html/PLAW-119publ27.htm); [P01-S004](https://www.occ.gov/news-issuances/news-releases/2026/nr-occ-2026-9.html).
 
-**Acquiring, payout и партнерство.** Карточный acquirer принимает merchant по своему договору и scheme-условиям; доступ к ACH или иной банковской выплате не выводится из приема карты. Инженер должен установить, кто подает инструкцию банку, какой счет дебетуется и какое событие подтверждает кредит получателя. Банковская ответственность за переданные функции сохраняется в пределах применимого права; interagency guidance прямо рассматривает весь жизненный цикл отношений с третьими лицами. [P01-S035, Overview](https://www.federalreserve.gov/frrs/guidance/interagency-guidance-on-third-party-relationships.htm).
+**Acquiring, payout and partnership.** A card acquirer accepts a merchant under its own contract and scheme conditions; access to ACH or another bank payout cannot be inferred from card acceptance. The engineer must establish who submits the instruction to the bank, which account is debited and which event confirms the credit to the recipient. The bank's responsibility for outsourced functions remains within the limits of applicable law; the interagency guidance explicitly covers the entire life cycle of third-party relationships. [P01-S035, Overview](https://www.federalreserve.gov/frrs/guidance/interagency-guidance-on-third-party-relationships.htm).
 
-**Разбор.** Сервис продает «USD wallet», но клиент подписывает только terms сервиса. Банк указан в footer, а остаток ведет сервис. Нельзя назвать этот продукт банковским депозитом только по наличию банка. Для квалификации нужны договор счета, титул на средства, полномочия сервиса, state-by-state perimeter и insolvency treatment. Это конкретные оставшиеся вопросы counsel; вопрос «легален ли fintech в США?» слишком широк. Права consumer EFT дополнительно рассматриваются в 1.9; merchant-quality dispute и unauthorized transfer различаются.
+**Worked example.** A service sells a "USD wallet", but the customer signs only the service's terms. A bank is named in the footer, while the balance is kept by the service. This product cannot be called a bank deposit just because a bank is present. Classification requires the account agreement, title to the funds, the service's authority, the state-by-state perimeter and the insolvency treatment. These are the specific remaining questions for counsel; the question "is fintech legal in the US?" is too broad. Consumer EFT rights are discussed further in 1.9; a merchant-quality dispute and an unauthorized transfer are different things.
 
 ### 1.4.2 EU / EEA
 
-**Регуляторы и permission.** Компетентные национальные органы авторизуют PI/EMI и соответствующие crypto providers; европейские акты задают общую основу. Платежное authorization перечисляет услуги. Процесс passporting нельзя заменить регистрацией торговой марки или обслуживанием через иностранный сайт. Для EEA дополнительно проверяют включение конкретного акта в соглашение EEA и местные даты: «EU» не автоматически означает одинаковую дату во всех странах EEA.
+**Regulators and permission.** Competent national authorities authorize PIs/EMIs and the relevant crypto providers; European acts set the common framework. A payment authorization lists the services. The passporting process cannot be replaced by registering a trademark or by serving customers through a foreign website. For the EEA, one also checks whether the specific act has been incorporated into the EEA Agreement, and the local dates: "EU" does not automatically mean the same date in all EEA countries.
 
-**Payments и реформы.** Учебная основа платежного периметра — PSD2 и национальная имплементация. PSD3/PSR находятся в меняющемся законодательном процессе: политическое соглашение 27.11.2025 и его подтверждение COREPER 22.04.2026 установлены; final OJ/application dates этой проверкой не установлены. Поэтому новые предложения о liability или fraud controls нельзя без проверки вклеить в договор как уже обязательную норму. SCA — требование к аутентификации в соответствующем контексте, а не гарантия отсутствия fraud. [P01-S001](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575); [P01-S007, Next steps](https://www.consilium.europa.eu/en/press/press-releases/2025/11/27/payment-services-council-and-parliament-agree-to-step-up-the-fight-against-fraud-and-increase-transparency/); [P01-S057, строки 5–6](https://data.consilium.europa.eu/doc/document/ST-9814-2026-INIT/en/pdf).
+**Payments and reforms.** The teaching basis for the payment perimeter is PSD2 and its national implementation. PSD3/PSR are in a changing legislative process: the political agreement of 2025-11-27 and its confirmation by COREPER on 2026-04-22 are established; final OJ/application dates were not established by this check. So new proposals on liability or fraud controls cannot be pasted into a contract as an already binding rule without checking. SCA is an authentication requirement in the relevant context, not a guarantee that there is no fraud. [P01-S001](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575); [P01-S007, Next steps](https://www.consilium.europa.eu/en/press/press-releases/2025/11/27/payment-services-council-and-parliament-agree-to-step-up-the-fight-against-fraud-and-increase-transparency/); [P01-S057, lines 5–6](https://data.consilium.europa.eu/doc/document/ST-9814-2026-INIT/en/pdf).
 
-**Crypto и stablecoin.** MiCA различает EMT, привязанные к одной официальной валюте, ART и другие охватываемые crypto-assets; токенизированный финансовый инструмент нельзя автоматически анализировать как MiCA token. Для EMT важен статус эмитента и правила денежной стоимости, для CASP — услуга. ESMA прямо подтвердил: максимальный grandfathering завершился 01.07.2026, причем некоторые страны завершили его раньше. Старый национальный VASP registration сам по себе не подтверждает MiCA authorization на сентябрь 2026. Также лицензия одной компании группы не распространяется на остальные. [P01-S005, recitals18–22 и ст.48](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80808); [P01-S006, pp1–3](https://www.esma.europa.eu/sites/default/files/2026-04/ESMA75-113276571-1679_Statement_on_the_end_of_transitional_periods_under_MiCA.pdf).
+**Crypto and stablecoin.** MiCA distinguishes EMTs referencing a single official currency, ARTs and other in-scope crypto-assets; a tokenized financial instrument cannot automatically be analyzed as a MiCA token. For EMTs, the issuer's status and the rules on monetary value matter; for a CASP, the service. ESMA explicitly confirmed that the maximum grandfathering period ended on 2026-07-01, and some countries ended it earlier. An old national VASP registration does not by itself confirm MiCA authorization as of September 2026. Also, the license of one group company does not extend to the others. [P01-S005, recitals 18–22 and Art. 48](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80808); [P01-S006, pp. 1–3](https://www.esma.europa.eu/sites/default/files/2026-04/ESMA75-113276571-1679_Statement_on_the_end_of_transitional_periods_under_MiCA.pdf).
 
-**Acquiring, payout, партнерство.** Merchant acquiring, банковский перевод и EMT-transfer — отдельные функции. Одобрение crypto custody не доказывает разрешение платежной услуги, доступ к банковскому счету или прием любым acquirer. Агент/аутсорсер действует в установленной роли; regulated principal должен сохранять контроль. Перенос функций не устраняет требования safeguarding, данных и consumer redress.
+**Acquiring, payout, partnership.** Merchant acquiring, a bank transfer and an EMT transfer are separate functions. Approval for crypto custody does not prove authorization for a payment service, access to a bank account or acceptance by any acquirer. An agent/outsourcer acts in a defined role; the regulated principal must retain control. Moving functions out does not remove the requirements for safeguarding, data and consumer redress.
 
-**Разбор.** Платформа принимает EUR-token, затем выплачивает EUR продавцу. Таблица должна содержать отдельно issuer токена, CASP хранения/обмена и fiat PSP. Если одна группа выполняет все три функции, все равно нужны конкретные entities и разрешения. Открытый юридический узел — наложение MiCA/EMT на payment services, плюс применимый национальный режим и паспорт. Reverse solicitation не следует превращать в систематическую модель привлечения клиентов: ESMA описывает ее как узкое исключение.
+**Worked example.** A platform accepts a EUR token and then pays EUR out to a merchant. The table must separately show the token issuer, the CASP for custody/exchange and the fiat PSP. If one group performs all three functions, specific entities and authorizations are still needed. The open legal knot is the overlap of MiCA/EMT with payment services, plus the applicable national regime and passport. Reverse solicitation should not be turned into a systematic customer acquisition model: ESMA describes it as a narrow exception.
 
-### 1.4.3 Великобритания
+### 1.4.3 United Kingdom
 
-**Регулятор и permission.** FCA описывает PSRs 2017 и EMRs 2011; бизнесу в UK может понадобиться authorization/registration как PI, EMI либо подходящий более узкий статус. Платежная услуга и выпуск e-money различаются. Post-Brexit анализ проводится по UK perimeter: EU authorization нельзя называть автоматически достаточным разрешением UK. [P01-S008, Scope](https://www.fca.org.uk/firms/payment-services-regulations-e-money-regulations).
+**Regulator and permission.** The FCA describes the PSRs 2017 and the EMRs 2011; a business in the UK may need authorization/registration as a PI, an EMI or a suitable narrower status. A payment service and issuing e-money are different things. Post-Brexit, the analysis follows the UK perimeter: an EU authorization cannot be called an automatically sufficient UK authorization. [P01-S008, Scope](https://www.fca.org.uk/firms/payment-services-regulations-e-money-regulations).
 
-**Crypto/stablecoin.** Для каждого продукта отдельно выясняют выпуск, хранение, переводы и systemic status. FCA PS26/10 (июнь 2026) содержит финальные правила выпуска non-systemic UK-issued qualifying stablecoins; §1.2 связывает scope с деятельностью эмитента по Article 9M. Однако приложенные инструменты устанавливают вступление в силу **25.10.2027**. Значит, на срез 15.09.2026 публикация финальных правил еще не означает их применение. Это также не общее разрешение на любой stablecoin checkout. [P01-S062, Summary, §1.2 и Commencement, PDF pp.63,98](https://www.fca.org.uk/publication/policy/ps26-10.pdf) [P01-C051].
+**Crypto/stablecoin.** For each product, issuance, custody, transfers and systemic status are examined separately. FCA PS26/10 (June 2026) contains final rules for issuing non-systemic UK-issued qualifying stablecoins; §1.2 links the scope to the issuer's activity under Article 9M. However, the attached instruments set **2027-10-25** as the date of entry into force. So as of the 2026-09-15 cutoff, the publication of final rules does not yet mean that they apply. Nor is it a general authorization for any stablecoin checkout. [P01-S062, Summary, §1.2 and Commencement, PDF pp. 63, 98](https://www.fca.org.uk/publication/policy/ps26-10.pdf) [P01-C051].
 
-Совместный paper BoE/FCA от 30.06.2026 отдельно обсуждает надзор за systemic issuers и переход к нему; консультация открыта до 30.09.2026. Финальный FCA документ не превращает предложения BoE и совместной консультации в действующие правила. [P01-S010, introductory status](https://www.bankofengland.co.uk/paper/2026/boe-and-fcas-approach-to-joint-regulation-of-systemic-stablecoin-issuers).
+The joint BoE/FCA paper of 2026-06-30 separately discusses supervision of systemic issuers and the transition to it; the consultation is open until 2026-09-30. The final FCA document does not turn the proposals of the BoE and of the joint consultation into rules in force. [P01-S010, introductory status](https://www.bankofengland.co.uk/paper/2026/boe-and-fcas-approach-to-joint-regulation-of-systemic-stablecoin-issuers).
 
-**Acquiring, payout, партнерство.** Для карт и локальных переводов нужны конкретные payment permissions и договоры доступа. Новый Supplementary Safeguarding Regime действует с 07.05.2026 для охватываемых фирм; будущий end-state — отдельный этап. Поэтому анализ партнера в 2026 должен изучать уже обновленные safeguarding processes, а не довольствоваться старым письмом об отдельном счете. [P01-S009, implementation and scope](https://www.fca.org.uk/publications/policy-statements/ps25-12-changes-safeguarding-regime-payments-and-e-money-firms).
+**Acquiring, payout, partnership.** Cards and local transfers need specific payment permissions and access agreements. The new Supplementary Safeguarding Regime has applied since 2026-05-07 to in-scope firms; the future end-state is a separate stage. So a partner review in 2026 should examine the already updated safeguarding processes rather than settle for an old letter about a separate account. [P01-S009, implementation and scope](https://www.fca.org.uk/publications/policy-statements/ps25-12-changes-safeguarding-regime-payments-and-e-money-firms).
 
-**Разбор.** White-label EMI-приложение обещает «деньги защищены как в банке». Наличие safeguarding не дает основания обещать прямую FSCS protection клиента небанковского PSP. В документе требуется назвать EMI, объяснить конструкцию защиты и порядок доступа при отказе приложения. Оставшиеся вопросы: кто ведет клиентский ledger и reconciliations, как действует агент, какой сценарий insolvency и кто возвращает остатки. Эти вопросы связаны с доказательствами, а не с наличием красивого branded card.
+**Worked example.** A white-label EMI app promises "money protected like in a bank". Having safeguarding does not give grounds to promise direct FSCS protection to a customer of a non-bank PSP. The document must name the EMI and explain how the protection is structured and how customers get access if the app fails. Remaining questions: who keeps the customer ledger and reconciliations, how the agent acts, what the insolvency scenario is and who returns the balances. These questions are about evidence, not about having a nice branded card.
 
-### 1.4.4 Сингапур
+### 1.4.4 Singapore
 
-**Регулятор и permission.** MAS PSA различает виды платежных услуг и Standard/Major Payment Institution; выбор статуса зависит от услуг и применимых объемных критериев. Численные пороги в этой главе не воспроизводятся: официальный SSO текст был недоступен, а перенос отдельного найденного порога без всех условий создал бы ложную точность. Регистрация holding company в Singapore не заменяет operating permission.
+**Regulator and permission.** The MAS PSA distinguishes types of payment services and Standard/Major Payment Institutions; the choice of status depends on the services and the applicable volume criteria. Numerical thresholds are not reproduced in this chapter: the official SSO text was unavailable, and carrying over a single threshold found elsewhere without all its conditions would create false precision. Registering a holding company in Singapore does not replace operating permission.
 
-**Crypto/stablecoin.** Прочитанный MAS release подтверждает expansion с 04.04.2024: DPT custody, определенное содействие передачам/обмену даже без possession, а также некоторые cross-border money transfer arrangements без нахождения средств в Singapore. Отдельный overseas-only DTSP regime действует с 30.06.2025; для охватываемых лиц и услуг MAS установил высокую планку лицензирования. Поэтому паттерн «SG hub, все клиенты за рубежом» требует содержательного анализа. [P01-S011, pp1–2](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release_MAS%20Expands%20Scope%20of%20Regulated%20Payment%20Services%20Introduces%20User%20Protection%20Requirements%20for%20Digital%20Payment%20Token%20Service%20Providers.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20240402-2%2Fattachment%2FMAS+Media+Release_MAS+Expands+Scope+of+Regulated+Payment+Services+Introduces+User+Protection+Requirements+for+Digital+Payment+Token+Service+Providers.pdf); [P01-S012, Scope](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release%20-%20Clarification%20Statement%20on%20DTSP%20Regulatory%20Regime.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20250606-1%2Fattachment%2FMAS+Media+Release+-+Clarification+Statement+on+DTSP+Regulatory+Regime.pdf).
+**Crypto/stablecoin.** The MAS release that was read confirms the expansion from 2024-04-04: DPT custody, certain facilitation of transfers/exchange even without possession, and certain cross-border money transfer arrangements without the funds being in Singapore. A separate overseas-only DTSP regime has applied since 2025-06-30; for in-scope persons and services, MAS set a high bar for licensing. So the pattern "SG hub, all customers abroad" requires substantive analysis. [P01-S011, pp. 1–2](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release_MAS%20Expands%20Scope%20of%20Regulated%20Payment%20Services%20Introduces%20User%20Protection%20Requirements%20for%20Digital%20Payment%20Token%20Service%20Providers.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20240402-2%2Fattachment%2FMAS+Media+Release_MAS+Expands+Scope+of+Regulated+Payment+Services+Introduces+User+Protection+Requirements+for+Digital+Payment+Token+Service+Providers.pdf); [P01-S012, Scope](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release%20-%20Clarification%20Statement%20on%20DTSP%20Regulatory%20Regime.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20250606-1%2Fattachment%2FMAS+Media+Release+-+Clarification+Statement+on+DTSP+Regulatory+Regime.pdf).
 
-Stablecoin-framework announcement и реализующее законодательство — разные источники. Точная стадия законодательных поправок к 15.09.2026 в доступной первичке полностью не подтверждена; статус 2023 нельзя механически объявить действующим режимом выпуска 2026.
+The stablecoin framework announcement and the implementing legislation are different sources. The exact stage of the legislative amendments as of 2026-09-15 is not fully confirmed in the available primary sources; the 2023 status cannot be mechanically declared to be the 2026 issuance regime in force.
 
-**Acquiring, payout, партнерство.** Merchant acquisition, e-money и DPT — разные строки scope. Поддержка local transfer/QR проверяется в договоре и списке участников конкретной схемы; экспорт API не доказывает доступ к местной выплате. Партнер может исполнять regulated service, а hub — разработку/операции, но документы должны соответствовать реальному управлению.
+**Acquiring, payout, partnership.** Merchant acquisition, e-money and DPT are different rows of scope. Support for local transfer/QR is checked in the contract and in the participant list of the specific scheme; an exposed API does not prove access to local payouts. A partner may perform the regulated service and the hub may do development/operations, but the documents must match the actual governance.
 
-**Разбор.** Сингапурский оператор организует crypto-to-fiat выплаты между двумя иностранными странами; токены не попадают на его адрес. Старое рассуждение «no possession, no Singapore customers» недостаточно после указанных расширений. Проверяется, какая именно услуга организуется, где принимаются решения, кто клиент каждой стороны и что доверено лицензированному партнеру. Это не означает автоматической квалификации любого разработчика как DTSP.
+**Worked example.** A Singapore operator arranges crypto-to-fiat payouts between two foreign countries; the tokens never reach its address. The old reasoning "no possession, no Singapore customers" is not enough after the expansions above. What is checked: which service exactly is being arranged, where decisions are made, who the customer of each party is and what is entrusted to the licensed partner. This does not mean that any developer is automatically classified as a DTSP.
 
-### 1.4.5 Индонезия
+### 1.4.5 Indonesia
 
-**Регуляторы и permission.** BI регулирует платежную систему; карта цифровых финансовых активов и crypto связана с OJK. С 31.03.2026 применяются PBI10/2025 и PADG32/2025. BI сохраняет термины PJP/PIP, но вводит обновленную систему activity bundles, PSP Utama и оценки TIKMI. PJP получает разрешение, PIP — designation; поддерживающая организация не равна ни одному автоматически. Начальная классификация имеет переходный срок, поэтому нельзя заявлять, что все участники уже окончательно переклассифицированы. [P01-S013, Ringkasan2.7,2.10–2.12](https://www.bi.go.id/id/publikasi/peraturan/Pages/PBI_102025.aspx); [P01-S014](https://www.bi.go.id/id/publikasi/peraturan/Pages/PADG_322025.aspx).
+**Regulators and permission.** BI regulates the payment system; the map of digital financial assets and crypto is tied to OJK. PBI 10/2025 and PADG 32/2025 apply from 2026-03-31. BI keeps the terms PJP/PIP but introduces an updated system of activity bundles, PSP Utama and TIKMI assessments. A PJP receives a license, a PIP a designation; a supporting organization is not automatically either one. The initial classification has a transition period, so one cannot claim that all participants have already been finally reclassified. [P01-S013, Ringkasan 2.7, 2.10–2.12](https://www.bi.go.id/id/publikasi/peraturan/Pages/PBI_102025.aspx); [P01-S014](https://www.bi.go.id/id/publikasi/peraturan/Pages/PADG_322025.aspx).
 
-**Crypto/stablecoin.** OJK сообщает о передаче надзора над digital financial assets, включая crypto,10.01.2025; завершение переходного сотрудничества с Bappebti оформлено в январе 2026. Это разные даты. Разрешение торговли активом не доказывает разрешение использовать его как розничный платежный инструмент. В этой части не делается вывод о законности конкретного stablecoin checkout. [P01-S058, SP13/GKPB/OJK/I/2026](https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/Nota-Kesepahaman-OJK-Bappebti-2026.aspx).
+**Crypto/stablecoin.** OJK reports the transfer of supervision of digital financial assets, including crypto, on 2025-01-10; the end of the transitional cooperation with Bappebti was formalized in January 2026. These are different dates. Authorization to trade an asset does not prove authorization to use it as a retail payment instrument. This chapter draws no conclusion about the legality of a specific stablecoin checkout. [P01-S058, SP13/GKPB/OJK/I/2026](https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/Nota-Kesepahaman-OJK-Bappebti-2026.aspx).
 
-**Acquiring, payout, APM/QR.** QRIS — стандарт и инфраструктурная схема, а не финансовая лицензия разработчика QR-кода. BI объясняет, что cross-border QR работает через согласованные связи и участвующие PSP; merchant должен проверять поддержку у своего PSP. Уведомление об успешном QR-платеже и settlement через участников — разные события. Локальная выплата IDR требует законного исполнителя и договорной схемы. [P01-S016, QRIS Cross-Border](https://www.bi.go.id/en/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx).
+**Acquiring, payout, APM/QR.** QRIS is a standard and an infrastructure scheme, not a financial license for a QR code developer. BI explains that cross-border QR works through agreed links and participating PSPs; the merchant should check support with its PSP. A notification of a successful QR payment and settlement through the participants are different events. A local IDR payout requires a lawful executing party and a contractual arrangement. [P01-S016, QRIS Cross-Border](https://www.bi.go.id/en/fungsi-utama/sistem-pembayaran/ritel/kanal-layanan/QRIS/default.aspx).
 
-**Партнерство и разбор.** Иностранная платформа хочет собирать оплату индонезийских покупателей и распределять ее местным продавцам. Нужна привязка ее роли к партнерскому PJP и конкретному bundle, а не ссылка на старую category license в презентации. В официальном summary BI перечисляет письменное соглашение, DD, security, SLA, audit и exit; отдельные партнерства/развитие услуг требуют предусмотренного согласования. Открытые вопросы: иностранное участие, местное юрлицо, конкретные разрешенные функции, продуктовый approval и место каждой стороны в данных/средствах. [P01-S013,2.12–2.15](https://www.bi.go.id/id/publikasi/peraturan/Pages/PBI_102025.aspx).
+**Partnership and worked example.** A foreign platform wants to collect payments from Indonesian buyers and distribute them to local merchants. Its role has to be tied to the partner PJP and a specific bundle, not to a reference to an old category license in a presentation. In the official summary, BI lists a written agreement, DD, security, SLA, audit and exit; individual partnerships/service developments require the prescribed approval. Open questions: foreign ownership, a local legal entity, the specific permitted functions, product approval and the place of each party in the data and funds flows. [P01-S013, 2.12–2.15](https://www.bi.go.id/id/publikasi/peraturan/Pages/PBI_102025.aspx).
 
-### 1.4.6 ОАЭ
+### 1.4.6 UAE
 
-**Регуляторы и permission.** Здесь особенно опасно писать единственную строку «UAE licence». Mainland/федеральный платежный контур, Dubai VARA, DIFC DFSA и ADGM FSRA имеют разные границы. VARA объясняет свой охват Dubai за исключением DIFC; DFSA — financial services in/from DIFC. Наличие commercial license свободной зоны не доказывает financial authorization. [P01-S018, Jurisdiction](https://www.vara.ae/en/faq/); [P01-S019, framework scope](https://www.dfsa.ae/crypto).
+**Regulators and permission.** Here it is especially dangerous to write a single line "UAE license". The mainland/federal payment perimeter, Dubai VARA, DIFC DFSA and ADGM FSRA have different boundaries. VARA explains its scope as Dubai excluding DIFC; the DFSA as financial services in/from DIFC. A free zone commercial license does not prove financial authorization. [P01-S018, Jurisdiction](https://www.vara.ae/en/faq/); [P01-S019, framework scope](https://www.dfsa.ae/crypto).
 
-**Crypto/stablecoin.** CBUAE Payment Token Services Regulation — отдельный источник для token issuance/conversion/custody-transfer; подробные условия merchant acceptance этой проверкой не подтверждены прямым полным текстом из-за 403, поэтому здесь нет обещания «можно принимать любой USD stablecoin». В DIFC DFSA обновил Crypto Token framework с 12.01.2026, включая обязанности фирмы оценивать suitability соответствующих токенов. В ADGM изменения по FRT вступили 01.01.2026, охватывая accepted tokens, regulated activities и клиентские FRT. [P01-S017, bounded access](https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation); [P01-S019](https://www.dfsa.ae/crypto); [P01-S020, final-change announcement](https://www.adgm.com/media/announcements/adgm-fsra-finalises-regulatory-framework-for-regulated-activities-involving-fiat-referenced-tokens).
+**Crypto/stablecoin.** The CBUAE Payment Token Services Regulation is a separate source for token issuance/conversion/custody-transfer; the detailed conditions for merchant acceptance were not confirmed by this check from the direct full text because of a 403, so there is no promise here that "any USD stablecoin can be accepted". In DIFC, the DFSA updated the Crypto Token framework from 2026-01-12, including firms' obligations to assess the suitability of the relevant tokens. In ADGM, the FRT changes took effect on 2026-01-01, covering accepted tokens, regulated activities and client FRTs. [P01-S017, bounded access](https://rulebook.centralbank.ae/en/rulebook/payment-token-services-regulation); [P01-S019](https://www.dfsa.ae/crypto); [P01-S020, final-change announcement](https://www.adgm.com/media/announcements/adgm-fsra-finalises-regulatory-framework-for-regulated-activities-involving-fiat-referenced-tokens).
 
-**Acquiring, payout, партнерство.** Card acquiring и AED bank payout требуют отдельной проверки payment/bank scope и банка расчетов; VASP status не является универсальным доступом к этим рельсам. Связь между зонами нельзя выводить из общей страны: нужны действующие правила cross-border/marketing и условия каждой лицензии.
+**Acquiring, payout, partnership.** Card acquiring and AED bank payouts require a separate check of the payment/bank scope and of the settlement bank; VASP status is not universal access to these rails. A connection between zones cannot be inferred from their being in the same country: you need the current cross-border/marketing rules and the conditions of each license.
 
-**Разбор.** ADGM-фирма обслуживает custody институциональных клиентов и через приложение предлагает туристам розничную оплату в Dubai. Первая лицензия не доказывает допустимость второй услуги, аудитории и территории. Следует разделить custody, выпуск/прием payment token, конверсию и выплату торговцу. Конкретный оставшийся пробел — актуальные CBUAE статьи и пересечение местных разрешений; неопределенность не превращается в утверждение о запрете всей технологии.
+**Worked example.** An ADGM firm provides custody for institutional clients and, through an app, offers tourists retail payments in Dubai. The first license does not prove that the second service, audience and territory are permissible. Custody, issuance/acceptance of a payment token, conversion and payout to the merchant should be separated. The specific remaining gap is the current CBUAE articles and the overlap of local authorizations; the uncertainty does not turn into a claim that the whole technology is prohibited.
 
-### 1.4.7 Расширение: семь коротких флагов
+### 1.4.7 Extension: seven short flags
 
-Это ориентиры для следующего исследования, не дополнительный legal treatise. Каждый флаг должен запускать проверку конкретного разрешения и актуальной редакции. Для BR/TR доступ ограничен индексированными выдержками официальных текстов; эти строки имеют статус working_hypothesis для дальнейшей проверки.
+These are pointers for further research, not an additional legal treatise. Each flag should trigger a check of the specific authorization and of the current version of the text. For BR/TR, access was limited to indexed excerpts of official texts; these rows have the status working_hypothesis for further checking.
 
-| География | Тип permission и флаг |
+| Geography | Type of permission and flag |
 |---|---|
-| Hong Kong | HKMA stablecoin issuer regime по Stablecoins Ordinance с 01.08.2025; не равен SFC trading permission и не общая лицензия на платежи. [P01-S043](https://www.info.gov.hk/gia/general/202506/06/P2025060600275p.htm) |
-| Japan | FSA с 01.06.2026 описывает отдельную регистрацию intermediary для определенного brokerage по поручению principal; старый тезис «посредник всегда full exchange» требует обновления. [P01-S044](https://www.fsa.go.jp/common/shinsei/denanchuukai/index.html) |
-| Korea | VASP registration/AML и Virtual Asset User Protection Act с 19.07.2024 решают разные задачи; asset protection не универсальная payment permission. [P01-S045](https://fsc.go.kr/eng/pr010101/82683) |
-| Australia | AUSTRAC использует VASP registration в обновленном режиме 2026; переход зависит от услуги и своевременной заявки. AML registration не заменяет иные разрешения. [P01-S046](https://www.austrac.gov.au/new-austrac/register-us/register-us-remittance-or-virtual-asset-service-provider) |
-| Brazil | BCB Resolution520 регулирует VASP и действует с 02.02.2026; в тексте есть отдельный будущий срок 30.10.2026 для указанного ограничения контрагентов. Не считать все положения одновременно действующими. [P01-S047, arts91–92](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?numero=520&tipo=Resolu%C3%A7%C3%A3o+BCB) |
-| Türkiye | CMB CommuniquéIII-35/B.1 опубликовано 13.03.2025 и охватывает establishment/operation crypto providers; отдельно проверять платежный запрет/разрешение, CBRT и AML, без вывода из биржевой роли. [P01-S048, arts1–2](https://cmb.gov.tr/data/6281521a1b41c617eced0ee8/Communiqu%C3%A9%20III-35.B.1%20Regarding%20Principles%20on%20the%20Establishment%20and%20Operation%20of%20Crypto%20Asset%20Service%20Providers.pdf) |
-| CIS-adjacent | Для примера AIFC Kazakhstan проверяют конкретную AFSA Digital Asset Service Provider activity. Статус AIFC не переносится на весь Казахстан или соседние страны; fiat/FX/sanctions — отдельные узлы. [P01-S049](https://afsa.aifc.kz/ru/provajdery-uslug-tsifrovyh-aktivov-2/) |
+| Hong Kong | HKMA stablecoin issuer regime under the Stablecoins Ordinance from 2025-08-01; not the same as SFC trading permission and not a general payments license. [P01-S043](https://www.info.gov.hk/gia/general/202506/06/P2025060600275p.htm) |
+| Japan | The FSA describes a separate registration, from 2026-06-01, of an intermediary for certain brokerage on behalf of a principal; the old thesis "an intermediary is always a full exchange" needs updating. [P01-S044](https://www.fsa.go.jp/common/shinsei/denanchuukai/index.html) |
+| Korea | VASP registration/AML and the Virtual Asset User Protection Act from 2024-07-19 address different problems; asset protection is not a universal payment permission. [P01-S045](https://fsc.go.kr/eng/pr010101/82683) |
+| Australia | AUSTRAC uses VASP registration in the updated 2026 regime; the transition depends on the service and on a timely application. AML registration does not replace other authorizations. [P01-S046](https://www.austrac.gov.au/new-austrac/register-us/register-us-remittance-or-virtual-asset-service-provider) |
+| Brazil | BCB Resolution 520 regulates VASPs and applies from 2026-02-02; the text has a separate future deadline of 2026-10-30 for the specified counterparty restriction. Do not treat all provisions as applying at the same time. [P01-S047, arts. 91–92](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?numero=520&tipo=Resolu%C3%A7%C3%A3o+BCB) |
+| Türkiye | CMB Communiqué III-35/B.1 was published on 2025-03-13 and covers the establishment/operation of crypto providers; separately check the payment prohibition/authorization, CBRT and AML, without inferring them from the exchange role. [P01-S048, arts. 1–2](https://cmb.gov.tr/data/6281521a1b41c617eced0ee8/Communiqu%C3%A9%20III-35.B.1%20Regarding%20Principles%20on%20the%20Establishment%20and%20Operation%20of%20Crypto%20Asset%20Service%20Providers.pdf) |
+| CIS-adjacent | For the AIFC Kazakhstan example, check the specific AFSA Digital Asset Service Provider activity. AIFC status does not carry over to all of Kazakhstan or to neighboring countries; fiat/FX/sanctions are separate nodes. [P01-S049](https://afsa.aifc.kz/ru/provajdery-uslug-tsifrovyh-aktivov-2/) |
 
 <a id="module-1-5"></a>
 <a id="15-aml--kyc--sanctions--travel-rule"></a>
-## 1.5 Проверка клиентов, санкции и борьба с отмыванием денег
+## 1.5 Customer checks, sanctions and anti-money laundering
 
-**Вопрос:** что остается после успешного KYC? **Ответ:** почти весь жизненный цикл отношений. **CDD** — установление клиента и бенефициара, понимание цели отношений и их последующий анализ; **EDD** — усиленные меры при повышенном риске. **UBO** — конечный бенефициар, устанавливаемый через владение и контроль по применимому определению. Паспорт подписанта не объясняет, кому принадлежит компания. FATF R10/R11 задают международный стандарт CDD и сохранения достаточных записей для восстановления операций; он реализуется местным правом. [P01-S021, pp14–15](https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/fatf-recommendations-2012.pdf).
+**Question:** what remains after successful KYC? **Answer:** almost the entire life cycle of the relationship. **CDD** means identifying the customer and the beneficial owner, understanding the purpose of the relationship and reviewing it on an ongoing basis; **EDD** means enhanced measures where risk is higher. A **UBO** is the ultimate beneficial owner, identified through ownership and control under the applicable definition. The signatory's passport does not explain who owns the company. FATF R10/R11 set the international standard for CDD and for keeping records sufficient to reconstruct transactions; the standard is implemented through local law. [P01-S021, pp. 14–15](https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/fatf-recommendations-2012.pdf).
 
-Не следует смешивать четыре проверки. KYC устанавливает личность. Merchant DD изучает бизнес, товар, владельцев и ожидаемый поток. Sanctions screening сопоставляет лиц и операции с применимыми ограничениями. Transaction monitoring ищет несоответствия и подозрительные связи в поведении. Одна проверка может дать данные другой, но зеленая отметка одной не является результатом остальных.
+Four checks should not be confused. KYC establishes identity. Merchant DD examines the business, the goods, the owners and the expected flow. Sanctions screening compares persons and transactions against applicable restrictions. Transaction monitoring looks for inconsistencies and suspicious connections in behavior. One check can feed data into another, but a green mark on one is not the result of the others.
 
-### Учебная цепочка crypto → fiat
+### Teaching chain: crypto → fiat
 
 ```mermaid
 flowchart LR
- U[Клиент / UBO] -->|Поручение и идентификация| V1[Отправляющий VASP]
- V1 -->|Токен + отдельная информация о переводе| V2[Принимающий VASP / off-ramp]
- V2 -->|Обмен и поручение на fiat payout| P[PSP / банк]
- P -->|Fiat перевод| B[Банк получателя]
- B --> R[Продавец / получатель]
+ U[Customer / UBO] -->|Instruction and identification| V1[Originating VASP]
+ V1 -->|Token + separate transfer information| V2[Beneficiary VASP / off-ramp]
+ V2 -->|Exchange and fiat payout instruction| P[PSP / bank]
+ P -->|Fiat transfer| B[Recipient's bank]
+ B --> R[Merchant / recipient]
 ```
 
-| Точка | Что проверяют в этой модели | Какой риск остается |
+| Point | What is checked in this model | What risk remains |
 |---|---|---|
-| VASP отправителя | Клиент, UBO, полномочие, purpose, допустимый адрес/контрагент, необходимые данные перевода | Клиент может быть идентифицирован, но цель операции скрыта |
-| VASP получателя | Контрагент-VASP, клиент-получатель, полнота/согласованность данных, адресный риск, возможность принять актив | Onchain receipt может предшествовать допустимости выдачи средств клиенту |
-| Off-ramp | Кто продает актив, происхождение и расчетная пара, получатель fiat, связь exchange и payout | Смена актива способна разорвать операционные идентификаторы |
-| Банк/PSP | Свой клиент, отправитель/получатель, платежное сообщение, назначение и применимые sanctions | Полученный fiat не содержит полной истории token движения |
-| Платформа | Качество переданных данных, собственные fraud-сигналы и исполнение делегированной процедуры | Формальное «партнер проверяет» может скрывать потерянный alert |
+| Originator's VASP | Customer, UBO, authority, purpose, permissible address/counterparty, required transfer data | The customer may be identified while the purpose of the transaction is hidden |
+| Beneficiary's VASP | Counterparty VASP, beneficiary customer, completeness/consistency of data, address risk, ability to accept the asset | Onchain receipt may come before it is permissible to release funds to the customer |
+| Off-ramp | Who is selling the asset, its origin and the settlement pair, the fiat recipient, the link between the exchange and the payout | Changing the asset can break the operational identifiers |
+| Bank/PSP | Its own customer, the sender/recipient, the payment message, the purpose and applicable sanctions | The fiat received does not carry the full history of the token movement |
+| Platform | Quality of the data passed on, its own fraud signals and execution of the delegated procedure | A formal "the partner checks it" can hide a lost alert |
 
-Таблица — авторская модель распределения работ, не готовая юридическая RACI. Ответственность за **false negative**, то есть пропущенный риск, определяется собственной законной обязанностью каждого участника и договорным регрессом. Нельзя назначить единственного ответственного «за весь AML» таким образом, чтобы остальные обязанные лица исчезли из цепочки. В software-модели connector может отвечать за целостность данных; в PayFac — за делегированный onboarding/monitoring; у MoR — собственный торговый риск и обязанности его PSP; у custodial operator — существенно более широкий контур. Фактическая роль важнее названия модели.
+The table is the author's model of how work is distributed, not a ready-made legal RACI. Liability for a **false negative**, that is, a missed risk, is determined by each participant's own legal obligation and contractual recourse. One cannot designate a single party responsible "for all of AML" in a way that makes the other obliged entities disappear from the chain. In the software model, the connector may be responsible for data integrity; in the PayFac model, for delegated onboarding/monitoring; the MoR has its own trading risk and the obligations of its PSP; a custodial operator has a considerably wider perimeter. The actual role matters more than the name of the model.
 
-**Travel Rule — это информация, а не еще один token transfer.** В ЕС Regulation 2023/1113 применяется с 30.12.2024. Ст.14 требует для охватываемого crypto transfer передачу сведений безопасно до или одновременно с переводом; они не обязаны находиться в публичном блокчейне. Для self-hosted addresses есть специальные проверки, включая оценку владения/контроля при указанном пороге свыше 1000 EUR. Это не всеобщий порог «ниже 1000 никто ничего не проверяет». Получающий CASP по ст.17 рассматривает missing information до выдачи средств по risk-based процедуре. [P01-S025, ст.14,16–17,40](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80807).
+**The Travel Rule is information, not one more token transfer.** In the EU, Regulation 2023/1113 applies from 2024-12-30. Art. 14 requires that, for an in-scope crypto transfer, the information be transmitted securely before or at the same time as the transfer; it does not have to be on the public blockchain. For self-hosted addresses there are special checks, including an assessment of ownership/control above the specified threshold of 1,000 EUR. This is not a universal threshold of "below 1,000 nobody checks anything". Under Art. 17, the receiving CASP deals with missing information before making the funds available, following a risk-based procedure. [P01-S025, Arts. 14, 16–17, 40](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80807).
 
-FATF R16 пересматривалась в 2025; консультация по guidance 2026 относится к международному внедрению с горизонтом 2030. Эти даты нельзя смешивать с уже применимым EU TFR или местными правилами другой страны. [P01-S023](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html).
+FATF R16 was revised in 2025; the 2026 guidance consultation relates to international implementation with a 2030 horizon. These dates must not be mixed up with the EU TFR, which already applies, or with the local rules of another country. [P01-S023](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html).
 
-**Локальный пример.** BI PADG15/2025, действующий с 30.06.2025, распространяет описанные AML/CTF/proliferation controls на определенных небанковских участников под надзором BI. Summary отдельно включает письменные процедуры, risk management, CDD, управление данными и reporting, а для некоторых B2B intermediaries допускает настройку содержания процедур. Это содержательная локальная норма, а не автоматическое заимствование FATF threshold. [P01-S060, RingkasanII.1–5](https://www.bi.go.id/id/publikasi/peraturan/Pages/PADG_152025.aspx).
+**Local example.** BI PADG 15/2025, in force since 2025-06-30, extends the described AML/CTF/proliferation controls to certain non-bank participants supervised by BI. The summary separately includes written procedures, risk management, CDD, data management and reporting, and for some B2B intermediaries allows the content of the procedures to be adjusted. This is a substantive local rule, not an automatic borrowing of a FATF threshold. [P01-S060, Ringkasan II.1–5](https://www.bi.go.id/id/publikasi/peraturan/Pages/PADG_152025.aspx).
 
-### Из alert в проверяемый case
+### From an alert to a verifiable case
 
-Учебный case начинается с конкретного события: merchant заявил продажу лицензий на ПО, но стал получать платежи от несвязанных компаний с немедленным выводом на нового получателя. Это сигнал к проверке, не доказательство преступления. Case должен соединить исходный профиль, новые факты, операции, запросы документов, заключение ответственного и принятое действие. Закрытие «false positive» требует основания; автоматическое закрытие из-за отсутствия ответа не является положительной проверкой.
+The teaching case starts with a specific event: a merchant declared that it sells software licenses but began receiving payments from unrelated companies, with immediate withdrawal to a new recipient. This is a signal for review, not proof of a crime. The case must connect the original profile, the new facts, the transactions, the document requests, the conclusion of the responsible person and the action taken. Closing an alert as a "false positive" requires a basis; automatic closure because there was no response is not a positive check.
 
-Практический журнал содержит: время alert; систему/версию правила; связанные transaction IDs; доступные факты; missing data; ответственного; следующее контрольное время; решение; ссылки на evidence; основание ограничения или снятия ограничения. Секретные сведения и сведения о SAR/STR имеют отдельный доступ. FATF R20/R21 описывают сообщение о подозрении и конфиденциальность; задача сотрудника не состоит в том, чтобы сначала доказать состав преступления. Конкретная FIU, срок и основания подачи определяются местным правом. [P01-S021, p19, INR20p92](https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/fatf-recommendations-2012.pdf).
+A practical log contains: the alert time; the system/rule version; linked transaction IDs; available facts; missing data; the responsible person; the next review time; the decision; links to evidence; the basis for imposing or lifting a restriction. Confidential information and information about SARs/STRs have separate access. FATF R20/R21 describe suspicious transaction reporting and confidentiality; the employee's task is not to first prove that a crime was committed. The specific FIU, deadline and grounds for filing are determined by local law. [P01-S021, p. 19, INR 20 p. 92](https://www.fatf-gafi.org/content/dam/fatf-gafi/recommendations/fatf-recommendations-2012.pdf).
 
-**Предел address screening.** Адрес — не юридическое лицо. Отсутствие метки не устанавливает происхождение средств, а общая инфраструктура может создавать ложные совпадения. Поэтому исходные identity/location/payment данные и актуальные ограничения анализируются совместно. OFAC guidance для virtual currency industry полезна как пример сочетания name, geographic и wallet information; американское санкционное основание устанавливается отдельно. [P01-S024, guidance publication and screening scope](https://ofac.treasury.gov/recent-actions/20211015). Технические способы обхода проверок не входят в учебную задачу.
+**The limits of address screening.** An address is not a legal entity. The absence of a label does not establish the origin of funds, and shared infrastructure can create false matches. So the original identity/location/payment data and the current restrictions are analyzed together. OFAC guidance for the virtual currency industry is useful as an example of combining name, geographic and wallet information; the US sanctions basis is established separately. [P01-S024, guidance publication and screening scope](https://ofac.treasury.gov/recent-actions/20211015). Technical ways of evading checks are not part of the teaching task.
 
 <a id="module-1-6"></a>
 <a id="16-данные-pci-operational-resilience"></a>
-## 1.6 Защита данных и устойчивость платёжных систем
+## 1.6 Data protection and payment system resilience
 
-**Вопрос:** если карта или паспорт находятся у партнера, исчезает ли ответственность нашей интеграции? **Ответ:** область обработки меняется, но ее надо доказать. Токен, vault и сертификат обозначают разные свойства.
+**Question:** if the card or passport data is held by a partner, does our integration's responsibility disappear? **Answer:** the processing scope changes, but this has to be proven. A token, a vault and a certificate denote different properties.
 
-**PAN** — номер карты. **Vault token** обычно заменяет его идентификатором у конкретного хранителя; **network token** имеет другую инфраструктуру и правила; **SPT** в конкретном продукте может означать одноразовый платежный credential. Название SPT не является PCI-категорией и не доказывает, что секрет можно писать в лог. Важны фактический payload, возможность использовать credential, путь страницы и доступ интегратора.
+**PAN** is the card number. A **vault token** usually replaces it with an identifier held by a specific custodian; a **network token** has a different infrastructure and rules; an **SPT** in a particular product may mean a single-use payment credential. The name SPT is not a PCI category and does not prove that the secret can be written to a log. What matters is the actual payload, the ability to use the credential, the page path and the integrator's access.
 
-| Интеграция | Что меняется | Что все равно проверить |
+| Integration | What changes | What still has to be checked |
 |---|---|---|
-| Redirect на hosted checkout | Карточная форма размещена отдельно у PSP | Настоящий адрес назначения, интеграция, доступы, applicable SAQ и PSP evidence |
-| Embedded form/iframe | Карточные поля могут принадлежать PSP, merchant page окружает их | Script attacks на странице, инструкции установки, eligibility SAQ A |
-| Собственная форма отправляет card data | Merchant environment участвует в обработке чувствительных данных | Более широкий scope: frontend, backend, логи, monitoring, support, подрядчики |
-| Только token в backend | У части сервисов может отсутствовать PAN | Что token позволяет сделать, где он создан, есть ли detokenization, какие системы влияют на безопасность |
+| Redirect to a hosted checkout | The card form is hosted separately at the PSP | The real destination address, the integration, access rights, applicable SAQ and PSP evidence |
+| Embedded form/iframe | The card fields may belong to the PSP, while the merchant page surrounds them | Script attacks on the page, installation instructions, SAQ A eligibility |
+| Own form sends card data | The merchant environment takes part in processing sensitive data | Broader scope: frontend, backend, logs, monitoring, support, contractors |
+| Only a token in the backend | Some services may have no PAN | What the token lets you do, where it was created, whether there is detokenization, which systems affect security |
 
-PCI SSC FAQ1588 по SAQ A r1/PCI DSS4.0.1 объясняет важную ловушку 2025: для embedded payment form сохраняется eligibility-условие защиты сайта от script attacks. Его можно обосновать указанными техниками либо подтверждением compliant TPSP о защищающем решении при правильной установке. Для redirect эта конкретная проверка сформулирована иначе, но прочие критерии не исчезают. Определение подходящего вопросника сверяется с принимающей его организацией. [P01-S026, FAQ1588](https://www.pcisecuritystandards.org/faqs/1588/).
+PCI SSC FAQ 1588 on SAQ A r1/PCI DSS 4.0.1 explains an important 2025 trap: for an embedded payment form, the eligibility condition of protecting the site from script attacks remains. It can be met through the specified techniques or through confirmation from a compliant TPSP that its solution provides protection when correctly installed. For a redirect, this particular check is worded differently, but the other criteria do not disappear. Which questionnaire is appropriate is confirmed with the organization that accepts it. [P01-S026, FAQ 1588](https://www.pcisecuritystandards.org/faqs/1588/).
 
-**Пример.** Команда убрала PAN из базы, но error reporter сохраняет полное тело запроса, а support получает скриншоты формы. Формальное утверждение «мы храним только token» не описывает систему. Для доказательства scope надо проследить данные через UI, API, очередь, журналы, аналитические события и поддержку. AOC партнера проверяют на entity, service, период и exclusions; логотип PCI на сайте не заменяет эти сведения. Это инженерная проверка фактического потока, не самостоятельная сертификация.
+**Example.** A team removed the PAN from the database, but the error reporter stores the full request body, and support receives screenshots of the form. The formal statement "we store only a token" does not describe the system. To prove scope, you have to trace the data through the UI, API, queue, logs, analytics events and support. A partner's AOC is checked for the entity, service, period and exclusions; a PCI logo on a website does not replace this information. This is an engineering check of the actual flow, not a standalone certification.
 
-### Privacy: цель обработки следует за записью
+### Privacy: the purpose of processing follows the record
 
-Платежный лог может содержать имя, адрес, email, IP, устройство, товары и банковские реквизиты. Данные, достаточные для сопоставления операции, не обязательно нужны каждому сотруднику или аналитическому инструменту. **Controller** определяет цели и существенные средства обработки; **processor/data intermediary** обрабатывает в порученной роли. Платежный партнер может быть самостоятельным controller для своих законных обязанностей, а не processor магазина во всем.
+A payment log may contain a name, address, email, IP, device, goods and bank details. Data sufficient to match a transaction is not necessarily needed by every employee or analytics tool. The **controller** determines the purposes and essential means of processing; the **processor/data intermediary** processes in an assigned role. A payment partner may be an independent controller for its own legal obligations, rather than the store's processor for everything.
 
-В GDPR выбирают legal basis для конкретной цели. Исполнение договора, правовая обязанность, consent и legitimate interests — разные основания с разными условиями. Наличие галочки под terms не освобождает от этого анализа. [P01-S059, legal bases](https://www.edpb.europa.eu/sme/be-compliant/process-personal-data-lawfully_en). Для Singapore PDPA также нельзя считать data intermediary свободным от обязанностей. Руководство PDPC для обработки от имени и для целей другой организации по письменному договору выделяет защиту данных, ограничение хранения и уведомление заказчика об утечке. Обязанности самой организации при передаче обработки сохраняются; иные действия посредника оцениваются отдельно. Это ограниченный разбор ролей; трансграничная передача и конкретный договор требуют местной проверки. [P01-C052; P01-S063, revised29.04.2026, pp.24–25](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Advisory-Guidelines/AG-on-Key-Concepts/Advisory-Guidelines-on-Key-Concepts-in-the-PDPA-17-May-2022.pdf).
+Under the GDPR, a legal basis is chosen for a specific purpose. Performance of a contract, legal obligation, consent and legitimate interests are different bases with different conditions. A checkbox under the terms does not exempt you from this analysis. [P01-S059, legal bases](https://www.edpb.europa.eu/sme/be-compliant/process-personal-data-lawfully_en). Under the Singapore PDPA, too, a data intermediary cannot be considered free of obligations. The PDPC guidelines, for processing on behalf of and for the purposes of another organization under a written contract, single out data protection, the retention limitation and notifying the client organization of a breach. The organization's own obligations remain when it hands over processing; other actions of the intermediary are assessed separately. This is a limited analysis of roles; cross-border transfer and the specific contract require a local check. [P01-C052; P01-S063, revised 2026-04-29, pp. 24–25](https://www.pdpc.gov.sg/-/media/Files/PDPC/PDF-Files/Advisory-Guidelines/AG-on-Key-Concepts/Advisory-Guidelines-on-Key-Concepts-in-the-PDPA-17-May-2022.pdf).
 
-Практический вывод виден на Travel Rule: EU TFR ст.25 ограничивает коммерческое использование данных, обработанных на этом основании; ст.26 задает срок хранения и условия последующего удаления/продления. Значит, нельзя автоматически отправлять весь compliance payload в маркетинговый профиль «потому что мы уже законно его собрали». [P01-S025, ст.25–26](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80807).
+The practical conclusion is visible with the Travel Rule: EU TFR Art. 25 restricts commercial use of data processed on this basis; Art. 26 sets the retention period and the conditions for subsequent deletion/extension. So you cannot automatically send the whole compliance payload into a marketing profile "because we have already collected it lawfully". [P01-S025, Arts. 25–26](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80807).
 
-Учебная таблица данных должна иметь пять колонок: поле → цель → кто вправе видеть → основание/срок → место удаления и исключения. Например, transaction ID нужен сверке; содержимое identity document обычно не требуется обычному dashboard продаж. Удаление аккаунта не означает немедленное уничтожение обязательной финансовой записи; законное хранение записи не означает вечное хранение всех вложений. Уведомления об утечке и передача за рубеж анализируются отдельно от того, удалось ли провести платеж.
+A teaching data table should have five columns: field → purpose → who may see it → basis/retention period → where it is deleted, and exceptions. For example, a transaction ID is needed for reconciliation; the contents of an identity document are usually not needed by an ordinary sales dashboard. Deleting an account does not mean immediately destroying a mandatory financial record; lawful retention of a record does not mean keeping all attachments forever. Breach notifications and transfers abroad are analyzed separately from whether the payment went through.
 
-### Устойчивость: отказ партнера не отменяет долг клиенту
+### Resilience: a partner's failure does not cancel the debt to the customer
 
-DORA применяется с 17.01.2025 к охватываемым финансовым организациям ЕС; EBA отдельно поясняет register of information о договорных ICT arrangements. Это полезный ориентир: надо знать, какой поставщик поддерживает какую функцию и чем заканчивается цепочка subcontractors. Наличие облачного сервиса не делает каждую компанию автоматически полностью in-scope DORA. [P01-S030](https://eba.europa.eu/activities/direct-supervision-and-oversight/digital-operational-resilience-act/preparation-dora-application).
+DORA applies from 2025-01-17 to in-scope EU financial entities; the EBA separately explains the register of information on contractual ICT arrangements. This is a useful reference point: you need to know which provider supports which function and where the chain of subcontractors ends. Using a cloud service does not automatically make every company fully in scope of DORA. [P01-S030](https://eba.europa.eu/activities/direct-supervision-and-oversight/digital-operational-resilience-act/preparation-dora-application).
 
-Учебный инцидент: processor недоступен 40 минут, но банк успел провести часть выплат. Восстановить доступность API недостаточно. Нужно установить неизвестные результаты, сверить ledger, остановить дубли, обработать очереди жалоб и подтвердить состояние каждой операции. **RTO** — допустимое время восстановления; **RPO** — допустимая потеря данных во времени. Для денежных операций восстановление сервиса с потерянными записями может ухудшить ситуацию: пользователь видит кнопку и повторяет уже исполненный перевод.
+A teaching incident: a processor is unavailable for 40 minutes, but the bank managed to execute some of the payouts. Restoring API availability is not enough. You need to establish the unknown outcomes, reconcile the ledger, stop duplicates, work through the complaint queues and confirm the state of each transaction. **RTO** is the acceptable recovery time; **RPO** is the acceptable data loss, measured in time. For money operations, restoring a service with lost records can make the situation worse: the user sees the button and repeats a transfer that has already been executed.
 
-Поэтому operational plan содержит владельца инцидента, каналы партнеров, временные ограничения, доказательства восстановления и порядок reconciliation. Договор должен дать доступ к сведениям даже при прекращении сотрудничества. Испытание восстановления полезно завершать не сообщением «сервер поднялся», а балансом, списком unresolved операций и подтвержденным пользовательским результатом.
+So the operational plan contains the incident owner, partner channels, temporary restrictions, evidence of recovery and the reconciliation procedure. The contract must give access to information even when the relationship ends. A recovery test is best concluded not with the message "the server is up" but with a balance, a list of unresolved transactions and a confirmed user outcome.
 
 <a id="module-1-7"></a>
 <a id="17-связка-с-учебным-проектом-нет-своей-лицензии"></a>
-## 1.7 Работа через партнёра: роли и ограничения
+## 1.7 Working through a partner: roles and limits
 
-**Вопрос:** что можно заключить из намерения работать через партнера? **Ответ:** пока только то, что необходимо спроектировать партнерский контур. Лицензия партнера — один входной документ, а работающая разрешенная модель — результат согласования действий, договоров, контроля средств и данных.
+**Question:** what can be concluded from an intention to work through a partner? **Answer:** so far only that the partner setup needs to be designed. The partner's license is one input document, and a working permitted model is the result of aligning actions, contracts, control of funds and data.
 
-Эта часть имеет учебный статус. Она не присваивает проекту permission и не дает поручения подключать реальные платежи. Техническая возможность сама по себе не устанавливает полномочий; учебные примеры используют синтетические данные.
+This lesson has teaching status. It does not grant the project any permission and gives no instruction to connect real payments. Technical capability does not by itself establish authority; the teaching examples use synthetic data.
 
-**Как выглядит содержательное доказательство партнерской модели.** Сначала фиксируют продукт в одном абзаце: продавец, покупатель, актив, страны, обещанный результат. Затем составляют карту действий и документов. Для каждой регулируемой функции должно быть понятно, какое лицо ее выполняет и на каком основании; для каждого перемещения средств — чей долг погашается. Затем договор проверяют против фактического API и управления доступом. Если terms говорят «platform cannot direct payouts», а API key позволяет поменять получателя любого merchant, появляется существенное расхождение для исследования, даже если функция пока не используется.
+**What substantive evidence of a partner model looks like.** First, describe the product in one paragraph: merchant, buyer, asset, countries, promised outcome. Then draw up a map of actions and documents. For each regulated function it must be clear which entity performs it and on what basis; for each movement of funds, whose debt is being paid off. Then the contract is checked against the actual API and access management. If the terms say "platform cannot direct payouts" but an API key allows changing the recipient for any merchant, that is a material discrepancy to investigate, even if the function is not used yet.
 
-### Одностраничный DD-чеклист партнера
+### One-page partner DD checklist
 
-Это авторский учебный документ. Он развивает идею lifecycle DD из interagency guidance, но не объявляет американское банковское guidance обязательной формой для конкретной компании. [P01-S035, III.B Due diligence](https://www.federalreserve.gov/frrs/guidance/interagency-guidance-on-third-party-relationships.htm).
+This is the author's teaching document. It builds on the idea of lifecycle DD from the interagency guidance but does not declare US bank guidance to be a mandatory form for a specific company. [P01-S035, III.B Due diligence](https://www.federalreserve.gov/frrs/guidance/interagency-guidance-on-third-party-relationships.htm).
 
-| Блок | Минимальное проверяемое доказательство | Признак незакрытого вопроса |
+| Block | Minimum verifiable evidence | Sign of an open question |
 |---|---|---|
-| Legal entity | Полное название, номер, страна, договорная сторона | Назван только бренд или группа |
-| Permissions | Запись регулятора, услуги, ограничения, статус, дата | Sales deck вместо register; registration называют full licence |
-| Activity / geo / client | Письменное соответствие конкретному потоку, B2B/B2C и странам | «Worldwide» без исключений и договорного scope |
-| Assets / rails | Разрешенные валюты, токены/сети, acquiring, payout routes | Поддержка токена в API выдается за юридическое разрешение |
-| Средства | Титул, банк/кастодиан, safeguarding, ledger/reconciliation, insolvency | Только dashboard balance, неизвестен конечный банк |
-| AML / sanctions | Распределение onboarding, monitoring, escalation, STR/SAR и доступа к данным | Каждый участник считает, что решение принимает другой |
-| Disputes | Refund, chargeback, complaints, ADR, negative balance, reserve | Неясно, кто платит после ухода продавца |
-| Данные / безопасность | AOC scope, privacy roles, subprocessors, доступы и уведомления | Универсальная фраза «GDPR/PCI compliant» |
-| Устойчивость | История значимых отказов, поддержка, recovery/reconciliation, exit | SLA касается API, но не состояния платежей |
-| Экономика / выход | Все fees, currency conversion, reserve release, termination, export | Договор позволяет заморозить все без ясного процесса сверки |
+| Legal entity | Full name, number, country, contracting party | Only a brand or group is named |
+| Permissions | Regulator's record, services, restrictions, status, date | A sales deck instead of the register; a registration called a full license |
+| Activity / geo / client | Written match to the specific flow, B2B/B2C and countries | "Worldwide" with no exclusions and no contractual scope |
+| Assets / rails | Permitted currencies, tokens/networks, acquiring, payout routes | API support for a token is presented as legal authorization |
+| Funds | Title, bank/custodian, safeguarding, ledger/reconciliation, insolvency | Only a dashboard balance; the end bank is unknown |
+| AML / sanctions | Allocation of onboarding, monitoring, escalation, STR/SAR and data access | Each participant thinks the other one makes the decision |
+| Disputes | Refund, chargeback, complaints, ADR, negative balance, reserve | It is unclear who pays after the merchant leaves |
+| Data / security | AOC scope, privacy roles, subprocessors, access and notifications | The generic phrase "GDPR/PCI compliant" |
+| Resilience | History of significant outages, support, recovery/reconciliation, exit | The SLA covers the API but not the state of payments |
+| Economics / exit | All fees, currency conversion, reserve release, termination, export | The contract allows freezing everything without a clear reconciliation process |
 
-Положительный результат DD означает «доказательства соответствуют заданной модели на дату», а не «риска нет». Утрата лицензии, изменение scope, новая страна, новый токен, изменение собственников, смена банка или новая модель контроля средств запускают повторную проверку. Отказ выдать документ не доказывает нарушение, но оставляет ограничение доказательств; его нельзя заполнить доверием к знакомому менеджеру.
+A positive DD result means "the evidence matches the given model as of the date", not "there is no risk". Loss of a license, a change in scope, a new country, a new token, a change of owners, a change of bank or a new model of control over funds triggers a re-check. Refusal to provide a document does not prove a violation, but it leaves a limitation in the evidence; that gap cannot be filled by trusting a manager you know.
 
 <a id="module-1-8"></a>
 <a id="18-анатомия-договоров-msa--acquiring--processing--sponsorship"></a>
-## 1.8 Как читать договоры платёжных участников
+## 1.8 How to read payment participants' contracts
 
-**Вопрос:** почему API работает, но обещать прием платежей еще нельзя? **Ответ:** технический доступ не устанавливает все права, лимиты и ответственность. Договорная иерархия определяет, что происходит при споре между красивым интерфейсом, продуктовой документацией и обязательством сторон.
+**Question:** why can you not yet promise payment acceptance even though the API works? **Answer:** technical access does not establish all rights, limits and liability. The contractual hierarchy determines what happens when a nice interface, the product documentation and the parties' obligations conflict.
 
-**MSA** задает общую основу отношений. Product addendum уточняет услугу. Pricing schedule определяет комиссии. Acquiring agreement связывает прием торговых платежей с acquirer и применимыми scheme rules. BIN sponsorship относится к соответствующей issuing/program роли и не заменяет acquiring. ISA/ISO/referral agreement может ограничивать сторону привлечением клиентов. Marketplace addendum определяет функции platform/connected account. MoR supply terms — отношения перепродажи/поставки, а не согласие банка обслуживать любую отрасль.
+The **MSA** sets the general framework of the relationship. A product addendum specifies the service. A pricing schedule sets the fees. An acquiring agreement ties acceptance of merchant payments to the acquirer and the applicable scheme rules. BIN sponsorship relates to the relevant issuing/program role and does not replace acquiring. An ISA/ISO/referral agreement may limit a party to customer acquisition. A marketplace addendum defines the platform/connected account functions. MoR supply terms are a resale/supply relationship, not the bank's consent to serve any industry.
 
-| Модель | Основные подписи | Что особенно важно в иерархии |
+| Model | Main signatures | What matters most in the hierarchy |
 |---|---|---|
-| Connector | Merchant ↔ software supplier; merchant ↔ PSP | Software terms не расширяют PSP permission |
+| Connector | Merchant ↔ software supplier; merchant ↔ PSP | Software terms do not extend the PSP permission |
 | Direct merchant | Merchant ↔ acquirer/PSP; buyer ↔ merchant | Processing schedule, prohibited business, refunds, reserves |
-| PayFac | Sponsor/acquirer ↔ platform; platform ↔ submerchant; merchant ↔ buyer | Flow-down scheme rules, underwriting, losses и termination |
+| PayFac | Sponsor/acquirer ↔ platform; platform ↔ submerchant; merchant ↔ buyer | Flow-down scheme rules, underwriting, losses and termination |
 | MoR | Supplier ↔ reseller; reseller ↔ buyer; reseller ↔ PSP | Supply price, product obligations, taxes, refund/chargeback recovery |
-| Custodial operator | User ↔ operator; operator ↔ bank/custodian/processors | Права на актив, withdrawal/redemption, insolvency, control and exit |
+| Custodial operator | User ↔ operator; operator ↔ bank/custodian/processors | Rights to the asset, withdrawal/redemption, insolvency, control and exit |
 
-Договорные деревья PayFac и MoR показаны в 1.3. Их надо читать сверху и снизу. Сверху поступают ограничения лицензии, схемы и sponsor. Снизу поступают обещания покупателю и доказательства поставки. Если платформа обещает клиенту мгновенный возврат, а upstream договор позволяет только запрос с длительной обработкой, она приняла дополнительное обязательство, которое должна уметь исполнить.
+The PayFac and MoR contract trees are shown in 1.3. They should be read from the top and from the bottom. From the top come the restrictions of the license, the scheme and the sponsor. From the bottom come the promises to the buyer and proof of delivery. If a platform promises a customer an instant refund but the upstream contract allows only a request with lengthy processing, the platform has taken on an additional obligation that it must be able to perform.
 
-### Пять групп условий, без которых обещание сервиса неполно
+### Five groups of terms without which a service promise is incomplete
 
-1. **Settlement и liquidity.** Как определяется settlement date; какие cutoff, выходные, netting и валюты; когда сумма становится доступной; как меняется график при риске. Reserve — отдельная величина: rolling, fixed, minimum или иной механизм; нужны основания увеличения и release после прекращения работы.
-2. **Refund/chargeback и потери.** Кто инициирует refund, кто собирает evidence, кто несет fee и negative balance, как действует регресс, что происходит после merchant insolvency. Лимит ответственности может не покрывать payment obligations, indemnities или специально исключенные случаи — это читают в тексте, а не предполагают.
-3. **Scope и прекращение.** Какие товары, страны, merchant categories, assets и client types разрешены; кто может остановить обработку; что происходит с pending payments, reserves, подписками и complaint deadlines после termination. «Расторгли MSA» не значит «все долги исчезли».
-4. **Данные, аудит, контроль.** Кто вправе давать поручения, видеть/передавать данные и менять payout account; что доступно регулятору/аудитору; какие уведомления и ограничения для subprocessors. Аудит без права получить ledger может не дать ответа о клиентских деньгах.
-5. **Иерархия и изменение условий.** Какая версия signed order/addendum/online terms/scheme rules имеет приоритет; как изменения доводятся; можно ли отказаться; какие пункты сохраняются после прекращения. Indemnity и governing law рассматривают вместе с mandatory local rights.
+1. **Settlement and liquidity.** How the settlement date is determined; what cutoffs, weekends, netting and currencies apply; when an amount becomes available; how the schedule changes when risk rises. A reserve is a separate quantity: rolling, fixed, minimum or another mechanism; you need the grounds for increasing it and for its release after the relationship ends.
+2. **Refund/chargeback and losses.** Who initiates a refund, who collects evidence, who bears the fee and the negative balance, how recourse works, what happens after merchant insolvency. A liability cap may not cover payment obligations, indemnities or specifically excluded cases — this is read in the text, not assumed.
+3. **Scope and termination.** Which goods, countries, merchant categories, assets and client types are allowed; who can stop processing; what happens to pending payments, reserves, subscriptions and complaint deadlines after termination. "We terminated the MSA" does not mean "all debts have disappeared".
+4. **Data, audit, control.** Who may give instructions, see/transfer data and change the payout account; what is available to the regulator/auditor; what notifications and restrictions apply to subprocessors. An audit without the right to obtain the ledger may not answer questions about customer money.
+5. **Hierarchy and changes to terms.** Which version of the signed order/addendum/online terms/scheme rules takes priority; how changes are communicated; whether they can be rejected; which clauses survive termination. Indemnity and governing law are considered together with mandatory local rights.
 
-**Публичный разбор Stripe.** Connected Account Agreement от 18.11.2025 связывает пользователя с соответствующим Stripe entity и включает локальное Services Agreement. §1 описывает полномочия platform; §§4–5 — данные, fees и распределение обязанностей, включая продукт/доставку пользователя. Это полезно инженеру: доступ platform к API может быть основан на поручении account holder, а platform terms — отдельный документ. Из прочтения публичной версии нельзя заключить, что конкретный заказчик подписал именно ее без negotiated amendments. [P01-S031, §§1,4–5](https://stripe.com/legal/connect-account).
+**Public example: Stripe.** The Connected Account Agreement of 2025-11-18 links the user to the relevant Stripe entity and incorporates the local Services Agreement. §1 describes the platform's authority; §§4–5 cover data, fees and the allocation of obligations, including the user's product/delivery. This is useful for an engineer: the platform's API access may be based on the account holder's authorization, and the platform terms are a separate document. From reading the public version one cannot conclude that a particular client signed exactly that version without negotiated amendments. [P01-S031, §§1, 4–5](https://stripe.com/legal/connect-account).
 
-**Публичный разбор Paddle.** В reseller-модели buyer и supplier соединены несколькими документами. Supply obligations и buyer terms необходимо сопоставить: кто предоставляет лицензию на контент, кто выставляет счет, кто принимает запрос на refund, кто возмещает reseller спорную сумму. Публичные terms подтверждают реальную модель конкретного вендора; они не являются бесплатным универсальным legal template. [P01-S033](https://www.paddle.com/legal/terms); [P01-S034](https://www.paddle.com/legal/buyer-terms).
+**Public example: Paddle.** In the reseller model, the buyer and the supplier are connected by several documents. Supply obligations and buyer terms need to be compared: who grants the content license, who issues the invoice, who accepts a refund request, who reimburses the reseller for a disputed amount. Public terms confirm the real model of a specific vendor; they are not a free universal legal template. [P01-S033](https://www.paddle.com/legal/terms); [P01-S034](https://www.paddle.com/legal/buyer-terms).
 
-**Что читают инженеры.** Полномочия API, idempotency и error states; сроки получения evidence; лимиты и webhook semantics; экспорт данных; процедура остановки; поведение refund и reserve. **Что проверяет counsel.** Квалификацию услуги и сторон, mandatory rights, enforceability, indemnities, governing law, licenses, data transfers. Общая зона — фактическая схема: юрист не видит скрытого изменения получателя без инженера, инженер не выводит законное полномочие из наличия endpoint. Рабочий результат — clause → операционное действие → владелец → проверяемое evidence.
+**What engineers read.** API authority, idempotency and error states; deadlines for providing evidence; limits and webhook semantics; data export; the stop procedure; refund and reserve behavior. **What counsel checks.** Classification of the service and the parties, mandatory rights, enforceability, indemnities, governing law, licenses, data transfers. The shared area is the actual setup: a lawyer will not see a hidden change of recipient without an engineer, and an engineer will not infer legal authority from the existence of an endpoint. The working output is clause → operational action → owner → verifiable evidence.
 
 <a id="module-1-9"></a>
 <a id="19-consumer-redress--distance-selling--digital-goods"></a>
-## 1.9 Права покупателя и разрешение претензий
+## 1.9 Buyer rights and complaint resolution
 
-**Вопрос:** если перевод окончателен, закончились ли права покупателя? **Ответ:** нет такого общего вывода. Платежная запись, договор покупки, complaint process и право на возмещение существуют на разных уровнях.
+**Question:** if a transfer is final, are the buyer's rights over? **Answer:** there is no such general conclusion. The payment record, the purchase contract, the complaint process and the right to redress exist at different levels.
 
-**Chargeback** — процедура в карточной цепочке по применимым правилам схемы; она не равна судебному решению по договору. **Statutory remedy** возникает из закона. **Withdrawal** — право отказаться от соответствующего договора при его условиях. **Voluntary refund** — дополнительная политика продавца. В одном кейсе могут существовать несколько оснований, но это не дает права на двойное возмещение одного ущерба.
+A **chargeback** is a procedure in the card chain under the applicable scheme rules; it is not the same as a court judgment on the contract. A **statutory remedy** arises from law. **Withdrawal** is the right to withdraw from the relevant contract under its conditions. A **voluntary refund** is an additional policy of the merchant. Several grounds may exist in one case, but this does not give a right to double compensation for the same loss.
 
-| Претензия | Основание | Кто несет обязанность / денежный результат | Время: что фиксировать |
+| Claim | Basis | Who bears the obligation / monetary outcome | Timing: what to record |
 |---|---|---|---|
-| Неавторизованный consumer EFT в США | Regulation E, если операция/счет в scope | Обязанности финансового учреждения; liability клиента по отдельным условиям | Error resolution: обычно notice в 60 дней от statement, расследование 10 business days по §1005.11. Loss/theft access device: отдельное правило two business days по §1005.6 |
-| Карточный спор о непоставке | Scheme rules + договор с acquirer | Debit по цепочке; merchant/platform liability по условиям | Точный reason code, схема, trigger и срок представления evidence; универсального срока нет |
-| Отказ от дистанционного B2C-договора ЕС | Applicable consumer law | Продавец по договору/закону | Общий 14-дневный режим и исключения; начало срока зависит от goods/services |
-| Digital content не поставлен/не соответствует | National implementation Directive 2019/770 | Trader; возможный upstream recovery отдельно | Remedy process по arts13–18; необходимые refunds без undue delay, максимум 14 дней от указанного уведомления |
-| Возврат по собственной гарантии продавца | Policy/contract | Продавец в обещанном объеме | Сроки policy; обязательные права сохраняются |
-| Жалоба на payment provider | Закон/регулятор/ADR и complaint terms | Конкретный provider; компенсация не автоматическое следствие жалобы | Дата получения, final response, eligibility/deadline внешнего рассмотрения |
+| Unauthorized consumer EFT in the US | Regulation E, if the transaction/account is in scope | Obligations of the financial institution; the customer's liability under separate conditions | Error resolution: usually notice within 60 days of the statement, investigation within 10 business days under §1005.11. Loss/theft of an access device: a separate two business days rule under §1005.6 |
+| Card dispute over non-delivery | Scheme rules + contract with the acquirer | Debit down the chain; merchant/platform liability under the terms | Exact reason code, scheme, trigger and deadline for submitting evidence; there is no universal deadline |
+| Withdrawal from a distance B2C contract in the EU | Applicable consumer law | The merchant, under the contract/law | The general 14-day regime and exceptions; when the period starts depends on goods/services |
+| Digital content not supplied / not in conformity | National implementation of Directive 2019/770 | Trader; any upstream recovery is separate | Remedy process under arts. 13–18; required refunds without undue delay, at most 14 days from the specified notice |
+| Refund under the merchant's own guarantee | Policy/contract | The merchant, to the extent promised | Policy deadlines; mandatory rights remain |
+| Complaint about a payment provider | Law/regulator/ADR and complaint terms | The specific provider; compensation is not an automatic consequence of a complaint | Date of receipt, final response, eligibility/deadline for external review |
 
-Источники: [P01-S061, Regulation E§1005.11](https://www.consumerfinance.gov/rules-policy/regulations/1005/11/); [P01-S037, withdrawal guide](https://europa.eu/youreurope/citizens/consumers/shopping/returns/indexamp_en.htm); [P01-S038, arts13–18](https://www.boe.es/buscar/doc.php?id=DOUE-L-2019-80854). Сроки scheme этой частью не верифицированы для каждого reason code, поэтому численная универсальная chargeback-гарантия намеренно не дана.
+Sources: [P01-S061, Regulation E §1005.11](https://www.consumerfinance.gov/rules-policy/regulations/1005/11/); [P01-S037, withdrawal guide](https://europa.eu/youreurope/citizens/consumers/shopping/returns/indexamp_en.htm); [P01-S038, arts. 13–18](https://www.boe.es/buscar/doc.php?id=DOUE-L-2019-80854). This chapter has not verified scheme deadlines for each reason code, so a numerical universal chargeback guarantee is deliberately not given.
 
-**EU digital goods.** Отказ без причины и исправление непоставки — разные права. Исключение из withdrawal для определенного начатого digital supply связано с необходимым consent/acknowledgement, а не просто надписью «digital goods non-refundable». Отсутствие withdrawal не устраняет требования conformity. Directive 2019/770 различает несвоевременную поставку, характеристики/совместимость и remedies: исправление, соразмерное уменьшение цены или прекращение при предусмотренных условиях. Ее национальные меры применяются с 01.01.2022. [P01-S037](https://europa.eu/youreurope/citizens/consumers/shopping/returns/indexamp_en.htm); [P01-S038, arts5–9,13–18,22,24](https://www.boe.es/buscar/doc.php?id=DOUE-L-2019-80854).
+**EU digital goods.** Withdrawal without giving a reason and remedying non-supply are different rights. The exception from withdrawal for certain digital supply that has already begun is tied to the required consent/acknowledgement, not simply to the label "digital goods non-refundable". The absence of a withdrawal right does not remove the conformity requirements. Directive 2019/770 distinguishes late supply, characteristics/compatibility and remedies: bringing into conformity, a proportionate price reduction or termination under the prescribed conditions. Its national measures apply from 2022-01-01. [P01-S037](https://europa.eu/youreurope/citizens/consumers/shopping/returns/indexamp_en.htm); [P01-S038, arts. 5–9, 13–18, 22, 24](https://www.boe.es/buscar/doc.php?id=DOUE-L-2019-80854).
 
-**US EFT.** В§1005.11 есть определение ошибки и процесс расследования; mere balance inquiry и жалоба на качество фильма — не одно и то же, что incorrect/unauthorized EFT. Общее правило 10 business days имеет специальные сроки и возможность продления при выполнении условий, включая provisional credit. Нельзя превратить его в обещание «банк всегда вернет любой платеж за 10 дней». [P01-S061, (a)–(c)](https://www.consumerfinance.gov/rules-policy/regulations/1005/11/).
+**US EFT.** §1005.11 contains a definition of an error and an investigation process; a mere balance inquiry and a complaint about the quality of a film are not the same as an incorrect/unauthorized EFT. The general rule of 10 business days has special time limits and the possibility of extension when conditions are met, including provisional credit. It cannot be turned into a promise that "the bank will always return any payment within 10 days". [P01-S061, (a)–(c)](https://www.consumerfinance.gov/rules-policy/regulations/1005/11/).
 
-**Срок расследования — не безопасное окно для уведомления о краже.** §1005.6(b)(1)–(3) отдельно определяет liability клиента. При известной потере/краже access device уведомление в пределах **двух business days после того, как клиент узнал об этом**, связано с первым уровнем ограничения ответственности; более позднее уведомление может увеличить ее при условиях нормы. Отдельные 60 дней от отправки statement относятся к отраженному unauthorized EFT и риску последующих переводов. Они не отменяют двухдневное правило. [P01-S036, §1005.6(b)(1)–(3)](https://www.consumerfinance.gov/rules-policy/regulations/1005/6/).
+**The investigation period is not a safe window for reporting theft.** §1005.6(b)(1)–(3) separately defines the customer's liability. When an access device is known to be lost/stolen, notice within **two business days after the customer learns of it** is tied to the first tier of the liability limit; later notice may increase the liability under the conditions of the rule. The separate 60 days from the transmittal of the statement relate to an unauthorized EFT shown on it and the risk of subsequent transfers. They do not cancel the two-day rule. [P01-S036, §1005.6(b)(1)–(3)](https://www.consumerfinance.gov/rules-policy/regulations/1005/6/).
 
-### Доказательство digital delivery
+### Proof of digital delivery
 
-Учебный продавец выдал купленный код и отметил order `fulfilled`. Покупатель утверждает, что код уже использован. Лог отправки письма подтверждает передачу сообщения почтовой системе, но не годность кода. Нужна цепочка: SKU и обещанные характеристики → право поставки → созданный entitlement → доступность клиенту → факт использования/ошибка → принятое remedy. Для подписки важны период и часть выполненной услуги; для downloadable content — предоставление доступа и необходимые преддоговорные disclosures.
+A teaching merchant issued a purchased code and marked the order `fulfilled`. The buyer says the code has already been used. The email sending log confirms that the message was handed to the mail system, but not that the code was valid. You need a chain: SKU and promised characteristics → right to supply → created entitlement → availability to the customer → fact of use/error → remedy provided. For a subscription, the period and the part of the service already performed matter; for downloadable content, the provision of access and the required pre-contractual disclosures.
 
-При возврате следует связать решение, сумму, реальный возврат средств и состояние доступа. Access revocation может предотвратить дальнейшее использование, но нельзя уничтожать данные, которые закон позволяет клиенту получить обратно, или скрывать evidence спора. Не каждый refund требует полного отзыва всех услуг: основание и исполненная часть имеют значение.
+On a refund, the decision, the amount, the actual return of funds and the access state should be linked. Access revocation can prevent further use, but you must not destroy data that the law allows the customer to get back, or hide evidence of the dispute. Not every refund requires full revocation of all services: the basis and the part already performed matter.
 
-**Crypto checkout.** Клиент отправил 50 USDC и получил неработающий цифровой продукт. Отсутствие функции отмены исходной blockchain-транзакции не доказывает отсутствие обязательства продавца возместить цену. Технически возмещение может быть новым переводом. Юридически надо определить сумму/валюту долга, допустимый способ, согласование альтернативы, комиссии и проверенный адрес. Возвращать автоматически на входящий адрес опасно и по смыслу модели: этот адрес мог принадлежать бирже или платежному посреднику. В учебной системе сначала устанавливают право и получателя, затем связывают новое денежное действие с исходным order. Это объяснение механизма, не поручение провести платеж.
+**Crypto checkout.** A customer sent 50 USDC and received a non-working digital product. The lack of a function to cancel the original blockchain transaction does not prove that the merchant has no obligation to refund the price. Technically, the refund may be a new transfer. Legally, you need to determine the amount/currency of the debt, the permissible method, agreement on an alternative, fees and a verified address. Automatically returning funds to the incoming address is dangerous, as the model itself shows: that address may have belonged to an exchange or a payment intermediary. In the teaching system, the right and the recipient are established first, and then the new money action is linked to the original order. This is an explanation of the mechanism, not an instruction to make a payment.
 
-### Complaint handling и ADR
+### Complaint handling and ADR
 
-**ADR** — внесудебный механизм разрешения спора, применимый при его eligibility rules. Singapore FIDReC проверяет категорию заявителя, участвующее учреждение, предшествующее обращение и сроки; UAE Sanadak текущим порталом использует этап предварительной жалобы LFI и 15 calendar days. Нельзя переносить старый 30-дневный буклет на нынешнюю форму или считать любой спор с fintech автоматически допустимым. [P01-S040, Terms rule13 и eligibility](https://www.fidrec.com.sg/_entity/annotation/63c8379b-6e55-f011-bec2-0022485a9df8); [P01-S042, current portal](https://www.sanadak.gov.ae/en).
+**ADR** is an out-of-court dispute resolution mechanism, available subject to its eligibility rules. Singapore's FIDReC checks the applicant category, the participating institution, the prior complaint and the deadlines; the UAE's Sanadak, through its current portal, uses a stage of a preliminary complaint to the LFI and 15 calendar days. One cannot carry an old 30-day booklet over to the current form or assume that any dispute with a fintech is automatically eligible. [P01-S040, Terms rule 13 and eligibility](https://www.fidrec.com.sg/_entity/annotation/63c8379b-6e55-f011-bec2-0022485a9df8); [P01-S042, current portal](https://www.sanadak.gov.ae/en).
 
-Операционная complaint record должна содержать основание претензии, договорную сторону, даты, документы клиента, связанные платежи, результат расследования, мотивированный ответ и доступный дальнейший путь. Статусы `received`, `investigating`, `decision issued`, `refund requested`, `refund credited` полезно разделять. Закрытая support ticket не подтверждает исполненный refund. Complaint data также помогает выявить системную проблему: повторяющийся неработающий код может требовать исправления supply, а не только ускорения ответа поддержки.
+An operational complaint record should contain the basis of the complaint, the contracting party, dates, the customer's documents, related payments, the investigation result, a reasoned response and the further route available. It is useful to separate the statuses `received`, `investigating`, `decision issued`, `refund requested`, `refund credited`. A closed support ticket does not confirm that a refund was executed. Complaint data also helps detect a systemic problem: a recurring non-working code may require fixing the supply, not just speeding up support responses.
 
-## Проверка понимания: задачи и ответы
+## Check your understanding: exercises and answers
 
-Все задачи синтетические; ответы демонстрируют метод, а не заключение по реальной компании.
+All exercises are synthetic; the answers demonstrate the method, not a conclusion about a real company.
 
-1. **Connector не хранит средства, но принимает и исполняет поручение инициировать банковский платеж. Достаточно ли аргумента «мы software»?** Нет. Установить клиента, полномочие и фактическую услугу; отсутствие possession не устраняет возможный PIS/perimeter. Проверять локальное право.
-2. **Партнер показывает разрешение компании A, договор подписывает B той же группы. Что подтверждено?** Только статус A. Для B нужны собственное основание деятельности и роль в цепочке. Бренд не заполняет разрыв.
-3. **В учебной PayFac-модели 100 EUR распределены 87/10/3; merchant исчез, спор 100 и fee15. Какой чистый результат platform при сохраненных 10 и без recovery?** −105 EUR. Валовой расход по спору 115 EUR. Liability определяется выбранным условием модели, не универсальной нормой.
-4. **EU crypto firm законно работала в 2024 и показывает national registration. Достаточно ли этого 15.09.2026?** Нет: максимальный MiCA grandfathering завершился 01.07.2026. Нужна проверка текущего authorization/notification и exact entity.
-5. **GENIUS signed 18.07.2025; OCC опубликовал proposal 25.02.2026. Можно ли вычислить начало 120 дней от proposal?** Нет. §20 требует соответствующего final regulation. Также у отдельных положений собственные сроки.
-6. **Старый BI category certificate и новый PSP Utama одинаковы?** Нет. Проверить PBI10/2025/PADG32/2025, activity bundle и transition конкретного участника. Термины PJP/PIP сохранены, но вся карта изменилась.
-7. **500 EUR crypto transfer меньше 1000 EUR, значит Travel Rule data не нужны?** Такой вывод неверен. В EU TFR этот порог относится к указанной дополнительной self-hosted ownership/control assessment, а не общему освобождению всех сведений.
-8. **PAN нет в базе, но payment payload есть в error reporter. Можно ли сказать «вне PCI»?** Нет. Scope строится по всем средам и способам влияния на платеж. Партнерский token и SAQ A eligibility требуют фактической проверки.
-9. **PSP outage закончился; все запросы получили 200OK. Инцидент закрыт?** Только после сверки неизвестных исходов и обязательств. Доступность и корректность платежного состояния — разные результаты.
-10. **MoR вернул покупателю 100 EUR, supplier вернул 90 EUR, processing3 не вернулся. Итог при исходной продаже 100?** −3 EUR. До supplier recovery требуется больше ликвидности; первичный fee и timing важны.
-11. **Покупатель согласился начать digital download сразу. Значит неработающий файл можно не исправлять?** Нет. Withdrawal exception и conformity remedies различаются; нужен применимый consumer regime и доказательства disclosures.
-12. **Onchain payment final, refund ticket closed. Долг погашен?** Нет таких достаточных доказательств. Проверить решение по претензии, денежное исполнение и зачисление получателю; новая blockchain-запись или банковская выплата отдельно сопоставляется с order.
+1. **A connector does not hold funds but accepts and executes an instruction to initiate a bank payment. Is the argument "we are software" enough?** No. Establish the customer, the authority and the actual service; the absence of possession does not rule out a possible PIS/perimeter issue. Check local law.
+2. **A partner shows the authorization of company A, while the contract is signed by B from the same group. What is confirmed?** Only A's status. B needs its own basis for the activity and its own role in the chain. A brand does not fill the gap.
+3. **In the teaching PayFac model, 100 EUR is split 87/10/3; the merchant disappeared, with a dispute of 100 and a fee of 15. What is the platform's net result if it kept its 10 and recovered nothing?** −105 EUR. The gross dispute outflow is 115 EUR. Liability is determined by the chosen condition of the model, not by a universal rule.
+4. **An EU crypto firm operated lawfully in 2024 and shows a national registration. Is that enough on 2026-09-15?** No: the maximum MiCA grandfathering period ended on 2026-07-01. A check of the current authorization/notification and of the exact entity is needed.
+5. **GENIUS was signed on 2025-07-18; the OCC published a proposal on 2026-02-25. Can the start of the 120 days be calculated from the proposal?** No. §20 requires the relevant final regulation. Also, individual provisions have their own deadlines.
+6. **Are an old BI category certificate and the new PSP Utama the same thing?** No. Check PBI 10/2025 / PADG 32/2025, the activity bundle and the transition of the specific participant. The terms PJP/PIP are kept, but the whole map has changed.
+7. **A 500 EUR crypto transfer is less than 1,000 EUR, so Travel Rule data is not needed?** That conclusion is wrong. In the EU TFR, this threshold relates to the specified additional self-hosted ownership/control assessment, not to a general exemption from providing any information.
+8. **There is no PAN in the database, but the payment payload is in the error reporter. Can we say "outside PCI"?** No. Scope is built from all environments and all ways of affecting the payment. A partner token and SAQ A eligibility require an actual check.
+9. **The PSP outage is over; all requests received 200 OK. Is the incident closed?** Only after reconciling the unknown outcomes and obligations. Availability and a correct payment state are different results.
+10. **The MoR refunded the buyer 100 EUR, the supplier returned 90 EUR, and the processing fee of 3 was not returned. What is the result for an original sale of 100?** −3 EUR. More liquidity is needed until the supplier recovery; the original fee and timing matter.
+11. **The buyer agreed to start the digital download immediately. Does that mean a non-working file need not be fixed?** No. The withdrawal exception and conformity remedies are different things; you need the applicable consumer regime and evidence of the disclosures.
+12. **The onchain payment is final and the refund ticket is closed. Has the debt been paid?** There is no sufficient evidence of that. Check the decision on the complaint, the monetary performance and the crediting to the recipient; a new blockchain record or bank payout is matched to the order separately.
 
-### Что унести из части
+### What to take away from this chapter
 
-Рабочая карта платежного продукта соединяет четыре вида evidence: разрешение на конкретную деятельность; договорное распределение обязанностей; фактические деньги/данные; исполненный результат для клиента. Ни один документ по отдельности не заменяет остальные. Для повторения механики вернитесь к [части 2: платежная транзакция](../02-How-a-payment-works/README.md); далее по учебному маршруту — [часть 3](../03-Visa-and-Mastercard-cards/README.md) и [часть 4](../04-Payment-providers/README.md). Custody/stablecoin детали — [часть 5](../05-Wallets-accounts-and-cards/README.md) и [часть 6](../06-Crypto-and-stablecoins/README.md). Открытые юридические пункты и неполный доступ сохранены в [Утверждения](Claims.md) и [Источники](Sources.md); результат независимого review находится в REVIEW.md (исторический или служебный материал; сохранен у владельца, вне этой копии).
+A working map of a payment product connects four kinds of evidence: authorization for the specific activity; the contractual allocation of obligations; the actual money/data; the outcome delivered to the customer. No single document replaces the others. To review the mechanics, go back to [Chapter 2: the payment transaction](../02-How-a-payment-works/README.md); next on the learning path are [Chapter 3](../03-Visa-and-Mastercard-cards/README.md) and [Chapter 4](../04-Payment-providers/README.md). Custody/stablecoin details are in [Chapter 5](../05-Wallets-accounts-and-cards/README.md) and [Chapter 6](../06-Crypto-and-stablecoins/README.md). Open legal points and incomplete access are recorded in [Claims](Claims.md) and [Sources](Sources.md); the result of the independent review is in REVIEW.md (historical or internal material; kept by the owner, outside this copy).
 
 ---
 
-### Источники и проверка
+### Sources and fact-check
 
-[Источники](Sources.md) · [Проверяемые утверждения](Claims.md) · [Фактчек главы](../../Fact-check/01-Market-rules-and-licensing/README.md)
+[Sources](Sources.md) · [Verifiable claims](Claims.md) · [Chapter fact-check](../../Fact-check/01-Market-rules-and-licensing/README.md)
 
-Текст подготовлен агентами и прошёл независимую агентную проверку 15–17 сентября 2026. Учебная редакция имеет ограничения; даты и границы применимости указаны в источниках. [Паспорт издания](../../Methodology/Edition-record.md).
+The text was prepared by agents and underwent an independent agent review on 15–17 September 2026. This teaching edition has limitations; dates and limits of applicability are given in the sources. [Edition record](../../Methodology/Edition-record.md).
 
 <details>
-<summary>История и служебные сведения исходной рукописи</summary>
+<summary>History and metadata of the original manuscript</summary>
 
-Эти сведения описывают исследовательский этап до публикации. Текущая видимость — публичная; статус всего издания — `reviewed_with_limitations`. Прежние метки `private` и `independently_reviewed_draft` сохранены только как история.
+This information describes the research stage before publication. Current visibility is public; the status of the whole edition is `reviewed_with_limitations`. The earlier labels `private` and `independently_reviewed_draft` are kept only as history.
 
-**Версия:** v0.1 · **Статус:** `independently_reviewed_draft` · **Дата среза:** 15.09.2026 · **Видимость:** private.
-**Автор:** исследователь `part_01_research`. Первая рецензия: см. REVIEW.md (исторический или служебный материал; сохранен у владельца, вне этой копии).
+**Version:** v0.1 · **Status:** `independently_reviewed_draft` · **Cutoff date:** 2026-09-15 · **Visibility:** private.
+**Author:** researcher `part_01_research`. First review: see REVIEW.md (historical or internal material; kept by the owner, outside this copy).
 
 </details>
 
-[← Деньги и основы финтеха](../00-Money-and-fintech-basics/README.md) · [Оглавление](../README.md) · [Как проходит платёж →](../02-How-a-payment-works/README.md)
+[← Money and fintech basics](../00-Money-and-fintech-basics/README.md) · [Contents](../README.md) · [How a payment works →](../02-How-a-payment-works/README.md)

@@ -1,5 +1,5 @@
 ---
-title: "Шаблон учебного модуля"
+title: "Learning module template"
 date: "2026-09-15"
 status: "draft"
 visibility: "public"
@@ -8,67 +8,67 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](Edition-record.md).
+> Public edition of 2026-09-18. Verification dates and source limitations are preserved. Hashes in historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](Edition-record.md).
 
-# Шаблон учебного модуля
+# Learning module template
 
-15.09.2026 · private · v0.1 · шаблон, не написанная глава.
+2026-09-15 · private · v0.1 · a template, not a written chapter.
 
-Один модуль — один связный учебный вопрос. Отдельная PDF-глава может объединять несколько близких модулей. Исходник сохраняется в Markdown; PDF — датированное издание для чтения.
+One module is one coherent learning question. A separate PDF chapter may combine several closely related modules. The source is kept in Markdown; the PDF is a dated edition for reading.
 
-## Паспорт
+## Module record
 
-- `module_id` и название из рабочей структуры.
-- `version`, `as_of`, язык, юрисдикции/продукты, если применимо.
+- `module_id` and the title from the working structure.
+- `version`, `as_of`, language, jurisdictions/products, if applicable.
 - `status`: outline_only / sources_in_progress / sources_ready / draft / reviewed / pdf_verified.
-- Автор и независимый рецензент; даты написания/проверки.
-- Предварительные знания: ссылки на конкретные модули.
-- После чтения: 2–4 проверяемых умения.
-- Основной вопрос главы и краткий ответ простыми словами.
+- Author and independent reviewer; dates of writing/review.
+- Prerequisites: links to specific modules.
+- After reading: 2–4 verifiable skills.
+- The main question of the chapter and a short answer in plain words.
 
-## 1. Картина целиком
+## 1. The big picture
 
-Кто участвует, какую задачу решает механизм и где его место в системе. Ввести новые слова перед первым использованием; русский термин + общепринятый английский эквивалент.
+Who is involved, what problem the mechanism solves and where it fits in the system. Introduce new words before their first use; Russian term + the commonly accepted English equivalent.
 
-## 2. Как это работает
+## 2. How it works
 
-Последовательное объяснение. По смыслу темы: схема денег/обязательств, договоров/ответственности, данных или состояний. Для платежного механизма обязательны деньги и ответственность; для метода исследования не рисовать фиктивный поток денег.
+A step-by-step explanation. Depending on the topic: a diagram of money/obligations, contracts/liability, data or states. For a payment mechanism, money and liability are mandatory; for a research method, do not draw a fictitious flow of money.
 
-Ссылка рядом с каждым существенным внешним утверждением. Определения и выводы не склеивать с маркетинговыми заявлениями.
+A link next to every material external claim. Do not glue definitions and conclusions together with marketing statements.
 
-## 3. Разобранный пример
+## 3. Worked example
 
-Входные условия → шаги → итог → проверка. Для денег: сумма, валюта, единицы, участники, комиссии, остатки, временные точки. Указать: реальный документированный случай или синтетический учебный пример. При неизвестном результате так и написать.
+Inputs → steps → result → check. For money: amount, currency, units, participants, fees, balances, points in time. State whether it is a real documented case or a synthetic teaching example. If the result is unknown, say so.
 
-## 4. Что ломается и почему
+## 4. What breaks and why
 
-Один нормальный сценарий и один сбой/пограничный случай. Различать авторизацию, движение денег, запись учета, окончательность расчета и доставку товара. Объяснить ограничения механизма.
+One normal scenario and one failure/edge case. Distinguish authorization, movement of money, the accounting entry, settlement finality and delivery of goods. Explain the mechanism's limitations.
 
-## 5. Практика рынка
+## 5. Market practice
 
-Если полезно: сопоставление официального описания с научным исследованием, техническим разбором или кейсом Reddit/X. Для постов: автор, дата, permalink, что подтверждено и что известно только со слов автора. Нет подходящего кейса — раздел не заполнять искусственно.
+If useful: compare the official description with academic research, a technical analysis or a Reddit/X case. For posts: author, date, permalink, what is confirmed and what is known only from the author's own words. If there is no suitable case, do not fill the section artificially.
 
-## 6. Проверка понимания
+## 6. Check your understanding
 
-1. Объяснить механизм своими словами, не повторяя аббревиатуры.
-2. Решить новую задачу, отличающуюся от разобранного примера.
-3. Найти ошибку в схеме/утверждении либо определить, каких данных не хватает для ответа.
+1. Explain the mechanism in your own words without repeating abbreviations.
+2. Solve a new problem that differs from the worked example.
+3. Find the error in a diagram/claim, or determine what data is missing for an answer.
 
-Ответы и критерии оценки — в конце главы после явного разделителя. Оценка по сохранению денег/ответственности/логики и доказательствам, а не по числу перечисленных брендов.
+Answers and grading criteria go at the end of the chapter after a clear separator. Grade on whether money/liability/logic is preserved and on evidence, not on the number of brands listed.
 
-## 7. Итог и куда дальше
+## 7. Summary and where to go next
 
-Короткое резюме, связи с другими главами, что остается спорным/неизвестным.
+A short summary, connections to other chapters, what remains disputed/unknown.
 
-## 8. Источники
+## 8. Sources
 
-См. [схему источников](Working-with-sources.md): ID, автор, название, дата/версия, точное место, кликабельная ссылка, дата чтения и ограничения доступа. Отдельно — дополнительное чтение, которое не использовалось как доказательство.
+See the [source schema](Working-with-sources.md): ID, author, title, date/version, exact location, clickable link, reading date and access limitations. Separately — further reading that was not used as evidence.
 
-## Проверка PDF перед поставкой
+## PDF check before delivery
 
-- Заголовок, ID, версия, дата, закладки, номера страниц; оглавление для длинной главы.
-- Текст ищется и копируется, русский шрифт встроен, ссылки работают.
-- Таблицы и схемы читаемы; нет обрезанных элементов, одиноких заголовков и служебных шаблонных полей.
-- Страницы просмотрены после рендеринга; проверена одна печатная и одна экранная подача.
-- PDF соответствует проверенному исходнику; имя `CH-<id>_<slug>_v<version>_<date>.pdf`.
-- Индекс сообщает статус и дату главы. Отсутствующий PDF не обозначается готовым.
+- Title, ID, version, date, bookmarks, page numbers; a table of contents for a long chapter.
+- Text is searchable and copyable, the Russian font is embedded, links work.
+- Tables and diagrams are readable; there are no cut-off elements, orphaned headings or leftover template fields.
+- Pages have been viewed after rendering; one print and one on-screen presentation have been checked.
+- The PDF matches the reviewed source file; name: `CH-<id>_<slug>_v<version>_<date>.pdf`.
+- The index reports the status and date of the chapter. A missing PDF is not marked as ready.

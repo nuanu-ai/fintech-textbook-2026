@@ -1,5 +1,5 @@
 ---
-title: "Исследовательские заметки — часть 4"
+title: "Research notes — Chapter 4"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,34 +8,34 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Платёжные провайдеры](README.md) · [Оглавление](../README.md) · [Все источники и проверки](../../Fact-check/README.md)
+[← Payment providers](README.md) · [Contents](../README.md) · [All sources and fact-checks](../../Fact-check/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Verification dates and source limitations are preserved. Hashes in historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Исследовательские заметки — часть 4
+# Research notes — Chapter 4
 
-15.09.2026 · private · author: part_04_research · status: draft_for_review.
+2026-09-15 · private · author: part_04_research · status: draft_for_review.
 
-## Проверенный вход и границы
+## Checked input and boundaries
 
-Внутренняя организационная ссылка из исторической авторской заметки исключена из публичного издания; исследовательская методика и внешние источники сохранены.
+An internal organizational link from the author's historical note has been removed from the public edition; the research methodology and the external sources are preserved.
 
-## Найденные версии и важные ограничения
+## Versions found and important limitations
 
-- Mastercard Rules: официальный новый путь `/content/dam/mccom/shared/business/support/rules-pdfs/mastercard-rules.pdf`, обложка 2 June 2026, 503 страницы. В web доступен текст и отдельные страницы; прямое скачивание даёт 403. Старый mastercard.us URL не использован как доказательство. Для части прочитаны §§7.6.5–7.6.6, региональные модификации, а не весь rulebook.
-- Stripe stablecoin-payments: динамический оригинал на дату чтения. US указан явно; EU/HK/MX/CH названы private preview. Перечень кодов стран шире этой фразы, поэтому он не доказывает общую доступность. Формулировка об authentication with bank в разделе Disputes не согласована с описанным wallet flow; причинный тезис о low fraud не заимствуется. Version/commit страницы отсутствует.
-- Stripe separate-charges-and-transfers: основной URL возвращает индекс вариантов; web не получил часть variant URLs. Разрешённый прямой GET публичного official Markdown варианта web/Checkout/stripe-hosted успешно выполнен. Прочитаны lifecycle, transfers, async, refunds/reversals. Источник P04-S024, не просто индекс.
-- EUR-Lex PSD2 original/consolidated HTML и PDF возвращают JS anti-bot challenge; EBA Q&A 2021_5726 — 403. Обход не выполнялся. Для общего объяснения passporting используются доступные страницы Central Bank of Ireland. Это руководство регулятора, не самостоятельная сверка полного консолидированного закона на 2026 год.
-- Reddit: payout-тред 1orjx8y не получен (timeout). Доступен содержательный тред `10kwnbp`, автор songtu-staygold, о смешении acquiring/issuing sponsorship. UI показывает относительную дату `4y ago`; точный день из страницы не извлечён. Комментарии не являются нормой и включают коммерческие сообщения.
-- BIS WP1163: реальный PDF получен по ссылке PDF с оригинальной страницы; январь 2024. Прочитаны описание модели, предпосылки, вход sub-acquirer и niche-market result. Это теоретическая модель, не эмпирическая оценка банковских тарифов.
-- Rochet–Tirole: PDF с TSE имеет дату 13 December 2002; каталог помечает IDEI Working Paper 152 (2003), replaced by JEEA 2003. Цитируется именно прочитанная авторская версия; журнальный текст не объявляется прочитанным.
+- Mastercard Rules: the new official path `/content/dam/mccom/shared/business/support/rules-pdfs/mastercard-rules.pdf`, cover dated 2 June 2026, 503 pages. Via web, the text and individual pages are available; direct download returns 403. The old mastercard.us URL was not used as evidence. For this chapter, §§7.6.5–7.6.6 and the regional modifications were read, not the whole rulebook.
+- Stripe stablecoin-payments: a dynamic original as of the date of reading. The US is listed explicitly; EU/HK/MX/CH are named as private preview. The list of country codes is broader than this sentence, so it does not prove general availability. The wording about authentication with bank in the Disputes section is inconsistent with the described wallet flow; the causal thesis about low fraud is not adopted. The page has no version/commit.
+- Stripe separate-charges-and-transfers: the main URL returns an index of variants; web did not retrieve some of the variant URLs. A permitted direct GET of the public official Markdown of the web/Checkout/stripe-hosted variant succeeded. Lifecycle, transfers, async, refunds/reversals were read. The source is P04-S024, not just the index.
+- EUR-Lex PSD2 original/consolidated HTML and PDF return a JS anti-bot challenge; EBA Q&A 2021_5726 returns 403. No circumvention was attempted. For the general explanation of passporting, the accessible pages of the Central Bank of Ireland are used. This is a regulator's guidance, not an independent check against the full consolidated law as of 2026.
+- Reddit: the payout thread 1orjx8y was not retrieved (timeout). The substantive thread `10kwnbp` by songtu-staygold, about the confusion between acquiring and issuing sponsorship, is available. The UI shows the relative date `4y ago`; the exact day was not extracted from the page. The comments are not a rule and include commercial messages.
+- BIS WP1163: the actual PDF was obtained via the PDF link on the original page; January 2024. The model description, the assumptions, sub-acquirer entry and the niche-market result were read. This is a theoretical model, not an empirical estimate of bank tariffs.
+- Rochet–Tirole: the PDF from TSE is dated 13 December 2002; the catalogue marks it as IDEI Working Paper 152 (2003), replaced by JEEA 2003. What is cited is specifically the author version that was read; the journal text is not declared as read.
 
-## Права и происхождение
+## Rights and provenance
 
-Главы — оригинальный синтез с синтетическими примерами. Чужие иллюстрации и полные исходные PDF в базу не включаются. Рабочие PDF BIS/TSE временно извлечены в /tmp для чтения; реестр не обещает архивной сохранности или SHA. Public access не равен открытой лицензии. Поисковые результаты не становятся доказательствами вместо оригинала.
+The chapters are an original synthesis with synthetic examples. Third-party illustrations and full source PDFs are not included in the knowledge base. Working PDFs from BIS/TSE were temporarily extracted to /tmp for reading; the register does not promise archival preservation or a SHA. Public access is not the same as an open license. Search results do not become evidence in place of the original.
 
-## Финальная авторская проверка
+## Final author check
 
-15.09.2026, Asia/Makassar: шесть заголовков 4.1–4.6 точно совпадают со структурой; 24 source IDs и 44 claim IDs последовательны; все ссылки на источники разрешаются в карточки с датой чтения 20260915. Проверены 26 числовых равенств с десятичной арифметикой. При этой проверке исправлена сумма crypto-колонки: компоненты 0,12 + 0,06 + 0,08 + 0,04 + 0,05 + 0,02 + 0,03 дают 0,40 USD / 2,00%, а с allocated fixed 0,20 — 0,60. Таблица, последующий текст и CLAIMS согласованы; остальные упражнения этой корректировки не требуют. Ранняя редакторская выборка не включала сумму этих компонентов.
+2026-09-15, Asia/Makassar: the six headings 4.1–4.6 exactly match the structure; the 24 source IDs and 44 claim IDs are sequential; all references to sources resolve to cards with the reading date 20260915. 26 numerical equalities were checked with decimal arithmetic. During this check, the sum of the crypto column was corrected: the components 0.12 + 0.06 + 0.08 + 0.04 + 0.05 + 0.02 + 0.03 give 0.40 USD / 2.00%, and with the allocated fixed cost of 0.20 they give 0.60. The table, the text that follows it and CLAIMS are consistent; the other exercises do not require this correction. The early editorial sample did not include the sum of these components.
 
-В CHAPTER 6 076 слов по разделению пробелами. Локальные ссылки внутри части существуют. Заранее известные соседние цели part-06, part-08 и part-09 пока отсутствуют: их создают другие исследователи, это зависимость общей сборки. Шаблонных заглушек нет; REVIEW.md автором не создан. Статус остаётся draft_for_review, независимый вердикт ожидается.
+CHAPTER contains 6,076 words, counted by splitting on whitespace. The local links within the chapter exist. The previously known neighboring targets part-06, part-08 and part-09 do not exist yet: other researchers are creating them, and this is a dependency of the overall build. There are no template placeholders; REVIEW.md was not created by the author. The status remains draft_for_review; an independent verdict is pending.

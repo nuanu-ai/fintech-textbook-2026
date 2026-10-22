@@ -1,5 +1,5 @@
 ---
-title: "Part 06 — журнал доступа и границ исследования"
+title: "Chapter 6 — log of access and research limits"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,60 +8,60 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Криптовалюты и стейблкоины](README.md) · [Оглавление](../README.md) · [Все источники и проверки](../../Fact-check/README.md)
+[← Crypto and stablecoins](README.md) · [Contents](../README.md) · [All sources and fact-checks](../../Fact-check/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Review dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Part 06 — журнал доступа и границ исследования
+# Chapter 6 — log of access and research limits
 
-**Статус:** `draft_for_review` · v0.1 · срез 15.09.2026 · фактическое чтение 15.09.2026 UTC · private.
+**Status:** `draft_for_review` · v0.1 · knowledge cutoff 2026-09-15 · actual reading 2026-09-15 UTC · private.
 
-Внутренняя организационная ссылка из исторической авторской заметки исключена из публичного издания; исследовательская методика и внешние источники сохранены.
+An internal organizational link from a historical author's note has been removed from the public edition; the research methodology and the external sources are preserved.
 
-## Что считается доказательством
+## What counts as evidence
 
-Полный текст находится в CHAPTER.md; реально прочитанные места — в 34 карточках SOURCES.md, существенные выводы — в 43 карточках CLAIMS.md. Автор не создаёт REVIEW.md и не присваивает independent approval. Старые агентские заметки использовались как навигационные leads, не как доказательства. Смежные части служили для согласования терминов и границ; внешние утверждения части6 проверялись отдельно.
+The full text is in CHAPTER.md; the passages actually read are in the 34 cards of SOURCES.md, and the material conclusions are in the 43 cards of CLAIMS.md. The author does not create REVIEW.md and does not assign independent approval. Old agent notes were used as navigation leads, not as evidence. Adjacent chapters were used to align terms and boundaries; the external claims of Chapter 6 were checked separately.
 
-Суффикс `20260915` — дата обращения UTC. Инструмент часов проверен во время чтения; местное время Asia/Makassar может уже относиться к следующему дню при дальнейшей редактуре. Публикации позже 15.09.2026 не включены. PDF читались в памяти, исходные копии и hash не сохранялись. Текстовые отчёты не сопровождаются чужими иллюстрациями.
+The suffix `20260915` is the access date in UTC. The clock tool was checked during reading; local time in Asia/Makassar may already fall on the next day during later editing. Publications after 2026-09-15 are not included. PDFs were read in memory; the original copies and hashes were not saved. The text reports are not accompanied by third-party illustrations.
 
-## Пробелы доступа и разрешённые альтернативы
+## Access gaps and permitted alternatives
 
-| Кандидат / тема | Фактический результат | Как ограничен вывод |
+| Candidate / topic | Actual result | How the conclusion is limited |
 |---|---|---|
-| EUR-Lex, Regulation2023/1114 EN HTML/PDF | Несколько оригинальных URL возвращали JS challenge; BOE republication timeout, EBA page403 | Открыта официальная ESMA Interactive Single Rulebook; реально прочитаны статьи3,48,49,59,149. Это достаточный источник указанных норм, но не полная экспертиза всего MiCA. Exact consolidation ID unknown. |
-| [Garuda English PoC report](https://www.bi.go.id/en/rupiah/digital-rupiah/Documents/Laporan_POC_Proyek_Garuda_EN.pdf) и Indonesian PDF | Web timeout; direct request connection reset | Использован полностью прочитанный BI release13.12.2024 (S028); качество тестов и полные технические результаты не объявлены проверенными. |
-| MAS speech13.11.2025 | Первоначальный web extract возвращал error | Официальная републикация BIS успешно получена HTTP200 и прочитана непосредственно, включая абзацы wholesale trial. S029 имеет method=official mirror и одну origin group; не считать BIS вторым подтверждением. |
-| [CBUAE Annual Report2025](https://centralbank.ae/media/4qbn11cl/annual-report-2025-en.pdf) | Ошибка web access | Для главы использованы primer и Ministry of Finance event; broad retail rollout на срез не утверждается. |
-| Circle reserve report July2026 | Полные5 PDF страниц доступны; имя independent accountant неразборчиво в извлечённом слое | Scope opinion прочитан; имя не угадано. Визуально проверить подпись, если редактор захочет назвать фирму. |
-| Tether current legal page / RID | Прочитаны выбранные условия; purchase fee statements в RID выглядят несогласованно | В главе только согласованный direct redemption fee. Не переносить старые формулировки delay/in-kind из сторонних цитат как текущие. Не утверждать отсутствие иных аудитов компании. |
-| Stripe stablecoin docs | Прочитан полный краткий текст | Country list шире описанной геодоступности; private preview сохранён. Странная фраза о bank authentication не использована как доказательство fraud protection. |
-| Динамические Base/Ethereum/CCTP/API docs | Доступны прочитанные разделы, точный commit отсутствует | Нет immutable snapshot, production verification или проверки конкретной конфигурации сети. |
+| EUR-Lex, Regulation 2023/1114 EN HTML/PDF | Several original URLs returned a JS challenge; BOE republication timeout, EBA page 403 | The official ESMA Interactive Single Rulebook was opened; Articles 3, 48, 49, 59 and 149 were actually read. This is a sufficient source for the stated rules, but not a full expert review of the whole of MiCA. Exact consolidation ID unknown. |
+| [Garuda English PoC report](https://www.bi.go.id/en/rupiah/digital-rupiah/Documents/Laporan_POC_Proyek_Garuda_EN.pdf) and Indonesian PDF | Web timeout; direct request connection reset | The fully read BI release of 2024-12-13 (S028) was used; the quality of the tests and the full technical results are not declared verified. |
+| MAS speech 2025-11-13 | The initial web extract returned an error | The official BIS republication was successfully retrieved with HTTP 200 and read directly, including the wholesale trial paragraphs. S029 has method=official mirror and one origin group; do not count BIS as a second confirmation. |
+| [CBUAE Annual Report 2025](https://centralbank.ae/media/4qbn11cl/annual-report-2025-en.pdf) | Web access error | The chapter uses the primer and the Ministry of Finance event; a broad retail rollout as of the cutoff is not claimed. |
+| Circle reserve report July 2026 | All 5 PDF pages are accessible; the name of the independent accountant is illegible in the extracted text layer | The scope of the opinion was read; the name was not guessed. Visually check the signature if the editor wants to name the firm. |
+| Tether current legal page / RID | Selected terms were read; the purchase fee statements in the RID look inconsistent | The chapter uses only the consistent direct redemption fee. Do not carry over old delay/in-kind wording from third-party quotes as current. Do not claim that the company has no other audits. |
+| Stripe stablecoin docs | The full short text was read | The country list is broader than the described geographic availability; the private preview status is kept. An odd sentence about bank authentication was not used as evidence of fraud protection. |
+| Dynamic Base/Ethereum/CCTP/API docs | The sections read are accessible; there is no exact commit | No immutable snapshot, production verification or check of a specific network configuration. |
 
-Для длинных BIS PDF, где web extraction давал ошибки, использовались обычные HTTPS requests и pypdf в оперативной памяти. Это чтение разрешённой открытой первички, а не обход логина или копирование архива.
+For long BIS PDFs where web extraction produced errors, ordinary HTTPS requests and pypdf were used in memory. This is reading of permitted, openly available primary sources, not bypassing a login or copying an archive.
 
-## Reddit/X: искали кейсы, не квоту
+## Reddit/X: we looked for cases, not a quota
 
-Искались ситуации wrong-network payment, неподдерживаемый токен, возврат после конверсии и зависшее зачисление. Поиск обнаружил полезные вопросы, но доступ к полному треду не получен. Нижеследующие записи — **кандидаты, не доказательства**; авторы и точные даты, не установленные в доступном тексте, остаются unknown.
+The search looked for situations involving a wrong-network payment, an unsupported token, a refund after conversion and a stuck credit. It found useful questions, but access to the full threads was not obtained. The entries below are **candidates, not evidence**; authors and exact dates that could not be established from the accessible text remain unknown.
 
-- [Reddit USDC, 194quq9](https://www.reddit.com/r/USDC/comments/194quq9/): direct open error; содержание не восстановлено из памяти.
-- [Reddit Coinbase, rrte6i](https://www.reddit.com/r/CoinBase/comments/rrte6i/): wrong-network invoice lead; direct open error, исход неизвестен.
-- [Reddit Bitget, 1arscyw](https://www.reddit.com/r/bitget/comments/1arscyw): в индексе пользователь описывает восстановление после выбора другой сети; direct open error, полного контекста и подтверждения результата нет.
-- [Reddit USDC, 1bc9nme](https://www.reddit.com/r/USDC/comments/1bc9nme/sent_usdc_to_pyusd/): search_index only; смешениеUSDC/PYUSD — тема для проверки, не установленный инцидент.
-- X: запрос `site.x.com USDC wrong network payment refund` не дал проверяемого релевантного оригинального поста. Нерелевантные результаты и рекламные руководства не включены в источники главы.
+- [Reddit USDC, 194quq9](https://www.reddit.com/r/USDC/comments/194quq9/): direct open error; the content was not reconstructed from memory.
+- [Reddit Coinbase, rrte6i](https://www.reddit.com/r/CoinBase/comments/rrte6i/): wrong-network invoice lead; direct open error, outcome unknown.
+- [Reddit Bitget, 1arscyw](https://www.reddit.com/r/bitget/comments/1arscyw): in the index, a user describes a recovery after choosing a different network; direct open error, no full context and no confirmation of the outcome.
+- [Reddit USDC, 1bc9nme](https://www.reddit.com/r/USDC/comments/1bc9nme/sent_usdc_to_pyusd/): search_index only; mixing up USDC/PYUSD is a topic to check, not an established incident.
+- X: the query `site.x.com USDC wrong network payment refund` did not return a verifiable, relevant original post. Irrelevant results and promotional guides are not included in the chapter's sources.
 
-Ни обвинения, ни рекламные обещания восстановления из этих фрагментов не повторяются как факты. Практические сбои в главе — явно синтетические сценарии, поддержанные механизмами протоколов и vendor docs.
+Neither accusations nor promotional promises of recovery from these fragments are repeated as facts. The practical failures in the chapter are explicitly synthetic scenarios, supported by protocol mechanisms and vendor docs.
 
-## Пределы, важные рецензенту
+## Limits that matter to the reviewer
 
-- USDC non-EEA и EEA имеют разный договорный доступ к redemption; точный URL EEA policy передан исследователю части5 для собственной проверки.
-- Reserve examination, all-company audit, ликвидность и insolvency priority — разные вопросы. Юридические recovery waterfall конкретных эмитентов не исследованы полностью.
-- Срок fiat payout задаётся конкретными rail/cutoff/support. Ни «весь fiat только по будням», ни «весь stablecoin settlement мгновенный» в тексте не принимаются.
-- CBDC таблица сообщает последнее прочитанное доказательство с датой, не обещает исчерпывающий live registry2026. Garuda PoC, SG trial и UAE pilot не названы public retail launch. Digital euro2029 условен.
-- BIS1164: действительно прочитаны модель, выбранные empirical identification pages и результаты; не все математические приложения. BIS159: опрос2024, а не текущая карта. Большой onchain volume не измеряет retail adoption.
-- Treasury case — операционный subledger одного principal P с условной USD functional currency. Клиентский safeguarding и обязательная IFRS-проводка из него не выводятся; revaluation остальных остатков при стрессовом курсе считалась бы отдельно.
+- USDC non-EEA and EEA have different contractual access to redemption; the exact URL of the EEA policy was passed to the Chapter 5 researcher for their own check.
+- Reserve examination, all-company audit, liquidity and insolvency priority are different questions. The legal recovery waterfalls of specific issuers were not fully researched.
+- Fiat payout timing is set by the specific rail/cutoff/support. The text accepts neither "all fiat only on weekdays" nor "all stablecoin settlement is instant".
+- The CBDC table reports the latest evidence read, with its date; it does not promise an exhaustive live registry for 2026. The Garuda PoC, the SG trial and the UAE pilot are not called a public retail launch. Digital euro 2029 is conditional.
+- BIS 1164: the model, selected empirical identification pages and the results were actually read; not all mathematical appendices. BIS 159: a 2024 survey, not a current map. A large onchain volume does not measure retail adoption.
+- The treasury case is an operational subledger of a single principal P with an assumed USD functional currency. Client safeguarding and a mandatory IFRS journal entry are not derived from it; revaluation of the other balances at a stress exchange rate would be calculated separately.
 
-## Авторская проверка перед передачей
+## Author's check before handover
 
-Проверяются все восемь точных заголовков v02, ссылки между файлами, соответствие claim IDs и source IDs, арифметика базового/стрессового примеров и упражнений. Результат такой проверки — качество авторского draft; независимый review остаётся отдельным этапом.
+The check covers all eight exact v02 headings, the links between files, the match between claim IDs and source IDs, and the arithmetic of the base/stress examples and the exercises. The result of such a check is the quality of the author's draft; independent review remains a separate stage.
 
-Результат авторской проверки 15.09.2026 UTC: все 8 заголовков совпали с v02; 34 source IDs и 43 claim IDs согласованы; локальные ссылки существуют; базовые остатки, комиссии, округления, intraday gap и три стрессовых результата пересчитаны через Decimal. Шаблонных TODO/TBD нет. CHAPTER содержит около 7 100 слов (подсчёт по пробельным разделителям); только четыре разрешённых MD-файла.
+Result of the author's check on 2026-09-15 UTC: all 8 headings matched v02; 34 source IDs and 43 claim IDs are consistent; local links exist; base balances, fees, rounding, the intraday gap and three stress results were recalculated with Decimal. There are no template TODO/TBD markers. CHAPTER contains about 7,100 words (counted by whitespace separators); only four permitted MD files.

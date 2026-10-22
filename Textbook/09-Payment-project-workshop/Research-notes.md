@@ -1,5 +1,5 @@
 ---
-title: "Часть 9 — журнал исследования и границы"
+title: "Chapter 9 — research log and boundaries"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,74 +8,74 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Практикум платёжного проекта](README.md) · [Оглавление](../README.md) · [Все источники и проверки](../../Fact-check/README.md)
+[← Payment project workshop](README.md) · [Contents](../README.md) · [All sources and fact-checks](../../Fact-check/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Часть 9 — журнал исследования и границы
+# Chapter 9 — research log and boundaries
 
-**17.09.2026 · private · v0.1 · draft_for_review.** Автор: `part_09_research`. Это заметки автора и результаты технической проверки, **не независимая рецензия**. `REVIEW.md` автором не создавался.
+**2026-09-17 · private · v0.1 · draft_for_review.** Author: `part_09_research`. These are the author's notes and the results of a technical check, **not an independent review**. `REVIEW.md` was not created by the author.
 
-## Выполненная работа
+## Work done
 
-- Прочитаны RESEARCH_BRIEF, README учебной базы, SOURCE_DATASET_SCHEMA, MODULE_TEMPLATE, RESEARCH_RUN и полный раздел части 9 v02; смежная часть 8 прочитана целиком для согласования терминов, роли subledger и unknown/recovery.
-Внутренняя организационная ссылка из исторической авторской заметки исключена из публичного издания; исследовательская методика и внешние источники сохранены.
-- Написаны все модули 9.1–9.5, четыре развернутых синтетических сценария, публичная хронология и восемь упражнений с объяснениями.
-- Собственный каталог содержит 19 внешних источников и 2 внутренних входа; 26 карточек утверждений, включая 3 рабочие гипотезы и один явно открытый вопрос датировки динамических docs. Источники других глав не подставлены вместо самостоятельного чтения.
+- Read: RESEARCH_BRIEF, the README of the teaching knowledge base, SOURCE_DATASET_SCHEMA, MODULE_TEMPLATE, RESEARCH_RUN and the full Chapter 9 section of v02; the adjacent Chapter 8 section was read in full to align terms, the role of the subledger and unknown/recovery.
+An internal organizational reference from the historical author's note has been removed from the public edition; the research methodology and external sources are preserved.
+- All modules 9.1–9.5 were written, along with four detailed synthetic scenarios, a public timeline and eight exercises with explanations.
+- The chapter's own catalog contains 19 external sources and 2 internal inputs; 26 claim cards, including 3 working hypotheses and one explicitly open question about dating the dynamic docs. Sources from other chapters were not substituted for independent reading.
 
-## Дата и точность среза
+## Cutoff date and precision
 
-Дата задачи — срез 15.09.2026, фактическая сессия — 17.09.2026. Часы проверены: 05:18:19 UTC / 13:18:19 Asia/Makassar. Поэтому все новые snapshots имеют суффикс `20260917`, а не фиктивный `20260915`.
+The task date is the 2026-09-15 cutoff; the actual session took place on 2026-09-17. The clock was checked: 05:18:19 UTC / 13:18:19 Asia/Makassar. That is why all new snapshots carry the suffix `20260917`, not a fictitious `20260915`.
 
-Для динамических страниц подтвержден текст на дату чтения. **Нет сохраненных архивных версий Stripe docs/FAQ и x402 README на 15 сентября.** Их product/API наблюдения явно ограничены 17 сентября, а исходные учебные конструкции не представлены исторической аттестацией. Датированные акты и публикации 2013–2026 до среза использованы с собственными датами. Свежие related-posts и поисковые метки не подменяют дату основного документа.
+For dynamic pages, the text is confirmed as of the reading date. **There are no saved archived versions of the Stripe docs/FAQ and the x402 README as of 15 September.** Their product/API observations are explicitly limited to 17 September, and the original teaching constructs are not presented as historical attestation. Dated acts and publications from 2013–2026 before the cutoff are used with their own dates. Recent related posts and search labels do not replace the date of the main document.
 
-Важные наблюдения для редактора пары 8–9:
+Important observations for the editor of the 8–9 pair:
 
-1. Stripe Stablecoin payments при чтении 17.09 говорит `local currency` settlement, а рядом сохраняет отдельные country/private-preview ограничения. Поддержка/старые документы могут говорить USD. Глава не решает это расширением product availability; EUR кейс полностью синтетический. Не переносить сегодняшнюю формулировку молча в предыдущие снимки.
-2. Общий и US URL Stripe stablecoin terms перенаправляются в AU locale, но текст включает региональные условия. Catalog фиксирует фактический URL; ни доступность в Australia, ни применимый договор конкретного мерчанта из redirect не выведены.
-3. Coinbase x402 README направляет к x402 Foundation; оба просмотрены, доказательный каталог использует Foundation. Exact SHA не закреплен. Названия новых schemes из текущего README не используются как факты исторического среза.
-4. У Circle announcement body датирован 12.03.2023, а страница — 13.03; operational update имеет as-of 15.03, публикацию 16.03. Обе пары дат сохранены.
+1. When read on 17 September, Stripe Stablecoin payments says `local currency` settlement, while keeping separate country/private-preview restrictions next to it. Support pages/older documents may say USD. The chapter does not resolve this by extending product availability; the EUR case is fully synthetic. Do not silently carry today's wording over into earlier snapshots.
+2. The general and US URLs of the Stripe stablecoin terms redirect to the AU locale, but the text includes regional terms. The catalog records the actual URL; neither availability in Australia nor the contract applicable to a specific merchant is inferred from the redirect.
+3. The Coinbase x402 README points to the x402 Foundation; both were reviewed, and the evidence catalog uses the Foundation. The exact SHA is not pinned. The names of new schemes from the current README are not used as facts for the historical cutoff.
+4. In the Circle announcement, the body is dated 2023-03-12 and the page 13 March; the operational update has an as-of date of 15 March and a publication date of 16 March. Both pairs of dates are preserved.
 
-## Недоступные, ограниченные и неиспользованные кандидаты
+## Unavailable, limited and unused candidates
 
-| Кандидат | Что произошло | Как ограничен вывод |
+| Candidate | What happened | How the conclusion is limited |
 |---|---|---|
-| [FCA Consider if you provide payment services](https://www.fca.org.uk/firms/consider-if-you-provide-payment-services) | Первый ответ показал metadata, последующие чтения — timeout/internal error | Не использован как прочитанная правовая основа; узкий технический exclusion прочитан прямо в PSD2 consolidation |
-| [AP2 topics/mandates](https://ap2-protocol.org/topics/mandates/) | Internal error | Не объявлен прочитанной спецификацией; использован доступный датированный Google announcement, с ограничением announcement-only |
-| [Circle March 11 update](https://www.circle.com/blog/an-update-on-usdc-and-silicon-valley-bank) | Историческая ссылка из press release перенаправила на общий blog | Исходный текст не реконструирован; хронология построена на Fed statement и двух доступных Circle оригиналах |
-| [AP2 GitHub](https://github.com/google-agentic-commerce/AP2) | README доступен, но не дал нужной точной immutable версии mandates | Не используется как доказательство current protocol conformance; runtime/samples не запускались |
-| [Stripe support — stablecoin onboarding](https://support.stripe.com/questions/get-started-with-stablecoin-payments) | Найден поисковый результат о USD settlement, полный оригинал в этой части не читался | Сниппет не считается доказательством; расхождение отмечено как причина проверить историю версий |
-| Reddit megathread | Оригинальный пост прочитан; UI относительная дата `4y ago` не дает надежный абсолютный день | Содержание атрибутировано; цена и заявления о причинах не использованы как факты |
+| [FCA Consider if you provide payment services](https://www.fca.org.uk/firms/consider-if-you-provide-payment-services) | The first response showed metadata; later reads returned timeout/internal error | Not used as a legal basis that was read; the narrow technical exclusion was read directly in the PSD2 consolidation |
+| [AP2 topics/mandates](https://ap2-protocol.org/topics/mandates/) | Internal error | Not presented as a specification that was read; the available dated Google announcement was used, with an announcement-only limitation |
+| [Circle March 11 update](https://www.circle.com/blog/an-update-on-usdc-and-silicon-valley-bank) | The historical link from the press release redirected to the general blog | The original text was not reconstructed; the timeline is built on the Fed statement and the two available Circle originals |
+| [AP2 GitHub](https://github.com/google-agentic-commerce/AP2) | The README is available but did not provide the required exact immutable version of mandates | Not used as evidence of current protocol conformance; runtime/samples were not run |
+| [Stripe support — stablecoin onboarding](https://support.stripe.com/questions/get-started-with-stablecoin-payments) | A search result about USD settlement was found; the full original was not read in this chapter | The snippet is not treated as evidence; the discrepancy is noted as a reason to check the version history |
+| Reddit megathread | The original post was read; the UI relative date `4y ago` does not give a reliable absolute day | The content is attributed; the price and statements about causes are not used as facts |
 
-Reddit выбран осмысленно как след публичного обсуждения исторического инцидента. X-ссылки из этого поста не открывались отдельно и не считаются прочитанными первичными постами. Квота социальных публикаций не вводилась. Найденные поиском новые AP2/security preprints и ASP paper не изучались в полном тексте, не включены в evidence и не используются для вывода об уязвимости/готовности. Научно-методологическая опора части — прочитанная статья Sandve et al.; она не является empirical payment study.
+Reddit was chosen deliberately as a trace of public discussion of a historical incident. The X links from this post were not opened separately and are not counted as primary posts that were read. No quota for social media publications was introduced. New AP2/security preprints and the ASP paper found by search were not studied in full text, are not included in the evidence and are not used to draw conclusions about vulnerability/readiness. The chapter's scientific and methodological basis is the Sandve et al. article that was read; it is not an empirical payment study.
 
-## Техническая проверка автора
+## Author's technical check
 
-17.09.2026 выполнен локальный проверочный расчет с точной десятичной арифметикой. Для каждого журнала суммировались дебеты/кредиты и остатки счетов, затем сверялись независимые формулы и ответы. Проверочный код выполнялся в памяти, отдельная программа или фиктивный банковский файл не создавались.
+On 2026-09-17, a local verification calculation was run using exact decimal arithmetic. For each ledger, debits/credits and account balances were summed, and then independent formulas and answers were reconciled. The verification code ran in memory; no separate program or fictitious bank file was created.
 
-| Кейс | Конечные денежные средства продавца | Платежные расходы | Возвраты | Сумма конечных дебетовых = кредитовых остатков | Незавершенные счета |
+| Case | Merchant's final cash | Payment costs | Refunds | Total of final debit = credit balances | Open accounts |
 |---|---:|---:|---:|---:|---|
-| A | 1 071,50 EUR | 3,50 EUR | 25,00 EUR | 1 100,00 EUR | PSP, reserve, in-transit, delivery, refund debt = 0 |
-| B | 3 186 300 IDR | 13 700 IDR | 400 000 IDR | 3 600 000 IDR | PJP, in-transit, delivery, refund debt = 0 |
-| C | 1 072,50 EUR | 2,50 EUR | 25,00 EUR | 1 100,00 EUR | Partner, in-transit, delivery, refund debt = 0 |
-| D | 47,80 USDC | 0,20 USDC | 12,00 USDC | 60,00 USDC | Delivery, refund debt = 0 |
+| A | 1,071.50 EUR | 3.50 EUR | 25.00 EUR | 1,100.00 EUR | PSP, reserve, in-transit, delivery, refund debt = 0 |
+| B | 3,186,300 IDR | 13,700 IDR | 400,000 IDR | 3,600,000 IDR | PJP, in-transit, delivery, refund debt = 0 |
+| C | 1,072.50 EUR | 2.50 EUR | 25.00 EUR | 1,100.00 EUR | Partner, in-transit, delivery, refund debt = 0 |
+| D | 47.80 USDC | 0.20 USDC | 12.00 USDC | 60.00 USDC | Delivery, refund debt = 0 |
 
-Дополнительно проверены: buyer balances A 425 EUR, B 1 800 000 IDR, C 418 USDC; сохранение 120 USDC в D; округление 28,571429 USDC вверх; 434 операции для синтетического break-even; exercise C 34,50 USDC refund / 1 067,40 EUR bank / 67,40 EUR result. Эти тесты подтверждают арифметику условий, не реальные деньги или правовую допустимость.
+Also checked: buyer balances A 425 EUR, B 1,800,000 IDR, C 418 USDC; conservation of 120 USDC in D; rounding up to 28.571429 USDC; 434 transactions for the synthetic break-even; exercise C 34.50 USDC refund / 1,067.40 EUR bank / 67.40 EUR result. These tests confirm the arithmetic of the conditions, not real money or legal permissibility.
 
-Заголовки строго 9.1–9.5; source IDs P09-S001–S021; claim IDs P09-C001–C026. Проверены ссылки на локальные файлы и наличие карточек для ссылочных IDs. Все доказательные внешние URL действительно открывались, кроме явно перечисленных неиспользованных кандидатов; финальная проверка ссылки не является независимым смысловым review.
+Headings are strictly 9.1–9.5; source IDs P09-S001–S021; claim IDs P09-C001–C026. Links to local files and the existence of cards for referenced IDs were checked. All evidentiary external URLs were actually opened, except for the explicitly listed unused candidates; the final link check is not an independent review of the substance.
 
-## Что остается открытым
+## What remains open
 
-- Архивная неизменность динамических документов на 15.09.2026 и immutable protocol commits.
-- Точная eligibility реальных merchant/provider accounts, договоры, лицензии/регистрации, национальные переходы и география. Названные бренды не составляют рекомендуемый shortlist.
-- Применимость PBI 10/2025/PADG/technical instructions к определенному коннектору; для этого недостаточно официального summary.
-- Полный MiCA/PSD2 анализ конкретного stablecoin/EMT сервиса и всех участников, а также AML/sanctions/consumer/tax особенности реального маршрута.
-- Правовой и операционный финальный критерий конкретного QRIS/A2A/refund rail; учебные wire-refunds и тарифы не являются гарантированными свойствами QRIS API.
-- Специфические механизмы текущих AP2/x402 реализаций, security audit, production resilience и качество товара. Пример D не объявлен implementation/conformance test.
-- Независимая рецензия пары 8–9 и исправления по ее результатам. PDF не создавался; опубликованных материалов и изменений канона нет.
+- Archival evidence that the dynamic documents were unchanged as of 2026-09-15, and immutable protocol commits.
+- The exact eligibility of real merchant/provider accounts, contracts, licenses/registrations, national transitions and geography. The brands named do not make up a recommended shortlist.
+- Applicability of PBI 10/2025/PADG/technical instructions to a particular connector; the official summary is not enough for this.
+- A full MiCA/PSD2 analysis of a specific stablecoin/EMT service and all participants, as well as the AML/sanctions/consumer/tax specifics of a real route.
+- The legal and operational finality criterion for a specific QRIS/A2A/refund rail; the teaching wire-refunds and fees are not guaranteed properties of the QRIS API.
+- The specific mechanisms of current AP2/x402 implementations, security audit, production resilience and product quality. Example D is not presented as an implementation/conformance test.
+- An independent review of the 8–9 pair and corrections based on its results. No PDF was created; there are no published materials and no changes to the canon.
 
-## Handoff независимому рецензенту
+## Handoff to the independent reviewer
 
-Проверить четыре журнала с начальных остатков; качество разграничений authorization/settlement/payout/fulfillment; разумность closed/unknown recovery; сумму резервной ликвидности; валюту обязательства при FX; допустимость формулировок законов и текущих docs; значение operator self-report в историческом инциденте. Автор не ставит себе независимого вердикта.
+Check the four ledgers starting from the opening balances; the quality of the distinctions between authorization/settlement/payout/fulfillment; the soundness of closed/unknown recovery; the amount of reserve liquidity; the currency of the obligation under FX; whether the wording about laws and current docs is acceptable; the weight of the operator self-report in the historical incident. The author does not give themselves an independent verdict.
 
-Внутренняя организационная ссылка из исторической авторской заметки исключена из публичного издания; исследовательская методика и внешние источники сохранены.
+An internal organizational reference from the historical author's note has been removed from the public edition; the research methodology and external sources are preserved.

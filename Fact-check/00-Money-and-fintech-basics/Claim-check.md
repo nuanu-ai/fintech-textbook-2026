@@ -1,5 +1,5 @@
 ---
-title: "Claim audit — Part 00"
+title: "Claim audit — Chapter 0"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,11 +8,11 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/00-Money-and-fintech-basics/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/00-Money-and-fintech-basics/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Claim audit — Part 00
+# Claim audit — Chapter 0
 
 Independent auditor:deep_audit_00_01_05. Checked17September2026,Asia/Makassar; knowledge cutoff15September2026. 48 claims assessed individually. Vendor assertions establish documented behaviour,not tested execution. Partial/unverifiable means evidence limitation,not automatically false. Contradicted rows here assess the explicitly rejected myth literally; they do not criticise its rejection. New post-baseline IDs included where present.
 

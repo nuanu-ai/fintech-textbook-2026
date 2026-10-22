@@ -1,5 +1,5 @@
 ---
-title: "Part 06 — реестр источников"
+title: "Chapter 6 — source register"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,179 +8,179 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Криптовалюты и стейблкоины](README.md) · [Оглавление](../README.md) · [Все источники и проверки](../../Fact-check/README.md)
+[← Crypto and stablecoins](README.md) · [Contents](../README.md) · [All sources and fact-checks](../../Fact-check/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Review dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Part 06 — реестр источников
+# Chapter 6 — source register
 
-**Статус:** `independently_reviewed_draft` · **Версия:** v0.1 · **Срез:** 15.09.2026 · **Видимость:** private.
+**Status:** `independently_reviewed_draft` · **Version:** v0.1 · **Knowledge cutoff:** 2026-09-15 · **Visibility:** private.
 
-Фактчек исходной редакции завершен17.09.2026. Связь исходной версии с публичной копией, область адаптации и текущая навигация описаны в паспорте издания.
+Fact-checking of the original edition was completed on 2026-09-17. The link between the original version and the public copy, the scope of the adaptation and the current navigation are described in the edition record.
 
-## Как читать карточки
+## How to read the source cards
 
-Каждая карточка относится к реально прочитанному объёму, указанному в `reviewed_scope`. `full_text` у короткой HTML-статьи означает её текст, а не весь сайт; `partial_text` у PDF означает названные страницы. Удалённые страницы и поисковые кандидаты вынесены в [RESEARCH_NOTES.md](Research-notes.md). Источники из одной `independence_group` не считаются независимыми голосами.
+Each card covers the material actually read, as stated in `reviewed_scope`. `full_text` for a short HTML article means the text of that article, not the whole site; `partial_text` for a PDF means the named pages. Removed pages and search candidates are moved to [RESEARCH_NOTES.md](Research-notes.md). Sources from the same `independence_group` do not count as independent voices.
 
-**Общие поля для каждой карточки ниже:** `accessed_at=2026-09-15 UTC`; точность обращения — календарный день (часы проверены инструментом в ходе работы); `date_precision` публикации — день, если указан полный день, иначе явно месяц/unknown; `language=en`, `locale=international/указанная jurisdiction`; `canonical_url=url`, если не оговорена републикация; `doi=unknown`; `supersedes=none in this local registry`; `effective_to=unknown` для правовых/договорных документов, `not_applicable` для остальных. `local_path=none`, `sha256=none`: исходные файлы не сохранены. Snapshot ID обозначает дату чтения, **не immutable copy**. PDF обрабатывались в оперативной памяти.
+**Common fields for every card below:** `accessed_at=2026-09-15 UTC`; access precision is the calendar day (the clock was checked with a tool during the work); publication `date_precision` is the day if a full day is given, otherwise explicitly month/unknown; `language=en`, `locale=international/stated jurisdiction`; `canonical_url=url` unless a republication is noted; `doi=unknown`; `supersedes=none in this local registry`; `effective_to=unknown` for legal/contractual documents, `not_applicable` for the rest. `local_path=none`, `sha256=none`: the source files were not saved. The snapshot ID marks the reading date, **not an immutable copy**. PDFs were processed in memory.
 
-**Права:** ссылки и краткий оригинальный синтез; разрешение на хранение полных копий, иллюстрации и распространение — `unknown`, они не выполнялись. `rights_basis_url` по умолчанию URL самого документа, отдельная лицензия не установлена; unknown не означает разрешение. Для ERC-681 явно указан CC0; в CPMI147 разрешены краткие атрибутированные выдержки/перевод, не заявляется разрешение на иное использование.
+**Rights:** links and a brief original synthesis; permission to store full copies, use illustrations and redistribute is `unknown`, and none of these was done. `rights_basis_url` defaults to the URL of the document itself; no separate license was established; unknown does not mean permission. ERC-681 explicitly states CC0; CPMI147 permits brief attributed excerpts/translation, and no permission for any other use is claimed.
 
-**Проверка карточек:** `reviewer=part_06_research (author)`, `reviewed_at=2026-09-15 UTC`, независимый `review_status=see_REVIEW.md`. Чтение и сверка автором не являются независимым review. Vendor источники заинтересованы в описании и продвижении своих услуг; регуляторы — в собственных политиках; особые ограничения указаны в карточках.
+**Card review:** `reviewer=part_06_research (author)`, `reviewed_at=2026-09-15 UTC`, independent `review_status=see_REVIEW.md`. Reading and cross-checking by the author is not an independent review. Vendor sources have an interest in describing and promoting their own services; regulators, in their own policies; specific limitations are noted in the cards.
 
 ## P06-S001 — MiCA — Article 3 Definitions
 
 - **snapshot_id:** `P06-S001-20260915`; **author:** European Parliament / Council; **publisher:** ESMA.
 - **URL:** [MiCA — Article 3 Definitions](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-3-definitions).
-- **source_class / document_kind:** `law` / статья Regulation (EU) 2023/1114.
-- **published_at:** 2023-06-09 (OJ; акт 2023-05-31); **updated_at:** unknown; **effective_from:** Art.149: основной режим 2024-12-30; делегирующие положения отдельно.
+- **source_class / document_kind:** `law` / article of Regulation (EU) 2023/1114.
+- **published_at:** 2023-06-09 (OJ; act 2023-05-31); **updated_at:** unknown; **effective_from:** Art.149: main regime 2024-12-30; delegating provisions separately.
 - **version / status:** current interactive rulebook; consolidated edition ID unknown.
-- **jurisdiction / activity / product / audience:** EU; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** EU; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
-- **reviewed_scope / locator:** §1(6–7),(15–26): определения EMT/CASP и перечень услуг.
+- **reviewed_scope / locator:** §1(6–7),(15–26): definitions of EMT/CASP and the list of services.
 - **independence_group:** `MiCA-law`; **origin_source_id:** self.
-- **interests / limitations:** Не заменяет полный анализ исключений и классификацию конкретного продукта.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** Does not replace a full analysis of exemptions or the classification of a specific product.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S002 — MiCA — Article 48 Requirements for the offer to the public or admission to trading of e-money tokens
 
 - **snapshot_id:** `P06-S002-20260915`; **author:** European Parliament / Council; **publisher:** ESMA.
 - **URL:** [MiCA — Article 48 Requirements for the offer to the public or admission to trading of e-money tokens](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-48-requirements-offer-public-or).
-- **source_class / document_kind:** `law` / статья закона.
-- **published_at:** 2023-06-09; **updated_at:** unknown; **effective_from:** Title IV применяется с 2024-06-30; S005.
+- **source_class / document_kind:** `law` / article of the law.
+- **published_at:** 2023-06-09; **updated_at:** unknown; **effective_from:** Title IV applies from 2024-06-30; S005.
 - **version / status:** current interactive rulebook; exact consolidation unknown.
-- **jurisdiction / activity / product / audience:** EU; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** EU; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page.
-- **reviewed_scope / locator:** Article48 §§1–4,6–7: субъект выпуска, whitepaper, deemed e-money.
+- **reviewed_scope / locator:** Article 48 §§1–4,6–7: issuing entity, whitepaper, deemed e-money.
 - **independence_group:** `MiCA-law`; **origin_source_id:** self.
-- **interests / limitations:** Публичное предложение EMT в scope MiCA; это не глобальный режим stablecoins.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** Public offering of EMTs within the scope of MiCA; this is not a global regime for stablecoins.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S003 — MiCA — Article 49 Issuance and redeemability of e-money tokens
 
 - **snapshot_id:** `P06-S003-20260915`; **author:** European Parliament / Council; **publisher:** ESMA.
 - **URL:** [MiCA — Article 49 Issuance and redeemability of e-money tokens](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-49-issuance-and-redeemability-e).
-- **source_class / document_kind:** `law` / статья закона.
-- **published_at:** 2023-06-09; **updated_at:** unknown; **effective_from:** Title IV с 2024-06-30; S005.
+- **source_class / document_kind:** `law` / article of the law.
+- **published_at:** 2023-06-09; **updated_at:** unknown; **effective_from:** Title IV from 2024-06-30; S005.
 - **version / status:** current interactive rulebook; exact consolidation unknown.
-- **jurisdiction / activity / product / audience:** EU; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
-- **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page; HTML прочитан также requests после неполного web extraction.
-- **reviewed_scope / locator:** Article49 §§1–6, особенно2–4,6.
+- **jurisdiction / activity / product / audience:** EU; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
+- **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page; the HTML was also read via requests after an incomplete web extraction.
+- **reviewed_scope / locator:** Article 49 §§1–6, especially 2–4,6.
 - **independence_group:** `MiCA-law`; **origin_source_id:** self.
-- **interests / limitations:** Право держателя и погашение не равны неизменной цене вторичного рынка.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** The holder's right and redemption do not equal a fixed secondary-market price.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S004 — MiCA — Article 59 Authorisation
 
 - **snapshot_id:** `P06-S004-20260915`; **author:** European Parliament / Council; **publisher:** ESMA.
 - **URL:** [MiCA — Article 59 Authorisation](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-59-authorisation).
-- **source_class / document_kind:** `law` / статья закона.
-- **published_at:** 2023-06-09; **updated_at:** unknown; **effective_from:** общая дата применения 2024-12-30; переходные условия конкретного субъекта не исследованы.
+- **source_class / document_kind:** `law` / article of the law.
+- **published_at:** 2023-06-09; **updated_at:** unknown; **effective_from:** general date of application 2024-12-30; transitional conditions for a specific entity were not researched.
 - **version / status:** current interactive rulebook; exact consolidation unknown.
-- **jurisdiction / activity / product / audience:** EU; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** EU; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page; requests HTML.
-- **reviewed_scope / locator:** Article59 §§1–8: authorization, конкретные услуги, расширение.
+- **reviewed_scope / locator:** Article 59 §§1–8: authorization, specific services, extension.
 - **independence_group:** `MiCA-law`; **origin_source_id:** self.
-- **interests / limitations:** Article60, национальные переходные режимы и реестры конкретного CASP требуют отдельной проверки.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** Article 60, national transitional regimes and the registers for a specific CASP require a separate check.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S005 — MiCA — Article 149 Entry into force and application
 
 - **snapshot_id:** `P06-S005-20260915`; **author:** European Parliament / Council; **publisher:** ESMA.
 - **URL:** [MiCA — Article 149 Entry into force and application](https://www.esma.europa.eu/publications-and-data/interactive-single-rulebook/mica/article-149-entry-force-and-application).
-- **source_class / document_kind:** `law` / статья закона.
-- **published_at:** 2023-06-09; **updated_at:** unknown; **effective_from:** §1:20-й день после публикации; §2:2024-12-30; §3 TitlesIII/IV:2024-06-30; §4 перечисленные положения:2023-06-29.
+- **source_class / document_kind:** `law` / article of the law.
+- **published_at:** 2023-06-09; **updated_at:** unknown; **effective_from:** §1: 20th day after publication; §2: 2024-12-30; §3 Titles III/IV: 2024-06-30; §4 listed provisions: 2023-06-29.
 - **version / status:** current interactive rulebook; exact consolidation unknown.
-- **jurisdiction / activity / product / audience:** EU; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** EU; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page; requests HTML.
-- **reviewed_scope / locator:** вся статья §§1–4.
+- **reviewed_scope / locator:** the whole article, §§1–4.
 - **independence_group:** `MiCA-law`; **origin_source_id:** self.
-- **interests / limitations:** Не путать entry into force и application; индивидуальные transitional provisions находятся в других статьях.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** Do not confuse entry into force with application; individual transitional provisions are in other articles.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S006 — MAS Finalises Stablecoin Regulatory Framework
 
 - **snapshot_id:** `P06-S006-20260915`; **author:** Monetary Authority of Singapore; **publisher:** MAS / Singapore Government Press Centre.
 - **URL:** [MAS Finalises Stablecoin Regulatory Framework](https://www.sgpc.gov.sg/api/file/getfile/Media%20Release_MAS%20Finalises%20Stablecoin%20Regulatory%20Framework.pdf?path=/sgpcmedia/media_releases/mas/press_release/P-20230815-2/attachment/Media+Release_MAS+Finalises+Stablecoin+Regulatory+Framework.pdf).
-- **source_class / document_kind:** `regulator` / официальный пресс-релиз.
-- **published_at:** 2023-08-15; **updated_at:** unknown; **effective_from:** unknown: announcement не принят за вступление закона в силу.
+- **source_class / document_kind:** `regulator` / official press release.
+- **published_at:** 2023-08-15; **updated_at:** unknown; **effective_from:** unknown: the announcement is not treated as the law entering into force.
 - **version / status:** announced framework; implementation as of cutoff not verified.
-- **jurisdiction / activity / product / audience:** Singapore; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Singapore; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** official_pdf.
-- **reviewed_scope / locator:** все2 PDF страницы: scope Singapore-issued SGD/G10 SCS, reserve/redemption, regulated label.
+- **reviewed_scope / locator:** the entire 2-page PDF: scope Singapore-issued SGD/G10 SCS, reserve/redemption, regulated label.
 - **independence_group:** `MAS-SCS-2023`; **origin_source_id:** self.
-- **interests / limitations:** Не доказывает статус конкретного токена и текущую реализацию всего режима.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** Does not prove the status of a specific token or the current implementation of the entire regime.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S007 — USDC Terms
 
-- **snapshot_id:** `P06-S007-20260915`; **author:** Circle Internet Financial, LLC; связанные issuer entities по тексту; **publisher:** Circle.
+- **snapshot_id:** `P06-S007-20260915`; **author:** Circle Internet Financial, LLC; related issuer entities as named in the text; **publisher:** Circle.
 - **URL:** [USDC Terms](https://www.circle.com/legal/usdc-terms).
-- **source_class / document_kind:** `vendor` / договорные условия.
-- **published_at:** unknown; **updated_at:** 2025-12-12; **effective_from:** редакция условий12.12.2025; индивидуальная применимость зависит от scope.
+- **source_class / document_kind:** `vendor` / contractual terms.
+- **published_at:** unknown; **updated_at:** 2025-12-12; **effective_from:** terms version of 2025-12-12; individual applicability depends on scope.
 - **version / status:** live legal text; exact historical snapshot not saved.
-- **jurisdiction / activity / product / audience:** non-EEA holders; EEA excluded; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** non-EEA holders; EEA excluded; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
-- **reviewed_scope / locator:** вводная область применения; §§1–4,8–9,13–17; TypeA/TypeB, access to redemption, risk/freeze/third-party services.
+- **reviewed_scope / locator:** introductory scope section; §§1–4,8–9,13–17; TypeA/TypeB, access to redemption, risk/freeze/third-party services.
 - **independence_group:** `Circle-legal`; **origin_source_id:** self.
-- **interests / limitations:** Условия эмитента, не независимый аудит и не EEA policy; не подтверждают доступ данного клиента.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** The issuer's terms, not an independent audit and not the EEA policy; they do not confirm access for any given customer.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S008 — MiCA Redemption Policy
 
 - **snapshot_id:** `P06-S008-20260915`; **author:** Circle Internet Financial Europe SAS / Circle France; **publisher:** Circle.
 - **URL:** [MiCA Redemption Policy](https://www.circle.com/legal/mica-redemption-policy).
-- **source_class / document_kind:** `vendor` / политика погашения.
-- **published_at:** unknown; **updated_at:** автор записал2026-07-13 при чтении15.09; повторное чтение редактором17.09 показывает2026-09-15. Дополнительный snapshot_id=P06-S008-20260917. July-копия не сохранена; конкретные изменения между чтениями не установлены. **effective_from:** unknown отдельно от displayed revision date; underlying rights регулируются MiCA.
+- **source_class / document_kind:** `vendor` / redemption policy.
+- **published_at:** unknown; **updated_at:** the author recorded 2026-07-13 when reading on 15 September; the editor's reread on 17 September shows 2026-09-15. Additional snapshot_id=P06-S008-20260917. The July copy was not saved; the specific changes between the readings were not established. **effective_from:** unknown separately from the displayed revision date; the underlying rights are governed by MiCA.
 - **version / status:** live legal policy; no archived copy.
-- **jurisdiction / activity / product / audience:** EEA for USDC; EURC scope отдельно в тексте; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** EEA for USDC; EURC scope set out separately in the text; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
-- **reviewed_scope / locator:** §§1.1–1.4,2.1–2.3,3: retail form, nonretail Mint redemption-only, EEA IBAN, KYC/KYT. Редактор повторно прочитал заголовок даты и эти положения17.09.2026.
+- **reviewed_scope / locator:** §§1.1–1.4,2.1–2.3,3: retail form, nonretail Mint redemption-only, EEA IBAN, KYC/KYT. The editor reread the date heading and these provisions on 2026-09-17.
 - **independence_group:** `Circle-legal`; **origin_source_id:** self.
-- **interests / limitations:** Не распространять процедуру EEA на non-EEA; прочитанный процесс не подтверждает конкретную заявку/банковский допуск.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** Do not extend the EEA procedure to non-EEA holders; the process read does not confirm a specific application or bank eligibility.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S009 — Third-Party Bridged USDC Terms
 
 - **snapshot_id:** `P06-S009-20260915`; **author:** Circle; **publisher:** Circle.
 - **URL:** [Third-Party Bridged USDC Terms](https://www.circle.com/legal/bridged-usdc-terms).
-- **source_class / document_kind:** `vendor` / договорные условия.
-- **published_at:** unknown; **updated_at:** 2025-12-12; **effective_from:** редакция12.12.2025.
+- **source_class / document_kind:** `vendor` / contractual terms.
+- **published_at:** unknown; **updated_at:** 2025-12-12; **effective_from:** version of 2025-12-12.
 - **version / status:** live legal text; SHA unknown.
-- **jurisdiction / activity / product / audience:** scope Circle third-party bridge services; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** scope Circle third-party bridge services; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** §§1–2: native backing, third-party wrapper, unbridge before redemption.
 - **independence_group:** `Circle-legal`; **origin_source_id:** self.
-- **interests / limitations:** Не все мосты устроены одинаково; не утверждать, что Circle никогда не помогает unbridge.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** Not all bridges work the same way; do not claim that Circle never helps with unbridging.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S010 — USDC Reserve Report / Independent Accountant’s Report — July 2026
 
-- **snapshot_id:** `P06-S010-20260915`; **author:** Circle management; независимый accountant: Deloitte & Touche LLP (подписант визуально подтверждён независимым аудитором17.09.2026, PDFp.1; P06-S010-20260917-deep); **publisher:** Circle, official transparency-linked report.
+- **snapshot_id:** `P06-S010-20260915`; **author:** Circle management; independent accountant: Deloitte & Touche LLP (the signatory was visually confirmed by the textbook's independent auditor on 2026-09-17, PDF p.1; P06-S010-20260917-deep); **publisher:** Circle, official transparency-linked report.
 - **URL:** [USDC Reserve Report / Independent Accountant’s Report — July 2026](https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/USDCAttestationReports/2026/2026%20USDC_Examination%20Report%20July%2026%20(1).pdf).
 - **source_class / document_kind:** `vendor` / independent examination + management assertion.
 - **published_at:** unknown; **signature_date:** 2026-08-27; **updated_at:** unknown; **effective_from:** not_applicable; measurement dates2026-07-08 and2026-07-31.
 - **version / status:** July2026 report; AICPA examination.
-- **jurisdiction / activity / product / audience:** USDC issuer reserve reporting; not universal holder protection; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** USDC issuer reserve reporting; not universal holder protection; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** official_pdf; linked from https://www.circle.com/transparency.
 - **reviewed_scope / locator:** PDF pp.1–5 entirety: opinion, management assertion, reserve/circulation definitions and tables.
 - **independence_group:** `Circle-reserve-July2026`; **origin_source_id:** self.
-- **interests / limitations:** Point-in-time reserve assertion; no liquidity/all-company/insolvency guarantee. Подпись и дата визуально сверены аудитором; дата подписи не объявляется датой первого публичного размещения.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **interests / limitations:** Point-in-time reserve assertion; no liquidity/all-company/insolvency guarantee. The signature and date were visually checked by the textbook's auditor; the signature date is not declared to be the date of first public posting.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S011 — Relevant Information Document — Tether International, S.A. de C.V.
 
 - **snapshot_id:** `P06-S011-20260915`; **author:** Tether International, S.A. de C.V.; **publisher:** Tether.
 - **URL:** [Relevant Information Document — Tether International, S.A. de C.V.](https://tether.to/public/Relevant_Information_Document_-_Tether_International,_S.A._de_C.V..pdf).
 - **source_class / document_kind:** `vendor` / issuer information document.
-- **published_at:** 2026-02-20; **updated_at:** unknown; **effective_from:** conditions in document dated20.02.2026; not global law.
+- **published_at:** 2026-02-20; **updated_at:** unknown; **effective_from:** conditions in document dated 2026-02-20; not global law.
 - **version / status:** document20Feb2026; no SHA.
-- **jurisdiction / activity / product / audience:** Tether direct customers and secondary holders; jurisdictional exclusions apply; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Tether direct customers and secondary holders; jurisdictional exclusions apply; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** official_pdf.
 - **reviewed_scope / locator:** PDF pp.13–15 and22: primary vs secondary market, verified account, minimum redemption, redemption fee.
 - **independence_group:** `Tether-legal`; **origin_source_id:** self.
 - **interests / limitations:** Purchase fee statements elsewhere looked inconsistent and are not used. Direct redemption terms do not describe every exchange or bank cost.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S012 — Independent Auditor’s Report on the Financial Figures and Reserves Report at 30 June 2026
 
@@ -189,12 +189,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `vendor` / ISAE3000(Revised) reasonable assurance report.
 - **published_at:** 2026-07-31 (signature); **updated_at:** unknown; **effective_from:** not_applicable; measured2026-06-30.
 - **version / status:** Q2 2026 signed report; exact file hash not saved.
-- **jurisdiction / activity / product / audience:** Tether International group financial figures; holders worldwide subject terms; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Tether International group financial figures; holders worldwide subject terms; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** official_pdf.
 - **reviewed_scope / locator:** PDF pp.2–4 (printed1–3): scope/opinion/limitations; pp.6–9: financial figures, reserve categories, notes.
 - **independence_group:** `BDO-Tether-Q2-2026`; **origin_source_id:** self.
 - **interests / limitations:** Assurance commissioned by issuer; report criteria differ from full financial statements; notes and going-concern limits explicit. No claim about absence of other audits.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S013 — ERC-681: URL Format for Transaction Requests
 
@@ -203,12 +203,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `standard` / ERC specification.
 - **published_at:** 2017-08-01 (created); **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** Final; commit SHA not obtained.
-- **jurisdiction / activity / product / audience:** EVM payment request URI implementations; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** EVM payment request URI implementations; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** whole short specification: Syntax, Semantics, Examples, Security Considerations, Copyright.
 - **independence_group:** `ERC681`; **origin_source_id:** self.
 - **interests / limitations:** Final standard status is not proof every wallet supports every field. Request does not authenticate merchant or prove payment.
-- **rights / local copy / reviewer:** общие поля выше; CC0 прямо в Copyright спецификации.
+- **rights / local copy / reviewer:** common fields above; CC0 stated directly in the Copyright section of the specification.
 
 ## P06-S014 — Payment Processing
 
@@ -217,12 +217,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `standard` / developer guide.
 - **published_at:** unknown; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** live guide; exact version/commit unknown.
-- **jurisdiction / activity / product / audience:** Bitcoin merchant payment processing; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Bitcoin merchant payment processing; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** Pricing Orders, Requesting Payments, Verifying Payment, confirmations, Refunds.
 - **independence_group:** `Bitcoin-dev-guide`; **origin_source_id:** self.
 - **interests / limitations:** Contains dated empirical illustrations; no historical attack probabilities/miner concentration used as current. Confirmation policy remains risk-dependent.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S015 — Gasper
 
@@ -231,12 +231,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `standard` / protocol explainer.
 - **published_at:** unknown; **updated_at:** 2026-04-03 (page); **effective_from:** not_applicable.
 - **version / status:** Gasper explainer; no consensus-spec commit recorded.
-- **jurisdiction / activity / product / audience:** Ethereum proof-of-stake; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Ethereum proof-of-stake; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** What is finality?, justification/finalization, fork choice and inactivity leak.
 - **independence_group:** `Ethereum-consensus-docs`; **origin_source_id:** self.
 - **interests / limitations:** Explainer not executable chain config; no universal seconds-to-finality or immutable spec claim.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S016 — Transaction Finality
 
@@ -245,12 +245,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `vendor` / network specification/documentation.
 - **published_at:** unknown; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** live Base docs; commit/protocol release unknown.
-- **jurisdiction / activity / product / audience:** Base L2 and canonical L1 withdrawal; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Base L2 and canonical L1 withdrawal; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** whole short page: Flashblock/L2 block/L1 batch/L1 finality, withdrawals.
 - **independence_group:** `Base-docs`; **origin_source_id:** self.
 - **interests / limitations:** Timings are described estimates, not a payment SLA; canonical withdrawal delay is not every L2 transfer.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S017 — CCTP Technical Guide
 
@@ -259,12 +259,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `vendor` / protocol technical guide.
 - **published_at:** unknown; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** CCTP V2; commit unknown; no independent implementation test.
-- **jurisdiction / activity / product / audience:** supported CCTP networks and messages; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** supported CCTP networks and messages; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** How CCTP works / message passing: burn, attestation, receiveMessage/mint; EVM vs non-EVM path.
 - **independence_group:** `Circle-CCTP`; **origin_source_id:** self.
 - **interests / limitations:** Fast/standard transfer conditions differ. Removes wrapper layer, not all trust/service dependencies; attestation here not reserve examination.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S018 — Stablecoin Payments
 
@@ -273,12 +273,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `vendor` / product documentation.
 - **published_at:** unknown; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** live docs; US + specified private previews; exact API version unknown.
-- **jurisdiction / activity / product / audience:** eligible Stripe accounts, listed assets/networks and geographies; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** eligible Stripe accounts, listed assets/networks and geographies; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** whole short page: flow, supported currencies/countries, limitations, refunds, disputes.
 - **independence_group:** `Stripe-stablecoin-payments`; **origin_source_id:** self.
 - **interests / limitations:** Country list and rollout prose differ in breadth: no GA conclusion from list. Odd bank-authentication sentence not used to infer fraud protection. No client eligibility test.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S019 — Transfer States
 
@@ -287,26 +287,26 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `vendor` / API documentation.
 - **published_at:** unknown; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** live API docs; version/SHA unknown.
-- **jurisdiction / activity / product / audience:** Bridge orchestration transfers; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Bridge orchestration transfers; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** entire state table and notes: awaiting_funds through processed; returned/refund/error states; preliminary hash.
 - **independence_group:** `Bridge-orchestration`; **origin_source_id:** self.
 - **interests / limitations:** Provider-defined states; processed meaning cannot be universalized to every legal settlement or recipient statement.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S020 — Processing windows & cutoff times
 
 - **snapshot_id:** `P06-S020-20260915`; **author:** Bridge documentation authors; **publisher:** Bridge.
-- **URL:** [Processing windows & cutoff times](https://apidocs.bridge.xyz/platform/orchestration/more/cutoffs). Заголовок повторно прочитан аудитором17.09.2026 (P06-S020-20260917-deep); исходная карточка15.09 называла страницу Cutoffs.
+- **URL:** [Processing windows & cutoff times](https://apidocs.bridge.xyz/platform/orchestration/more/cutoffs). The title was reread by the auditor on 2026-09-17 (P06-S020-20260917-deep); the original card of 15 September called the page Cutoffs.
 - **source_class / document_kind:** `vendor` / rail timing/availability documentation.
 - **published_at:** unknown; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** live docs; FedNow beta by invitation; no account-specific SLA.
-- **jurisdiction / activity / product / audience:** listed Bridge currency/rail combinations; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** listed Bridge currency/rail combinations; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** entire timing table: USD wire/ACH/FedNow; SEPA Instant/SCT; crypto conversion notes.
 - **independence_group:** `Bridge-orchestration`; **origin_source_id:** self.
 - **interests / limitations:** Bank support, cutoff, limits and exceptions matter; estimates do not guarantee any transaction. USDT conversion described as trading rather than par.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S021 — Updated Guidance for a Risk-Based Approach to Virtual Assets and Virtual Asset Service Providers
 
@@ -315,13 +315,13 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / non-binding guidance.
 - **published_at:** 2021-10 (month precision; PDF also refers to November update in structure); **updated_at:** unknown; **effective_from:** not_applicable as binding law; underlying standards and national implementations separate.
 - **version / status:** 2021 updated guidance; not declared latest full consolidated standard.
-- **jurisdiction / activity / product / audience:** international recommendations; national implementation varies; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** international recommendations; national implementation varies; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** official_pdf.
 - **reviewed_scope / locator:** ¶23–34 functional/risk-based scope; ¶177–193 Travel Rule including unhosted wallets; selected VASP sections.
-- **Independent access17.09.2026:** `P06-S021-20260917-deep`; [official PDF without download suffix](https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Updated-Guidance-VA-VASP.pdf); auditor separately read ¶25–26,177–193 and203–204. Unhosted wallets occur at¶179; collection from the customer versus no obligation to transmit to a private individual is specified at¶203–204 (printedp65/PDFp66). This extends the explicit locator, not the national legal scope.
+- **Independent access 2026-09-17:** `P06-S021-20260917-deep`; [official PDF without download suffix](https://www.fatf-gafi.org/content/dam/fatf-gafi/guidance/Updated-Guidance-VA-VASP.pdf); auditor separately read ¶25–26,177–193 and203–204. Unhosted wallets occur at¶179; collection from the customer versus no obligation to transmit to a private individual is specified at¶203–204 (printedp65/PDFp66). This extends the explicit locator, not the national legal scope.
 - **independence_group:** `FATF-guidance2021`; **origin_source_id:** self.
 - **interests / limitations:** No current national licensing map inferred; revised Recommendation16 timelines not covered. Screening/Travel Rule should be rechecked for live deployment.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S022 — Sanctions Compliance Guidance for the Virtual Currency Industry
 
@@ -330,12 +330,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / guidance.
 - **published_at:** 2021-10; **updated_at:** unknown; **effective_from:** not_applicable as single new law; applicable sanctions programs separately.
 - **version / status:** October2021 guidance; not current sanctions list.
-- **jurisdiction / activity / product / audience:** US sanctions jurisdiction and covered persons/transactions; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** US sanctions jurisdiction and covered persons/transactions; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** official_pdf.
 - **reviewed_scope / locator:** printed pp.1–6 scope; pp.15–17 (PDF18–20) transaction monitoring, unlisted related addresses, screening.
 - **independence_group:** `OFAC-virtual2021`; **origin_source_id:** self.
 - **interests / limitations:** No 2021 country lists or retention period applied as current; no determination about any actual person or transaction.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S023 — Public Information and Stablecoin Runs — BIS Working Papers No1164
 
@@ -344,12 +344,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `research` / working paper, not labelled peer-reviewed journal article.
 - **published_at:** 2024-01-29 (initial catalog); **updated_at:** 2025-01-31 (read PDF revision/title page); **effective_from:** not_applicable.
 - **version / status:** January2024, revisedJanuary2025; actual dated title31Jan2025.
-- **jurisdiction / activity / product / audience:** theory plus USDC/Tether/Frax/Terra price episodes, principally2018–2023; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** theory plus USDC/Tether/Frax/Terra price episodes, principally2018–2023; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** official_pdf; web + requests/pypdf in memory.
 - **reviewed_scope / locator:** PDF pp.1–5;8,10;29–31 (printed26–28 identification);37,43; model/counterfactual design and selected results, not every appendix proof.
 - **independence_group:** `BIS-WP1164`; **origin_source_id:** self.
 - **interests / limitations:** Global-games assumptions and few events; synthetic-control-inspired regression depends on covariates/control validity, SUTVA/endogeneity concerns. Authors' affiliations do not turn results into regulatory findings.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S024 — III. Anchoring trust in money: innovation beyond stablecoins
 
@@ -358,12 +358,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `analysis` / Annual Economic Report2026 chapter.
 - **published_at:** 2026-06-28; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** AER2026 ChapterIII.
-- **jurisdiction / activity / product / audience:** global monetary/payment analysis; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** global monetary/payment analysis; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
-- **reviewed_scope / locator:** первоначальная карточка15.09 приписывала главе фрагмент про gross transfer volume, internal wallets/arbitrage и retail-use measurement. Повторная проверка17.09 (P06-S024-20260917-deep) не подтвердила этот locator: Graph7.B notes относятся к сумме gross inflows за2022–23, не к розничным покупкам. Редактор отдельно прочитал Digital innovation / DLT network settings и Additional notes to graphs. Статья оставлена как аналитический контекст; из evidence C026 удалена.
+- **reviewed_scope / locator:** the original card of 15 September attributed to the chapter a passage on gross transfer volume, internal wallets/arbitrage and retail-use measurement. A recheck on 17 September (P06-S024-20260917-deep) did not confirm this locator: the Graph7.B notes refer to total gross inflows for 2022–23, not to retail purchases. The editor separately read Digital innovation / DLT network settings and Additional notes to graphs. The article is kept as analytical context; it was removed from the evidence for C026.
 - **independence_group:** `BIS-AER2026`; **origin_source_id:** self.
 - **interests / limitations:** Central-bank institutional perspective; secondary measurement inputs not independently audited here. No headline gross volume used as retail adoption.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S025 — Advancing in tandem — results of the 2024 BIS survey on central bank digital currencies and crypto — BIS Papers No159
 
@@ -372,12 +372,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `research` / survey report.
 - **published_at:** 2025-08-22; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** No159 August2025; observation year2024.
-- **jurisdiction / activity / product / audience:** 93 responding central banks; international; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** 93 responding central banks; international; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** official_pdf.
 - **reviewed_scope / locator:** Introduction/definitions, PDF pp.3 onward; AnnexA questionnaire and AnnexB respondent list; exploration stages.
 - **independence_group:** `BIS-survey2024`; **origin_source_id:** self.
 - **interests / limitations:** Self-report, response/sample limits; 85/93 exploration not launches, usage or September2026 status. No causal adoption inference.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S026 — Progress on a digital euro
 
@@ -386,12 +386,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / project progress page.
 - **published_at:** unknown; **updated_at:** unknown; **effective_from:** not_applicable; issuance conditional on legislation and later decision.
 - **version / status:** next phase after preparation endingOctober2025; dynamic progress page.
-- **jurisdiction / activity / product / audience:** euro area digital euro project; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** euro area digital euro project; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** main page: phases, 2026 legislation assumption, possible2029 issuance, decision after legislation.
 - **independence_group:** `ECB-digital-euro`; **origin_source_id:** self.
 - **interests / limitations:** Plans are conditional; provider selection/draft rulebook are not public launch or individual eligibility.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S027 — Progress update: Digital Pound Design Phase
 
@@ -400,12 +400,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / project progress report.
 - **published_at:** 2026-03-04; **updated_at:** 2026-03-12 (page footer); **effective_from:** not_applicable; introduction would require legislation.
 - **version / status:** design phase; no introduction decision in report.
-- **jurisdiction / activity / product / audience:** United Kingdom retail digital pound; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** United Kingdom retail digital pound; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** Introduction; experiments/Lab; What we will do next; Conclusion; Annex commitments on privacy and programmability.
 - **independence_group:** `BoE-digital-pound`; **origin_source_id:** self.
 - **interests / limitations:** Later2026 decision not independently found; design commitments and simulation are not deployed consumer rights/features.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S028 — Garuda Project Proof of Concept, New Chapter of Digital Rupiah Exploration
 
@@ -414,12 +414,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / press release No26/270/DKom.
 - **published_at:** 2024-12-13; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** completed immediate-state wholesale cash ledger PoC.
-- **jurisdiction / activity / product / audience:** Indonesia Digital Rupiah; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Indonesia Digital Rupiah; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** entire release body: PoC completion, tested functions and exploration stages.
 - **independence_group:** `BI-Garuda2024`; **origin_source_id:** self.
 - **interests / limitations:** Issuer/authority report of test success; full PoC report inaccessible. No inference of retail or nationwide live launch by2026.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S029 — Creating the Future of Finance: A Journey of Innovation and Collaboration
 
@@ -428,12 +428,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / speech.
 - **published_at:** 2025-11-13 (speech); 2025-11-20 (BIS republication); **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** speech; wholesale live trial and future planned trial differentiated.
-- **jurisdiction / activity / product / audience:** Singapore wholesale settlement; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** Singapore wholesale settlement; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** mirror: official BIS speech republication; direct HTML via requests200 after web extraction error.
 - **reviewed_scope / locator:** paragraphs beginning In the CBDC space and adjacent settlement-assets/BLOOM discussion.
-- **independence_group:** `MAS-speech20251113`; **origin_source_id:** MAS speech13.11.2025, external origin; BIS is republication.
+- **independence_group:** `MAS-speech20251113`; **origin_source_id:** MAS speech 2025-11-13, external origin; BIS is republication.
 - **interests / limitations:** One speech source, not independent BIS confirmation. Overnight-lending trial completed per MAS; tokenised MAS Bills future. Not retail launch.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S030 — Digital Dirham: A Primer — Policy Paper No1/2025
 
@@ -442,12 +442,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / policy primer.
 - **published_at:** 2025-07 (month precision); **updated_at:** unknown; landing-page update24Feb2026 is not PDF publication; **effective_from:** not_applicable.
 - **version / status:** PolicyPaper1/2025 July2025.
-- **jurisdiction / activity / product / audience:** UAE Digital Dirham retail/wholesale design; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** UAE Digital Dirham retail/wholesale design; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** official_pdf.
 - **reviewed_scope / locator:** Executive Summary; PDF pp.8–10 design, intermediary/offline/access; selected progress sections.
 - **independence_group:** `CBUAE-primer2025`; **origin_source_id:** self.
 - **interests / limitations:** Official design and project claims; rollout plans not proof broad availability. Not a technical audit of offline security.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S031 — Ministry of Finance and Dubai Finance Conduct First Government Transaction Using Digital Dirham
 
@@ -456,12 +456,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / official event announcement.
 - **published_at:** 2025-11-11; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** pilot phase explicitly stated.
-- **jurisdiction / activity / product / audience:** UAE government Digital Dirham transaction; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** UAE government Digital Dirham transaction; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** entire article body: first government transaction and pilot-phase qualification.
 - **independence_group:** `UAE-MOF20251111`; **origin_source_id:** self.
 - **interests / limitations:** Proves official report of one pilot event, not merchant GA, repeat adoption or universal eligibility.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S032 — Strengthening American Leadership in Digital Financial Technology
 
@@ -470,12 +470,12 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `law` / Executive Order14178.
 - **published_at:** 2025-01-23; **updated_at:** unknown; **effective_from:** order dated2025-01-23; exception as required by law; subsequent changes not fully audited.
 - **version / status:** issued executive order; no claim of permanent statutory prohibition.
-- **jurisdiction / activity / product / audience:** US federal agencies and defined CBDC policy; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** US federal agencies and defined CBDC policy; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** direct_page.
 - **reviewed_scope / locator:** §2 definitions and §5 Prohibition of Central Bank Digital Currencies.
 - **independence_group:** `US-EO14178`; **origin_source_id:** self.
 - **interests / limitations:** Not a ban on all private digital money; no current Fed issuance inferred from old research. Later legislative/judicial developments require check.
-- **rights / local copy / reviewer:** общие поля выше; дополнительные права не установлены.
+- **rights / local copy / reviewer:** common fields above; no additional rights established.
 
 ## P06-S033 — Correspondent banking — final report, CPMI Papers147
 
@@ -484,22 +484,22 @@ tags: ["kind/research", "fintech-2026"]
 - **source_class / document_kind:** `regulator` / technical report.
 - **published_at:** 2016-07-13; **updated_at:** unknown; **effective_from:** not_applicable.
 - **version / status:** final July2016; 2015 consultation superseded.
-- **jurisdiction / activity / product / audience:** cross-border correspondent banking definitions; деятельность и продукт определены названием/прочитанным разделом; адресаты — соответствующие участники этого scope.
+- **jurisdiction / activity / product / audience:** cross-border correspondent banking definitions; activity and product are defined by the title/the section read; the addressees are the relevant participants within this scope.
 - **accessed_at:** 2026-09-15 UTC; **access_status:** `partial_text`; **access_method:** official_pdf; requests/pypdf.
 - **reviewed_scope / locator:** §2.1 printedpp.9–10; Annex2 printedpp.43–44 (PDF13–14,47–48).
 - **independence_group:** `CPMI147`; **origin_source_id:** self.
 - **interests / limitations:** Used for durable definitions only; 2016 SWIFT/market trends not described as current.
-- **rights / local copy / reviewer:** общие поля выше; brief attributed excerpts explicitly permitted, PDFp.2.
+- **rights / local copy / reviewer:** common fields above; brief attributed excerpts explicitly permitted, PDFp.2.
 
 ## P06-S034 — Seventh Targeted Update on Implementation of the FATF Standards on Virtual Assets/VASPs: official web summary
 
 - **snapshot_id:** `P06-S034-20260915`; **author / publisher:** FATF.
 - **URL:** [Official summary](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/targeted-updated-virtualassets-vasps-2026.html).
-- **source_class / document_kind:** `regulator` / официальное резюме отчёта, не полный PDF.
+- **source_class / document_kind:** `regulator` / official summary of the report, not the full PDF.
 - **published_at:** 2026-07-16; **updated_at:** unknown; **effective_from/to:** not_applicable.
-- **version / status:** seventh targeted update, summary; **jurisdiction/activity/audience:** FATF Global Network, implementation R.15, регуляторы и VASP.
-- **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text` для web summary; **access_method:** direct_page.
-- **reviewed_scope / locator:** body paragraphs beginning Paris,16July2026 through Acknowledgements; основной PDF не прочитан.
+- **version / status:** seventh targeted update, summary; **jurisdiction/activity/audience:** FATF Global Network, implementation R.15, regulators and VASPs.
+- **accessed_at:** 2026-09-15 UTC; **access_status:** `full_text` for the web summary; **access_method:** direct_page.
+- **reviewed_scope / locator:** body paragraphs beginning Paris,16July2026 through Acknowledgements; the main PDF was not read.
 - **independence_group:** `FATF-targeted2026`; **origin_source_id:** self.
-- **interests / limitations:** официальная оценка implementation; упомянуты консультации и данные Chainalysis/TRM, самостоятельно не аудированы. Из резюме не извлекаются численные оценки или текущая лицензия конкретной компании.
-- **rights / local copy / reviewer:** общие поля; дополнительные права unknown, копий нет, independent review: see REVIEW.md.
+- **interests / limitations:** official assessment of implementation; consultations and Chainalysis/TRM data are mentioned but were not independently audited. No numerical estimates and no current license of any specific company are drawn from the summary.
+- **rights / local copy / reviewer:** common fields; additional rights unknown, no copies, independent review: see REVIEW.md.

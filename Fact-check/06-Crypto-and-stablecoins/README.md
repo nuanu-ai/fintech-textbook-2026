@@ -1,5 +1,5 @@
 ---
-title: "Independent factual audit — Part 06"
+title: "Independent factual audit — Chapter 6"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,33 +8,33 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/06-Crypto-and-stablecoins/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/06-Crypto-and-stablecoins/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Review dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Independent factual audit — Part 06
+# Independent factual audit — Chapter 6
 
-17.09.2026 · Asia/Makassar (UTC+8) · auditor deep_audit_06_07_08_09 · private
+2026-09-17 · Asia/Makassar (UTC+8) · auditor deep_audit_06_07_08_09 · private
 
-## Результат и закрытые findings
+## Result and closed findings
 
-Прочитаны полные CHAPTER/SOURCES/CLAIMS, индивидуально оценены43 claims и34 source cards. Один major и четыре minor замечания закрыты после правок редактора; исходные основания сохранены ниже. Открытого подтверждённого critical/major нет.
+The full CHAPTER/SOURCES/CLAIMS were read; 43 claims and 34 source cards were assessed individually. One major and four minor findings were closed after the editor's corrections; the original grounds are preserved below. There is no open confirmed critical/major finding.
 
-- **F06-01, major, closed — C026/S024, CHAPTER§6.6.** Исходный тезис «Валовой объём переводов не равен объёму розничных покупок» приписывал BIS конкретный фрагмент own-wallet/arbitrage/retail measurement. Самостоятельное чтение полного [HTML BIS AER2026](https://www.bis.org/publications/iii-anchoring-trust-money-innovation-beyond-stablecoins) и поиск всех вхождений gross/arbitrage/retail не обнаружили этот locator. Graph7.B относится к gross cross-border inflows2022–23. Редактор удалил relation=supports и заменил доказательство явно синтетическим примером100/300; формулировка теперь «сам по себе не устанавливает». Повторно прочитаны итоговые §6.6, C026 и S024: **non_factual**, вывод не выдаётся за эмпирическую статистику.
-- **F06-02, minor, closed — CHAPTER§6.1.** Первоначальное «примерно103,092784…до округления» уже округляло100/0,97. Независимый расчёт:103,092783505…; вверх до6знаков103,092784. Обе величины теперь явно разделены. Сигнал поступил от root, арифметика проверена самостоятельно.
-- **F06-03, minor, closed — S010.** На PDFp.1 визуально подтверждены Deloitte & Touche LLP и подпись27.08.2026. Редактор уточнил подписанта и отделил signature_date от неизвестного public posting date. Повторное чтение карточки подтверждает исправление.
-- **F06-04, minor, closed — S020.** Текущий заголовок Processing windows & cutoff times отличался от краткого Cutoffs. Карточка хранит новый heading и историю исходного наблюдения.
-- **F06-05, minor, closed — S021/C023 locator.** После восстановления официального PDF отдельно прочитаны¶203–204: получение данных от клиента и непередача частному лицу. Редактор добавил locator printedp65/PDFp66 и альтернативный официальный URL. Итоговые SOURCES/CLAIMS перечитаны после этой последней правки.
+- **F06-01, major, closed — C026/S024, CHAPTER§6.6.** The original thesis "Gross transfer volume does not equal the volume of retail purchases" attributed to BIS a specific passage on own-wallet/arbitrage/retail measurement. An independent reading of the full [HTML BIS AER2026](https://www.bis.org/publications/iii-anchoring-trust-money-innovation-beyond-stablecoins) and a search for all occurrences of gross/arbitrage/retail did not find this locator. Graph7.B refers to gross cross-border inflows 2022–23. The editor removed relation=supports and replaced the evidence with an explicitly synthetic 100/300 example; the wording is now "does not by itself establish". The final §6.6, C026 and S024 were reread: **non_factual**; the conclusion is not presented as empirical statistics.
+- **F06-02, minor, closed — CHAPTER§6.1.** The original "approximately 103.092784… before rounding" had already rounded 100/0.97. Independent calculation: 103.092783505…; rounded up to 6 decimal places, 103.092784. Both values are now explicitly separated. The signal came from root; the arithmetic was checked independently.
+- **F06-03, minor, closed — S010.** On PDF p.1, Deloitte & Touche LLP and the signature of 2026-08-27 were visually confirmed. The editor specified the signatory and separated signature_date from the unknown public posting date. Rereading the card confirms the correction.
+- **F06-04, minor, closed — S020.** The current heading Processing windows & cutoff times differed from the short Cutoffs. The card keeps the new heading and the history of the original observation.
+- **F06-05, minor, closed — S021/C023 locator.** After the official PDF was recovered, ¶203–204 were read separately: obtaining data from the customer and no transmission to a private individual. The editor added the locator printed p65/PDF p66 and an alternative official URL. The final SOURCES/CLAIMS were reread after this last correction.
 
-## Существенные утверждения вне реестра и расчёты
+## Material claims outside the register, and calculations
 
-Повторно проверены синтетические depeg, native/bridged, refund и treasury примеры. В§6.7 итог25 782,80USD и прибыль182,80USD согласуются с исходными25 600USD; остатокEUR сам по себе не вся прибыль. В§6.1 и§6.4 округление отделено от точного отношения. Пример алгоритмического погашения явно условный и не объявлен реконструкцией Terra. Записьfunds_received/compliance_pending не доказывает ни потерю денег, ни нарушение клиента.
+The synthetic depeg, native/bridged, refund and treasury examples were rechecked. In §6.7, the total of 25,782.80 USD and the profit of 182.80 USD are consistent with the initial 25,600 USD; the EUR balance by itself is not the whole profit. In §6.1 and §6.4, rounding is separated from the exact ratio. The algorithmic redemption example is explicitly hypothetical and is not presented as a reconstruction of Terra. A funds_received/compliance_pending record proves neither a loss of money nor a violation by the customer.
 
-Circle MiCA policy самостоятельно прочитана в редакции15.09.2026:§§8.4–8.5 допускают stress deferrals за обычные сроки§4. Глава/C003–C004 не обещают безусловного срока; нового major по этому вопросу нет. Native/bridged право, point-in-time reserve assurance и ликвидность отделены.
+The Circle MiCA policy was independently read in its 2026-09-15 version: §§8.4–8.5 allow stress deferrals beyond the usual time limits of §4. The chapter/C003–C004 do not promise an unconditional time limit; there is no new major finding on this point. Native/bridged rights, point-in-time reserve assurance and liquidity are kept separate.
 
-## Ограничения
+## Limitations
 
-BI Garuda original body не удалось получить: C031=partial на основании только официального индекса. C042=unverifiable остаётся честно открытым вопросом о конкретном платежном маршруте. C039–C041 — literal ложные тезисы, которые автор уже отвергает; verdict contradicted не означает новые ошибки главы. Исследования и анонсы не реплицировались. Динамические страницы17.09 не являются архивами15.09; новые даты не подменяют историческую запись. Подробности для каждого источника находятся в SOURCE_AUDIT.md.
+The original body of the BI Garuda release could not be obtained: C031=partial, based only on the official index. C042=unverifiable remains an honestly open question about a specific payment route. C039–C041 are literal false theses that the author already rejects; the verdict contradicted does not mean new errors in the chapter. Studies and announcements were not replicated. Dynamic pages as of 17 September are not archives of 15 September; new dates do not replace the historical record. Details for each source are in SOURCE_AUDIT.md.
 
 ## Coverage and verdict counts
 
@@ -49,7 +49,7 @@ Claims: 43; source cards: 34. Every ID has one matrix row.
 
 ## Final recheck and hashes
 
-Все перечисленные исправления перечитаны после provisional freeze редактора; P06-S021/C023 перечитаны после последнего добавления locator. Хеши ниже рассчитаны по фактическому содержимому окончательных файлов. Предыдущая рецензия использовалась только как указатель риска, не как evidence.
+All the corrections listed were reread after the editor's provisional freeze; P06-S021/C023 were reread after the last locator was added. The hashes below were calculated from the actual content of the final files. The previous review was used only as a pointer to risk, not as evidence.
 
 final_verdict: reviewed_with_limitations
 
@@ -60,5 +60,5 @@ open_major: 0
 | File | SHA-256 |
 |---|---|
 | [CHAPTER.md](../../Textbook/06-Crypto-and-stablecoins/README.md) | 6a61993e4ca74acc7c47355a1b67af9fbddc80e1fe4d5bcdfff22be6106f9722 |
-| [Источники](../../Textbook/06-Crypto-and-stablecoins/Sources.md) | 6ba20179d0cf59b08760fea3832c67b1e5e52e7ebd92c678ffed485def69164e |
-| [Утверждения](../../Textbook/06-Crypto-and-stablecoins/Claims.md) | 00fb3cc5cf943daabbe778d9bab82fffb097a808cfe923e61ec2fa5cfd522cfe |
+| [Sources](../../Textbook/06-Crypto-and-stablecoins/Sources.md) | 6ba20179d0cf59b08760fea3832c67b1e5e52e7ebd92c678ffed485def69164e |
+| [Claims](../../Textbook/06-Crypto-and-stablecoins/Claims.md) | 00fb3cc5cf943daabbe778d9bab82fffb097a808cfe923e61ec2fa5cfd522cfe |

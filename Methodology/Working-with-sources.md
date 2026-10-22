@@ -1,5 +1,5 @@
 ---
-title: "Источники и утверждения — схема v0.1"
+title: "Sources and claims — schema v0.1"
 date: "2026-09-15"
 status: "draft"
 visibility: "public"
@@ -8,94 +8,94 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](Edition-record.md).
+> Public edition of 2026-09-18. Verification dates and source limitations are preserved. Hashes in historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](Edition-record.md).
 
-# Источники и утверждения — схема v0.1
+# Sources and claims — schema v0.1
 
-15.09.2026 · private · рабочий редакционный стандарт для этой базы.
+2026-09-15 · private · working editorial standard for this knowledge base.
 
-Цель: из каждого существенного утверждения в главе перейти к конкретному месту в источнике и понять границы его применимости. Список ссылок в конце книги этого не обеспечивает.
+Goal: from every material claim in a chapter, be able to go to a specific place in a source and understand the limits of its applicability. A list of references at the end of the book does not provide this.
 
-## 1. Два связанных реестра
+## 1. Two linked registers
 
-**Источник** описывает документ или пост. **Утверждение** описывает то, что мы из него заключаем. Один документ поддерживает несколько утверждений; одно утверждение может требовать нескольких независимых документов. Начать с двух CSV и Markdown-карточек; отдельная база данных для этого этапа не требуется.
+A **source** describes a document or post. A **claim** describes what we conclude from it. One document supports several claims; one claim may require several independent documents. Start with two CSVs and Markdown cards; a separate database is not needed at this stage.
 
-### Реестр источников: одна строка на конкретный снимок
+### Source register: one row per specific snapshot
 
-| Поле | Содержание |
+| Field | Content |
 |---|---|
-| `source_id`, `snapshot_id`, `supersedes` | Постоянный ID документа, например `SRC-0001`, и отдельный ID снимка/версии; новая версия не перезаписывает прежнюю |
-| `title`, `author`, `publisher` | Название, автор, организация; неизвестное — `unknown` |
+| `source_id`, `snapshot_id`, `supersedes` | Permanent document ID, for example `SRC-0001`, and a separate snapshot/version ID; a new version does not overwrite the previous one |
+| `title`, `author`, `publisher` | Title, author, organization; anything unknown — `unknown` |
 | `source_class` | `law`, `regulator`, `scheme`, `standard`, `vendor`, `research`, `course`, `analysis`, `social`, `internal` |
-| `document_kind` | Например, закон, консультация, FAQ, rulebook, документация, реклама, working paper, journal article, лекция, пост |
-| `url`, `canonical_url`, `doi`, `language`, `locale` | Исходная и каноническая ссылка, язык/локальная версия; DOI, если существует |
-| `published_at`, `updated_at` | Даты самого источника, а не дата индексации поиском |
-| `effective_from`, `effective_to` | Для правил: вступление в силу/окончание; отдельно от публикации; допускаются `unknown` и `not_applicable` |
-| `accessed_at`, `date_precision` | Фактическая дата чтения с часовым поясом; точность дат источника. Относительное «7mo ago» сохранять буквально, точный день — `unknown` |
-| `version`, `status` | Версия/commit и draft, adopted, effective, superseded, retracted, preview, GA и т.п.; со ссылкой на подтверждение |
-| `jurisdiction`, `activity`, `product`, `audience` | Область применения; не подразумевать глобальность |
+| `document_kind` | For example, law, consultation, FAQ, rulebook, documentation, advertising, working paper, journal article, lecture, post |
+| `url`, `canonical_url`, `doi`, `language`, `locale` | Original and canonical link, language/local version; DOI, if one exists |
+| `published_at`, `updated_at` | Dates of the source itself, not the date of search indexing |
+| `effective_from`, `effective_to` | For rules: entry into force/end; separate from publication; `unknown` and `not_applicable` are allowed |
+| `accessed_at`, `date_precision` | Actual reading date with time zone; precision of the source's dates. Keep a relative "7mo ago" literally; the exact day is `unknown` |
+| `version`, `status` | Version/commit and draft, adopted, effective, superseded, retracted, preview, GA, etc.; with a link to the confirmation |
+| `jurisdiction`, `activity`, `product`, `audience` | Scope; do not assume global applicability |
 | `access_status` | `full_text`, `partial_text`, `abstract_only`, `metadata_only`, `blocked`, `removed` |
-| `access_method` | `direct_page`, `official_pdf`, `search_index`, `mirror`; индекс/зеркало не объявлять прямым чтением оригинала |
-| `reviewed_scope` | Что реально прочитано: вся короткая страница, конкретные разделы или только abstract |
-| `local_path`, `sha256` | Если законно сохранена копия; hash подтверждает файл, а не истинность его содержания |
-| `rights`, `rights_basis_url` | Раздельно: хранение копии, цитирование, иллюстрации, распространение; основание/условия. `unknown` не означает разрешение |
-| `origin_source_id`, `independence_group` | Общая первичка перепечаток и репостов; у разных доказательств одного тезиса могут быть разные группы |
-| `interests`, `limitations` | Финансирование, интерес вендора, ограничения выборки, неполный доступ |
-| `reviewer`, `reviewed_at` | Кто и когда проверил карточку |
+| `access_method` | `direct_page`, `official_pdf`, `search_index`, `mirror`; do not declare an index/mirror to be a direct reading of the original |
+| `reviewed_scope` | What was actually read: the whole short page, specific sections or only the abstract |
+| `local_path`, `sha256` | If a copy was lawfully saved; the hash confirms the file, not the truth of its content |
+| `rights`, `rights_basis_url` | Separately: storing a copy, quoting, illustrations, distribution; basis/terms. `unknown` does not mean permission |
+| `origin_source_id`, `independence_group` | The common primary source of reprints and reposts; different pieces of evidence for one claim may belong to different groups |
+| `interests`, `limitations` | Funding, vendor interest, sample limitations, incomplete access |
+| `reviewer`, `reviewed_at` | Who checked the card and when |
 
-Не смешивать тип носителя и доказательную роль: официальный пост компании в X — `source_class=social`, с указанием официального автора. Он первичен для факта собственного объявления, но не доказывает независимую эффективность продукта.
+Do not mix up the type of medium and the evidentiary role: an official company post on X is `source_class=social`, with the official author stated. It is primary for the fact of the company's own announcement, but it is not independent proof of the product's effectiveness.
 
-### Реестр утверждений
+### Claims register
 
-| Поле | Содержание |
+| Field | Content |
 |---|---|
-| `claim_id`, `module_ids` | Постоянный ID и модули, где используется тезис |
-| `claim` | Одно проверяемое утверждение без склейки нескольких разных выводов |
+| `claim_id`, `module_ids` | Permanent ID and the modules where the claim is used |
+| `claim` | One verifiable claim, without gluing several different conclusions together |
 | `claim_kind` | `definition`, `mechanism`, `legal`, `empirical`, `product`, `experience`, `hypothesis` |
-| `status` | `confirmed`, `working_hypothesis`, `open`, `rejected`; только в указанном scope |
-| `jurisdiction`, `as_of`, `conditions` | Где, когда и при каких условиях применимо |
-| `evidence` | Список `source_id + snapshot_id + locator + relation + reviewer_note`; relation = supports/contradicts/context |
-| `locator` | Статья/пункт закона, страница и раздел PDF, heading/anchor HTML, таймкод лекции, URL конкретного поста/комментария |
-| `effective_from`, `effective_to` | Если применимо: даты действия конкретного положения, которые могут отличаться от дат всего документа |
-| `reasoning` | Чем источник поддерживает тезис; собственная интерпретация обозначается отдельно |
-| `confidence_basis` | Почему выводу можно доверять и чего не хватает; не произвольный процент |
-| `conflicts`, `resolution` | Противоречия, их основания и объяснение редакторского решения; независимость проверять по группам связанных источников |
-| `last_checked_at`, `review_trigger` | Дата проверки и событие, после которого вывод устаревает |
-| `reviewer`, `review_status` | Проверка другим агентом: pending/checked/needs_revision |
+| `status` | `confirmed`, `working_hypothesis`, `open`, `rejected`; only within the stated scope |
+| `jurisdiction`, `as_of`, `conditions` | Where, when and under what conditions it applies |
+| `evidence` | A list of `source_id + snapshot_id + locator + relation + reviewer_note`; relation = supports/contradicts/context |
+| `locator` | Article/paragraph of a law, page and section of a PDF, HTML heading/anchor, lecture timecode, URL of a specific post/comment |
+| `effective_from`, `effective_to` | If applicable: the dates during which the specific provision is in effect, which may differ from the dates of the document as a whole |
+| `reasoning` | How the source supports the claim; our own interpretation is marked separately |
+| `confidence_basis` | Why the conclusion can be trusted and what is missing; not an arbitrary percentage |
+| `conflicts`, `resolution` | Contradictions, their grounds and an explanation of the editorial decision; check independence by groups of related sources |
+| `last_checked_at`, `review_trigger` | Check date and the event after which the conclusion becomes outdated |
+| `reviewer`, `review_status` | Review by another agent: pending/checked/needs_revision |
 
-Для простого CSV длинные списки можно хранить в связанной Markdown-карточке `claims/CLM-0001.md`. Не вводить дополнительную инфраструктуру до необходимости.
+For a simple CSV, long lists can be stored in a linked Markdown card `claims/CLM-0001.md`. Do not introduce extra infrastructure until it is needed.
 
-## 2. Как читать разные классы
+## 2. How to read different classes
 
-- **Право и регуляторы:** юрисдикция, точный субъект/деятельность, редакция, дата вступления в силу; consultation и FAQ не равны закону. Финансовые/правовые выводы для реального применения требуют профильной проверки.
-- **Схемы и стандарты:** владелец документа, версия, регион, обязательность. Закрытые спецификации обозначать как недоступные; primer не заменяет техническую спецификацию.
-- **Компания:** документация и договоры подтверждают описанную собственную модель. Маркетинговые показатели читать с методологией и интересом автора; не переносить на весь рынок.
-- **Научная работа:** DOI/версия, peer-reviewed или preprint/working paper, исследовательский вопрос, данные и период, метод, результат и ограничения. Корреляция не становится причинностью. Abstract не считается чтением статьи.
-- **Курс/лекция:** университет/автор, программа, дата, конкретный урок и таймкод; устоявшиеся механизмы можно изучать по старому курсу, актуальные правила надо проверять отдельно.
-- **Reddit/X:** permalink, публичный автор, дата, контекст треда и комментария, факт собственного опыта/мнение/объявление. Реальный кейс полезен как вопрос для расследования; популярность и число лайков не доказывают частоту или причинность. Отмечать самоотбор, рекламу и непроверенные детали.
-- **Внутренние исследования:** вести к внешней первичке. Ранее сгенерированный агентом текст сам по себе не подтверждение факта.
+- **Law and regulators:** jurisdiction, the exact subject/activity, the version, the date of entry into force; a consultation and an FAQ are not the same as the law. Financial/legal conclusions for real-world use require a specialist review.
+- **Schemes and standards:** document owner, version, region, whether it is mandatory. Mark closed specifications as unavailable; a primer does not replace the technical specification.
+- **Company:** documentation and contracts confirm the company's own model as described. Read marketing figures together with their methodology and the author's interest; do not extend them to the whole market.
+- **Academic paper:** DOI/version, peer-reviewed or preprint/working paper, research question, data and period, method, result and limitations. Correlation does not become causation. An abstract does not count as reading the paper.
+- **Course/lecture:** university/author, program, date, specific lesson and timecode; established mechanisms can be studied from an older course, but current rules must be checked separately.
+- **Reddit/X:** permalink, public author, date, context of the thread and comment, whether it is first-hand experience/opinion/announcement. A real case is useful as a question to investigate; popularity and the number of likes do not prove frequency or causation. Note self-selection, advertising and unverified details.
+- **Internal research:** trace it back to an external primary source. Text previously generated by an agent is not, by itself, confirmation of a fact.
 
-Миф — вид утверждения (`rejected` с объяснением), а не отдельный класс источника. Reddit и X нужны там, где дают содержательные кейсы; квоту постов ради количества не вводить.
+A myth is a type of claim (`rejected` with an explanation), not a separate source class. Reddit and X are needed where they provide substantive cases; do not introduce a quota of posts for the sake of numbers.
 
-## 3. Недоступность, противоречия и дата
+## 3. Unavailability, contradictions and dates
 
-1. Недоступную страницу записать с access status. Поисковый сниппет — только повод искать оригинал; не цитировать его как прочитанный документ.
-2. При login/paywall искать разрешенный открытый оригинал, авторскую версию, запись лекции или альтернативную первичку. Не обходить доступ и не покупать подписку без поручения.
-3. Если X/Reddit удален либо текст недоступен, сохранить метаданные/ссылку и пробел; не реконструировать автора и реплики по памяти.
-4. Для противоречия записать обе версии, даты, scope и первоисточник. Не разрешать голосованием ссылок: десять перепечаток — один источник.
-5. Для динамичных правовых и продуктовых фактов проверять статус перед выпуском каждой новой версии главы. На обложке PDF — дата среза; в тексте — отдельные даты правовых/продуктовых карточек.
+1. Record an unavailable page with its access status. A search snippet is only a reason to look for the original; do not cite it as a document that has been read.
+2. With a login/paywall, look for a permitted open original, an author's version, a lecture recording or an alternative primary source. Do not bypass access controls and do not buy a subscription without being instructed to.
+3. If an X/Reddit post has been deleted or the text is unavailable, keep the metadata/link and the gap; do not reconstruct the author and the replies from memory.
+4. For a contradiction, record both versions, the dates, the scope and the primary source. Do not resolve it by a vote of links: ten reprints are one source.
+5. For fast-changing legal and product facts, check the status before releasing each new version of a chapter. The PDF cover shows the cutoff date; the text shows separate dates for legal/product cards.
 
-## 4. Как это выглядит в главе
+## 4. What it looks like in a chapter
 
-После значимого утверждения — кликабельная сноска `[SRC-0001, §3]` с прямой ссылкой. В библиографии — название, автор/организация, версия/дата публикации, дата чтения и конкретное место. Формат locator должен совпадать с реестром.
+A significant claim is followed by a clickable footnote `[SRC-0001, §3]` with a direct link. The bibliography gives the title, author/organization, version/publication date, reading date and the specific location. The locator format must match the register.
 
-Объяснение пишем своими словами. Короткие необходимые цитаты явно выделяем; перевод цитаты помечаем как перевод. Чужие тексты, скриншоты и иллюстрации не переносим целиком без права использования. Собственная схема получает пометку «составлено по …»; измененные числа — «учебный пример», а не реальные показатели.
+We write explanations in our own words. Short, necessary quotations are clearly marked; a translated quotation is marked as a translation. We do not reproduce other people's texts, screenshots and illustrations in full without the right to use them. Our own diagram gets the note "compiled from …"; altered numbers are labeled "teaching example", not real figures.
 
-## 5. Достаточность для выпуска главы
+## 5. What is enough to release a chapter
 
-- Все ключевые утверждения имеют проверяемые места в источниках; необъясненных конфликтов, влияющих на вывод, нет.
-- Правовые и продуктовые выводы подтверждены подходящей первичкой, а не только новостями или соцсетями.
-- Для эмпирического вывода понятны метод и ограничения; по возможности есть независимая проверка. Универсального правила «ровно N ссылок» нет.
-- Реальные источники и учебные/гипотетические кейсы ясно различимы.
-- Рецензент проверил соответствие тезисов источникам. Автор не ставит себе независимое одобрение.
-- Отсутствующие материалы отражены как пробелы, а не как завершенное наполнение.
+- All key claims have verifiable locations in sources; there are no unexplained conflicts that affect the conclusion.
+- Legal and product conclusions are confirmed by a suitable primary source, not just by news or social media.
+- For an empirical conclusion, the method and limitations are clear; where possible, there is independent verification. There is no universal rule of "exactly N references".
+- Real sources and teaching/hypothetical cases are clearly distinguishable.
+- A reviewer has checked that the claims match the sources. The author does not give themselves independent approval.
+- Missing materials are shown as gaps, not as completed content.

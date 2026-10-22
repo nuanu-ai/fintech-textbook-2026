@@ -1,5 +1,5 @@
 ---
-title: "Independent factual audit — Part 08"
+title: "Independent factual audit — Chapter 8"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,39 +8,39 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/08-Integrations-and-reliability/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/08-Integrations-and-reliability/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Independent factual audit — Part 08
+# Independent factual audit — Chapter 8
 
-17.09.2026 · Asia/Makassar (UTC+8) · auditor deep_audit_06_07_08_09 · private
+2026-09-17 · Asia/Makassar (UTC+8) · auditor deep_audit_06_07_08_09 · private
 
-## Результат
+## Result
 
-Прочитаны полные CHAPTER/SOURCES/CLAIMS. Все30 claims и28 source cards получили отдельные строки. Подтверждённых ошибок, требующих изменения главы, не найдено.28claims verified в границах указанных документов,2verified_as_reported (Monzo и Reddit). Это не означает эксплуатационную проверку всех API.
+The full CHAPTER/SOURCES/CLAIMS were read. All 30 claims and 28 source cards got separate rows. No confirmed errors requiring changes to the chapter were found. 28 claims verified within the limits of the cited documents, 2 verified_as_reported (Monzo and Reddit). This does not mean an operational check of all APIs.
 
-## Что независимо проверено
+## What was independently checked
 
-Woo Store API/customer context отделён от REST administrative keys; classic gateway success/on-hold не назван completed payment. Blocks требует собственной интеграции. Shopify payment extension approval и Plus ограничения проверены по конкретным разделам; delivery ID отличается от business event ID. Adobe command/request/client/validator/handler не сведены к одному HTTP ответу.
+The Woo Store API/customer context is kept separate from REST administrative keys; classic gateway success/on-hold is not called a completed payment. Blocks requires its own integration. Shopify payment extension approval and Plus restrictions were checked against specific sections; the delivery ID differs from the business event ID. Adobe command/request/client/validator/handler are not reduced to a single HTTP response.
 
-Stripe idempotency проверена вместе с исключениями: initial execution/500, pruning≥24h, validation/concurrency, network versus server errors. Рекомендация безопасного повтора использует прежние operation identity/parameters; из timeout не выведен новый платёж. Webhooks могут повторяться и приходить не по порядку; новые signature timestamps при retry не означают новый economic event. Shopify receiving guide прочитан с1s/5s distinction и persistent deduplication/reconciliation.
+Stripe idempotency was checked together with its exceptions: initial execution/500, pruning ≥24h, validation/concurrency, network versus server errors. The safe-retry recommendation uses the previous operation identity/parameters; no new payment is inferred from a timeout. Webhooks can repeat and arrive out of order; new signature timestamps on retry do not mean a new economic event. The Shopify receiving guide was read with the 1s/5s distinction and persistent deduplication/reconciliation.
 
-Adyen settlement report, Stripe payout reconciliation, available_on и currency encoding прочитаны непосредственно. available_on дополнительно раскрыт через official .md: это доступность в Stripe balance, не банковский остаток. Modification Reference не уникален по capture/chargeback type. Автоматические payouts, manual/instant и platform exceptions не смешаны.
+The Adyen settlement report, Stripe payout reconciliation, available_on and currency encoding were read directly. available_on was additionally clarified via the official .md: it is availability in the Stripe balance, not a bank balance. The Modification Reference is not unique across capture/chargeback type. Automatic payouts, manual/instant payouts and platform exceptions are not mixed up.
 
-RIFL прочитан в пределах архитектуры, предпосылок, durable completion/effects/retry rendezvous и ограничений. Это не универсальная exactly-once гарантия платежа через внешние системы. AWS outbox даёт атомарность локальной записи, не удаляет необходимость idempotent consumer. BCBS Principles3–6 относятся к банкам; merchant checklist — явно редакционная адаптация.
+RIFL was read within the scope of its architecture, assumptions, durable completion/effects/retry rendezvous and limitations. It is not a universal exactly-once guarantee for a payment through external systems. The AWS outbox gives atomicity of the local write; it does not remove the need for an idempotent consumer. BCBS Principles 3–6 apply to banks; the merchant checklist is an explicitly editorial adaptation.
 
-## Чтение главы вне CLAIMS и арифметика
+## Reading the chapter beyond CLAIMS, and arithmetic
 
-Полный chapter проверен на важные незарегистрированные переходы success→payment, payment→fulfillment, balance→bank и balanced journal→correct accounting. Таких необоснованных переходов не обнаружено; именно ограничения используются в учебных примерах.
+The full chapter was checked for important unregistered leaps success→payment, payment→fulfillment, balance→bank and balanced journal→correct accounting. No such unjustified leaps were found; the teaching examples use precisely these limitations.
 
-В§8.5 независимо пересчитаны payout173,40, дальнейшие refund/fee/reserve/dispute движения и итогPSP−106; банк1067,40 и расходы22,60 дают согласованный итог. Контрпример с пропущенным refund/повторной fee сохраняет формальный баланс, но неверно отражает внешний мир. Синтетические комиссии/резервы/FX не приписаны тарифам Stripe/Adyen.
+In §8.5 the payout of 173.40, the subsequent refund/fee/reserve/dispute movements and the PSP total of −106 were independently recalculated; bank 1067.40 and expenses 22.60 give a consistent total. The counterexample with a missing refund/duplicate fee keeps a formal balance but misrepresents the outside world. Synthetic fees/reserves/FX are not attributed to Stripe/Adyen pricing.
 
-## Social, metadata и ограничения
+## Social, metadata and limitations
 
-Monzo — датированный инженерный self-report Daniel Chatfield/Andrew Lawson о примерно часовом outage августа2024 и Stand-in; фактические production logs не получены. Reddit original body IndicationOne9495 прочитан через web extraction после HTML shell. Относительное время и crawl age не использованы для выдумывания абсолютной даты. Причины, частота и масштаб проблем не считаются установленными.
+Monzo is a dated engineering self-report by Daniel Chatfield/Andrew Lawson about an outage of about an hour in August 2024 and Stand-in; actual production logs were not obtained. The original body of the Reddit post by IndicationOne9495 was read via web extraction after the HTML shell. Relative time and crawl age were not used to invent an absolute date. The causes, frequency and scale of the problems are not considered established.
 
-Динамические API docs прочитаны17.09.2026. Visible current versions не доказывают неизменность15.09. Full metadata check ограничен сведениями, реально видимыми в прочитанном документе; неизвестные publication/effective dates остаются неизвестными. Платежей, provider account tests, conformance execution и репликации RIFL не было. Previous review не использован как evidence.
+Dynamic API docs were read on 2026-09-17. Visible current versions do not prove that nothing changed since 15 September. The full metadata check is limited to information actually visible in the document read; unknown publication/effective dates remain unknown. There were no payments, provider account tests, conformance execution or replication of RIFL. The previous review was not used as evidence.
 
 ## Coverage and verdict counts
 
@@ -51,7 +51,7 @@ Claims: 30; source cards: 28. Every ID has one matrix row.
 
 ## Final recheck and hashes
 
-Финальный текст прочитан после provisional freeze редактора. Хеши рассчитаны по фактическому содержимому окончательных файлов. Previous review использован только как указатель риска, не как evidence.
+The final text was read after the editor's provisional freeze. Hashes were calculated from the actual content of the final files. The previous review was used only as a risk pointer, not as evidence.
 
 final_verdict: reviewed_with_limitations
 
@@ -62,5 +62,5 @@ open_major: 0
 | File | SHA-256 |
 |---|---|
 | [CHAPTER.md](../../Textbook/08-Integrations-and-reliability/README.md) | 43b7ec2eccae6a9aab29c11906ce0cf1851f07e4538cabb4c60918d6d43fabd4 |
-| [Источники](../../Textbook/08-Integrations-and-reliability/Sources.md) | 0df23aedfb6afdea18806844c2ccb79a5343f437d6d0de41583025c0f9987e24 |
-| [Утверждения](../../Textbook/08-Integrations-and-reliability/Claims.md) | c974dd62d210ff4e70ef3ff7220761b493935cde895304777db248ff3ff67149 |
+| [Sources](../../Textbook/08-Integrations-and-reliability/Sources.md) | 0df23aedfb6afdea18806844c2ccb79a5343f437d6d0de41583025c0f9987e24 |
+| [Claims](../../Textbook/08-Integrations-and-reliability/Claims.md) | c974dd62d210ff4e70ef3ff7220761b493935cde895304777db248ff3ff67149 |

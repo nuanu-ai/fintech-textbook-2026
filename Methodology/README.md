@@ -1,16 +1,16 @@
-[← Обложка](../README.md) · [Оглавление учебника](../Textbook/README.md)
+[← Cover](../README.md) · [Textbook contents](../Textbook/README.md)
 
-# Редакторская мастерская
+# Editor's workshop
 
-Как устроен учебник, откуда взялись материалы и что изменилось между редакциями.
+How the textbook is built, where the materials came from and what changed between editions.
 
-| Документ | Для чего нужен |
+| Document | What it is for |
 |---|---|
-| [Паспорт издания](Edition-record.md) | Даты, статус, публичные изменения и контрольные суммы файлов. |
-| [Работа с источниками](Working-with-sources.md) | Как связать утверждение с источником, указать ограничения и степень уверенности. |
-| [Шаблон урока](Lesson-template.md) | Учебный вопрос, объяснение, пример и проверка понимания. |
-| [Первоначальный план](Original-plan.md) | Исторический замысел от 15 сентября; актуальное оглавление находится в разделе «Учебник». |
+| [Edition record](Edition-record.md) | Dates, status, public changes and file checksums. |
+| [Working with sources](Working-with-sources.md) | How to link a claim to a source and state limitations and the degree of confidence. |
+| [Lesson template](Lesson-template.md) | The learning question, explanation, example and "Check your understanding". |
+| [Original plan](Original-plan.md) | The historical design as of 15 September; the current table of contents is in the "Textbook" section. |
 
-План, шаблон и исходный стандарт источников сохранены как редакционные документы своего времени. Ранние статусы внутри них не определяют текущий статус публичного издания.
+The plan, the template and the original source standard are preserved as editorial documents of their time. The early statuses inside them do not determine the current status of the public edition.
 
-[Результаты независимой проверки →](../Fact-check/README.md)
+[Independent review results →](../Fact-check/README.md)

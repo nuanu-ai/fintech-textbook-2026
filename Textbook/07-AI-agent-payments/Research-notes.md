@@ -1,5 +1,5 @@
 ---
-title: "Часть 7 — журнал исследования"
+title: "Chapter 7 — research log"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,56 +8,56 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Платежи ИИ-агентов](README.md) · [Оглавление](../README.md) · [Все источники и проверки](../../Fact-check/README.md)
+[← AI agent payments](README.md) · [Contents](../README.md) · [All sources and fact-checks](../../Fact-check/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Часть 7 — журнал исследования
+# Chapter 7 — research log
 
-15.09.2026 · private · автор `part_07_research` · работа по `RESEARCH_BRIEF.md`.
+2026-09-15 · private · author `part_07_research` · work under `RESEARCH_BRIEF.md`.
 
-Внутренняя организационная ссылка из исторической авторской заметки исключена из публичного издания; исследовательская методика и внешние источники сохранены.
+An internal organizational link from the author's historical note has been removed from the public edition; the research methodology and external sources are preserved.
 
-## Версии, проверенные через публичный GitHub API
+## Versions checked through the public GitHub API
 
-| Проект | Проверенный объект | SHA | Дата коммита/релиза |
+| Project | Object checked | SHA | Commit/release date |
 |---|---|---|---|
-| x402 | текущий `x402-foundation/x402` HEAD | `6b9302737f16eea7de90b3bf617c045cef23e032` | 15.09.2026, 14:04:22 UTC |
-| x402, старый вход | `coinbase/x402` HEAD | `dd927a26cfefc98c24b3ec38b3a8f204dad0c60d` | 21.04.2026; не принят за current foundation HEAD |
-| MPP | `tempoxyz/mpp-specs` HEAD | `a938bfdd443a9683aa0fcbeae487ed4ffadfe4be` | 09.09.2026 |
-| UCP | `v2026-08-25` tag | `cd78fb38e819de77d9b527d110476eccb876f1bd` | релиз опубликован 25.08.2026, 13:53:03 UTC |
-| UCP | main для сравнения | `8e600b0588c72d3bf23498bd403ef915cb6b1559` | 10.09.2026; цитируется release tag |
-| ACP | HEAD; внутри него выпущенная спецификация 2026-04-17 | `7fdd78df677a94dce04c770644b0fbbb1401272b` | 18.07.2026 |
-| AP2 | HEAD; CHANGELOG v0.2.0 от 28.04.2026 | `e1ea56db72a6385bce3e5c1112b3a56ce60acb43` | 29.04.2026 |
+| x402 | current `x402-foundation/x402` HEAD | `6b9302737f16eea7de90b3bf617c045cef23e032` | 2026-09-15, 14:04:22 UTC |
+| x402, old entry point | `coinbase/x402` HEAD | `dd927a26cfefc98c24b3ec38b3a8f204dad0c60d` | 2026-04-21; not taken as the current foundation HEAD |
+| MPP | `tempoxyz/mpp-specs` HEAD | `a938bfdd443a9683aa0fcbeae487ed4ffadfe4be` | 2026-09-09 |
+| UCP | `v2026-08-25` tag | `cd78fb38e819de77d9b527d110476eccb876f1bd` | release published 2026-08-25, 13:53:03 UTC |
+| UCP | main for comparison | `8e600b0588c72d3bf23498bd403ef915cb6b1559` | 2026-09-10; the release tag is cited |
+| ACP | HEAD; the released specification 2026-04-17 inside it | `7fdd78df677a94dce04c770644b0fbbb1401272b` | 2026-07-18 |
+| AP2 | HEAD; CHANGELOG v0.2.0 of 2026-04-28 | `e1ea56db72a6385bce3e5c1112b3a56ce60acb43` | 2026-04-29 |
 
-Прочитаны raw-файлы по этим SHA. SHA фиксирует репозиторий, не deployment и не сертификацию. Временные разрешенные копии использовались только для чтения в временной папке исследователя; они не являются обещанным архивом базы. Ссылки в итоговом каталоге ведут на конкретные blobs. У MPP опубликованные spec-artifacts и preview PR имеют иной смысл, чем принятый RFC. IETF core `draft-httpauth-payment-01` опубликован 09.09.2026 и остается Internet-Draft.
+Raw files were read at these SHAs. A SHA pins the repository, not a deployment and not a certification. Temporary permitted copies were used only for reading in the researcher's temporary folder; they are not a promised archive of the knowledge base. Links in the final catalog point to specific blobs. For MPP, the published spec artifacts and preview PRs mean something different from an adopted RFC. The IETF core `draft-httpauth-payment-01` was published on 2026-09-09 and remains an Internet-Draft.
 
-## Социальные источники
+## Social sources
 
-Автор главы самостоятельно открыл и прочитал через Chrome UI 15.09.2026:
+On 2026-09-15 the chapter author independently opened and read through the Chrome UI:
 
-- Solana `https://x.com/solana/status/2036507994381492326`: основной пост и два видимых авторских продолжения. UI показал 25.03.2026, 02:18 AM; timezone отображения неизвестен. Подтверждает анонс поддержки MPP, не тест SDK.
-- deX402 `https://x.com/deX402_official/status/2043175089198293291`: основной пост. UI показал 12.04.2026, 11:51 AM; timezone отображения неизвестен. Утверждение об отсутствии payment processors рассматривается как маркетинговый тезис, не свойство всех реализаций.
+- Solana `https://x.com/solana/status/2036507994381492326`: the main post and two visible continuations by the same author. The UI showed 2026-03-25, 02:18 AM; the display timezone is unknown. Confirms the announcement of MPP support, not an SDK test.
+- deX402 `https://x.com/deX402_official/status/2043175089198293291`: the main post. The UI showed 2026-04-12, 11:51 AM; the display timezone is unknown. The statement that there are no payment processors is treated as a marketing claim, not a property of all implementations.
 
-Редактор ранее также читал эти посты; его заметка помогла найти оригиналы, но итоговые карточки указывают самостоятельное чтение автора главы. Действий с аккаунтом, сообщений, лайков и сохранения полного UI/профиля читателя не было. Картинки и полные дискуссии не исследованы.
+The editor had also read these posts earlier; the editor's note helped locate the originals, but the final cards record the chapter author's own independent reading. There were no account actions, messages or likes, and the full UI/reader profile was not saved. Images and full discussions were not examined.
 
-Reddit `r/fintech`, IndianDownUnder, `1vtl49r`: прочитан основной пост через web extraction. Дата в извлеченном UI относительная `2d ago`, поисковая индексация сообщает другое; точный день не установлен. Включен только как авторский test-mode опыт и повод проверять wire-state. Упомянутый автором код не запущен; платежи не повторялись. Заявленную доступность SPT для AU не принимаем как current eligibility: прочитанная официальная страница перечисляет US, CA и выбранные европейские страны.
+Reddit `r/fintech`, IndianDownUnder, `1vtl49r`: the main post was read via web extraction. The date in the extracted UI is relative, `2d ago`, while search indexing reports something different; the exact day was not established. Included only as the author's test-mode experience and as a reason to check the wire state. The code mentioned by the author was not run; the payments were not repeated. We do not accept the claimed SPT availability for AU as current eligibility: the official page we read lists US, CA and selected European countries.
 
-## Ограничения и недоступность
+## Limitations and unavailable sources
 
-- EUR-Lex ELI 2023/1113 вернул страницу проверки браузера; текст этой нормы через данный URL не прочитан и не используется для правового вывода в части 7. Правовой разбор остается в части 1.
-- `specs/x402-specification.md` вернул 404; фактическое имя — `specs/x402-specification-v2.md`, оно прочитано.
-- У UCP release path `docs/specification/overview.md` отсутствует; используется `overview/index.md`.
-- Страница SPT требует variant query; прочитаны официальные Markdown-варианты для sellers и agents прямым HTTPS. Поисковый snippet private-preview не заменял live текст.
-- Научные результаты прочитаны по основному HTML-тексту с методами, моделями, результатами и ограничениями; репликация Tamarin, scanner и атак не выполнялась. Нет основания объявлять все reported flaws существующими в зафиксированных здесь более новых версиях.
-- Не проверялись закрытые договоры схем, сертификация, production eligibility конкретных аккаунтов, полный rulebook agentic liability или реальные customer outcomes. Вендорские заявления о гарантии расчета не превращены в универсальную безусловную гарантию.
+- EUR-Lex ELI 2023/1113 returned a browser-check page; the text of this regulation was not read through that URL and is not used for any legal conclusion in Chapter 7. The legal analysis remains in Chapter 1.
+- `specs/x402-specification.md` returned 404; the actual name is `specs/x402-specification-v2.md`, and that file was read.
+- In the UCP release, the path `docs/specification/overview.md` does not exist; `overview/index.md` is used.
+- The SPT page requires a variant query; the official Markdown variants for sellers and agents were read directly over HTTPS. A private-preview search snippet was not used in place of the live text.
+- Research results were read from the main HTML text, including methods, models, results and limitations; no replication of Tamarin, the scanner or the attacks was performed. There is no basis for declaring that all reported flaws exist in the newer versions pinned here.
+- Not checked: closed scheme contracts, certification, production eligibility of specific accounts, a full agentic liability rulebook or real customer outcomes. Vendor statements about guaranteed settlement have not been turned into a universal unconditional guarantee.
 
-## Проверка автора перед передачей
+## Author's check before handover
 
-Статус 15.09.2026: `draft_for_review`; завершены CHAPTER.md, SOURCES.md, CLAIMS.md. Около 6 200 слов основного текста, все модули 7.1–7.6 с исходными названиями, две собственные учебные Mermaid-схемы, семь упражнений с ответами. 42 уникальных source IDs с 42 разрешенными reference links; 51 уникальный claim ID. Проверены отсутствие неизвестных source references, локальные ссылки и арифметика денежных примеров. Ссылка на пока отсутствующую главу 9 ведет на существующую структуру базы, а не на несуществующий файл.
+Status on 2026-09-15: `draft_for_review`; CHAPTER.md, SOURCES.md and CLAIMS.md completed. About 6,200 words of main text, all modules 7.1–7.6 with their original titles, two original teaching Mermaid diagrams, seven exercises with answers. 42 unique source IDs with 42 resolved reference links; 51 unique claim IDs. Checked: absence of unknown source references, local links and the arithmetic of the money examples. The link to Chapter 9, which does not exist yet, points to the existing structure of the knowledge base rather than to a nonexistent file.
 
-Повторно проверены именованные поля x402 paymentFlow/settlement_pending и ACP Allowance по pinned raw spec; исправлено указание авторов Solana charge. UCP governance дополнительно прочитан целиком в отдельном repo `.github` по SHA `ced53b98c2064d472b41a5aff1c20b8261e6dd91`, commit 15.09.2026 07:55:35 UTC; карточка P07-S042. MAINTAINERS.md прочитан как контекст. Governance scope не подменяет банковский допуск или независимую сертификацию.
+The named fields x402 paymentFlow/settlement_pending and ACP Allowance were re-checked against the pinned raw spec; the attribution of the Solana charge authors was corrected. UCP governance was additionally read in full in the separate repo `.github` at SHA `ced53b98c2064d472b41a5aff1c20b8261e6dd91`, commit 2026-09-15 07:55:35 UTC; card P07-S042. MAINTAINERS.md was read as context. Governance scope is not a substitute for bank approval or independent certification.
 
-Отдельно проверены: разделение quote/consent/rail authorization/settlement/fulfillment/refund; версии released/draft и продуктовая availability; неопределенный settlement с безопасной сверкой; принцип agent identity ≠ principal authority; customer controls и граница prompt injection. Денежные числа синтетические, реальные wallet/customer данные не использовались. Закрытые liability rules, onboarding конкретного аккаунта, production и security PoC не проверены. Прочитана только publication page FATF 2021, что явно отмечено; актуальные юридические обязанности не установлены.
+Separately checked: the separation of quote/consent/rail authorization/settlement/fulfillment/refund; released/draft versions and product availability; uncertain settlement with safe reconciliation; the principle agent identity ≠ principal authority; customer controls and the prompt-injection boundary. The money figures are synthetic; no real wallet/customer data was used. Closed liability rules, onboarding of a specific account, production and security PoCs were not checked. Only the FATF 2021 publication page was read, and this is stated explicitly; current legal obligations were not established.
 
-Внутренняя организационная ссылка из исторической авторской заметки исключена из публичного издания; исследовательская методика и внешние источники сохранены.
+An internal organizational link from the author's historical note has been removed from the public edition; the research methodology and external sources are preserved.

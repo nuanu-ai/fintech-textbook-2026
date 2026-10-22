@@ -1,5 +1,5 @@
 ---
-title: "Source audit — Part 01"
+title: "Source audit — Chapter 1"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,11 +8,11 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/01-Market-rules-and-licensing/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/01-Market-rules-and-licensing/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations have been preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Source audit — Part 01
+# Source audit — Chapter 1
 
 Independent auditor: deep_audit_00_01_05. Actual access:17September2026,Asia/Makassar. Knowledge cutoff:15September2026. Every row was separately attempted; shared identical URLs use the independently obtained result once. Direct access means relevant text was read, not just HTTP status. Dynamic pages do not establish their historical15September content. Failed access is not falsity. Prior reviews and root reachability logs were not evidence.
 

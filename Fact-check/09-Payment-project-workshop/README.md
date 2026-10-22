@@ -1,5 +1,5 @@
 ---
-title: "Independent factual audit — Part 09"
+title: "Independent factual audit — Chapter 9"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,50 +8,50 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/09-Payment-project-workshop/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/09-Payment-project-workshop/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Check dates and source limitations are preserved. Hashes in the historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Independent factual audit — Part 09
+# Independent factual audit — Chapter 9
 
-17.09.2026 · Asia/Makassar (UTC+8) · auditor deep_audit_06_07_08_09 · private
+2026-09-17 · Asia/Makassar (UTC+8) · auditor deep_audit_06_07_08_09 · private
 
-## Результат
+## Result
 
-Прочитаны полные CHAPTER/SOURCES/CLAIMS. Отдельно оценены26 claims и21 source card. Нового подтверждённого critical/major не найдено. Четыре partial относятся к недоступным оригиналам/исторической версии, один unverifiable — явно открытому вопросу о неизменности dynamic docs. Никакая недоступность не замаскирована verified.
+The full CHAPTER/SOURCES/CLAIMS were read. A total of 26 claims and 21 source cards were assessed individually. No new confirmed critical/major issue was found. Four partial verdicts relate to inaccessible originals/the historical version, and one unverifiable verdict relates to the explicitly open question of whether the dynamic docs stayed unchanged. No inaccessibility has been masked as verified.
 
-## Доступ к первичке и ограничения выводов
+## Access to primary sources and limits of the conclusions
 
-- **C001/S001, partial.** EUR-Lex consolidation/original/TXT/PDF возвращали JS challenge (HTTP202). Article3(j) самостоятельно прочитан напрямую в официальном legislation.gov.uk mirror EU directive: technical services exclusion содержит исключение PIS/AIS. Идентичность полной consolidation17.01.2025 не подтверждена. Это ограничение проверки версии, не обнаруженное противоречие в механизме.
-- **C002/C016/S003 и C017/S004, partial.** Bank Indonesia original pages/PDF не получены из-за resets/timeouts. В официальном индексе прочитаны QRIS sources of funds/static-dynamic/approved participants и PBI10/2025 effective31.03.2026/new framework. Нельзя назвать это прямым чтением всей BI page или нормативного акта.
-- **C018/S012, verified по альтернативной первичке.** EUR-Lex body недоступен, но ESMA official reproduction Articles59,60,143 непосредственно прочитан. Authorisation/financial-entity routes и maximum transition01.07.2026 подтверждены, с earlier grant/refusal и правом страны сократить переход. Consolidation metadata не объявлена независимо подтверждённой.
-- **C026, unverifiable.** Архивного15.09 снимка динамических Stripe/x402 документов нет. Текст честно оставляет тождество версий open, а17.09 observation отдельно датирован.
-- **S013/S018, metadata limitations.** Google structured datePublished16.09.2025 отличается от одного HTML display17.09; дата карточки не признана ошибочной. Current Circle byline Circle Internet Financial отличается от Team Circle в карточке; историческая форма byline не установлена, механизм/даты операционного отчёта этим не меняются.
+- **C001/S001, partial.** EUR-Lex consolidation/original/TXT/PDF returned a JS challenge (HTTP 202). Article 3(j) was independently read directly in the official legislation.gov.uk mirror of the EU directive: the technical services exclusion contains the PIS/AIS carve-out. Identity with the full consolidation of 2025-01-17 is not confirmed. This is a limitation of the version check, not a contradiction found in the mechanism.
+- **C002/C016/S003 and C017/S004, partial.** Bank Indonesia original pages/PDF were not obtained because of resets/timeouts. In the official index, QRIS sources of funds/static-dynamic/approved participants and PBI 10/2025 effective 2026-03-31/new framework were read. This cannot be called a direct reading of the whole BI page or of the regulation.
+- **C018/S012, verified via an alternative primary source.** The EUR-Lex body is inaccessible, but the ESMA official reproduction of Articles 59, 60, 143 was read directly. The authorisation/financial-entity routes and the maximum transition of 2026-07-01 are confirmed, with earlier grant/refusal and a country's right to shorten the transition. The consolidation metadata is not declared independently confirmed.
+- **C026, unverifiable.** There is no archived 15 September snapshot of the dynamic Stripe/x402 documents. The text honestly leaves the identity of the versions open, and the 17 September observation is dated separately.
+- **S013/S018, metadata limitations.** Google's structured datePublished 2025-09-16 differs from one HTML display of 17 September; the card's date is not deemed wrong. The current Circle byline, Circle Internet Financial, differs from Team Circle in the card; the historical form of the byline was not established, and this does not change the mechanism/dates of the operational report.
 
-## Полная глава, кейсы и арифметика
+## Full chapter, cases and arithmetic
 
-Проверены существенные факты вне реестра: separate merchant/provider agreements, момент погашения долга в синтетическом договоре, approvals/licensing и source of refund liquidity. Stripe terms§5 предусматривают свой contractual debt-discharge trigger; синтетический кейсC не выдан за эти реальные условия.
+Material facts outside the register were checked: separate merchant/provider agreements, the moment of debt discharge in the synthetic contract, approvals/licensing and the source of refund liquidity. Stripe terms §5 provide their own contractual debt-discharge trigger; synthetic case C is not passed off as these real terms.
 
-КейсыA–D пересчитаны по исходным остаткам и движениям:
+Cases A–D were recalculated from the opening balances and movements:
 
-| Кейс | Независимый числовой контроль |
+| Case | Independent numerical check |
 |---|---|
-| A | Bank1000+87−15,50=1071,50EUR; trial1071,50+25+3,50=1100; buyer425EUR. При неосвобождённом reserve нужен полный top-up25,50. |
-| B | Fee11200IDR; bank2000000+1588800−400000−2500=3186300; buyer1800000; expenses13700; trial3600000.0,7% — условие задачи, не универсальный QRIS тариф. |
-| C | Bank1000+98−25,50=1072,50EUR; refund25×1,12=28USDC; buyer418. При depeg25×1,12/0,98=28,571428… и вверх28,571429. Новый payout допустим после доказанного возврата средств, не после одного timeout. |
-| D | Buyer72USDC, seller47,80, service0,20; сумма120. Seller journal47,80+12+0,20=60, credit20+40. Сервис покрывает network cost из тарифа по условию примера. |
+| A | Bank 1,000 + 87 − 15.50 = 1,071.50 EUR; trial 1,071.50 + 25 + 3.50 = 1,100; buyer 425 EUR. If the reserve is not released, a full top-up of 25.50 is needed. |
+| B | Fee 11,200 IDR; bank 2,000,000 + 1,588,800 − 400,000 − 2,500 = 3,186,300; buyer 1,800,000; expenses 13,700; trial 3,600,000. 0.7% is a condition of the exercise, not a universal QRIS rate. |
+| C | Bank 1,000 + 98 − 25.50 = 1,072.50 EUR; refund 25 × 1.12 = 28 USDC; buyer 418. With a depeg, 25 × 1.12 / 0.98 = 28.571428… and rounded up 28.571429. A new payout is allowed after the return of funds is proven, not after a single timeout. |
+| D | Buyer 72 USDC, seller 47.80, service 0.20; total 120. Seller journal 47.80 + 12 + 0.20 = 60, credit 20 + 40. The service covers the network cost out of its fee, per the conditions of the example. |
  
-Нехватка ликвидности при1000cash и4000refunds равна3000, несмотря на требование10000 к партнёру. Arithmetic не доказывает договорную исполнимость, достаточность резервов или законность реального маршрута. H1–H3 остались гипотезами, гипотезы не являются решением о запуске.
+The liquidity shortfall with 1,000 cash and 4,000 refunds equals 3,000, despite the 10,000 claim on the partner. Arithmetic does not prove contractual enforceability, sufficiency of reserves or the legality of a real route. H1–H3 remained hypotheses; hypotheses are not a launch decision.
 
-## Исторический инцидент и пределы независимости
+## Historical incident and limits of independence
 
-Fed/Treasury/FDIC statement12.03.2023, Circle announcement с разными body/page dates12/13March и операционный update15/16March прочитаны отдельно. Circle3.3bn reserve deposit,3.8bn redemptions/.8bn minting и substantially all backlog — атрибутированные сообщения. Не установлено исполнение каждой заявки/банковского перевода. Reddit MediumAdhesiveness5 post/Updates подтверждает публикацию обсуждения; price-feed и причинность не проверены.
+The Fed/Treasury/FDIC statement of 2023-03-12, the Circle announcement with different body/page dates of 12/13 March, and the operational update of 15/16 March were read separately. Circle's 3.3bn reserve deposit, 3.8bn redemptions/.8bn minting and substantially all backlog are attributed statements. Execution of every request/bank transfer was not established. The Reddit MediumAdhesiveness5 post/Updates confirms that the discussion was published; the price-feed and causality were not checked.
 
-Независимый review не является финансовым, юридическим или эксплуатационным одобрением.
+The independent review is not a financial, legal or operational approval.
 
-## Coverage and verdict counts — публичная редакция
+## Coverage and verdict counts — public edition
 
-Claims: 26; 20 опубликованных карточек источников и 1 запись об исключении P09-S021. Every ID has one matrix row. C008/C009 заменены редакционными положениями 18.09.2026: verified → non_factual. Остальной фактчек сохраняет дату 17.09.2026.
+Claims: 26; 20 published source cards and 1 exclusion record, P09-S021. Every ID has one matrix row. C008/C009 were replaced with editorial positions on 2026-09-18: verified → non_factual. The rest of the fact-check keeps the date 2026-09-17.
 
 - partial: 4
 - verified: 11
@@ -61,7 +61,7 @@ Claims: 26; 20 опубликованных карточек источнико�
 
 ## Final recheck and hashes
 
-Финальный текст прочитан после provisional freeze редактора. Хеши рассчитаны по фактическому содержимому окончательных файлов. Previous review использован только как указатель риска, не как evidence.
+The final text was read after the editor's provisional freeze. The hashes were calculated from the actual content of the final files. The previous review was used only as a risk pointer, not as evidence.
 
 final_verdict: reviewed_with_limitations
 
@@ -72,5 +72,5 @@ open_major: 0
 | File | SHA-256 |
 |---|---|
 | [CHAPTER.md](../../Textbook/09-Payment-project-workshop/README.md) | 43b39c1c23c142cb72180197c69de9432df54d0643b527eed0aa1dcd8daf2f14 |
-| [Источники](../../Textbook/09-Payment-project-workshop/Sources.md) | fc913f90460ec4f751b0b3eef83a48cafb88b05610e2e7e981c6eb1d2ea0ca00 |
-| [Утверждения](../../Textbook/09-Payment-project-workshop/Claims.md) | 2232417ab58af5c2bb90576590a02b8aaf3165645935042f8b3f05f22b2d90e1 |
+| [Sources](../../Textbook/09-Payment-project-workshop/Sources.md) | fc913f90460ec4f751b0b3eef83a48cafb88b05610e2e7e981c6eb1d2ea0ca00 |
+| [Claims](../../Textbook/09-Payment-project-workshop/Claims.md) | 2232417ab58af5c2bb90576590a02b8aaf3165645935042f8b3f05f22b2d90e1 |

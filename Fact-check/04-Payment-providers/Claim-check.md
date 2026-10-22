@@ -1,5 +1,5 @@
 ---
-title: "Независимый аудит утверждений — часть 04"
+title: "Independent claim audit — Chapter 4"
 date: "2026-09-17"
 status: "draft"
 visibility: "public"
@@ -8,13 +8,13 @@ published_on: "2026-09-18"
 tags: ["kind/research", "fintech-2026"]
 ---
 
-[← Источники и фактчек](../README.md) · [Читать главу](../../Textbook/04-Payment-providers/README.md)
+[← Sources and fact-check](../README.md) · [Read the chapter](../../Textbook/04-Payment-providers/README.md)
 
-> Публичная редакция от 18.09.2026. Даты проверки и ограничения источников сохранены. Хеши в исторических аудитах относятся к исходной рукописи; публичные изменения и текущие хеши — в [паспорте издания](../../Methodology/Edition-record.md).
+> Public edition of 2026-09-18. Verification dates and source limitations are preserved. Hashes in historical audits refer to the original manuscript; public changes and current hashes are in the [edition record](../../Methodology/Edition-record.md).
 
-# Независимый аудит утверждений — часть 04
+# Independent claim audit — Chapter 4
 
-17.09.2026 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04 · private. Проверены все 44 строки. Синтетические модели помечены non_factual, а не внешними эмпирическими доказательствами. Теоретические результаты verified только внутри явно проверенных предпосылок.
+2026-09-17 · Asia/Makassar (UTC+08) · auditor: deep_audit_02_03_04 · private. All 44 rows were checked. Synthetic models are marked non_factual rather than treated as external empirical evidence. Theoretical results are verified only within the explicitly checked assumptions.
 
 | ID | verdict | independently_read_evidence (URL + locator) | checked_scope_and_date | finding / limits |
 |---|---|---|---|---|
@@ -63,4 +63,4 @@ tags: ["kind/research", "fintech-2026"]
 | P04-C043 | verified_as_reported | [P04-S023](https://www.reddit.com/r/fintech/comments/10kwnbp/bin_sponsorship_vs_payment_facilitator/); OP question and acquiring clarification | u/songtu-staygold, relative age four years | Discussion content verified; commenters are not rule authorities and no actual contracts inspected. |
 | P04-C044 | non_factual | [P04-S019](https://www.federalreserve.gov/frrs/guidance/interagency-guidance-on-third-party-relationships.htm); CHAPTER §4.6 transition checklist; sources as context | Partner-transition hypothesis | These are questions for diligence, not promised BIN portability or a universal migration procedure. |
 
-Дополнительно непосредственно прочитаны официальные текстовые варианты: [Stablecoin payments Markdown](https://docs.stripe.com/payments/stablecoin-payments.md), [Separate charges and transfers Markdown](https://docs.stripe.com/connect/separate-charges-and-transfers.md?platform=web&integration=checkout&ui=stripe-hosted).
+In addition, the official text variants were read directly: [Stablecoin payments Markdown](https://docs.stripe.com/payments/stablecoin-payments.md), [Separate charges and transfers Markdown](https://docs.stripe.com/connect/separate-charges-and-transfers.md?platform=web&integration=checkout&ui=stripe-hosted).
