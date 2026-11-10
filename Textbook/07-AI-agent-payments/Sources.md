@@ -490,3 +490,17 @@ Rights to storage/quotation/distribution are treated separately: this file conta
 - **reviewed_scope / locator / access:** full file: Contributors; Maintainers; Domain Working Groups; Domain Tech Councils; Governing Council; Communication. access_status=full_text; direct raw HTTPS plus GitHub API commit. Read 2026-09-15 at 23:49 Asia/Makassar. MAINTAINERS.md at same SHA also read as context; chapter does not derive deployment/product availability from membership.
 - **jurisdiction/activity/product:** governance of UCP project assets and domains. **limitations/interests:** Project's own allocation of governance authority; does not establish regulator status, legal enforceability, implementation conformance, or independent certification. Membership may change.
 - **rights/basis:** License coverage of this GOVERNANCE.md has not been independently established. The pinned file contains no copyright/license header; the earlier attribution to Apache-2.0 was unsupported and corrected on 2026-09-17 after independent full-file reading. Limited original synthesis; full file not redistributed.
+
+## Sources added after the knowledge cutoff
+
+Cards appended by the weekly [timeline](../../Timeline/README.md). They follow the same fields as the cards above; numbering continues.
+
+### P07-S043 — Mastercard: What happens when AI agents start paying each other? Watch Mastercard Agent Pay for Machines in action
+
+- **URL:** [Mastercard news](https://www.mastercard.com/hk/zh/news-and-trends/press/2026/october/Mastercard-Agent-Pay-for-Machines-in-action.html).
+- **source_class / document_kind:** `vendor` / company news brief; **publisher:** Mastercard.
+- **published_at:** 2026-10-20; **effective_from:** Early Access from 2026-10-20.
+- **jurisdiction / scope:** Mastercard Agent Pay for Machines (AP4M); global programme, no country list.
+- **snapshot_id:** `P07-S043-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** full_text, direct_page; the sign-up page was also read.
+- **reviewed_scope:** News brief and the sign-up page.
+- **limitations:** A vendor statement; the sign-up page still calls the product a pilot that is not available commercially. Added by the weekly timeline, [Week 43](../../Timeline/2026-W43.md).

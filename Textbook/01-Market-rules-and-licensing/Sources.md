@@ -187,3 +187,43 @@ Cards appended by the weekly [timeline](../../Timeline/README.md). They follow t
 - **snapshot_id:** `P01-S068-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** full_text, direct_page.
 - **reviewed_scope:** Whole release.
 - **limitations:** The proposed rule text and the OFAC designation details were not read in full; this card supports only what the release states. Added by the weekly timeline, [Week 40](../../Timeline/2026-W40.md).
+
+### P01-S069 — ESMA: Q&A 2949 on crypto-asset service providers holding clients' funds in payment accounts
+
+- **URL:** [ESMA Q&A](https://www.esma.europa.eu/publications-data/questions-answers/2949).
+- **source_class / document_kind:** `regulator` / Q&A (supervisory reading); **publisher:** European Securities and Markets Authority.
+- **published_at:** 2026-10-06 (answer date; announced 2026-10-16); **effective_from:** not_applicable.
+- **jurisdiction / scope:** EU; MiCA Art. 70(2) and (3); CASPs and non-bank payment service providers.
+- **snapshot_id:** `P01-S069-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** full_text, direct_page.
+- **reviewed_scope:** Question, answer and the Art. 70 wording quoted.
+- **limitations:** A Q&A sets a supervisory reading, not binding law; national competent authorities apply Art. 70. Added by the weekly timeline, [Week 42](../../Timeline/2026-W42.md).
+
+### P01-S070 — Council of the EU: 8543/1/26 REV 1 — position at first reading on the Payment Services Regulation
+
+- **URL:** [Council document 8543/1/26 REV 1 (PDF)](https://data.consilium.europa.eu/doc/document/ST-8543-2026-REV-1/en/pdf).
+- **source_class / document_kind:** `regulator` / Council position at first reading (text of the regulation); **publisher:** Council of the European Union.
+- **published_at:** 2026-11-04 (document date); position adopted 2026-10-29; **effective_from:** not applicable at the first-reading stage.
+- **jurisdiction / scope:** EU; payment services (PSR); the companion PSD3 text is 8535/1/26 REV 1.
+- **snapshot_id:** `P01-S070-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** partial_text (cover page).
+- **reviewed_scope:** Cover note and Council adoption date.
+- **limitations:** The Council position is not the final act: Parliament's second reading and the Official Journal are still ahead; the 184-page and 389-page texts were not read in full. Added by the weekly timeline, [Week 44](../../Timeline/2026-W44.md).
+
+### P01-S071 — Instrução Normativa BCB nº 704, de 29 de janeiro de 2026 [BCB Normative Instruction No. 704 of 29 January 2026]
+
+- **URL:** [BCB normative act](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=704).
+- **source_class / document_kind:** `regulator` / normative instruction; **publisher:** Banco Central do Brasil.
+- **published_at:** 2026-01-29; **effective_from:** see the act.
+- **jurisdiction / scope:** Brazil; authorisation procedure for virtual asset service providers (Resolution BCB 520).
+- **snapshot_id:** `P01-S071-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** full text of article 9 via the central bank’s public data endpoint.
+- **reviewed_scope:** Art. 9 (filing windows for phase 1 and phase 2).
+- **limitations:** The BCB published no press note, count of filers or list of exits; the calendar date on which the thirty days end is not stated by the BCB. Added by the weekly timeline, [Week 44](../../Timeline/2026-W44.md).
+
+### P01-S072 — Federal Register 2026-21706: Implementing the GENIUS Act for the Issuance of Stablecoins by Entities Subject to the Jurisdiction of the OCC
+
+- **URL:** [Federal Register document](https://www.federalregister.gov/documents/2026/10/23/2026-21706/implementing-the-guiding-and-establishing-national-innovation-for-us-stablecoins-act-for-the).
+- **source_class / document_kind:** `regulator` / final rule; **publisher:** Office of the Comptroller of the Currency.
+- **published_at:** 2026-10-23; **effective_from:** 2027-01-18.
+- **jurisdiction / scope:** US; GENIUS Act; payment stablecoin issuers supervised by the OCC.
+- **snapshot_id:** `P01-S072-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** partial_text.
+- **reviewed_scope:** Summary, dates and the statement of the effective date.
+- **limitations:** Covers OCC-supervised issuers only; the OCC's own pages could not be opened; the full text was not read. Added by the weekly timeline, [Week 43](../../Timeline/2026-W43.md).

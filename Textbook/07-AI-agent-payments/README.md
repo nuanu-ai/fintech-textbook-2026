@@ -5,7 +5,7 @@
 
 > How a program buys on a person's instructions — with limits and proof of the result.
 
-**6 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md)
+**6 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-10**: [1 note after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -100,6 +100,9 @@ A product name cannot be used as the only status. At least two axes are needed: 
 | Visa Intelligent Commerce Connect | A proposed integration of multiple networks, token vaults and commerce protocols | The announcement of 2026-04-09 reports a pilot with selected partners. It does not follow from it that the whole program was GA by September. [P07-S028] |
 | Mastercard Agent Pay Acceptance Framework | Agent registration/verification and recognizable agentic tokens | The publication of 2025-10-14 describes the framework and the collection of feedback. The eligibility conditions for a specific platform require separate verification. [P07-S029] |
 | Mastercard Agent Pay for Machines, AP4M | Credentialing, permissioning, high-frequency payments and multi-rail settlement | An announcement of 2026-06-10 and a collaboration to test use cases. Statements about settlement are vendor statements; contractual exceptions and general developer availability have not been established. [P07-S030] |
+
+> [!NOTE]
+> **Update 2026-10-20 · Mastercard Agent Pay for Machines.** The table row above rests on the announcement of 2026-06-10. Since 2026-10-20 Mastercard has opened an Early Access programme for developers (first-version buyer and seller APIs, a toolkit, a sandbox and documentation) and says the product builds on x402. Its sign-up page still says the product "is still in a pilot and not available commercially". Source: [Mastercard — What happens when AI agents start paying each other? Watch Mastercard Agent Pay for Machines in action, 2026-10-20](https://www.mastercard.com/hk/zh/news-and-trends/press/2026/october/Mastercard-Agent-Pay-for-Machines-in-action.html). Details: [Week 43](../../Timeline/2026-W43.md).
 
 Visa separates the user's instruction, the retrieval of payment credentials and the control of the incoming authorization. In TAP, agent recognition is based on HTTP Message Signatures and a trusted source of keys. Even a valid signature means an assertion by a specific signer within a certain program; it does not prove that the item is useful, that there is no fraud, or that any purchase is legally valid. A merchant may not implement TAP. [P07-S026][P07-S027]
 

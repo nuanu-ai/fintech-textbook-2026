@@ -5,7 +5,7 @@
 
 > Card network rules: participants, fees, tokens and restrictions.
 
-**6 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md)
+**6 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-10**: [1 note after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -102,6 +102,9 @@ Interchange in an ordinary purchase is the interbank component; the merchant dis
 **Synthetic 100 USD receipt:** interchange 1.50; network fees 0.20; processing/acquirer margin 0.40. The total cost is 2.10 USD; the merchant is owed 97.90 USD. If 1 USD is held in a rolling reserve, today's payout is 96.90, but the acceptance expense remains 2.10: the reserve is a withheld claim until there is a basis for writing it off as a loss. If after reconciliation a separate monthly charge of 10 USD is found with ten payments, the effective cost rises by another 1 USD per payment.
 
 **A real illustration of reading a fee schedule, not an offer of services:** Visa USA, effective 2026-04-18, Exempt Check Card, CPS/e-Commerce Basic Debit — 1.65% + 0.15 USD; in the adjacent regulated column — 0.05% + 0.21 USD, plus 0.01 USD with the stated issuer certification. On 100 USD this is 1.80 and 0.26/0.27 USD respectively. These lines cannot be carried over to an Indonesian commercial card or treated as the full MDR. [P03-S016, p. 4](https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf)
+
+> [!NOTE]
+> **Update 2026-10-24 · Visa USA.** The fee sheet cited above ("effective 2026-04-18") has been replaced at the same link by the edition "Rates Effective October 24, 2026". The two rows quoted here are unchanged in the new edition (1.65% + 0.15 USD, and 0.05% + 0.21 USD in the regulated column); other rows were not compared. Source: [Visa — Visa USA Interchange Reimbursement Fees (rates effective October 24, 2026), 2026-10-24](https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf). Details: [Week 43](../../Timeline/2026-W43.md).
 
 Three levers for investigating cost: the right product/region, the right processing qualification, the contractual pass-through of fee layers. Manipulating the MCC to make things cheaper is not allowed: that is a change in the description of the business, not processing optimization.
 

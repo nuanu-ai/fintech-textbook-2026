@@ -5,7 +5,7 @@
 
 > Blockchain payments, exchange into ordinary money, liquidity and central bank digital currencies.
 
-**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-10-22**: [3 notes after the cutoff](../../Timeline/Outdated-facts.md)
+**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-10**: [5 notes after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -106,6 +106,9 @@ Buying 10,000 existing tokens on an exchange from another holder does not requir
 
 Under the non-EEA USDC Terms, holding a token is not equivalent to having an open and active Circle Mint account. For the EEA, Circle France publishes a separate path: retail holders use a form, non-retail holders use Mint redemption-only; identification, checks and a bank IBAN in the EEA are required. Therefore two universal formulas are equally wrong: "any wallet immediately gets a dollar from Circle" and "a retail holder can never apply to the issuer". [USDC Terms, §§1–4](https://www.circle.com/legal/usdc-terms), [MiCA Redemption Policy, §§1–3](https://www.circle.com/legal/mica-redemption-policy) [P06-C003; P06-C004].
 
+> [!NOTE]
+> **Update 2026-10-14 · EU.** The European Banking Authority (EBA) classified USDC, issued in the EU by Circle Internet Financial Europe SAS, as the first significant e-money token under MiCA. From 2026-11-12, own funds, the reserve of assets, liquidity, and recovery and redemption plans move to the EBA; governance, qualifying holdings, fit-and-proper checks, outsourcing and conflicts of interest stay with the French supervisor ACPR. Source: [EBA — The EBA classifies USDC as the first significant e-money token in the European Union, 2026-10-14](https://www.eba.europa.eu/publications-and-media/press-releases/eba-classifies-usdc-first-significant-e-money-token-european-union). Details: [Week 42](../../Timeline/2026-W42.md).
+
 Tether's Relevant Information Document of 20 February 2026 describes the direct primary market as open to verified customers. It states a minimum direct redemption of 100,000 USD and a fee equal to the greater of 1,000 USD and 0.1%. Therefore a synthetic redemption of exactly 100,000 USD yields 99,000 USD before other applicable costs: the minimum fee here equals 1%, not 0.1%. This is not the rate of any exchange service and not the fee on every USDT transfer. [Tether, Relevant Information Document, pp. 13–15](https://tether.to/public/Relevant_Information_Document_-_Tether_International,_S.A._de_C.V..pdf) [P06-C012].
 
 ### What a reserve report confirms
@@ -174,6 +177,9 @@ In the EU, a **CASP**, crypto-asset service provider, is defined by MiCA through
 
 > [!NOTE]
 > **Update 2026-10-08 · EU.** ESMA set out supervisory expectations for crypto-asset service providers authorized under MiCA: they should stop providing services related to stablecoins that do not comply with MiCA to clients in the EU and prevent clients from acquiring or increasing such exposures. National authorities should require existing exposures to be remediated within three months; continued service is allowed only when strictly limited to liquidation, conversion, withdrawal, transfer or safekeeping. Source: [ESMA — ESMA sets out supervisory expectations on services related to unauthorised stablecoins, 2026-10-08](https://www.esma.europa.eu/press-news/esma-news/esma-sets-out-supervisory-expectations-services-related-unauthorised). Details: [Week 41](../../Timeline/2026-W41.md).
+
+> [!NOTE]
+> **Update 2026-11-05 · Nigeria.** An example of national implementation: the Central Bank of Nigeria issued regulations, in force from 2026-11-05, that license issuers of naira-referenced (Class 1) and foreign-currency-referenced (Class 2) stablecoins and providers of non-security virtual asset services. Class 1 coins must be fully backed by naira reserve assets, licensed issuers must redeem at par by the end of the next business day, and a Travel Rule applies from USD/EUR 1,000. Source: [Central Bank of Nigeria — Regulations for the Operations of Non-Security Virtual Assets in Nigeria, 2026-11-05](https://www.cbn.gov.ng/Out/2026/CCD/REGULATIONS%20FOR%20THE%20OPERATIONS%20OF%20NON-SECURITY%20VIRTUAL%20ASSETS%20IN%20NIGERIA.pdf). Details: [Week 45](../../Timeline/2026-W45.md).
 
 Consider two synthetic businesses. Company A sells its own subscription and receives tokens as payment. Company B holds the balances of a hundred merchants, exchanges their assets and remits money to recipients. Having the same checkout button does not make their activities the same. For B, custody, transfer and exchange must be analyzed separately, and for both, the applicable payment, tax and consumer rules. The first description does not automatically imply an exemption from all requirements; from the second, a specific license cannot be chosen without the jurisdiction and the contracts.
 

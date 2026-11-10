@@ -432,3 +432,17 @@ P03-S006 was reopened directly on 2026-09-17 (access P03-S006-20260917): QRG 202
 - snapshot_id=P03-S048-20260917-deep; accessed_at=2026-09-17 Asia/Makassar; access_status=full_text for answer; access_method=direct_page. Root read the complete answer: transaction linkage; no initiation using PAR alone; data classification and connected-system caveats. Site navigation and unrelated FAQs excluded.
 - Locator: answer paragraphs1–5, especially paragraph3 on authorization/capture/clearing/settlement initiation. Supports C012 credential distinction. Does not prove merchant consent, deployment, anonymity, or automatic PCI exemption for a connected environment.
 - local_path=not_saved; hash=not_recorded. Limited original synthesis; no extended reproduction. Independent recheck recorded separately in audit matrices. Added 2026-09-17 to complete the evidence, without expanding the chapter's technical claim.
+
+## Sources added after the knowledge cutoff
+
+Cards appended by the weekly [timeline](../../Timeline/README.md). They follow the same fields as the cards above; numbering continues.
+
+### P03-S049 — Visa USA Interchange Reimbursement Fees — edition "Rates Effective October 24, 2026"
+
+- **URL:** [Visa PDF (same URL as the card P03-S016 edition)](https://usa.visa.com/content/dam/VCOM/download/merchants/visa-usa-interchange-reimbursement-fees.pdf).
+- **source_class / document_kind:** `scheme` / interchange fee schedule; **publisher:** Visa Inc..
+- **published_at:** 2026-10-24 (edition date; the posting date is not shown); **effective_from:** 2026-10-24.
+- **jurisdiction / scope:** US; Visa USA interchange rates.
+- **snapshot_id:** `P03-S049-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** partial_text; official_pdf.
+- **reviewed_scope:** The two rows quoted in the lesson (Exempt Check Card, CPS/e-Commerce Basic Debit; regulated column).
+- **limitations:** Other rows were not compared with the 2026-04-18 edition. Added by the weekly timeline, [Week 43](../../Timeline/2026-W43.md).

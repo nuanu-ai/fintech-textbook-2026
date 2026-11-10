@@ -10,6 +10,10 @@ When a change makes a statement in a lesson outdated, the lesson keeps its text 
 
 | Week | Dates | Events | Lesson notes |
 |---|---|---|---|
+| [Week 45](2026-W45.md) | 2026-11-02 … 2026-11-08 | 43 | 1 |
+| [Week 44](2026-W44.md) | 2026-10-26 … 2026-11-01 | 29 | 3 |
+| [Week 43](2026-W43.md) | 2026-10-19 … 2026-10-25 | 26 | 3 |
+| [Week 42](2026-W42.md) | 2026-10-12 … 2026-10-18 | 37 | 2 |
 | [Week 41](2026-W41.md) | 2026-10-05 … 2026-10-11 | 16 | 1 |
 | [Week 40](2026-W40.md) | 2026-09-28 … 2026-10-04 | 27 | 3 |
 | [Week 39](2026-W39.md) | 2026-09-21 … 2026-09-27 | 19 | 2 |
@@ -47,7 +51,7 @@ Stages:
 
 - **Primary sources only.** Every entry rests on a regulator, central bank, official journal, standard-setter, payment scheme, company newsroom or official specification repository. News sites are used only to find events.
 - **A stated date.** An entry needs a primary source and a date that the source itself states. Reports without a reachable primary source, and dates we would have to calculate, are left out and counted in each week's "Coverage and limits".
-- **Checked twice.** Every entry was checked against its primary source by a second agent.
+- **Checked twice.** Each published entry was checked against its primary source in a separate verification pass.
 - **Gaps are visible.** Each week lists the regions and sites that were checked and those that could not be reached. A region with no entry is a gap in coverage, not proof that nothing happened.
 - **Teaching material.** The timeline is prepared by agents for teaching. It is not legal advice.
 - **Updated every week.**
