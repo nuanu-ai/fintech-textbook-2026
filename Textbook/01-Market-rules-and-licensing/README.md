@@ -5,7 +5,7 @@
 
 > Who is allowed to provide a payment service, and to whom they are answerable.
 
-**9 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-10-22**: [4 notes after the cutoff](../../Timeline/Outdated-facts.md)
+**9 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-10**: [8 notes after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -247,6 +247,9 @@ The operator takes on significantly more functions: accounting, reconciliation, 
 > [!IMPORTANT]
 > **Outdated as of 2026-09-30 · P01-C009.** The text above says the second branch of the §20 effective date was not verified, so the general effective date of the GENIUS Act stays open. Now: the interim final rule of the Stablecoin Certification Review Committee, published by Treasury on 2026-09-30, states that the Act takes effect on 2027-01-18 — the 18-month branch. This is Treasury's reading in a procedural rule, not a court decision; §3(b)(1) keeps its own three-year term. Source: [Federal Register 2026-19966 — Forms and Procedures for Review of State Certifications by the Stablecoin Certification Review Committee, 2026-09-30](https://www.govinfo.gov/content/pkg/FR-2026-09-30/html/2026-19966.htm). Details: [Week 40](../../Timeline/2026-W40.md).
 
+> [!IMPORTANT]
+> **Outdated as of 2026-10-23 · P01-C009.** The text above says the confirmed OCC document of 2026-02-25 is a proposal. Now: the Office of the Comptroller of the Currency (OCC) published its final rule implementing the GENIUS Act for entities under its jurisdiction on 2026-10-23, effective 2027-01-18, the date already stated in Treasury's interim final rule; it covers OCC-supervised issuers only. Source: [Federal Register 2026-21706 — Implementing the Guiding and Establishing National Innovation for U.S. Stablecoins Act for the Issuance of Stablecoins by Entities Subject to the Jurisdiction of the OCC, 2026-10-23](https://www.federalregister.gov/documents/2026/10/23/2026-21706/implementing-the-guiding-and-establishing-national-innovation-for-us-stablecoins-act-for-the). Details: [Week 43](../../Timeline/2026-W43.md).
+
 **Acquiring, payout and partnership.** A card acquirer accepts a merchant under its own contract and scheme conditions; access to ACH or another bank payout cannot be inferred from card acceptance. The engineer must establish who submits the instruction to the bank, which account is debited and which event confirms the credit to the recipient. The bank's responsibility for outsourced functions remains within the limits of applicable law; the interagency guidance explicitly covers the entire life cycle of third-party relationships. [P01-S035, Overview](https://www.federalreserve.gov/frrs/guidance/interagency-guidance-on-third-party-relationships.htm).
 
 **Worked example.** A service sells a "USD wallet", but the customer signs only the service's terms. A bank is named in the footer, while the balance is kept by the service. This product cannot be called a bank deposit just because a bank is present. Classification requires the account agreement, title to the funds, the service's authority, the state-by-state perimeter and the insolvency treatment. These are the specific remaining questions for counsel; the question "is fintech legal in the US?" is too broad. Consumer EFT rights are discussed further in 1.9; a merchant-quality dispute and an unauthorized transfer are different things.
@@ -257,11 +260,17 @@ The operator takes on significantly more functions: accounting, reconciliation, 
 
 **Payments and reforms.** The teaching basis for the payment perimeter is PSD2 and its national implementation. PSD3/PSR are in a changing legislative process: the political agreement of 2025-11-27 and its confirmation by COREPER on 2026-04-22 are established; final OJ/application dates were not established by this check. So new proposals on liability or fraud controls cannot be pasted into a contract as an already binding rule without checking. SCA is an authentication requirement in the relevant context, not a guarantee that there is no fraud. [P01-S001](https://www.boe.es/buscar/doc.php?id=DOUE-L-2015-82575); [P01-S007, Next steps](https://www.consilium.europa.eu/en/press/press-releases/2025/11/27/payment-services-council-and-parliament-agree-to-step-up-the-fight-against-fraud-and-increase-transparency/); [P01-S057, lines 5–6](https://data.consilium.europa.eu/doc/document/ST-9814-2026-INIT/en/pdf).
 
+> [!NOTE]
+> **Update 2026-10-29 · P01-C011.** The Council of the EU adopted its position at first reading on PSD3 and the PSR on 2026-10-29. The two texts are Council positions. Parliament's second reading and publication were still ahead at that stage. Source: [Council of the EU — 8543/1/26 REV 1, 2026-11-04](https://data.consilium.europa.eu/doc/document/ST-8543-2026-REV-1/en/pdf). Details: [Week 44](../../Timeline/2026-W44.md).
+
 **Crypto and stablecoin.** MiCA distinguishes EMTs referencing a single official currency, ARTs and other in-scope crypto-assets; a tokenized financial instrument cannot automatically be analyzed as a MiCA token. For EMTs, the issuer's status and the rules on monetary value matter; for a CASP, the service. ESMA explicitly confirmed that the maximum grandfathering period ended on 2026-07-01, and some countries ended it earlier. An old national VASP registration does not by itself confirm MiCA authorization as of September 2026. Also, the license of one group company does not extend to the others. [P01-S005, recitals 18–22 and Art. 48](https://www.boe.es/buscar/doc.php?id=DOUE-L-2023-80808); [P01-S006, pp. 1–3](https://www.esma.europa.eu/sites/default/files/2026-04/ESMA75-113276571-1679_Statement_on_the_end_of_transitional_periods_under_MiCA.pdf).
 
 **Acquiring, payout, partnership.** Merchant acquiring, a bank transfer and an EMT transfer are separate functions. Approval for crypto custody does not prove authorization for a payment service, access to a bank account or acceptance by any acquirer. An agent/outsourcer acts in a defined role; the regulated principal must retain control. Moving functions out does not remove the requirements for safeguarding, data and consumer redress.
 
 **Worked example.** A platform accepts a EUR token and then pays EUR out to a merchant. The table must separately show the token issuer, the CASP for custody/exchange and the fiat PSP. If one group performs all three functions, specific entities and authorizations are still needed. The open legal knot is the overlap of MiCA/EMT with payment services, plus the applicable national regime and passport. Reverse solicitation should not be turned into a systematic customer acquisition model: ESMA describes it as a narrow exception.
+
+> [!NOTE]
+> **Update 2026-10-16 · EU.** ESMA Q&A 2949: a crypto-asset service provider may hold clients' funds temporarily in a payment account at an e-money or payment institution, but the funds must reach an account at a credit institution or central bank "no later than the end of the business day following the day on which the funds were received" (MiCA Art. 70(3)). That account must be in the provider's own name or under asset segregation; an account in the non-bank provider's name does not qualify. The Q&A gives ESMA’s supervisory interpretation. Source: [ESMA — Q&A ESMA_QA_2949, answer dated 2026-10-06](https://www.esma.europa.eu/publications-data/questions-answers/2949). Details: [Week 42](../../Timeline/2026-W42.md).
 
 ### 1.4.3 United Kingdom
 
@@ -326,6 +335,9 @@ These are pointers for further research, not an additional legal treatise. Each 
 
 > [!IMPORTANT]
 > **Outdated as of 2026-09-25 · P01-C047.** The Brazil row says Resolution 520 has a separate future deadline of 2026-10-30 for the counterparty restriction. Now: BCB Resolution 589 (dated 2026-09-23, published in the official gazette on 2026-09-25) moved the start of the art. 91 restriction to 2026-11-06. Its new wording, in force since 2026-10-01, no longer mentions providers that are "in the authorization process". The general entry into force of 2026-02-02 is unchanged. Source: [BCB — Resolução BCB nº 589, de 23 de setembro de 2026 [BCB Resolution No. 589 of 23 September 2026]](https://www.bcb.gov.br/api/conteudo/app/normativos/exibenormativo?p1=Resolu%C3%A7%C3%A3o%20BCB&p2=589). Details: [Week 39](../../Timeline/2026-W39.md).
+
+> [!NOTE]
+> **Update 2026-10-30 · P01-C047.** The phase-one filing window closed on 2026-10-30. That was the last day for firms already operating on 2026-02-02 to file phase one of their authorisation request under Article 9 of Normative Instruction 704. The art. 91 counterparty restriction is a separate rule and took effect on 2026-11-06, the date set by Resolution 589. Source: [BCB — Instrução Normativa BCB nº 704, 2026-01-29](https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB&numero=704). Details: [Week 44](../../Timeline/2026-W44.md), [Week 45](../../Timeline/2026-W45.md).
 
 <a id="module-1-5"></a>
 <a id="15-aml--kyc--sanctions--travel-rule"></a>

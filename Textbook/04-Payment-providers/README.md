@@ -5,7 +5,7 @@
 
 > PSPs, platforms, PayFacs and Merchant of Record: liability and economics.
 
-**6 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md)
+**6 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-10**: [1 note after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -239,6 +239,9 @@ This is a comparison of evidence as of 2026-09-15, not a shortlist. "Not establi
 | Reading limitation | No version number/commit; the country-code list is broader than the preview text | No update date and no individual contract |
 
 Grounds: [P04-S012, “Payment method properties”, “Business locations”, “Limitations”, “Connect support”](https://docs.stripe.com/payments/stablecoin-payments); [P04-S014, “What services…”](https://support.triple-a.io/knowledge/what-services-does-triple-a-provide). General availability in additional countries cannot be inferred from the Stripe country-code list: this is a specific contradiction on the page, left open.
+
+> [!NOTE]
+> **Update 2026-10-28 · P04-C027.** The Stripe column above reflects the Stablecoin payments page as read on 2026-09-15. Stripe's API version 2026-10-28.endive now also records Open USD (OUSD) as a crypto token currency, and Stripe's OUSD page lists "Accept OUSD" under Stablecoin payments. The changelog does not specify countries or networks. Source: [Stripe docs — Adds Open USD (OUSD) as a supported token currency for crypto payments, 2026-10-28](https://docs.stripe.com/changelog/endive/2026-10-28/ousd-token-currency.md). Details: [Week 44](../../Timeline/2026-W44.md).
 
 The payout threshold is also part of the product. At Triple-A, a separate FAQ describes an automatic local-currency withdrawal once 3,000 USD equivalent is reached, followed by bank processing time. This is a general help-center condition that was read; its applicability to a specific contract is unknown. [P04-S015, “Bank account settlements…”](https://support.triple-a.io/knowledge/i-didnt-receive-my-payment-what-can-i-do) For a teaching-example merchant receiving 100 USD a day, such a setup means about a month of accumulation before the threshold is reached, even if each payment is confirmed quickly.
 

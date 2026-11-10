@@ -163,3 +163,11 @@ The inputs of these examples are set in the chapter. The check consists of conse
 4. **EMV latest:** the new TF 2.4 metadata does not make the old guide a current full specification. Decision: explain the roles based on the v2.2.1 that was read; leave new technical requirements open.
 5. **Social case:** the claim DCC=scam versus the official conditions of voluntary DCC. Decision: keep the story as told by its author; do not establish a universal accusation or an outcome without evidence.
 6. **Different brands:** the absence of full API/operating guides has not been turned into an absence of functions. The gap is labeled "not verified"; current geographic shares were not invented.
+
+## Updates after the knowledge cutoff
+
+Rows are appended by the weekly [timeline](../../Timeline/README.md). The lesson text is not changed; the lesson carries a dated note next to the statement. `superseded` means the claim was true at the cutoff but no longer describes the current state; `added` is a new claim introduced by an update note. Each row was checked against its primary source by a second agent.
+
+| Date | Claim / lesson | Change | Status now | Source | Week |
+|---|---|---|---|---|---|
+| 2026-10-24 | P03-C018, P03-C019 /3.2 | The Visa USA sheet cited in the lesson (effective 2026-04-18) was replaced at the same link by the edition effective 2026-10-24; the two quoted rows are unchanged | `partly superseded` | P03-S049 | [Week 43](../../Timeline/2026-W43.md) |

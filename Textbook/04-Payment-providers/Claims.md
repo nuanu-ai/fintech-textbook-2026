@@ -115,3 +115,11 @@ On 2026-09-15 the author recalculated the examples and answers. An additional ed
 - Exercises: reserve6000→steady12000 EUR; payout21180USD; break-even2000000USD; equal-cost ticket20USD; sponsor normal4000 versus shutdown−11000USD.
 
 The figures do not describe Square, Stripe, Paddle, Adyen, a bank or the Lab, except for the explicitly cited public Stripe Connect tariffs with their limited US scope. The check of the calculations is not a legal opinion, a confirmation of production readiness or a commercial endorsement.
+
+## Updates after the knowledge cutoff
+
+Rows are appended by the weekly [timeline](../../Timeline/README.md). The lesson text is not changed; the lesson carries a dated note next to the statement. `superseded` means the claim was true at the cutoff but no longer describes the current state; `added` is a new claim introduced by an update note. Each row was checked against its primary source by a second agent.
+
+| Date | Claim / lesson | Change | Status now | Source | Week |
+|---|---|---|---|---|---|
+| 2026-10-28 | P04-C027 /4.5 | Stripe API 2026-10-28.endive adds OUSD as a crypto token currency and the OUSD documentation describes the token’s uses | `updated` | P04-S025 | [Week 44](../../Timeline/2026-W44.md) |

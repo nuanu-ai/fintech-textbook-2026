@@ -537,3 +537,23 @@ Cards appended by the weekly [timeline](../../Timeline/README.md). They follow t
 - **snapshot_id:** `P06-S037-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** full_text of the news page; the opinion PDF was not opened.
 - **reviewed_scope:** News page summary of the opinion.
 - **limitations:** An ESMA opinion addressed to supervisors, not a new legal act. Added by the weekly timeline, [Week 41](../../Timeline/2026-W41.md).
+
+### P06-S038 — EBA: The EBA classifies USDC as the first significant e-money token in the European Union
+
+- **URL:** [EBA press release](https://www.eba.europa.eu/publications-and-media/press-releases/eba-classifies-usdc-first-significant-e-money-token-european-union).
+- **source_class / document_kind:** `regulator` / press release; **publisher:** European Banking Authority.
+- **published_at:** 2026-10-14; **effective_from:** EBA supervision from 2026-11-12.
+- **jurisdiction / scope:** EU; MiCA; significant e-money tokens.
+- **snapshot_id:** `P06-S038-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** full_text of the press release.
+- **reviewed_scope:** Whole press release.
+- **limitations:** The EBA decision document itself was not opened; the release says 45 EMTs were notified under MiCA. Added by the weekly timeline, [Week 42](../../Timeline/2026-W42.md).
+
+### P06-S039 — Central Bank of Nigeria: Regulations for the Operations of Non-Security Virtual Assets in Nigeria
+
+- **URL:** [CBN PDF](https://www.cbn.gov.ng/Out/2026/CCD/REGULATIONS%20FOR%20THE%20OPERATIONS%20OF%20NON-SECURITY%20VIRTUAL%20ASSETS%20IN%20NIGERIA.pdf).
+- **source_class / document_kind:** `regulator` / regulations (169-page PDF); **publisher:** Central Bank of Nigeria.
+- **published_at:** 2026-11-05; **effective_from:** 2026-11-05.
+- **jurisdiction / scope:** Nigeria; stablecoin issuers and non-security virtual asset service providers.
+- **snapshot_id:** `P06-S039-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** partial_text (cover pages read by OCR and the key sections).
+- **reviewed_scope:** Cover text, classes of stablecoins, capital, reserve and redemption, Travel Rule, transition.
+- **limitations:** The circular reference rests on the CBN circulars API only; the PDF served on 2026-11-09 may differ in size from the file listed there; no licence had been granted as far as any primary source shows. Added by the weekly timeline, [Week 45](../../Timeline/2026-W45.md).

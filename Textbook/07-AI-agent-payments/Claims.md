@@ -500,3 +500,11 @@ Common fields: `as_of=2026-09-15`; `last_checked_at=2026-09-15, Asia/Makassar (U
 - **jurisdiction / conditions:** Universal-Commerce-Protocol governance policy, separate repo pin ced53b98c2064d472b41a5aff1c20b8261e6dd91 of 2026-09-15.
 - **evidence / locator / relation / reasoning:** [P07-S042](Sources.md#p07-s042) / `P07-S042-20260915`; Governing Council; `supports`: the allocation of roles is stated explicitly in the project's policy.
 - **confidence_basis / limitations / resolution:** This describes the project's own bodies; adoption of a law, independent certification and absence of vendor influence cannot be inferred from it.
+
+## Updates after the knowledge cutoff
+
+Rows are appended by the weekly [timeline](../../Timeline/README.md). The lesson text is not changed; the lesson carries a dated note next to the statement. `superseded` means the claim was true at the cutoff but no longer describes the current state; `added` is a new claim introduced by an update note. Each row was checked against its primary source by a second agent.
+
+| Date | Claim / lesson | Change | Status now | Source | Week |
+|---|---|---|---|---|---|
+| 2026-10-20 | P07-C007 /7.2 | Mastercard opened Early Access for Agent Pay for Machines (APIs, toolkit, sandbox); the product is still labelled a pilot, not commercially available; Mastercard says it builds on x402 | `updated` | P07-S043 | [Week 43](../../Timeline/2026-W43.md) |

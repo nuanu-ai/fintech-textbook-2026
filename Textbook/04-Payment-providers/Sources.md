@@ -294,3 +294,17 @@ For each card, unless overridden: `accessed_at=2026-09-15 Asia/Makassar`, `date_
 - **reviewed_scope:** introduction; Cross-border transfers; post-payment events; Create a Transfer/availability; Asynchronous payment methods; Issue refunds; Reverse transfers. Language examples/test-card tables not treated as real transactions.
 - **Locators:** opening bullets (platform balance bears fees/refunds/chargebacks); Issue refunds (refund leaves associated transfers unaffected); Reverse transfers (balance conditions); funds segregation explicitly private preview.
 - **Limitations:** API success depends on capabilities, balances and region; it does not prove enforceable collection from an insolvent merchant. The temporary extracted text of the Stripe page is not an archived copy in the knowledge base.
+
+## Sources added after the knowledge cutoff
+
+Cards appended by the weekly [timeline](../../Timeline/README.md). They follow the same fields as the cards above; numbering continues.
+
+### P04-S025 — Stripe API changelog: Adds Open USD (OUSD) as a supported token currency for crypto payments
+
+- **URL:** [Stripe changelog 2026-10-28.endive](https://docs.stripe.com/changelog/endive/2026-10-28/ousd-token-currency.md).
+- **source_class / document_kind:** `vendor` / API changelog; **publisher:** Stripe.
+- **published_at:** 2026-10-28; **effective_from:** 2026-10-28 (API version 2026-10-28.endive).
+- **jurisdiction / scope:** Stripe API; crypto payments.
+- **snapshot_id:** `P04-S025-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** full_text, direct_page.
+- **reviewed_scope:** The API changelog entry and Open USD documentation.
+- **limitations:** The changelog does not specify countries or networks. Added by the weekly timeline, [Week 44](../../Timeline/2026-W44.md).
