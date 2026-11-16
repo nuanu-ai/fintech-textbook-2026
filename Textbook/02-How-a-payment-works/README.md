@@ -5,7 +5,7 @@
 
 > The path from the "Pay" button to settlement, payout to the merchant and a possible refund.
 
-**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-10-22**: [1 note after the cutoff](../../Timeline/Outdated-facts.md)
+**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-16**: [2 notes after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -167,6 +167,9 @@ Imagine three banks: A owes B 100, B owes C 90, C owes A 80 EUR. The gross turno
 The Bank of England reports that Faster Payments processes customer payments in near real time 24/7, but net settlement in RTGS takes place three times per business day; weekend cycles are settled on the next business day. Prefunded money limits a participant's permitted net position. So "the money is available to the recipient" and "the banks have already settled with finality" may run on different clocks here. [P02-S006, Faster Payments Service; Prefunded net settlement](https://www.bankofengland.co.uk/payments/payment-settlement)
 
 For FedNow, Operating Circular 8 (in effect from 2026-04-01) defines the Settlement Account as the master account of the participant or of its correspondent. §7.1 ties finality to the earlier of the debit/credit entry and the sending of the Advice of Credit; the on-screen balance may update later. A return is made as a new transfer referencing the original, and a request for return does not itself move money. When the outcome is unknown, the status is checked first so that a duplicate is not sent. Liquidity remains a separate task. [P02-S042, §§2.39,7.1,9.1.16,9.6–9.8](https://www.frbservices.org/binaries/content/assets/crsocms/resources/rules-regulations/040126-operating-circular-8.pdf). The early product sheet S007 is kept as historical material from before the 2023 launch.
+
+> [!NOTE]
+> **Update 2026-11-09 · Canada.** Payments Canada launched the Real-Time Rail for round-the-clock exchange, clearing and settlement among participating institutions. The system uses ISO 20022 and launched with mandatory centralised fraud services. [Payments Canada — Canada launches the Real-Time Rail, bringing 24/7 payment infrastructure to the national economy, 2026-11-09](https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy). [Week 46](../../Timeline/2026-W46.md).
 
 | Class | What we compare | What must not be assumed |
 |---|---|---|
