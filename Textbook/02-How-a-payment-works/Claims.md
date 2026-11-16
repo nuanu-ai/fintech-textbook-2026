@@ -112,3 +112,4 @@ Rows are appended by the weekly [timeline](../../Timeline/README.md). The lesson
 | Date | Claim / lesson | Change | Status now | Source | Week |
 |---|---|---|---|---|---|
 | 2026-09-30 | lesson 2.3 (no claim ID; source P02-S009) | The EPC delayed the 2026-11-15 end date for unstructured addresses under all five EPC schemes; no new date set | `superseded` | P02-S044, P02-S045 | [Week 40](../../Timeline/2026-W40.md) |
+| 2026-11-09 | lesson 2.3 | Payments Canada launched the Real-Time Rail with 24/7 clearing and settlement among participants, ISO 20022 messaging and mandatory centralised fraud services | `added` | P02-S046 | [Week 46](../../Timeline/2026-W46.md) |

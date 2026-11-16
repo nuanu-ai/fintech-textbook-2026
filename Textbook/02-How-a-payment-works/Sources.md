@@ -359,3 +359,13 @@ Cards appended by the weekly [timeline](../../Timeline/README.md). They follow t
 - **snapshot_id:** `P02-S045-20261022`; **accessed_at:** 2026-10-22 Asia/Makassar; **access:** partial_text (pp. 1–2), official_pdf.
 - **reviewed_scope:** Cover and the "important message" on unstructured addresses.
 - **limitations:** Does not set a new end date. Added by the weekly timeline, [Week 40](../../Timeline/2026-W40.md).
+
+### P02-S046 — Payments Canada: Canada launches the Real-Time Rail, bringing 24/7 payment infrastructure to the national economy
+
+- **URL:** [Payments Canada launch announcement](https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy).
+- **source_class / document_kind:** `scheme` / operator launch announcement. **Publisher:** Payments Canada.
+- **published_at:** 2026-11-09. **Launched:** 2026-11-09.
+- **jurisdiction / scope:** Canada, national Real-Time Rail.
+- **snapshot_id:** `P02-S046-20261116`. **Accessed:** 2026-11-16 Asia/Makassar. **Access:** direct HTML.
+- **reviewed_scope:** Launch date, operating hours, ISO 20022 data, participation and fraud services.
+- **limitations:** Availability depends on participation and rollout. [Week 46](../../Timeline/2026-W46.md).
