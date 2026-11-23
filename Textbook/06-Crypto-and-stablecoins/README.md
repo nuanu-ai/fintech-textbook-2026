@@ -5,7 +5,7 @@
 
 > Blockchain payments, exchange into ordinary money, liquidity and central bank digital currencies.
 
-**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-10**: [5 notes after the cutoff](../../Timeline/Outdated-facts.md)
+**8 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-23**: [6 notes after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -332,6 +332,9 @@ Below are the six geographies of the main structure. The status column is limite
 
 > [!IMPORTANT]
 > **Partly outdated as of 2026-09-23 · P06-C032.** The Singapore row says the future test of tokenized MAS Bills does not follow from the speech as an executed project. Now: MAS has issued tokenized MAS Bills in a trial, settled in wholesale CBDC on the Singapore dollar test network — TD26100F (S$1 million offered, issued 2026-09-23) and TD26101Z (S$10 million offered, issued 2026-10-09). This is still a trial of wholesale settlement; the remark about retail CBDC is unaffected. Source: [MAS — Tokenised MAS Bill: auctions and issuance calendar](https://www.mas.gov.sg/bonds-and-bills/auctions-and-issuance-calendar/mas-bills-type-tokenised-mas-bill). Details: [Week 39](../../Timeline/2026-W39.md), [Week 41](../../Timeline/2026-W41.md).
+
+> [!NOTE]
+> **Update 2026-11-19 · Singapore.** MAS’ published trial results confirm S$100 million of four-week tokenised MAS Bills issued on 2026-11-06 and settled in wholesale CBDC on its test network. [MAS — Successful issuance of tokenised MAS Bills, 2026-11-19](https://www.mas.gov.sg/news/media-releases/2026/mas-announces-successful-issuance-of-tokenised-mas-bills-on-the-singapore-dollar-test-network). [Week 47](../../Timeline/2026-W47.md).
 
 > [!NOTE]
 > **Update 2026-09-15 · EU, digital euro.** The ECB opened a call for online and mobile merchants to join a digital euro pilot for payments in remote commerce. The pilot is expected to start in the second half of 2027, last 12 months and use a beta version of the digital euro without legal tender status. The decision on issuance still comes only after the EU legislation is adopted. Source: [ECB — Call for online and mobile merchants to participate in digital euro pilot now open, 2026-09-15](https://www.ecb.europa.eu/press/intro/news/html/ecb.mipnews260915.en.html). Details: [Week 38](../../Timeline/2026-W38.md).

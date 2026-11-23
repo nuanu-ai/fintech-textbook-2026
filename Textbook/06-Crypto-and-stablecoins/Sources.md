@@ -557,3 +557,13 @@ Cards appended by the weekly [timeline](../../Timeline/README.md). They follow t
 - **snapshot_id:** `P06-S039-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** partial_text (cover pages read by OCR and the key sections).
 - **reviewed_scope:** Cover text, classes of stablecoins, capital, reserve and redemption, Travel Rule, transition.
 - **limitations:** The circular reference rests on the CBN circulars API only; the PDF served on 2026-11-09 may differ in size from the file listed there; no licence had been granted as far as any primary source shows. Added by the weekly timeline, [Week 45](../../Timeline/2026-W45.md).
+
+### P06-S040 — MAS: MAS Announces Successful Issuance of Tokenised MAS Bills on the Singapore Dollar Test Network Using Wholesale Central Bank Digital Currency
+
+- **URL:** [MAS source](https://www.mas.gov.sg/news/media-releases/2026/mas-announces-successful-issuance-of-tokenised-mas-bills-on-the-singapore-dollar-test-network).
+- **source_class / document_kind:** `regulator` / central bank trial results. **Publisher:** Monetary Authority of Singapore.
+- **published_at:** 2026-11-19. **effective_from:** see the source.
+- **jurisdiction / scope:** Singapore.
+- **snapshot_id:** `P06-S040-20261123`. **accessed_at:** 2026-11-23 Asia/Makassar. **access:** direct text.
+- **reviewed_scope:** Publication date, S$100 million four-week issue on 2026-11-06, wholesale CBDC settlement and planned expansion.
+- **limitations:** Limited wholesale trial. Publication follows the underlying issue date. [Week 47](../../Timeline/2026-W47.md).

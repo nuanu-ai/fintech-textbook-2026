@@ -10,6 +10,7 @@ When a change makes a statement in a lesson outdated, the lesson keeps its text 
 
 | Week | Dates | Events | Lesson notes |
 |---|---|---|---|
+| [Week 47](2026-W47.md) | 2026-11-16 … 2026-11-22 | 16 | 2 |
 | [Week 46](2026-W46.md) | 2026-11-09 … 2026-11-15 | 13 | 1 |
 | [Week 45](2026-W45.md) | 2026-11-02 … 2026-11-08 | 43 | 1 |
 | [Week 44](2026-W44.md) | 2026-10-26 … 2026-11-01 | 29 | 3 |
