@@ -5,7 +5,7 @@
 
 > Who is allowed to provide a payment service, and to whom they are answerable.
 
-**9 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-10**: [8 notes after the cutoff](../../Timeline/Outdated-facts.md)
+**9 lessons** · Knowledge cutoff: **15 September 2026** · [Sources](Sources.md) · [Fact-check and limitations](../../Fact-check/Results.md) · Updated **2026-11-23**: [9 notes after the cutoff](../../Timeline/Outdated-facts.md)
 
 ## In this chapter
 
@@ -290,6 +290,9 @@ The joint BoE/FCA paper of 2026-06-30 separately discusses supervision of system
 ### 1.4.4 Singapore
 
 **Regulator and permission.** The MAS PSA distinguishes types of payment services and Standard/Major Payment Institutions; the choice of status depends on the services and the applicable volume criteria. Numerical thresholds are not reproduced in this chapter: the official SSO text was unavailable, and carrying over a single threshold found elsewhere without all its conditions would create false precision. Registering a holding company in Singapore does not replace operating permission.
+
+> [!NOTE]
+> **Update 2026-11-18 · Singapore.** MAS’ guidance on tokenised bank deposits applies existing deposit definitions according to the arrangement’s legal and economic substance. The resulting classification determines treatment under deposit insurance, insolvency and resolution frameworks. [MAS — Guide on the Tokenisation of Bank Deposits, 2026-11-18](https://www.mas.gov.sg/-/media/mas-media-library/regulation/guidelines/ppd/guide-on-the-tokenisation-of-bank-deposits/guide-on-the-tokenisation-of-bank-deposits_18-nov-2026vf.pdf). [Week 47](../../Timeline/2026-W47.md).
 
 **Crypto/stablecoin.** The MAS release that was read confirms the expansion from 2024-04-04: DPT custody, certain facilitation of transfers/exchange even without possession, and certain cross-border money transfer arrangements without the funds being in Singapore. A separate overseas-only DTSP regime has applied since 2025-06-30; for in-scope persons and services, MAS set a high bar for licensing. So the pattern "SG hub, all customers abroad" requires substantive analysis. [P01-S011, pp. 1–2](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release_MAS%20Expands%20Scope%20of%20Regulated%20Payment%20Services%20Introduces%20User%20Protection%20Requirements%20for%20Digital%20Payment%20Token%20Service%20Providers.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20240402-2%2Fattachment%2FMAS+Media+Release_MAS+Expands+Scope+of+Regulated+Payment+Services+Introduces+User+Protection+Requirements+for+Digital+Payment+Token+Service+Providers.pdf); [P01-S012, Scope](https://www.sgpc.gov.sg/api/file/getfile/MAS%20Media%20Release%20-%20Clarification%20Statement%20on%20DTSP%20Regulatory%20Regime.pdf?path=%2Fsgpcmedia%2Fmedia_releases%2Fmas%2Fpress_release%2FP-20250606-1%2Fattachment%2FMAS+Media+Release+-+Clarification+Statement+on+DTSP+Regulatory+Regime.pdf).
 

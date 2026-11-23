@@ -227,3 +227,13 @@ Cards appended by the weekly [timeline](../../Timeline/README.md). They follow t
 - **snapshot_id:** `P01-S072-20261110`; **accessed_at:** 2026-11-10 Asia/Makassar; **access:** partial_text.
 - **reviewed_scope:** Summary, dates and the statement of the effective date.
 - **limitations:** Covers OCC-supervised issuers only; the OCC's own pages could not be opened; the full text was not read. Added by the weekly timeline, [Week 43](../../Timeline/2026-W43.md).
+
+### P01-S073 — MAS: Guide on the Tokenisation of Bank Deposits
+
+- **URL:** [MAS source](https://www.mas.gov.sg/-/media/mas-media-library/regulation/guidelines/ppd/guide-on-the-tokenisation-of-bank-deposits/guide-on-the-tokenisation-of-bank-deposits_18-nov-2026vf.pdf).
+- **source_class / document_kind:** `regulator` / regulatory guidance. **Publisher:** Monetary Authority of Singapore.
+- **published_at:** 2026-11-18. **effective_from:** see the source.
+- **jurisdiction / scope:** Singapore.
+- **snapshot_id:** `P01-S073-20261123`. **accessed_at:** 2026-11-23 Asia/Makassar. **access:** direct text.
+- **reviewed_scope:** Purpose, existing deposit definitions, legal and economic substance, and resulting deposit treatment.
+- **limitations:** General guidance. Product-specific legal characterisation depends on the facts. [Week 47](../../Timeline/2026-W47.md).
